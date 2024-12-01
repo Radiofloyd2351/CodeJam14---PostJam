@@ -20,6 +20,7 @@ public class SerializableDictDrawer : PropertyDrawer {
             // Find keys and values
             SerializedProperty keysProp = property.FindPropertyRelative("keys");
             SerializedProperty valuesProp = property.FindPropertyRelative("values");
+            SerializedProperty newKeyNewProp = property.FindPropertyRelative("newKey");
 
             if (keysProp == null || valuesProp == null) {
                 EditorGUI.LabelField(position, "Invalid SerializedDictionary.");
@@ -45,9 +46,9 @@ public class SerializableDictDrawer : PropertyDrawer {
 
 
             for (int i = 0; i < keysProp.arraySize; i++) {
-                Rect keyRect = new Rect(fieldPosition.x, fieldPosition.y + (lineHeight + spacing) * (1 + i), fieldPosition.width * 0.4f, lineHeight);
-                Rect valueRect = new Rect(fieldPosition.x + fieldPosition.width * 0.45f, fieldPosition.y + (lineHeight + spacing) * (1+i), fieldPosition.width * 0.4f, lineHeight);
-                Rect removeButtonRect = new Rect(fieldPosition.x + fieldPosition.width * 0.85f, fieldPosition.y + (lineHeight + spacing) * (1+i), fieldPosition.width * 0.15f, lineHeight);
+                Rect keyRect = new Rect(fieldPosition.x, fieldPosition.y + (lineHeight + spacing) * (2 + i), fieldPosition.width * 0.4f, lineHeight);
+                Rect valueRect = new Rect(fieldPosition.x + fieldPosition.width * 0.45f, fieldPosition.y + (lineHeight + spacing) * (2+i), fieldPosition.width * 0.4f, lineHeight);
+                Rect removeButtonRect = new Rect(fieldPosition.x + fieldPosition.width * 0.85f, fieldPosition.y + (lineHeight + spacing) * (2+i), fieldPosition.width * 0.15f, lineHeight);
 
                 SerializedProperty keyProp = keysProp.GetArrayElementAtIndex(i);
                 SerializedProperty valueProp = valuesProp.GetArrayElementAtIndex(i);
@@ -69,8 +70,12 @@ public class SerializableDictDrawer : PropertyDrawer {
                 }
             }
 
+            Rect newKeyFieldRect = new Rect(position.x, fieldPosition.y, fieldPosition.width , lineHeight);
+
+            EditorGUI.PropertyField(newKeyFieldRect, newKeyNewProp, GUIContent.none);
+
             // Add button for adding new elements
-            Rect addButtonRect = new Rect(position.x, fieldPosition.y/* + (lineHeight + spacing) * keysProp.arraySize*/, position.width, lineHeight);
+            Rect addButtonRect = new Rect(position.x, fieldPosition.y + (lineHeight + spacing)/* + (lineHeight + spacing) * keysProp.arraySize*/, position.width, lineHeight);
             if (GUI.Button(addButtonRect, "Add Element", addButtonStyle)) {
                 // Add key and value
                 keysProp.InsertArrayElementAtIndex(keysProp.arraySize);
@@ -82,11 +87,11 @@ public class SerializableDictDrawer : PropertyDrawer {
 
                 // Set default values based on their types
                 if (newKeyProp.propertyType == SerializedPropertyType.Integer) {
-                    newKeyProp.intValue = 0; // Set a default value for int keys
+                    newKeyProp = newKeyNewProp; // Set a default value for int keys
                 }
 
                 if (newKeyProp.propertyType == SerializedPropertyType.String) {
-                    newKeyProp.stringValue = ""; // Set a default value for GameObject
+                    newKeyProp.stringValue = newKeyNewProp.stringValue; // Set a default value for GameObject
                 }
 
                 if (newKeyProp.propertyType == SerializedPropertyType.Color) {
@@ -98,7 +103,7 @@ public class SerializableDictDrawer : PropertyDrawer {
             }
 
             // Optionally, add a "Remove All" button if needed
-            Rect removeAllButtonRect = new Rect(position.x, fieldPosition.y + (lineHeight + spacing) + (lineHeight + spacing) * keysProp.arraySize, position.width, lineHeight);
+            Rect removeAllButtonRect = new Rect(position.x, fieldPosition.y + 2*(lineHeight + spacing) + (lineHeight + spacing) * keysProp.arraySize, position.width, lineHeight);
             if (GUI.Button(removeAllButtonRect, "Remove All", removeButtonStyle)) {
                 if (keysProp.arraySize > 0) {
                     keysProp.ClearArray();
@@ -119,7 +124,7 @@ public class SerializableDictDrawer : PropertyDrawer {
         if (keysProp == null) return EditorGUIUtility.singleLineHeight;
 
         // Add height for each dictionary element + buttons
-        return (keysProp.arraySize + 3) * (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing);
+        return (keysProp.arraySize + 4) * (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing);
     }
 
 

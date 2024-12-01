@@ -47,10 +47,6 @@ public class InputSystem : MonoBehaviour
     [SerializeField]
     public SerializedDictionary<string, ObjectTuple> dict;
     [SerializeField]
-    public SerializedDictionary<int, GameObject> dict2;
-    [SerializeField]
-    public SerializedDictionary<Color32, Sprite> dict3;
-    [SerializeField]
     private AudioSource _internalAudioSource;
     [SerializeField]
     private GameObject _sensitivityBar;
