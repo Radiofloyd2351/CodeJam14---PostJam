@@ -45136,9 +45136,8 @@ MonoBehaviour:
   _loudestPeakBar: {fileID: 868002602}
   setBarTotal: {fileID: 2110254625}
   micPointer: {fileID: 1402226756}
-  orangeBarDictionary:
+  dict:
     keys: []
-    values: []
   modifierScaleOrange: 0.0001
   modifierScale: 0.01
   modifierPos: 1070

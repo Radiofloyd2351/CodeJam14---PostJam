@@ -4,34 +4,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class SerializedDictionary<K, T> : ISerializationCallbackReceiver, IEnumerable<KeyValuePair<K, T>>
-{
-    [SerializeField]
-    private K[] keys;
-    [SerializeField]
-    private T[] values;
-    private Dictionary<K, T> _dictionary = new();
-
-    public T this[K key] {
-        get => _dictionary[key];
-        set => _dictionary[key] = value;
-
-    }
-
+public class SerializedDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver {
+    [SerializeField] private List<TKey> keys = new List<TKey>();
+    [SerializeField] private List<TValue> values = new List<TValue>();
+    [SerializeField] private string newKey;
     public void OnBeforeSerialize() {
-    }
-
-    public void OnAfterDeserialize() {
-        for (int i = 0; i < keys.Length; i++) {
-            _dictionary.Add(keys[i], values[i]);
+        keys.Clear();
+        values.Clear();
+        foreach (KeyValuePair<TKey, TValue> kvp in this) {
+            keys.Add(kvp.Key);
+            values.Add(kvp.Value);
         }
     }
 
-    public IEnumerator<KeyValuePair<K, T>> GetEnumerator() {
-        return ((IEnumerable<KeyValuePair<K, T>>)_dictionary).GetEnumerator();
-    }
+    public void OnAfterDeserialize() {
+        this.Clear();
+        if (keys.Count != values.Count) {
+            Debug.LogError("Keys and values count mismatch.");
+            return;
+        }
 
-    IEnumerator IEnumerable.GetEnumerator() {
-        return ((IEnumerable)_dictionary).GetEnumerator();
+        for (int i = 0; i < keys.Count; i++) {
+            this[keys[i]] = values[i];
+        }
     }
 }
