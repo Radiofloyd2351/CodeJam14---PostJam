@@ -57,9 +57,9 @@ public class InputSystem : MonoBehaviour
     [SerializeField]
     private GameObject micPointer;
     [SerializeField]
-    private SerializedDictionary<string, GameObject> orangeBarDictionary;
-    [SerializeField]
     private float modifierScaleOrange;
+    [SerializeField]
+    private float maxScaleOrange;
     [SerializeField]
     private float modifierScale;
     [SerializeField]
@@ -174,7 +174,7 @@ public class InputSystem : MonoBehaviour
 
     // *TODO* Implement a pointer that will point to the playback
     // position of the clip
-    private void  HandlePointer(string recording) {
+    private void HandlePointer(string recording) {
 
     }
 
@@ -321,7 +321,7 @@ public class InputSystem : MonoBehaviour
     }
 
 
-    public void Update() {}
+    public void Update() { }
 }
 
 #endregion

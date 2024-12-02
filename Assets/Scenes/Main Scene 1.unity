@@ -45150,6 +45150,7 @@ MonoBehaviour:
   setBarTotal: {fileID: 2110254625}
   micPointer: {fileID: 1402226756}
   modifierScaleOrange: 0.0001
+  maxScaleOrange: 0
   modifierScale: 0.01
   modifierPos: 1070
   additionPos: 0
@@ -45158,7 +45159,7 @@ MonoBehaviour:
   - {fileID: 2027998464}
   - {fileID: 831239717}
   - {fileID: 278589570}
-  maxMicPosition: 44100
+  maxMicPosition: 88200
   sensitivity: -1
   currentPeak: -1
   isAdjusting: 0
