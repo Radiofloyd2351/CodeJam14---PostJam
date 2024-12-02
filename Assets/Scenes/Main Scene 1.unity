@@ -26231,9 +26231,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normal: {fileID: 1831389550}
-  tech: {fileID: 1831389550}
-  nature: {fileID: 1831389550}
-  hell: {fileID: 1831389550}
+  tech: {fileID: 0}
+  nature: {fileID: 0}
+  hell: {fileID: 0}
 --- !u!114 &1414394271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45015,9 +45015,6 @@ GameObject:
   - component: {fileID: 1802952569}
   - component: {fileID: 1802952568}
   - component: {fileID: 1802952567}
-  - component: {fileID: 1802952572}
-  - component: {fileID: 1802952571}
-  - component: {fileID: 1802952570}
   m_Layer: 0
   m_Name: Mic
   m_TagString: Untagged
@@ -45134,27 +45131,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600a2999b74e1664495bcfb315f70966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dict:
-    keys:
-    - Launch
-    - Bowlyre
-    - Bonetar
-    values:
-    - {fileID: 1802952572}
-    - {fileID: 1802952571}
-    - {fileID: 1802952570}
-    newKey: a
   _internalAudioSource: {fileID: 1802952567}
   _sensitivityBar: {fileID: 453817461}
   _loudestPeakBar: {fileID: 868002602}
   setBarTotal: {fileID: 2110254625}
   micPointer: {fileID: 1402226756}
-<<<<<<< HEAD
   orangeBarDictionary:
     keys: []
     values: []
-=======
->>>>>>> TristanGood
   modifierScaleOrange: 0.0001
   modifierScale: 0.01
   modifierPos: 1070
@@ -45183,48 +45167,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1802952570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802952565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73acedef2fd88942b2b59eca6d14ec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bar: {fileID: 1191261850}
-  orangeBar: {fileID: 92219837}
---- !u!114 &1802952571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802952565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73acedef2fd88942b2b59eca6d14ec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bar: {fileID: 686413972}
-  orangeBar: {fileID: 191466555}
---- !u!114 &1802952572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802952565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73acedef2fd88942b2b59eca6d14ec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bar: {fileID: 1864798694}
-  orangeBar: {fileID: 965523801}
 --- !u!1 &1807542823
 GameObject:
   m_ObjectHideFlags: 0
