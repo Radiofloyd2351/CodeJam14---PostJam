@@ -7,6 +7,15 @@ public class AnimationSwitcher : MonoBehaviour
     public RuntimeAnimatorController[] controllers;
     public GameObject[] instruments;
 
+
+    //grids!
+    public GameObject normal;
+    public GameObject tech;
+    public GameObject nature;
+    public GameObject hell;
+
+    public GameObject mask;
+
     private Animator animator;
 
     public static HashSet<string> collectedInstruments = new HashSet<string>();
@@ -25,11 +34,15 @@ public class AnimationSwitcher : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha1)) {
             Debug.Log("Anim BLANK");
             SwitchAnimator(0);
+            tech.SetActive(false);
+            mask.SetActive(false);
         }
         else if (Input.GetKey(KeyCode.Alpha2) && collectedInstruments.Contains("Launchpad"))
         {
             Debug.Log("Anim Tech");
             SwitchAnimator(1);
+            tech.SetActive(true);
+            mask.SetActive(true);
         } 
         else if (Input.GetKey(KeyCode.Alpha3) && collectedInstruments.Contains("Lyre")) {
             
