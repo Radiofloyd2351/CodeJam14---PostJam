@@ -46,7 +46,7 @@ public class Beam : MonoBehaviour
 
     public void Fire(InputAction.CallbackContext callbackContext)
     {
-        if (canFire && AnimationSwitcher.currentMode == "Hell" && AnimationSwitcher.collectedInstruments.Contains("Guitar")) {
+        if (canFire && AnimationSwitcher.currentMode == Level.Hell && AnimationSwitcher.collectedInstruments.Contains("Guitar")) {
 
             
 
@@ -123,7 +123,7 @@ public class Beam : MonoBehaviour
     public void GameOver(){
         print("reached goal");
         goalObject.GetComponent<SpriteRenderer>().sprite = Light;
-        Progression.WinHell();
+        Progression.Win(Level.Hell);
         gameOver = true;
     }
 }

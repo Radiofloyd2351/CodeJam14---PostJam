@@ -11,11 +11,13 @@ public class ModeUI : MonoBehaviour
     [SerializeField]
     private AnimationSwitcher state;
     [SerializeField]
-    private int number;
+    private Level level;
+    [SerializeField]
+    private KeyCode key;
 
     public void Click() {
-        state.changeMode(number);
-        Debug.Log(number + "salut");
+        state.changeMode(level);
+        Debug.Log(level + " salut");
     }
 
     public void Enable() {
@@ -23,5 +25,12 @@ public class ModeUI : MonoBehaviour
     }
     public void Disable() {
         GetComponent<Image>().sprite = inactive;
+    }
+
+    public void Update() {
+        if (Input.GetKey(key)) {
+            Debug.Log("Anim BLANK");
+            state.changeMode(level);
+        }
     }
 }

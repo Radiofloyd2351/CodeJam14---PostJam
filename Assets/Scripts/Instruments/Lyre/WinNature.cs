@@ -9,7 +9,7 @@ public class WinNature : MonoBehaviour
     {
         // Check if all children are targeted
         if (AreAllChildrenTargeted()) {
-            Progression.WinNature();
+            Progression.Win(Level.Nature);
             natureWin = true;
         }
         else

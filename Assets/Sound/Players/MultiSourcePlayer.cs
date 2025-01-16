@@ -11,38 +11,26 @@ public class MultiSourcePlayer : MonoBehaviour
     public AudioSource hell;
     public AudioSource nature;
     public AudioSource end;
-    public void startTech() {
-        tech.Pause();
-        if (hell.isPlaying) {
-            tech.timeSamples = hell.timeSamples;
-        }
-        else if (nature.isPlaying) {
-            tech.timeSamples = nature.timeSamples;
-        }
-        tech.Play();
+    private AudioSource lastSource;
+    private Dictionary<Level, AudioSource> sources = new();
 
+    public void Start() {
+        sources.Add(Level.Blank, null);
+        sources.Add(Level.Tech, tech);
+        sources.Add(Level.Nature, nature);
+        sources.Add(Level.Hell, hell);
+    }
+    public void StartSource(Level level) {
+        if (sources[level] != null) {
+            sources[level].Pause();
+            if (sources[level] != lastSource) {
+                sources[level].timeSamples = lastSource.timeSamples;
+            }
+            lastSource = sources[level];
+            sources[level].Play();
+        }
     }
 
-    public void startHell() {
-        hell.Pause();   
-        if (tech.isPlaying) {
-            hell.timeSamples = tech.timeSamples;
-        }
-        else if (nature.isPlaying) {
-            hell.timeSamples = nature.timeSamples;
-        }
-        hell.Play();
-    }
-    public void startNature() {
-        nature.Pause();
-        if (tech.isPlaying) {
-            nature.timeSamples = tech.timeSamples;
-        }
-        else if (hell.isPlaying) {
-            nature.timeSamples = hell.timeSamples;
-        }
-        nature.Play();
-    }
 
     public void startEnd() {
         end.Pause();    
@@ -51,22 +39,14 @@ public class MultiSourcePlayer : MonoBehaviour
 
     }
 
-    public void play() {
-        if (Progression.tech) {
-            startTech();
-        }
-        if (Progression.hell) {
-            startHell();
-        }
-        if (Progression.nature) {
-            startNature();
-        }
-        if (Progression.tech && Progression.hell && Progression.nature) {
+    public void Play() {
+        StartSource(Progression.lastUnlock);
+        if (Progression.unlocks[Level.Tech] && Progression.unlocks[Level.Nature] && Progression.unlocks[Level.Hell]) {
             startEnd();
         }
     }
 
-    public void stop() {
+    public void Stop() {
         tech.Pause();
         hell.Stop();
         nature.Stop();

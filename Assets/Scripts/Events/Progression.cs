@@ -2,48 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Level {
+    Blank = 0,
+    Tech = 1,
+    Nature = 2,
+    Hell = 3
+}
 public static class Progression
 {
 
+    public static Level lastUnlock;
     public static GameState gameState;
-    public static bool tech = false;
-    public static bool hell = false;
-    public static bool nature = false;
 
-    public static void WinTech() {
-        gameState.Win("Tech");
-        tech = true; 
-    }
-    public static void WinNature() {
-        gameState.Win("Nature");
-        nature = true;
-    }
-    public static void WinHell() {
-        gameState.Win("Hell");
-        hell = true;
+    public static Dictionary<Level, bool> unlocks = new() {
+        { Level.Blank, false },
+        { Level.Tech, false },
+        { Level.Nature, false },
+        { Level.Hell, false }
+    };
+
+    public static void Win(Level level) {
+        gameState.Win(level);
+        unlocks[level] = true;
+        lastUnlock = level;
     }
 
-    public static void OpenTech() {
-        gameState.Open("Tech");
-    }
-    public static void OpenNature() {
-        gameState.Open("Nature");
-    }
-    public static void OpenHell() {
-        gameState.Open("Hell");
+    public static void Open(Level level) {
+        gameState.Open(level);
     }
 
 
-    public static void EnterTech() {
-        gameState.Enter("Tech");
-        tech = true;
-    }
-    public static void EnterNature() {
-        gameState.Enter("Nature");
-        nature = true;
-    }
-    public static void EnterHell() {
-        gameState.Enter("Hell");
-        hell = true;
+    public static void Enter(Level level) {
+        gameState.Enter(level);
+        unlocks[level] = true;
+        lastUnlock = level;
     }
 }

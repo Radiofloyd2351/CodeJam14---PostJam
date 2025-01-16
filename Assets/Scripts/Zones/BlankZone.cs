@@ -15,15 +15,15 @@ public class BlankZone : MonoBehaviour
     // public static string zoneName;
 
 
-    public void play() {
-        _player.play();
-        if (Progression.hell) {
+    public void Play() {
+        _player.Play();
+        if (Progression.unlocks[Level.Hell]) {
             victory.SetActive(true);
         }
     }
 
-    public void stop() {
-        _player.stop();
+    public void Stop() {
+        _player.Stop();
     }
 }
 

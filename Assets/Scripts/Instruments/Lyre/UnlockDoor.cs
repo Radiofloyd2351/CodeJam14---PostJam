@@ -13,7 +13,7 @@ public class UnlockDoor : MonoBehaviour
         if (collision.gameObject.CompareTag("Arrow") && gameObject.CompareTag("Target"))
         {
             Destroy(gameObject);
-            Progression.OpenHell();
+            Progression.Open(Level.Hell);
         }
     }
 }

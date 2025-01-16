@@ -8,7 +8,7 @@ public class AnimationSwitcher : MonoBehaviour
     public GameObject[] instruments;
     public ModeUI[] uis;
 
-    private int lastIndex;
+    private Level lastLevel;
 
 
     public GameObject[] grids;
@@ -20,30 +20,29 @@ public class AnimationSwitcher : MonoBehaviour
     private Animator animator;
 
     public static HashSet<string> collectedInstruments = new HashSet<string>();
-    public static string currentMode;
+    public static Level currentMode;
 
     public bool container = false;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        currentMode = "Blank";
+        currentMode = Level.Blank;
     }
 
-    public void changeMode(int mode) {
+    public void changeMode(Level level) {
 
         Debug.Log("Anim BLANK");
-        SwitchAnimator(mode);
-        Debug.Log(mode);
+        SwitchAnimator(level);
         if (lastGrid != null && lastGrid != mainGrid) {
             lastGrid.SetActive(false);
         }
-        grids[mode].SetActive(true);
-        lastGrid = grids[mode];
-        uis[lastIndex].Disable();
-        uis[mode].Enable();
-        lastIndex = mode;
-        if (mode == 0) {
+        grids[(int)level].SetActive(true);
+        lastGrid = grids[(int)level];
+        uis[(int)lastLevel].Disable();
+        uis[(int)level].Enable();
+        lastLevel = level;
+        if (level == Level.Blank) {
             mask.SetActive(false);
         } else {
             mask.SetActive(true);
@@ -52,61 +51,21 @@ public class AnimationSwitcher : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1)) {
-            Debug.Log("Anim BLANK");
-            changeMode(0);
-        }
-        else if (Input.GetKey(KeyCode.Alpha2) && collectedInstruments.Contains("Launchpad"))
-        {
-            Debug.Log("Anim Tech");
-            changeMode(1);
-        } 
-        else if (Input.GetKey(KeyCode.Alpha3) && collectedInstruments.Contains("Lyre")) {
-            
-            Debug.Log("Anim Nature");
-            changeMode(2);
-        }
-        else if (Input.GetKey(KeyCode.Alpha4) && collectedInstruments.Contains("Guitar")) {
-           
-            Debug.Log("Anim Hell");
-            changeMode(3);
-        }
-        else if (!container && ZoneDelimiting.zoneName == "Blank") 
+        if (!container && ZoneDelimiting.zoneName == "Blank") 
         {
             container = true;
             SwitchAnimator(0);
-            uis[lastIndex].Disable();
+            uis[(int)lastLevel].Disable();
             uis[0].Enable();
-            lastIndex = 0;
+            lastLevel = Level.Blank;
             mask.SetActive(false);
         }
     }
 
-    public void SwitchAnimator(int index)
-    {
-        if (index >= 0 && index < controllers.Length)
-        {
-            switch (index)
-            {
-                case 0:
-                    currentMode = "Blank";
-                    break;
-                case 1:
-                    currentMode = "Tech";
-                    break;
-                case 2:
-                    currentMode = "Nature";
-                    break;
-                case 3:
-                    currentMode = "Hell";
-                    break;
-                default:
-                    currentMode = "Blank";
-                    break;
-            }
+    public void SwitchAnimator(Level level) {
+        currentMode = level;
 
-            animator.runtimeAnimatorController = controllers[index];
-        }
+        animator.runtimeAnimatorController = controllers[(int)level];
     }
 
     public void SwitchToCollected(string name)
@@ -118,7 +77,7 @@ public class AnimationSwitcher : MonoBehaviour
                 container = false;
                 Debug.Log($"Collision with {instrument.name} detected!");
                 collectedInstruments.Add(instrument.name);
-                SwitchAnimator(i+1);
+                SwitchAnimator((Level)(i+1));
                 instrument.SetActive(false);
                 break;
             }

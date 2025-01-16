@@ -32,7 +32,7 @@ public class LaunchpadGame : MonoBehaviour
 
     public void Update()
     {
-        if (!isPlaying && AnimationSwitcher.currentMode == "Tech" && AnimationSwitcher.collectedInstruments.Contains("Launchpad"))
+        if (!isPlaying && AnimationSwitcher.currentMode == Level.Tech && AnimationSwitcher.collectedInstruments.Contains("Launchpad"))
         {
             float distance = Vector3.Distance(computerLocation.position, player.transform.position);
             if (distance <= 1.5f)
@@ -67,9 +67,9 @@ public class LaunchpadGame : MonoBehaviour
         player.transform.position = returnPosition;
         isPlaying = false;
         if (isUnlockNature) {
-            Progression.OpenNature();
+            Progression.Open(Level.Nature);
         } else
-            Progression.WinTech();
+            Progression.Win(Level.Tech);
     }
 
     public void ChangeColor(GameObject button) {

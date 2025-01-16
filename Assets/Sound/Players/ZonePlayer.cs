@@ -14,11 +14,11 @@ public class ZonePlayer : MonoBehaviour
 
     public void playZoneTrack(string zoneName) {
         if (zoneName == "Blank") {
-            _blankZone.stop();
-            _blankZone.play();
+            _blankZone.Stop();
+            _blankZone.Play();
         }
         else {
-            _blankZone.stop();
+            _blankZone.Stop();
         }
         string currentClip = ZoneContainer.getClipName(_source.clip);
         if (currentClip != null) {

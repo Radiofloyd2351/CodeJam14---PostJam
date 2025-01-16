@@ -15,7 +15,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        if (AnimationSwitcher.currentMode == "Nature" && AnimationSwitcher.collectedInstruments.Contains("Lyre"))
+        if (AnimationSwitcher.currentMode == Level.Nature && AnimationSwitcher.collectedInstruments.Contains("Lyre"))
         {
             float distance = 10f;
             if (Input.GetMouseButtonDown(0))

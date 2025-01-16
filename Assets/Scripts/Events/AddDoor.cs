@@ -4,8 +4,8 @@ using UnityEngine;
 
 
 public class AddDoor : Subscriber {
-    public string levelName;
-    public override void Run(GameState g, string level) {
+    public Level levelName;
+    public override void Run(GameState g, Level level) {
         if (level == levelName) {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;

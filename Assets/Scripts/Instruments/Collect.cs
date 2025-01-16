@@ -7,6 +7,8 @@ public class Collect : MonoBehaviour
     public GameObject player;
     public GameObject E;
     private AnimationSwitcher animationSwitcher;
+    [SerializeField]
+    private Level level;
 
     public GameObject Ui;
 
@@ -21,18 +23,7 @@ public class Collect : MonoBehaviour
         E.SetActive(true);
         if (E.activeSelf && Input.GetKey(KeyCode.E)) {
             Ui.SetActive(true);
-            switch (gameObject.name) {
-                case "Launchpad":
-                    Progression.EnterTech();
-                    Debug.Log("Started!!!!!!!!!!!!!");
-                    break;
-                case "Lyre":
-                    Progression.EnterNature();
-                    break;
-                case "Guitar":
-                    Progression.EnterHell();
-                    break;
-            }
+            Progression.Enter(level);
             animationSwitcher.SwitchToCollected(gameObject.name);
             gameObject.SetActive(false);
 

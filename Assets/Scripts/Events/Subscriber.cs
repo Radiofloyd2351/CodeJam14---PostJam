@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Subscriber : MonoBehaviour
 {
-    public abstract void Run(GameState g, string level);
+    public abstract void Run(GameState g, Level level);
 }

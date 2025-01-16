@@ -12,19 +12,19 @@ public class GameState : MonoBehaviour
     public void Awake() {
         Progression.gameState = this;  
     }
-    public void Win(string level) {
+    public void Win(Level level) {
         foreach (Subscriber sub in winners){
             sub.Run(this, level);
         }
     }
 
-    public void Open(string level) {
+    public void Open(Level level) {
         foreach (Subscriber sub in winners) {
             sub.Run(this, level);
         }
     }
 
-    public void Enter(string level) {
+    public void Enter(Level level) {
         foreach (Subscriber sub in starters) {
             sub.Run(this, level);
         }
