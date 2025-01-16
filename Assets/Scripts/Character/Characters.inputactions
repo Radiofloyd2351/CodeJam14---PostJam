@@ -28,7 +28,7 @@
                 {
                     "name": "",
                     "id": "f3cd5967-1ae9-446a-bf8d-d2542ee5aa7e",
-                    "path": "<XInputController>/leftStick",
+                    "path": "<WebGLGamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -94,7 +94,7 @@
                 {
                     "name": "",
                     "id": "552c8791-846a-43c0-bd28-a2452e238b97",
-                    "path": "<XInputController>/buttonSouth",
+                    "path": "<WebGLGamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
