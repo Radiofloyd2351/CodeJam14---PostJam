@@ -13,6 +13,12 @@ public class ZoneDelimiting : MonoBehaviour
     private Collider2D _collider;
     [SerializeField]
     private bool started = false;
+    [SerializeField]
+    public GameObject welcome;
+    [SerializeField]
+
+
+    private bool isDone;
 
     private bool legit = true;
 
@@ -26,11 +32,16 @@ public class ZoneDelimiting : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if(legit && !started && collider == _character) {
+        if (legit && !started && collider == _character) {
             StartCoroutine(Timer(collider));
             started = true;
             i++;
         }
+        if (!isDone && welcome != null) {
+            welcome.SetActive(true);
+            StartCoroutine(StartWelcomeAnim(welcome));
+        }
+        isDone = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
@@ -42,9 +53,15 @@ public class ZoneDelimiting : MonoBehaviour
     }
 
 
+    private IEnumerator StartWelcomeAnim(GameObject obj) {
+        yield return new WaitForSeconds(3);
+        Destroy(obj);
+    }
 
 
-    private IEnumerator Timer(Collider2D collider) {
+
+
+private IEnumerator Timer(Collider2D collider) {
         yield return new WaitForSeconds(0.1f);
         if (i > 1) {
             legit = false;

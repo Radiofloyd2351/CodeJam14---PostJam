@@ -16,24 +16,12 @@ public class Collect : MonoBehaviour
         animationSwitcher = player.GetComponent<AnimationSwitcher>();
     }
 
-    void Update()
-    {
-        float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance <= 1.5f)
-        {
-            E.SetActive(true);
-        }
-        else
-        {
-            E.SetActive(false);
-        }
-
-        if (E.activeSelf && Input.GetKey(KeyCode.E))
-        {
+    private void OnCollisionStay2D(Collision2D collision) {
+        E.SetActive(true);
+        if (E.activeSelf && Input.GetKey(KeyCode.E)) {
             Ui.SetActive(true);
-            switch (gameObject.name) 
-            {
+            switch (gameObject.name) {
                 case "Launchpad":
                     Progression.EnterTech();
                     Debug.Log("Started!!!!!!!!!!!!!");
@@ -49,5 +37,9 @@ public class Collect : MonoBehaviour
             gameObject.SetActive(false);
 
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision) {
+        E.SetActive(false);
     }
 }

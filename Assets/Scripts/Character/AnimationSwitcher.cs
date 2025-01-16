@@ -6,13 +6,14 @@ public class AnimationSwitcher : MonoBehaviour
 {
     public RuntimeAnimatorController[] controllers;
     public GameObject[] instruments;
+    public ModeUI[] uis;
+
+    private int lastIndex;
 
 
-    //grids!
-    public GameObject normal;
-    public GameObject tech;
-    public GameObject nature;
-    public GameObject hell;
+    public GameObject[] grids;
+    public GameObject lastGrid;
+    public GameObject mainGrid;
 
     public GameObject mask;
 
@@ -29,39 +30,59 @@ public class AnimationSwitcher : MonoBehaviour
         currentMode = "Blank";
     }
 
+    public void changeMode(int mode) {
+
+        Debug.Log("Anim BLANK");
+        SwitchAnimator(mode);
+        Debug.Log(mode);
+        if (lastGrid != null && lastGrid != mainGrid) {
+            lastGrid.SetActive(false);
+        }
+        grids[mode].SetActive(true);
+        lastGrid = grids[mode];
+        uis[lastIndex].Disable();
+        uis[mode].Enable();
+        lastIndex = mode;
+        if (mode == 0) {
+            mask.SetActive(false);
+        } else {
+            mask.SetActive(true);
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.Alpha1)) {
             Debug.Log("Anim BLANK");
-            SwitchAnimator(0);
-            tech.SetActive(false);
-            mask.SetActive(false);
+            changeMode(0);
         }
         else if (Input.GetKey(KeyCode.Alpha2) && collectedInstruments.Contains("Launchpad"))
         {
             Debug.Log("Anim Tech");
-            SwitchAnimator(1);
-            tech.SetActive(true);
-            mask.SetActive(true);
+            changeMode(1);
         } 
         else if (Input.GetKey(KeyCode.Alpha3) && collectedInstruments.Contains("Lyre")) {
             
             Debug.Log("Anim Nature");
-            SwitchAnimator(2);
+            changeMode(2);
         }
         else if (Input.GetKey(KeyCode.Alpha4) && collectedInstruments.Contains("Guitar")) {
            
             Debug.Log("Anim Hell");
-            SwitchAnimator(3);
+            changeMode(3);
         }
         else if (!container && ZoneDelimiting.zoneName == "Blank") 
         {
             container = true;
             SwitchAnimator(0);
+            uis[lastIndex].Disable();
+            uis[0].Enable();
+            lastIndex = 0;
+            mask.SetActive(false);
         }
     }
 
-    private void SwitchAnimator(int index)
+    public void SwitchAnimator(int index)
     {
         if (index >= 0 && index < controllers.Length)
         {
