@@ -10,6 +10,10 @@ public class CameraFollow : MonoBehaviour
     private Vector3 offset;
     private Vector3 targetPos;
 
+    public Vector2[] minBounds;
+    public Vector2[] maxBounds;
+    public Vector3[] sizes;
+
     public Vector2 minBlankBounds;
     public Vector2 maxBlankBounds;
 
@@ -43,7 +47,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 clampedTargetPos = target.position;
 
 
-        if (ZoneDelimiting.zoneName == "Nature")
+        if (ZoneDelimiting.zone == Level.Nature)
         {
             cam.orthographicSize = 5;
             clampedTargetPos.x = Mathf.Clamp(clampedTargetPos.x, minNatureBounds.x, maxNatureBounds.x);
@@ -58,21 +62,21 @@ public class CameraFollow : MonoBehaviour
             }
         }
 
-        if (ZoneDelimiting.zoneName == "Blank" && !LaunchpadGame.isPlaying)
+        if (ZoneDelimiting.zone == Level.Blank && !LaunchpadGame.isPlaying)
         {
             cam.orthographicSize = 5;
             clampedTargetPos.x = Mathf.Clamp(clampedTargetPos.x, minBlankBounds.x, maxBlankBounds.x);
             clampedTargetPos.y = Mathf.Clamp(clampedTargetPos.y, minBlankBounds.y, maxBlankBounds.y);
         }
 
-        if (ZoneDelimiting.zoneName == "Hell")
+        if (ZoneDelimiting.zone == Level.Hell)
         {
             cam.orthographicSize = 6.9f;
             clampedTargetPos.x = Mathf.Clamp(clampedTargetPos.x, minHellBounds.x, maxHellBounds.x);
             clampedTargetPos.y = Mathf.Clamp(clampedTargetPos.y, minHellBounds.y, maxHellBounds.y);
         }
 
-        if (ZoneDelimiting.zoneName == "Tech")
+        if (ZoneDelimiting.zone == Level.Nature)
         {
             cam.orthographicSize = 3.16f;
             if (LaunchpadGame.isPlaying)
@@ -87,7 +91,7 @@ public class CameraFollow : MonoBehaviour
 
         }
 
-        if (ZoneDelimiting.zoneName == "Blank" && LaunchpadGame.isPlaying) 
+        if (ZoneDelimiting.zone == Level.Blank && LaunchpadGame.isPlaying) 
         {
             cam.orthographicSize = 3.16f;
         }

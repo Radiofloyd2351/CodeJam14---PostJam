@@ -51,7 +51,7 @@ public class AnimationSwitcher : MonoBehaviour
 
     private void Update()
     {
-        if (!container && ZoneDelimiting.zoneName == "Blank") 
+        if (!container && ZoneDelimiting.zone == Level.Blank) 
         {
             container = true;
             SwitchAnimator(0);

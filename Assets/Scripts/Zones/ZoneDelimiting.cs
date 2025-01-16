@@ -24,7 +24,7 @@ public class ZoneDelimiting : MonoBehaviour
 
     private int i = 0;
 
-    public static string zoneName;
+    public static Level zone;
 
     private void Awake() {
         _collider = GetComponent<Collider2D>(); 
@@ -69,10 +69,7 @@ private IEnumerator Timer(Collider2D collider) {
         } else {
             i = 0;
             if (legit && started && collider == _character) {
-                zoneName = ZoneContainer.getColliderName(_collider);
-                if(zoneName == null) {
-                    yield break;
-                }
+                zone = ZoneContainer.getColliderName(_collider);
                 _player.playZoneTrack(ZoneContainer.getColliderName(_collider));
             }
         }
