@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class TopDownCharacterController : MonoBehaviour
@@ -9,19 +10,41 @@ public class TopDownCharacterController : MonoBehaviour
 
     private bool walkingSound;
 
+    private Characters _movement;
     public AudioSource source;
     public AudioClip[] clip;
-
+    Rigidbody2D body;
     private Animator animator;
+    private bool interacting;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        _movement = new Characters();
+        _movement.Enable();
+        _movement.BasicMovement.Movement.started += movementHandling;
+        _movement.BasicMovement.Movement.performed += movementHandling;
+        _movement.BasicMovement.Movement.canceled += movementHandling;
+        _movement.BasicMovement.Interact.started += interactionHandling;
+        _movement.BasicMovement.Interact.performed += interactionHandling;
+        _movement.BasicMovement.Interact.canceled += interactionHandling;
+        body = GetComponent<Rigidbody2D>();
     }
 
+    void movementHandling(InputAction.CallbackContext ctx) {
+        body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+        // TODO: Add Back the animations and the sounds functionality.
+    }
+
+    void interactionHandling(InputAction.CallbackContext ctx) {
+        interacting = _movement.BasicMovement.Interact.triggered;
+        Debug.Log("INTERACTED");
+        // TODO: implement logic for interaction.
+    }
 
     private void Update()
     {
+        /*
         Vector2 dir = Vector2.zero;
         if (Input.GetKey(KeyCode.A))
         {
@@ -58,6 +81,7 @@ public class TopDownCharacterController : MonoBehaviour
         if (walkingSound && !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))) {
             walkingSound = false;
         }
+        */
     }
 
 
