@@ -10,24 +10,10 @@ public class CameraFollow : MonoBehaviour
     private Vector3 offset;
     private Vector3 targetPos;
 
-    public Vector2[] minBounds;
-    public Vector2[] maxBounds;
-    public Vector3[] sizes;
+    static public Level currentZone;
 
-    public Vector2 minBlankBounds;
-    public Vector2 maxBlankBounds;
+    [SerializeField] private SerializedDictionary<Level, ZoneDelimiting> zones;
 
-    public Vector2 minNatureBounds; 
-    public Vector2 maxNatureBounds;
-
-    public Vector2 minHellBounds;
-    public Vector2 maxHellBounds;
-
-    public Vector2 minTechBounds;
-    public Vector2 maxTechBounds;
-
-    public Vector2 minTechGameBounds;
-    public Vector2 maxTechGameBounds;
 
     private Camera cam;
     private void Start()
@@ -41,60 +27,16 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        if (target == null) return;
 
+        if (target == null) return;
 
         Vector3 clampedTargetPos = target.position;
 
+        cam.orthographicSize = zones[currentZone].camSize;
 
-        if (ZoneDelimiting.zone == Level.Nature)
-        {
-            cam.orthographicSize = 5;
-            clampedTargetPos.x = Mathf.Clamp(clampedTargetPos.x, minNatureBounds.x, maxNatureBounds.x);
+        clampedTargetPos.x = Mathf.Clamp(clampedTargetPos.x, zones[currentZone].minBounds.x, zones[currentZone].maxBounds.x);
+        clampedTargetPos.y = Mathf.Clamp(clampedTargetPos.y, zones[currentZone].minBounds.y, zones[currentZone].maxBounds.y);
 
-            if (target.position.y >= 8.3)
-            {
-                clampedTargetPos.y = Mathf.Clamp(clampedTargetPos.y, maxNatureBounds.y, maxNatureBounds.y);
-            }
-            else
-            {
-                clampedTargetPos.y = Mathf.Clamp(clampedTargetPos.y, minNatureBounds.y, maxNatureBounds.y);
-            }
-        }
-
-        if (ZoneDelimiting.zone == Level.Blank && !LaunchpadGame.isPlaying)
-        {
-            cam.orthographicSize = 5;
-            clampedTargetPos.x = Mathf.Clamp(clampedTargetPos.x, minBlankBounds.x, maxBlankBounds.x);
-            clampedTargetPos.y = Mathf.Clamp(clampedTargetPos.y, minBlankBounds.y, maxBlankBounds.y);
-        }
-
-        if (ZoneDelimiting.zone == Level.Hell)
-        {
-            cam.orthographicSize = 6.9f;
-            clampedTargetPos.x = Mathf.Clamp(clampedTargetPos.x, minHellBounds.x, maxHellBounds.x);
-            clampedTargetPos.y = Mathf.Clamp(clampedTargetPos.y, minHellBounds.y, maxHellBounds.y);
-        }
-
-        if (ZoneDelimiting.zone == Level.Nature)
-        {
-            cam.orthographicSize = 3.16f;
-            if (LaunchpadGame.isPlaying)
-            {
-
-            }
-            else
-            {
-                clampedTargetPos.x = Mathf.Clamp(clampedTargetPos.x, minTechBounds.x, maxTechBounds.x);
-                clampedTargetPos.y = Mathf.Clamp(clampedTargetPos.y, minTechBounds.y, maxTechBounds.y);
-            }
-
-        }
-
-        if (ZoneDelimiting.zone == Level.Blank && LaunchpadGame.isPlaying) 
-        {
-            cam.orthographicSize = 3.16f;
-        }
 
         targetPos = clampedTargetPos + offset;
         targetPos.z = transform.position.z;

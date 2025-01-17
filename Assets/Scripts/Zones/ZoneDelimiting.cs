@@ -16,6 +16,13 @@ public class ZoneDelimiting : MonoBehaviour
     [SerializeField]
     public GameObject welcome;
     [SerializeField]
+    public float camSize;
+    [SerializeField]
+    private Level level;
+    [SerializeField]
+    public Vector2 minBounds;
+    [SerializeField]
+    public Vector2 maxBounds;
 
 
     private bool isDone;
@@ -23,8 +30,6 @@ public class ZoneDelimiting : MonoBehaviour
     private bool legit = true;
 
     private int i = 0;
-
-    public static Level zone;
 
     private void Awake() {
         _collider = GetComponent<Collider2D>(); 
@@ -46,7 +51,7 @@ public class ZoneDelimiting : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision) {
         if(legit && started && collision == _character) {
-            StartCoroutine(Timer(collision));
+            StartCoroutine(Timer(collision));   
             started = false;
             i++;
         }
@@ -69,8 +74,8 @@ private IEnumerator Timer(Collider2D collider) {
         } else {
             i = 0;
             if (legit && started && collider == _character) {
-                zone = ZoneContainer.getColliderName(_collider);
-                _player.playZoneTrack(ZoneContainer.getColliderName(_collider));
+                CameraFollow.currentZone = level;
+                _player.playZoneTrack(level);
             }
         }
     }

@@ -6,7 +6,7 @@ public class Collect : MonoBehaviour
 {
     public GameObject player;
     public GameObject E;
-    private AnimationSwitcher animationSwitcher;
+    private ModeSwitcher animationSwitcher;
     [SerializeField]
     private Level level;
 
@@ -15,7 +15,7 @@ public class Collect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animationSwitcher = player.GetComponent<AnimationSwitcher>();
+        animationSwitcher = player.GetComponent<ModeSwitcher>();
     }
 
 
@@ -24,7 +24,7 @@ public class Collect : MonoBehaviour
         if (E.activeSelf && Input.GetKey(KeyCode.E)) {
             Ui.SetActive(true);
             Progression.Enter(level);
-            animationSwitcher.SwitchToCollected(gameObject.name);
+            animationSwitcher.SwitchToCollected(GetComponent<InstrumentInfo>().type);
             gameObject.SetActive(false);
 
         }

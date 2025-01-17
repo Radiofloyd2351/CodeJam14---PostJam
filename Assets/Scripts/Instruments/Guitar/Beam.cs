@@ -46,7 +46,7 @@ public class Beam : MonoBehaviour
 
     public void Fire(InputAction.CallbackContext callbackContext)
     {
-        if (canFire && AnimationSwitcher.currentMode == Level.Hell && AnimationSwitcher.collectedInstruments.Contains("Guitar")) {
+        if (canFire && ModeSwitcher.currentInstrument == Instrument.Guitar && ModeSwitcher.collectedInstruments.Contains(Instrument.Guitar)) {
 
             
 
@@ -63,10 +63,10 @@ public class Beam : MonoBehaviour
     public IEnumerator BasisBeamOut() 
     {
 
-        if (RecordingContainer.recordings.ContainsKey("Bonetar")) {
-            source.clip = RecordingContainer.recordings["Bonetar"].internalClip;
+        if (RecordingContainer.recordings.ContainsKey(Instrument.Guitar)) {
+            source.clip = RecordingContainer.recordings[Instrument.Guitar].internalClip;
             source.Stop();
-            source.timeSamples = RecordingContainer.recordings["Bonetar"].offset;
+            source.timeSamples = RecordingContainer.recordings[Instrument.Guitar].offset;
             source.Play();
         }
 
@@ -92,10 +92,10 @@ public class Beam : MonoBehaviour
             }
             RaycastHit2D hit = Physics2D.Raycast(currentPoint, currentDirection, 0.11f, mirrorMask);
             if (hit) {
-                if (RecordingContainer.recordings.ContainsKey("Bonetar")) {
-                    source.clip = RecordingContainer.recordings["Bonetar"].internalClip;
+                if (RecordingContainer.recordings.ContainsKey(Instrument.Guitar)) {
+                    source.clip = RecordingContainer.recordings[Instrument.Guitar].internalClip;
                     source.Stop();
-                    source.timeSamples = RecordingContainer.recordings["Bonetar"].offset;
+                    source.timeSamples = RecordingContainer.recordings[Instrument.Guitar].offset;
                     source.Play();
                 }
 

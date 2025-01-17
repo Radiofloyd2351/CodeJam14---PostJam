@@ -9,6 +9,12 @@ public enum Level {
     Nature = 2,
     Hell = 3
 }
+public enum Instrument {
+    None = 0,
+    Launch = 1,
+    Lyre = 2,
+    Guitar = 3
+}
 public static class Progression
 {
 

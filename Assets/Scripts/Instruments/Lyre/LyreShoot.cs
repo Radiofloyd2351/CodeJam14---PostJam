@@ -15,7 +15,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        if (AnimationSwitcher.currentMode == Level.Nature && AnimationSwitcher.collectedInstruments.Contains("Lyre"))
+        if (ModeSwitcher.currentInstrument == Instrument.Lyre && ModeSwitcher.collectedInstruments.Contains(Instrument.Lyre))
         {
             float distance = 10f;
             if (Input.GetMouseButtonDown(0))
@@ -51,10 +51,10 @@ public class PlayerShoot : MonoBehaviour
 
     }
     void ShootArrow() {
-        if (RecordingContainer.recordings.ContainsKey("Lyre")) {
-            source.clip = RecordingContainer.recordings["Lyre"].internalClip;
+        if (RecordingContainer.recordings.ContainsKey(Instrument.Lyre)) {
+            source.clip = RecordingContainer.recordings[Instrument.Lyre].internalClip;
             source.Stop();
-            source.timeSamples = RecordingContainer.recordings["Lyre"].offset;
+            source.timeSamples = RecordingContainer.recordings[Instrument.Lyre].offset;
             source.Play();
         }
 

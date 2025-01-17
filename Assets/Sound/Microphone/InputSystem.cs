@@ -45,8 +45,7 @@ public class InputSystem : MonoBehaviour
     #region Serialized
 
     [SerializeField]
-    public SerializedDictionary<string, ObjectTuple> dict;
-    [SerializeField]
+    public SerializedDictionary<Instrument, ObjectTuple> dict;
     private AudioSource _internalAudioSource;
     [SerializeField]
     private GameObject _sensitivityBar;
@@ -154,14 +153,14 @@ public class InputSystem : MonoBehaviour
 
     // *TODO* Write the logic to track recording progress
     // for each instrument
-    private void HandleRecordingBars(string recording) {
-        foreach (KeyValuePair<string, ObjectTuple> pair in dict) {
+    private void HandleRecordingBars(Instrument recording) {
+        foreach (KeyValuePair<Instrument, ObjectTuple> pair in dict) {
             pair.Value.bar.SetActive(false);
         }
         StartCoroutine(RecordingBarsCoroutine(recording));
     }
 
-    private IEnumerator RecordingBarsCoroutine(string recording) {
+    private IEnumerator RecordingBarsCoroutine(Instrument recording) {
         float size = Microphone.GetPosition(Microphone.devices[currentMic]);
         GameObject orangeBar = dict[recording].orangeBar;  //.orangeBar
         dict[recording].bar.SetActive(true);  //.bar
@@ -174,7 +173,7 @@ public class InputSystem : MonoBehaviour
 
     // *TODO* Implement a pointer that will point to the playback
     // position of the clip
-    private void  HandlePointer(string recording) {
+    private void  HandlePointer(Instrument recording) {
 
     }
 
@@ -186,7 +185,7 @@ public class InputSystem : MonoBehaviour
      * <remarks> The recording will be stored in the <see cref="RecordingContainer"/></remarks>
      * <param name="recording"> the name the <see cref="RecordedData"/> will be saved under </param>
      * */
-    public void RestartRecording(string recording) {
+    public void RestartRecording(Instrument recording) {
         if (Microphone.IsRecording(Microphone.devices[currentMic])) {
             Microphone.End(Microphone.devices[currentMic]);
             Debug.Log("Recording done");
@@ -199,7 +198,7 @@ public class InputSystem : MonoBehaviour
     }
 
     // Coroutine for recording and storing audio data
-    private IEnumerator RecordAndStore(string recording) {
+    private IEnumerator RecordAndStore(Instrument recording) {
         Debug.Log("recording now");
         inputClip = Microphone.Start(Microphone.devices[currentMic], false, RECORDING_LENGTH_SECONDS, 44100);
         yield return new WaitForSeconds(1);
@@ -278,7 +277,7 @@ public class InputSystem : MonoBehaviour
     }
 
     // Function that creates and stores the recorded data with an offset
-    private void AddToRecordings(string name, AudioClip inputClip) {
+    private void AddToRecordings(Instrument name, AudioClip inputClip) {
         Debug.Log(inputClip);
         RecordedData recording = FindPeak(inputClip);
         if (RecordingContainer.recordings.ContainsKey(name)) {
@@ -297,7 +296,7 @@ public class InputSystem : MonoBehaviour
      * <param name="recording"> Name of the recording to find in the 
      * <see cref="RecordingContainer"/></param>
      * */
-    public void TestRecording(string recording) {
+    public void TestRecording(Instrument recording) {
         _player.Play(RecordingContainer.recordings[recording]);
     }
 

@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ModeUI : MonoBehaviour
+public class ModeIndicator : MonoBehaviour
 {
 
     public Sprite active;
     public Sprite inactive;
     [SerializeField]
-    private AnimationSwitcher state;
+    private ModeSwitcher state;
     [SerializeField]
-    private Level level;
+    private Instrument instrument;
     [SerializeField]
     private KeyCode key;
 
     public void Click() {
-        state.changeMode(level);
-        Debug.Log(level + " salut");
+        state.changeMode(instrument);
+        Debug.Log(instrument + " salut");
     }
 
     public void Enable() {
@@ -30,7 +30,7 @@ public class ModeUI : MonoBehaviour
     public void Update() {
         if (Input.GetKey(key)) {
             Debug.Log("Anim BLANK");
-            state.changeMode(level);
+            state.changeMode(instrument);
         }
     }
 }

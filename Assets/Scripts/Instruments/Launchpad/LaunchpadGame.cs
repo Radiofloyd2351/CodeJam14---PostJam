@@ -32,7 +32,7 @@ public class LaunchpadGame : MonoBehaviour
 
     public void Update()
     {
-        if (!isPlaying && AnimationSwitcher.currentMode == Level.Tech && AnimationSwitcher.collectedInstruments.Contains("Launchpad"))
+        if (!isPlaying && ModeSwitcher.currentInstrument == Instrument.Launch && ModeSwitcher.collectedInstruments.Contains(Instrument.Launch))
         {
             float distance = Vector3.Distance(computerLocation.position, player.transform.position);
             if (distance <= 1.5f)
@@ -74,10 +74,10 @@ public class LaunchpadGame : MonoBehaviour
 
     public void ChangeColor(GameObject button) {
 
-        if (RecordingContainer.recordings.ContainsKey("Launch")) {
-            source.clip = RecordingContainer.recordings["Launch"].internalClip;
+        if (RecordingContainer.recordings.ContainsKey(Instrument.Launch)) {
+            source.clip = RecordingContainer.recordings[Instrument.Launch].internalClip;
             source.Stop();
-            source.timeSamples = RecordingContainer.recordings["Launch"].offset;
+            source.timeSamples = RecordingContainer.recordings[Instrument.Launch].offset;
             source.Play();
         }
 

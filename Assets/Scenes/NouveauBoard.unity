@@ -2191,16 +2191,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1414394262}
   lerpSpeed: 5
-  minBlankBounds: {x: -8, y: -16}
-  maxBlankBounds: {x: 5.8, y: -2}
-  minNatureBounds: {x: 0.8, y: 9}
-  maxNatureBounds: {x: 2, y: 12.5}
-  minHellBounds: {x: -9.5, y: -32.5}
-  maxHellBounds: {x: -9.5, y: -27}
-  minTechBounds: {x: 10.2, y: -29.5}
-  maxTechBounds: {x: 10.5, y: -22}
-  minTechGameBounds: {x: 25.9, y: -19.9}
-  maxTechGameBounds: {x: 25.9, y: -19.9}
+  zones:
+    keys: 00000000010000000200000003000000
+    keyType: 0
+    values:
+    - {fileID: 2088002089}
+    - {fileID: 1262763556}
+    - {fileID: 333636300}
+    - {fileID: 279482163}
+    newKeyString: 
+    newKeyInt: 0
+    newKeyColor: {r: 0, g: 0, b: 0, a: 0}
+    newKeyLevel: 3
+    newKeyInstrument: 1
+    error: Error
 --- !u!81 &150289837
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3155,7 +3159,10 @@ MonoBehaviour:
   _player: {fileID: 516472805}
   started: 0
   welcome: {fileID: 1341886781}
-  isDone: 0
+  camSize: 5
+  level: 3
+  minBounds: {x: 0, y: 0}
+  maxBounds: {x: 0, y: 0}
 --- !u!61 &279482164
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3443,7 +3450,10 @@ MonoBehaviour:
   _player: {fileID: 516472805}
   started: 0
   welcome: {fileID: 1616654152}
-  isDone: 0
+  camSize: 5
+  level: 2
+  minBounds: {x: 0, y: 0}
+  maxBounds: {x: 0, y: 0}
 --- !u!61 &333636301
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4212,7 +4222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6383fc66758bab74583c5f35cebfe0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Hell
+  levelName: 0
 --- !u!114 &421934501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4225,7 +4235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b438594424179fb45a210bd82f820121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Hell
+  levelName: 0
 --- !u!1 &433338820
 GameObject:
   m_ObjectHideFlags: 0
@@ -4373,6 +4383,7 @@ GameObject:
   - component: {fileID: 434396187}
   - component: {fileID: 434396186}
   - component: {fileID: 434396184}
+  - component: {fileID: 434396188}
   m_Layer: 0
   m_Name: Lyre
   m_TagString: Untagged
@@ -4410,6 +4421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1414394258}
   E: {fileID: 1180597152}
+  level: 0
   Ui: {fileID: 354782296}
 --- !u!61 &434396186
 BoxCollider2D:
@@ -4508,6 +4520,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &434396188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434396182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3b9d21177d6c74ba6445d139b2e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicator: {fileID: 1009001348}
+  grid: {fileID: 1932386795}
+  controller: {fileID: 9100000, guid: c5a4fdcd723c149549531c1e60170359, type: 2}
+  instrumentName: Lyre
+  type: 2
 --- !u!1 &444011011
 GameObject:
   m_ObjectHideFlags: 0
@@ -5673,7 +5702,8 @@ MonoBehaviour:
   active: {fileID: 882593522, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
   inactive: {fileID: 1823570039, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
   state: {fileID: 1414394267}
-  number: 0
+  instrument: 0
+  key: 49
 --- !u!114 &533247372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5742,6 +5772,7 @@ GameObject:
   - component: {fileID: 545194040}
   - component: {fileID: 545194038}
   - component: {fileID: 545194041}
+  - component: {fileID: 545194042}
   m_Layer: 0
   m_Name: Guitar
   m_TagString: Untagged
@@ -5779,6 +5810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1414394258}
   E: {fileID: 629268583}
+  level: 0
   Ui: {fileID: 433338820}
 --- !u!212 &545194040
 SpriteRenderer:
@@ -5887,6 +5919,23 @@ PolygonCollider2D:
       - {x: 0.4126483, y: 0.2333998}
       - {x: 0.375, y: 0.40625}
   m_UseDelaunayMesh: 0
+--- !u!114 &545194042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545194036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3b9d21177d6c74ba6445d139b2e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicator: {fileID: 1032023323}
+  grid: {fileID: 1932386795}
+  controller: {fileID: 9100000, guid: 9277fa4685ae64887acae23736987f45, type: 2}
+  instrumentName: Guitar
+  type: 3
 --- !u!1 &551511643
 GameObject:
   m_ObjectHideFlags: 0
@@ -6199,7 +6248,8 @@ MonoBehaviour:
   active: {fileID: -2114367353, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
   inactive: {fileID: 507567210, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
   state: {fileID: 1414394267}
-  number: 1
+  instrument: 1
+  key: 50
 --- !u!114 &571163735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10576,9 +10626,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 458722905}
-  - {fileID: 316391375}
+  - {fileID: 1678325868}
   - {fileID: 628133955}
+  - {fileID: 316391375}
+  - {fileID: 458722905}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &659809500
@@ -15574,7 +15625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 956668093}
   m_Layer: 5
-  m_Name: UI Powers
+  m_Name: Mode Indicators
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15828,6 +15879,7 @@ GameObject:
   - component: {fileID: 985343352}
   - component: {fileID: 985343351}
   - component: {fileID: 985343350}
+  - component: {fileID: 985343353}
   m_Layer: 0
   m_Name: Launchpad
   m_TagString: Untagged
@@ -15865,6 +15917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1414394258}
   E: {fileID: 252566606}
+  level: 0
   Ui: {fileID: 410103049}
 --- !u!61 &985343351
 BoxCollider2D:
@@ -15963,6 +16016,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &985343353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985343348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3b9d21177d6c74ba6445d139b2e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicator: {fileID: 571163734}
+  grid: {fileID: 1831389550}
+  controller: {fileID: 9100000, guid: 51ba1d765e4f74b798aaaa3c21e3cb1f, type: 2}
+  instrumentName: Launchpad
+  type: 1
 --- !u!1 &994772759
 GameObject:
   m_ObjectHideFlags: 0
@@ -27189,7 +27259,8 @@ MonoBehaviour:
   active: {fileID: -672634449, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
   inactive: {fileID: 1203161496, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
   state: {fileID: 1414394267}
-  number: 2
+  instrument: 2
+  key: 51
 --- !u!114 &1009001349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28073,7 +28144,8 @@ MonoBehaviour:
   active: {fileID: -42488442, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
   inactive: {fileID: 1176505938, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
   state: {fileID: 1414394267}
-  number: 3
+  instrument: 3
+  key: 52
 --- !u!114 &1032023324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29521,7 +29593,10 @@ MonoBehaviour:
   _player: {fileID: 516472805}
   started: 0
   welcome: {fileID: 1375336727}
-  isDone: 0
+  camSize: 5
+  level: 1
+  minBounds: {x: 24.8, y: -10}
+  maxBounds: {x: 24.8, y: -3.2}
 --- !u!61 &1262763557
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30874,25 +30949,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6c02bbbfba64783a8b6991a1419af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllers:
-  - {fileID: 9100000, guid: eb1ae3e395b532e4d8dbc08a412e4a7d, type: 2}
-  - {fileID: 9100000, guid: 51ba1d765e4f74b798aaaa3c21e3cb1f, type: 2}
-  - {fileID: 9100000, guid: c5a4fdcd723c149549531c1e60170359, type: 2}
-  - {fileID: 9100000, guid: 9277fa4685ae64887acae23736987f45, type: 2}
-  instruments:
-  - {fileID: 985343348}
-  - {fileID: 434396182}
-  - {fileID: 545194036}
-  uis:
-  - {fileID: 533247371}
-  - {fileID: 571163734}
-  - {fileID: 1009001348}
-  - {fileID: 1032023323}
-  grids:
-  - {fileID: 1941280085}
-  - {fileID: 1831389550}
-  - {fileID: 1932386795}
-  - {fileID: 1932386795}
+  instrumentsInfo:
+    keys: 00000000010000000200000003000000
+    keyType: 0
+    values:
+    - {fileID: 1678325869}
+    - {fileID: 985343353}
+    - {fileID: 434396188}
+    - {fileID: 545194042}
+    newKeyString: 
+    newKeyInt: 0
+    newKeyColor: {r: 0, g: 0, b: 0, a: 0}
+    newKeyLevel: 0
+    newKeyInstrument: 3
+    error: Error
   lastGrid: {fileID: 0}
   mainGrid: {fileID: 1941280085}
   mask: {fileID: 1047817822}
@@ -32801,6 +32871,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1678325867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1678325868}
+  - component: {fileID: 1678325869}
+  m_Layer: 0
+  m_Name: None
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1678325868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678325867}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 650226697}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1678325869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678325867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3b9d21177d6c74ba6445d139b2e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicator: {fileID: 533247371}
+  grid: {fileID: 1941280085}
+  controller: {fileID: 9100000, guid: eb1ae3e395b532e4d8dbc08a412e4a7d, type: 2}
+  instrumentName: None
+  type: 0
 --- !u!1 &1694345817
 GameObject:
   m_ObjectHideFlags: 0
@@ -33856,16 +33975,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dict:
-    keys:
-    - Launch
-    - Bowlyre
-    - Bonetar
+    keys: 010000000200000003000000
+    keyType: 0
     values:
     - {fileID: 1802952572}
     - {fileID: 1802952571}
     - {fileID: 1802952570}
-    newKey: a
-  _internalAudioSource: {fileID: 1802952567}
+    newKeyString: 
+    newKeyInt: 0
+    newKeyColor: {r: 0, g: 0, b: 0, a: 0}
+    newKeyLevel: 0
+    newKeyInstrument: 2
+    error: Error
   _sensitivityBar: {fileID: 453817461}
   _loudestPeakBar: {fileID: 868002602}
   setBarTotal: {fileID: 2110254625}
@@ -47712,11 +47833,7 @@ MonoBehaviour:
   - {fileID: 279482164}
   - {fileID: 333636301}
   - {fileID: 1262763557}
-  names:
-  - Blank
-  - Hell
-  - Nature
-  - Tech
+  names: 00000000010000000200000003000000
   clips:
   - {fileID: 8300000, guid: 3234c789e9ab086448ded18233a0eb2b, type: 3}
   - {fileID: 8300000, guid: 03ba9314d328d33449ad8f88237f1473, type: 3}
@@ -47881,7 +47998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6383fc66758bab74583c5f35cebfe0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Tech
+  levelName: 0
 --- !u!114 &2024307036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47894,7 +48011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b438594424179fb45a210bd82f820121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Tech
+  levelName: 0
 --- !u!1 &2027998461
 GameObject:
   m_ObjectHideFlags: 0
@@ -48179,7 +48296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6383fc66758bab74583c5f35cebfe0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Nature
+  levelName: 0
 --- !u!114 &2052399994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48192,7 +48309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b438594424179fb45a210bd82f820121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Nature
+  levelName: 0
 --- !u!1 &2065492431
 GameObject:
   m_ObjectHideFlags: 0
@@ -48534,7 +48651,10 @@ MonoBehaviour:
   _player: {fileID: 516472805}
   started: 0
   welcome: {fileID: 0}
-  isDone: 0
+  camSize: 5
+  level: 0
+  minBounds: {x: -4.3, y: -16}
+  maxBounds: {x: 4.9, y: -2.2}
 --- !u!61 &2088002090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48592,10 +48712,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f2b5f5e07523a4cbfb0bfe4263f1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tech: {fileID: 2088002095}
-  hell: {fileID: 2088002093}
-  nature: {fileID: 2088002094}
-  end: {fileID: 2088002092}
+  sources:
+    keys: 01000000020000000300000000000000
+    keyType: 0
+    values:
+    - {fileID: 2088002095}
+    - {fileID: 2088002094}
+    - {fileID: 2088002093}
+    - {fileID: 2088002092}
+    newKeyString: 
+    newKeyInt: 0
+    newKeyColor: {r: 0, g: 0, b: 0, a: 0}
+    newKeyLevel: 0
+    newKeyInstrument: 1
+    error: Error
 --- !u!82 &2088002092
 AudioSource:
   m_ObjectHideFlags: 0

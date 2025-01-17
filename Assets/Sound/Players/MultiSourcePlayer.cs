@@ -7,23 +7,14 @@ using UnityEngine;
 
 public class MultiSourcePlayer : MonoBehaviour
 {
-    public AudioSource tech;
-    public AudioSource hell;
-    public AudioSource nature;
-    public AudioSource end;
     private AudioSource lastSource;
-    private Dictionary<Level, AudioSource> sources = new();
+    [SerializeField] private SerializedDictionary<Level, AudioSource> sources;
 
-    public void Start() {
-        sources.Add(Level.Blank, null);
-        sources.Add(Level.Tech, tech);
-        sources.Add(Level.Nature, nature);
-        sources.Add(Level.Hell, hell);
-    }
     public void StartSource(Level level) {
-        if (sources[level] != null) {
+        if (sources[level] != null && lastSource != null) {
             sources[level].Pause();
             if (sources[level] != lastSource) {
+                Debug.Log(sources[level]);
                 sources[level].timeSamples = lastSource.timeSamples;
             }
             lastSource = sources[level];
@@ -33,9 +24,9 @@ public class MultiSourcePlayer : MonoBehaviour
 
 
     public void startEnd() {
-        end.Pause();    
-        end.timeSamples = tech.timeSamples;
-        end.Play(); 
+        sources[Level.Blank].Pause();
+        sources[Level.Blank].timeSamples = sources[Level.Tech].timeSamples;
+        sources[Level.Blank].Play(); 
 
     }
 
@@ -47,10 +38,10 @@ public class MultiSourcePlayer : MonoBehaviour
     }
 
     public void Stop() {
-        tech.Pause();
-        hell.Stop();
-        nature.Stop();
-        end.Stop();
+        sources[Level.Tech].Pause();
+        sources[Level.Nature].Stop();
+        sources[Level.Hell].Stop();
+        sources[Level.Blank].Stop();
     }
 
 

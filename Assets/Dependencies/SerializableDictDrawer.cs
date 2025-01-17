@@ -6,6 +6,7 @@ using UnityEditor;
 public class SerializableDictDrawer : PropertyDrawer {
     private bool isFolded = true;
 
+
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
         EditorGUI.BeginProperty(position, label, property);
 
@@ -19,11 +20,37 @@ public class SerializableDictDrawer : PropertyDrawer {
         if (isFolded) {
             // Find keys and values
             SerializedProperty keysProp = property.FindPropertyRelative("keys");
+            SerializedProperty typeElement = property.FindPropertyRelative("keyType");
+            SerializedPropertyType type = typeElement.propertyType;
             SerializedProperty valuesProp = property.FindPropertyRelative("values");
-            SerializedProperty newKeyNewProp = property.FindPropertyRelative("newKey");
+            SerializedProperty newKeyNewProp = property.FindPropertyRelative("newKeyInt");
+
+
+
+            // Set default values based on their types
+            if (type == SerializedPropertyType.Integer) {
+                newKeyNewProp = property.FindPropertyRelative("newKeyInt");
+            } else if (type == SerializedPropertyType.String) {
+                newKeyNewProp = property.FindPropertyRelative("newKeyString");
+            } else if (type == SerializedPropertyType.Color) {
+                newKeyNewProp = property.FindPropertyRelative("newKeyColor");
+            } else if (type == SerializedPropertyType.Enum) {
+                if (typeElement.enumNames[0] == "Blank") {
+                    newKeyNewProp = property.FindPropertyRelative("newKeyLevel");
+                } else if (typeElement.enumNames[0] == "None") {
+                    newKeyNewProp = property.FindPropertyRelative("newKeyInstrument");
+
+                } else {
+                    Debug.Log("Add this enum type please, it doesnt exist");
+                    newKeyNewProp = property.FindPropertyRelative("error");
+                }
+            } else {
+                Debug.Log("Add this data type please, it doesnt exist");
+                newKeyNewProp = property.FindPropertyRelative("error");
+            }
 
             if (keysProp == null || valuesProp == null) {
-                EditorGUI.LabelField(position, "Invalid SerializedDictionary.");
+                EditorGUI.LabelField(position, "Invalid Serialized Dictionary.");
                 EditorGUI.EndProperty();
                 return;
             }
@@ -46,12 +73,19 @@ public class SerializableDictDrawer : PropertyDrawer {
 
 
             for (int i = 0; i < keysProp.arraySize; i++) {
-                Rect keyRect = new Rect(fieldPosition.x, fieldPosition.y + (lineHeight + spacing) * (2 + i), fieldPosition.width * 0.4f, lineHeight);
-                Rect valueRect = new Rect(fieldPosition.x + fieldPosition.width * 0.45f, fieldPosition.y + (lineHeight + spacing) * (2+i), fieldPosition.width * 0.4f, lineHeight);
-                Rect removeButtonRect = new Rect(fieldPosition.x + fieldPosition.width * 0.85f, fieldPosition.y + (lineHeight + spacing) * (2+i), fieldPosition.width * 0.15f, lineHeight);
 
                 SerializedProperty keyProp = keysProp.GetArrayElementAtIndex(i);
                 SerializedProperty valueProp = valuesProp.GetArrayElementAtIndex(i);
+
+                Rect keyRect = new Rect(fieldPosition.x, fieldPosition.y + (lineHeight + spacing) * (2 + i), fieldPosition.width * 0.4f, lineHeight); 
+                Rect valueRect = new Rect(fieldPosition.x + fieldPosition.width * 0.45f, fieldPosition.y + (lineHeight + spacing) * (2 + i), fieldPosition.width * 0.4f, lineHeight);
+                if (valueProp.propertyType == SerializedPropertyType.ArraySize) {
+                    for (int j = 0; j < valueProp.arraySize; j++) {
+                        valueRect = new Rect(fieldPosition.x + fieldPosition.width * 0.45f, fieldPosition.y + (lineHeight + spacing) * (2 + i) + (lineHeight + spacing) * (j), fieldPosition.width * 0.4f, lineHeight);
+                    }
+                }
+                Rect removeButtonRect = new Rect(fieldPosition.x + fieldPosition.width * 0.85f, fieldPosition.y + (lineHeight + spacing) * (2+i), fieldPosition.width * 0.15f, lineHeight);
+
 
                 if (keyProp != null) {
                     EditorGUI.PropertyField(keyRect, keyProp, GUIContent.none);
@@ -86,17 +120,22 @@ public class SerializableDictDrawer : PropertyDrawer {
                 SerializedProperty newValueProp = valuesProp.GetArrayElementAtIndex(valuesProp.arraySize - 1);
 
                 // Set default values based on their types
-                if (newKeyProp.propertyType == SerializedPropertyType.Integer) {
-                    newKeyProp = newKeyNewProp; // Set a default value for int keys
+                if (newKeyNewProp.propertyType == SerializedPropertyType.Integer) {
+                    newKeyProp.intValue = newKeyNewProp.intValue; // Set a default value for int keys
                 }
 
-                if (newKeyProp.propertyType == SerializedPropertyType.String) {
+                else if (newKeyNewProp.propertyType == SerializedPropertyType.String) {
                     newKeyProp.stringValue = newKeyNewProp.stringValue; // Set a default value for GameObject
                 }
 
-                if (newKeyProp.propertyType == SerializedPropertyType.Color) {
-                    newKeyProp.colorValue = new Color32(0, 0, 0, 0); // Set a default value for GameObject
+                else if (newKeyNewProp.propertyType == SerializedPropertyType.Color) {
+                    newKeyProp.colorValue = newKeyNewProp.colorValue; // Set a default value for GameObject
                 }
+
+                else if (newKeyNewProp.propertyType == SerializedPropertyType.Enum) {
+                    newKeyProp.enumValueIndex = newKeyNewProp.enumValueIndex;
+                }
+
 
                 // Mark the serialized object as dirty to ensure changes are saved
                 EditorUtility.SetDirty(property.serializedObject.targetObject);
