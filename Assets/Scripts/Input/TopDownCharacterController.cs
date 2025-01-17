@@ -7,12 +7,12 @@ using UnityEngine.InputSystem;
 public class TopDownCharacterController : MonoBehaviour
 {
     [SerializeField]
-    List<string> instrumentNames;
+    List<Instrument> instrumentNames;
     public float speed;
 
     private bool walkingSound;
 
-    private Dictionary<string, bool> instrumentSwitchDict = new();
+    private Dictionary<Instrument, bool> instrumentSwitchDict = new();
     private Characters _controls;
     public AudioSource source;
     public AudioClip[] clip;
@@ -53,7 +53,7 @@ public class TopDownCharacterController : MonoBehaviour
     }
 
     void InstrumentSwitching(InputAction.CallbackContext ctx) {
-        string currInstrument = null;
+        Instrument currInstrument = Instrument.None;
         if(ctx.ReadValue<Vector2>().y  > 0){
             currInstrument = instrumentNames[0];
         }
