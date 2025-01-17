@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{a296854d-785d-4d86-aaa0-b0bebed726b0}">
+		<property name="name">
+			<value>TechEnable</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d536ea56-739a-4a5e-ac22-65d0481870e1}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{9ce02c23-d381-4c2a-a154-be6d233dea43}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{9ce02c23-d381-4c2a-a154-be6d233dea43}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.25</value>
+		</property>
+	</object>
+</objects>

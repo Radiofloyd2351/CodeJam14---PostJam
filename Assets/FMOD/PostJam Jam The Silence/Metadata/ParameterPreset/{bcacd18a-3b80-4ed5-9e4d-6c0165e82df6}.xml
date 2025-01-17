@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{bcacd18a-3b80-4ed5-9e4d-6c0165e82df6}">
+		<property name="name">
+			<value>HellEnable</value>
+		</property>
+		<relationship name="folder">
+			<destination>{44dd0b75-a39a-48e1-8aaa-153f69db7f51}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e6031f45-d715-46f3-8d4b-77174fd918f0}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e6031f45-d715-46f3-8d4b-77174fd918f0}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.25400000810623169</value>
+		</property>
+	</object>
+</objects>
