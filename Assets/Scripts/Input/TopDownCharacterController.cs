@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
+//TODO: SET UP ACTION WHEEL FOR EXPANSION
 public class TopDownCharacterController : MonoBehaviour
 {
+    [SerializeField]
+    List<string> instrumentNames;
     public float speed;
 
     private bool walkingSound;
 
-    private Characters _movement;
+    private Dictionary<string, bool> instrumentSwitchDict = new();
+    private Characters _controls;
     public AudioSource source;
     public AudioClip[] clip;
     Rigidbody2D body;
@@ -20,26 +23,49 @@ public class TopDownCharacterController : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        _movement = new Characters();
-        _movement.Enable();
-        _movement.BasicMovement.Movement.started += movementHandling;
-        _movement.BasicMovement.Movement.performed += movementHandling;
-        _movement.BasicMovement.Movement.canceled += movementHandling;
-        _movement.BasicMovement.Interact.started += interactionHandling;
-        _movement.BasicMovement.Interact.performed += interactionHandling;
-        _movement.BasicMovement.Interact.canceled += interactionHandling;
+        _controls = new Characters();
+        _controls.Enable();
+
+        _controls.BasicActions.Movement.performed += MovementHandling;
+        _controls.BasicActions.Movement.canceled += MovementHandling;
+
+        _controls.BasicActions.Interact.performed += InteractionHandling;
+
+        _controls.BasicActions.InstrumentSwitch.performed += InstrumentSwitching;
+
         body = GetComponent<Rigidbody2D>();
+
+        for(int i = 0; i < instrumentNames.Count; i++){
+            instrumentSwitchDict.Add(instrumentNames[i], false);
+        }
+
     }
 
-    void movementHandling(InputAction.CallbackContext ctx) {
+    void MovementHandling(InputAction.CallbackContext ctx) {
         body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
         // TODO: Add Back the animations and the sounds functionality.
     }
 
-    void interactionHandling(InputAction.CallbackContext ctx) {
-        interacting = _movement.BasicMovement.Interact.triggered;
-        Debug.Log("INTERACTED");
+    void InteractionHandling(InputAction.CallbackContext ctx) {
+        interacting = _controls.BasicActions.Interact.triggered;
+        Debug.Log("INTERACTED" + " " + interacting);
         // TODO: implement logic for interaction.
+    }
+
+    void InstrumentSwitching(InputAction.CallbackContext ctx) {
+        string currInstrument = null;
+        if(ctx.ReadValue<Vector2>().y  > 0){
+            currInstrument = instrumentNames[0];
+        }
+        if (ctx.ReadValue<Vector2>().x > 0){
+            currInstrument = instrumentNames[1];
+        }
+        if (ctx.ReadValue<Vector2>().y < 0){
+            currInstrument = instrumentNames[2];
+        }
+        if (ctx.ReadValue<Vector2>().x < 0){
+            currInstrument = instrumentNames[3];
+        }
     }
 
     private void Update()

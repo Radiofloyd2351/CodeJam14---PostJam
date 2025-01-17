@@ -2,7 +2,7 @@
     "name": "Characters",
     "maps": [
         {
-            "name": "Basic Movement",
+            "name": "Basic Actions",
             "id": "2394509e-660c-4e7c-bcc6-9a95d322c5ba",
             "actions": [
                 {
@@ -22,13 +22,22 @@
                     "processors": "",
                     "interactions": "Press(behavior=1)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "InstrumentSwitch",
+                    "type": "Value",
+                    "id": "44165fdb-3348-49fe-944a-6adde57fa5c9",
+                    "expectedControlType": "Vector2",
+                    "processors": "NormalizeVector2",
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "f3cd5967-1ae9-446a-bf8d-d2542ee5aa7e",
-                    "path": "<WebGLGamepad>/leftStick",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -94,7 +103,7 @@
                 {
                     "name": "",
                     "id": "552c8791-846a-43c0-bd28-a2452e238b97",
-                    "path": "<WebGLGamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -110,6 +119,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "fc059826-8a90-4642-9d72-11f7a76a5fea",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InstrumentSwitch",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "21a73ff0-5ea6-488a-ab9a-19acdd1a0ac4",
+                    "path": "<Keyboard>/#(1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InstrumentSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "03d7d74f-1bd0-4bbf-91a8-001592089d33",
+                    "path": "<Keyboard>/#(3)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InstrumentSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "2e6ade7a-cc5b-4798-916b-219fd8ce84c9",
+                    "path": "<Keyboard>/#(4)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InstrumentSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "acae454e-fbcd-4f89-8e74-684432b696d9",
+                    "path": "<Keyboard>/#(2)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InstrumentSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "38d47763-f870-42d1-a4ae-6d3725bf538d",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InstrumentSwitch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
