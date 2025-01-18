@@ -5,7 +5,7 @@
 			<value>MedleyFinalEnable</value>
 		</property>
 		<relationship name="folder">
-			<destination>{44dd0b75-a39a-48e1-8aaa-153f69db7f51}</destination>
+			<destination>{d536ea56-739a-4a5e-ac22-65d0481870e1}</destination>
 		</relationship>
 		<relationship name="parameter">
 			<destination>{7254d708-310b-4974-ab33-dfe634359c85}</destination>

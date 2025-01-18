@@ -5,7 +5,7 @@
 			<value>NatureEnable</value>
 		</property>
 		<relationship name="folder">
-			<destination>{44dd0b75-a39a-48e1-8aaa-153f69db7f51}</destination>
+			<destination>{d536ea56-739a-4a5e-ac22-65d0481870e1}</destination>
 		</relationship>
 		<relationship name="parameter">
 			<destination>{e145d79b-f080-44ac-8403-24b544c2ef3a}</destination>

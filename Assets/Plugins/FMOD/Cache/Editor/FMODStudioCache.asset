@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638727180515992145
+  lastModified: 638727194083069779
   FileSizes:
   - Name: Desktop
     Value: 1130
@@ -199,7 +199,7 @@ MonoBehaviour:
   - {fileID: 1758115556821637519}
   StringsBanks:
   - {fileID: -8455208604884043573}
-  cacheTime: 638727180565772702
+  cacheTime: 638727194084498742
   cacheVersion: 131622
 --- !u!114 &1758115556821637519
 MonoBehaviour:
@@ -216,7 +216,7 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638727180515906124
+  lastModified: 638727194083044316
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -236,7 +236,7 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638727180565772702
+  lastModified: 638727194084498742
   FileSizes:
   - Name: Desktop
     Value: 20661472
