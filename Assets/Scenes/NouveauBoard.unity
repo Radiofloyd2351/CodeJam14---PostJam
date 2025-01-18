@@ -3162,7 +3162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 1414394261}
-  _player: {fileID: 0}
+  _player: {fileID: 961199966}
   started: 0
   welcome: {fileID: 1341886781}
   camSize: 5
@@ -3453,11 +3453,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 1414394261}
-  _player: {fileID: 0}
+  _player: {fileID: 961199966}
   started: 0
   welcome: {fileID: 1616654152}
   camSize: 5
-  level: 2
+  level: 0
   minBounds: {x: 0, y: 0}
   maxBounds: {x: 0, y: 0}
 --- !u!61 &333636301
@@ -15526,6 +15526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 961199965}
+  - component: {fileID: 961199966}
   m_Layer: 0
   m_Name: Zones
   m_TagString: Untagged
@@ -15544,7 +15545,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.2096982, y: -9.458116, z: -0.30615953}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2088002088}
   - {fileID: 1262763555}
@@ -15552,6 +15553,25 @@ Transform:
   - {fileID: 279482162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &961199966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961199964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74068494a3c3984f9745f96d63b8596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicRef:
+    Guid:
+      Data1: 1002208409
+      Data2: 1339170203
+      Data3: -1973167439
+      Data4: -1553776018
+    Path: event:/Ambient/Music
 --- !u!1 &964977281
 GameObject:
   m_ObjectHideFlags: 0
@@ -29453,7 +29473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 1414394261}
-  _player: {fileID: 0}
+  _player: {fileID: 961199966}
   started: 0
   welcome: {fileID: 1375336727}
   camSize: 5
@@ -30722,12 +30742,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instrumentNames: 00000000010000000200000003000000
   speed: 5
-  source: {fileID: 1414394269}
-  clip:
-  - {fileID: 8300000, guid: c5425f712b0870a49b227dfeee0c8eae, type: 3}
-  - {fileID: 8300000, guid: 534540ae343454a409b1eb6ec6720f19, type: 3}
-  - {fileID: 8300000, guid: 83a02f697ad959048aa58627575841d3, type: 3}
-  - {fileID: 8300000, guid: 5b17f5bc4a9bd054385e1e731192182d, type: 3}
+  walkRef:
+    Guid:
+      Data1: -846852761
+      Data2: 1249101910
+      Data3: -1488504684
+      Data4: 514746409
+    Path: event:/Gameplay/Walk
 --- !u!212 &1414394265
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47698,11 +47719,6 @@ MonoBehaviour:
   - {fileID: 333636301}
   - {fileID: 1262763557}
   names: 00000000010000000200000003000000
-  clips:
-  - {fileID: 8300000, guid: 3234c789e9ab086448ded18233a0eb2b, type: 3}
-  - {fileID: 8300000, guid: 03ba9314d328d33449ad8f88237f1473, type: 3}
-  - {fileID: 8300000, guid: f7e1fccca614155489fd225586cc47c6, type: 3}
-  - {fileID: 8300000, guid: 6c3ea61e619f45442a75c9fe620c7326, type: 3}
 --- !u!4 &2021927891
 Transform:
   m_ObjectHideFlags: 0
@@ -48506,7 +48522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 1414394261}
-  _player: {fileID: 0}
+  _player: {fileID: 961199966}
   started: 0
   welcome: {fileID: 0}
   camSize: 5

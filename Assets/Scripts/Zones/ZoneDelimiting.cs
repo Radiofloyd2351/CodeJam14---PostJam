@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using FMODUnity;
 
 public class ZoneDelimiting : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class ZoneDelimiting : MonoBehaviour
     private int i = 0;
 
     private void Awake() {
-        _collider = GetComponent<Collider2D>(); 
+        _collider = GetComponent<Collider2D>();
         _collider.isTrigger = true;
     }
 
@@ -75,7 +76,7 @@ private IEnumerator Timer(Collider2D collider) {
             i = 0;
             if (legit && started && collider == _character) {
                 CameraFollow.currentZone = level;
-                _player.playZoneTrack(level);
+                _player.SetZoneTrack(level);
             }
         }
     }

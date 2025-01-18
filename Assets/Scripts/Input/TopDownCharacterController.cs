@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 //TODO: SET UP ACTION WHEEL FOR EXPANSION
 public class TopDownCharacterController : MonoBehaviour
@@ -10,18 +11,19 @@ public class TopDownCharacterController : MonoBehaviour
     List<Instrument> instrumentNames;
     public float speed;
 
-    private bool walkingSound;
-
     private Dictionary<Instrument, bool> instrumentSwitchDict = new();
     private Characters _controls;
-    public AudioSource source;
-    public AudioClip[] clip;
     Rigidbody2D body;
     private Animator animator;
     private bool interacting;
 
+    public FMODUnity.EventReference walkRef;
+    private FMOD.Studio.EventInstance walkSound;
+
     private void Start()
     {
+        walkSound = FMODUnity.RuntimeManager.CreateInstance(walkRef);
+
         animator = GetComponent<Animator>();
         _controls = new Characters();
         _controls.Enable();
@@ -43,6 +45,7 @@ public class TopDownCharacterController : MonoBehaviour
 
     void MovementHandling(InputAction.CallbackContext ctx) {
         body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+        playWalkSound();
         // TODO: Add Back the animations and the sounds functionality.
     }
 
@@ -66,6 +69,10 @@ public class TopDownCharacterController : MonoBehaviour
         if (ctx.ReadValue<Vector2>().x < 0){
             currInstrument = instrumentNames[3];
         }
+    }
+
+    void playWalkSound() {
+        walkSound.start();
     }
 
     private void Update()
@@ -110,29 +117,5 @@ public class TopDownCharacterController : MonoBehaviour
         */
     }
 
-
-    private IEnumerator WalkingSound() {
-        int x;
-        while (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W)) {
-            x = Random.Range(0, 4);
-            int pitch = Random.Range(9,12);
-            float pitch2 = (float)(pitch) / 10f;
-            source.pitch = pitch2;
-
-
-            int volume = Random.Range(8, 10);
-            float volume2 = (float)(volume) / 1000f;
-
-            source.volume = volume2;
-
-            source.PlayOneShot(clip[x]);
-
-            int wait = Random.Range(40, 50);
-            float wait2 = (float)(wait) / 100f;
-
-
-            yield return new WaitForSeconds(wait2);
-        }
-    }
 }
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{7275c920-b52b-4f5d-be13-b9458ec8760e}">
+		<property name="name">
+			<value>Note Degree</value>
+		</property>
+		<relationship name="folder">
+			<destination>{44dd0b75-a39a-48e1-8aaa-153f69db7f51}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{17d141f5-71fc-4d50-8ade-9d4bcb75c898}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{17d141f5-71fc-4d50-8ade-9d4bcb75c898}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Deg1</value>
+			<value>Deg2</value>
+			<value>Deg3</value>
+			<value>Deg4</value>
+			<value>Deg5</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

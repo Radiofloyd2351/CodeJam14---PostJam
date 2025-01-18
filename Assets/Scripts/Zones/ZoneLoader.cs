@@ -8,8 +8,6 @@ public class ZoneLoader : MonoBehaviour
     public List<Collider2D> zones = new();
     [SerializeField]
     public List<Level> names = new();
-    [SerializeField]
-    public List<AudioClip> clips = new();
     void Start()
     {
         foreach (Collider2D zone in zones) {
@@ -18,9 +16,6 @@ public class ZoneLoader : MonoBehaviour
         }
         foreach (Level name in names) {
             ZoneContainer.addName(name);
-        }
-        foreach (AudioClip clip in clips) {
-            ZoneContainer.addClip(clip);
         }
     }
 }

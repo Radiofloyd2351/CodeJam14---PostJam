@@ -1,34 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class ZonePlayer : MonoBehaviour
 {
-    AudioSource _source;
-    [SerializeField]
-    BlankZone _blankZone;
+    public FMODUnity.EventReference musicRef;
+    private FMOD.Studio.EventInstance musicInstance;
 
-    private void Awake() {  
-        _source = GetComponent<AudioSource>();
+    private void Awake() {
+        musicInstance = FMODUnity.RuntimeManager.CreateInstance(musicRef);
+        musicInstance.start();
     }
 
-    public void playZoneTrack(Level zoneName) {
-        if (zoneName == Level.Blank) {
-            _blankZone.Stop();
-            _blankZone.Play();
+    public void SetZoneTrack(Level zoneName) {
+        switch (zoneName) 
+        {
+            case Level.Blank:
+                musicInstance.setParameterByNameWithLabel("Level", "Blank");
+                break;
+            case Level.Nature:
+                musicInstance.setParameterByNameWithLabel("Level", "Nature");
+                break;
+            case Level.Hell:
+                musicInstance.setParameterByNameWithLabel("Level", "Hell");
+                break;
+            case Level.Tech:
+                musicInstance.setParameterByNameWithLabel("Level", "Tech");
+                break;
         }
-        else {
-            _blankZone.Stop();
-        }
-        Level currentClip = ZoneContainer.getClipName(_source.clip);
-        /*if (currentClip != null) {
-            ZoneContainer.SetOffset(currentClip, _source.timeSamples);
-        }*/
-        _source.Pause();
-        _source.clip = ZoneContainer.GetClip(zoneName);
-        _source.timeSamples = ZoneContainer.GetOffset(zoneName);
-        _source.Play();
+       
     }
+      
 
 }
 
