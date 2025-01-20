@@ -162,7 +162,7 @@
 			<value>-80</value>
 		</property>
 		<property name="attackTime">
-			<value>70</value>
+			<value>80</value>
 		</property>
 		<property name="holdTime">
 			<value>60000</value>

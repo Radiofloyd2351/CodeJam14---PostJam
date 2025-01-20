@@ -28,8 +28,8 @@ public class TopDownCharacterController : MonoBehaviour
         _controls = new Characters();
         _controls.Enable();
 
-        _controls.BasicActions.Movement.performed += MovementHandling;
-        _controls.BasicActions.Movement.canceled += MovementHandling;
+        _controls.BasicActions.Movement.performed += MovementHandlingEnable;
+        _controls.BasicActions.Movement.canceled += MovementHandlingDisable;
 
         _controls.BasicActions.Interact.performed += InteractionHandling;
 
@@ -43,9 +43,15 @@ public class TopDownCharacterController : MonoBehaviour
 
     }
 
-    void MovementHandling(InputAction.CallbackContext ctx) {
+    void MovementHandlingEnable(InputAction.CallbackContext ctx) {
         body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
         playWalkSound();
+        // TODO: Add Back the animations and the sounds functionality.
+    }
+
+    void MovementHandlingDisable(InputAction.CallbackContext ctx) {
+        body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+        stopWalkSound();
         // TODO: Add Back the animations and the sounds functionality.
     }
 
@@ -73,6 +79,10 @@ public class TopDownCharacterController : MonoBehaviour
 
     void playWalkSound() {
         walkSound.start();
+    }
+
+    void stopWalkSound() {
+        walkSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private void Update()

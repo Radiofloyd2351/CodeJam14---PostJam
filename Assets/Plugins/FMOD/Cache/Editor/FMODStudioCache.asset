@@ -242,7 +242,7 @@ MonoBehaviour:
   - {fileID: 1758115556821637519}
   StringsBanks:
   - {fileID: -8455208604884043573}
-  cacheTime: 638727500827113011
+  cacheTime: 638729133800090961
   cacheVersion: 131622
 --- !u!114 &1758115556821637519
 MonoBehaviour:
@@ -371,7 +371,7 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 638727500827113011
+  lastModified: 638729133800090961
   FileSizes:
   - Name: Desktop
     Value: 80960
