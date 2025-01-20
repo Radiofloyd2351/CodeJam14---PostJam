@@ -203,7 +203,7 @@ MonoBehaviour:
   StudioPath: 
   Min: 0
   Max: 3
-  Default: 0
+  Default: 3
   ID:
     data1: 3671596658
     data2: 2785414231
@@ -242,7 +242,7 @@ MonoBehaviour:
   - {fileID: 1758115556821637519}
   StringsBanks:
   - {fileID: -8455208604884043573}
-  cacheTime: 638729133800090961
+  cacheTime: 638729186957114230
   cacheVersion: 131622
 --- !u!114 &1758115556821637519
 MonoBehaviour:
@@ -327,10 +327,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Ambient.bank
   Name: Ambient
   StudioPath: bank:/Ambient
-  lastModified: 638727500826306998
+  lastModified: 638729186957114230
   FileSizes:
   - Name: Desktop
-    Value: 20674208
+    Value: 20674016
   Exists: 1
 --- !u!114 &5727079677743944443
 MonoBehaviour:

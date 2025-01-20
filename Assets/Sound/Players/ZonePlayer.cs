@@ -13,6 +13,22 @@ public class ZonePlayer : MonoBehaviour
         musicInstance.start();
     }
 
+    public void addBlankLayer(Level zoneName) {
+
+        switch (zoneName) {
+            case Level.Tech:
+                musicInstance.setParameterByName("TechEnable", 1);
+                break;
+            case Level.Nature:
+                musicInstance.setParameterByName("NatureEnable", 1);
+                break;
+            case Level.Hell:
+                musicInstance.setParameterByName("HellEnable", 1);
+                musicInstance.setParameterByName("MedleyFinalEnable", 1);
+                break;
+        }
+    }
+
     public void SetZoneTrack(Level zoneName) {
         switch (zoneName) 
         {
@@ -26,7 +42,7 @@ public class ZonePlayer : MonoBehaviour
                 musicInstance.setParameterByNameWithLabel("Level", "Hell");
                 break;
             case Level.Tech:
-                musicInstance.setParameterByNameWithLabel("Level", "Tech");
+                musicInstance.setParameterByNameWithLabel("Level", "Techno");
                 break;
         }
        

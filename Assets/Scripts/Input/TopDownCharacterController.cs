@@ -28,6 +28,7 @@ public class TopDownCharacterController : MonoBehaviour
         _controls = new Characters();
         _controls.Enable();
 
+        _controls.BasicActions.Movement.started += MovementHandlingEnable;
         _controls.BasicActions.Movement.performed += MovementHandlingEnable;
         _controls.BasicActions.Movement.canceled += MovementHandlingDisable;
 

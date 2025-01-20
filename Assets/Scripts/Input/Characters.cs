@@ -70,7 +70,7 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Movement"",
                     ""id"": ""fe9c1dcf-766c-4780-8780-69f324ce51b7"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
