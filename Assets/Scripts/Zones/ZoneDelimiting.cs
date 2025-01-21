@@ -77,6 +77,7 @@ private IEnumerator Timer(Collider2D collider) {
             if (legit && started && collider == _character) {
                 CameraFollow.currentZone = level;
                 _player.SetZoneTrack(level);
+                _player.addBlankLayer(level);
             }
         }
     }
