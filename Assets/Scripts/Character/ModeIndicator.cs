@@ -16,8 +16,8 @@ public class ModeIndicator : MonoBehaviour
     private KeyCode key;
 
     public void Click() {
-        state.changeMode(instrument);
-        Debug.Log(instrument + " salut");
+        state.ChangeMode(instrument);
+        Debug.Log(instrument + " salut " + PlayerStats.collected[instrument]);
     }
 
     public void Enable() {
@@ -27,10 +27,13 @@ public class ModeIndicator : MonoBehaviour
         GetComponent<Image>().sprite = inactive;
     }
 
-    public void Update() {
+    /*public void Update() {
         if (Input.GetKey(key)) {
             Debug.Log("Anim BLANK");
             state.changeMode(instrument);
         }
-    }
+    }*/
+
+
+
 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Scene 1.unity
-    guid: e6ff725d3babb4ff6997c4a0e59bf6d5
+    path: Assets/Scenes/NouveauBoard.unity
+    guid: 8ba577d38aeadad4cb047a3b1a618100
+  - enabled: 1
+    path: Assets/Scenes/ButtonGameTEmp.unity
+    guid: c12815f44146b4c4ebba6085b9735a50
   m_configObjects: {}

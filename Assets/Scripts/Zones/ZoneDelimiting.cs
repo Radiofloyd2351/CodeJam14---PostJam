@@ -51,7 +51,7 @@ public class ZoneDelimiting : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if(legit && started && collision == _character) {
+        if(!PlayerStats.transitionning  && legit && started && collision == _character) {
             StartCoroutine(Timer(collision));   
             started = false;
             i++;

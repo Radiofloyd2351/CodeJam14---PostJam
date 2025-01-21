@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerStats : MonoBehaviour {
+
+
+    public static Dictionary<Instrument, bool> collected;
+    public static Vector2 playerPos;
+
+    private static PlayerStats instance;
+
+    public static bool transitionning;
+
+   
+
+    public void Awake() {
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            Debug.Log("Created Instance");
+            if (collected == null) {
+                Debug.Log(DefaultValues.staticDefaultCollection[0]);
+                collected = DefaultValues.staticDefaultCollection;
+            }
+        } else {
+            Destroy(gameObject);
+        }
+    }
+}

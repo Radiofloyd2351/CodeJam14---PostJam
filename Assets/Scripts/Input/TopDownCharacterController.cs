@@ -5,8 +5,7 @@ using UnityEngine.InputSystem;
 using FMODUnity;
 
 //TODO: SET UP ACTION WHEEL FOR EXPANSION
-public class TopDownCharacterController : MonoBehaviour
-{
+public class TopDownCharacterController : MonoBehaviour {
     [SerializeField]
     List<Instrument> instrumentNames;
     public float speed;
@@ -20,6 +19,7 @@ public class TopDownCharacterController : MonoBehaviour
     public FMODUnity.EventReference walkRef;
     private FMOD.Studio.EventInstance walkSound;
 
+
     private void Start()
     {
         walkSound = FMODUnity.RuntimeManager.CreateInstance(walkRef);
@@ -28,6 +28,7 @@ public class TopDownCharacterController : MonoBehaviour
         _controls = new Characters();
         _controls.Enable();
 
+        _controls.BasicActions.Movement.started += MovementHandlingEnable;
         _controls.BasicActions.Movement.performed += MovementHandlingEnable;
         _controls.BasicActions.Movement.canceled += MovementHandlingDisable;
 
@@ -44,15 +45,19 @@ public class TopDownCharacterController : MonoBehaviour
     }
 
     void MovementHandlingEnable(InputAction.CallbackContext ctx) {
-        body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
-        playWalkSound();
-        // TODO: Add Back the animations and the sounds functionality.
+        if (body!=null) {
+            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            playWalkSound();
+            // TODO: Add Back the animations and the sounds functionality.
+        }
     }
 
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
-        body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
-        stopWalkSound();
-        // TODO: Add Back the animations and the sounds functionality.
+        if (body!=null) {
+            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            stopWalkSound();
+            // TODO: Add Back the animations and the sounds functionality.
+        }
     }
 
     void InteractionHandling(InputAction.CallbackContext ctx) {
@@ -65,15 +70,19 @@ public class TopDownCharacterController : MonoBehaviour
         Instrument currInstrument = Instrument.None;
         if(ctx.ReadValue<Vector2>().y  > 0){
             currInstrument = instrumentNames[0];
+            DefaultValues.instrumentsInfo[Instrument.None].indicator.Click();
         }
         if (ctx.ReadValue<Vector2>().x > 0){
             currInstrument = instrumentNames[1];
+            DefaultValues.instrumentsInfo[Instrument.Launch].indicator.Click();
         }
         if (ctx.ReadValue<Vector2>().y < 0){
             currInstrument = instrumentNames[2];
+            DefaultValues.instrumentsInfo[Instrument.Lyre].indicator.Click();
         }
         if (ctx.ReadValue<Vector2>().x < 0){
             currInstrument = instrumentNames[3];
+            DefaultValues.instrumentsInfo[Instrument.Guitar].indicator.Click();
         }
     }
 

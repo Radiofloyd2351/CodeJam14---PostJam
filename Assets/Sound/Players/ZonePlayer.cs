@@ -18,15 +18,19 @@ public class ZonePlayer : MonoBehaviour
         {
             case Level.Blank:
                 musicInstance.setParameterByNameWithLabel("Level", "Blank");
+                Debug.Log("blank");
                 break;
             case Level.Nature:
                 musicInstance.setParameterByNameWithLabel("Level", "Nature");
+                Debug.Log("nature");
                 break;
             case Level.Hell:
                 musicInstance.setParameterByNameWithLabel("Level", "Hell");
+                Debug.Log("hell");
                 break;
             case Level.Tech:
-                musicInstance.setParameterByNameWithLabel("Level", "Tech");
+                musicInstance.setParameterByNameWithLabel("Level", "Techno");
+                Debug.Log("tech");
                 break;
         }
        

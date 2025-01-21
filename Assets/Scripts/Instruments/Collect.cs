@@ -6,16 +6,18 @@ public class Collect : MonoBehaviour
 {
     public GameObject player;
     public GameObject E;
-    private ModeSwitcher animationSwitcher;
+    private ModeSwitcher modeSwitcher;
     [SerializeField]
     private Level level;
+    private InstrumentInfo info;
 
     public GameObject Ui;
 
     // Start is called before the first frame update
     void Start()
     {
-        animationSwitcher = player.GetComponent<ModeSwitcher>();
+        modeSwitcher = player.GetComponent<ModeSwitcher>();
+        info = GetComponent<InstrumentInfo>();
     }
 
 
@@ -24,8 +26,9 @@ public class Collect : MonoBehaviour
         if (E.activeSelf && Input.GetKey(KeyCode.E)) {
             Ui.SetActive(true);
             Progression.Enter(level);
-            animationSwitcher.SwitchToCollected(GetComponent<InstrumentInfo>().type);
+            modeSwitcher.SwitchToCollected(info.type);
             gameObject.SetActive(false);
+            PlayerStats.collected[info.type] = true;
 
         }
     }

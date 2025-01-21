@@ -15,7 +15,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        if (ModeSwitcher.currentInstrument == Instrument.Lyre && ModeSwitcher.collectedInstruments.Contains(Instrument.Lyre))
+        if (DefaultValues.Current.type == Instrument.Lyre)
         {
             float distance = 10f;
             if (Input.GetMouseButtonDown(0))
