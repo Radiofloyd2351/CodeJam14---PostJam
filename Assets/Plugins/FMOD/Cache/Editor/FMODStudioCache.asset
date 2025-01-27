@@ -63,41 +63,12 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638727500795370109
+  lastModified: 638732770685510708
   FileSizes:
   - Name: Desktop
-    Value: 1302
+    Value: 1420
   Exists: 1
---- !u!114 &-8440021328849211905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Notes/Note Degree
-  m_EditorClassIdentifier: 
-  Name: Note Degree
-  StudioPath: 
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 2363228709
-    data2: 1121416569
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - Deg1
-  - Deg2
-  - Deg3
-  - Deg4
-  - Deg5
-  Exists: 1
---- !u!114 &-7808615309418163463
+--- !u!114 &-7326683887644052635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,123 +78,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: snapshot:/New Snapshot
+  m_Name: event:/Gameplay/Instruments
   m_EditorClassIdentifier: 
-  Path: snapshot:/New Snapshot
+  Path: event:/Gameplay/Instruments
   Guid:
-    Data1: 231326161
-    Data2: 1236061874
-    Data3: -483310683
-    Data4: -560328429
+    Data1: -891234964
+    Data2: 1180025870
+    Data3: -1462925147
+    Data4: 181721097
   Banks:
-  - {fileID: -7241301765246578763}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-7241301765246578763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638729151189443649
-  FileSizes:
-  - Name: Desktop
-    Value: 1512
-  Exists: 1
---- !u!114 &-6836188040331696086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Ambient.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Ambient.bank
-  Name: Ambient
-  StudioPath: bank:/Ambient
-  lastModified: 638729151189282481
-  FileSizes:
-  - Name: Desktop
-    Value: 20674208
-  Exists: 1
---- !u!114 &-6250614659575095637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Gameplay/Notes
-  m_EditorClassIdentifier: 
-  Path: event:/Gameplay/Notes
-  Guid:
-    Data1: 473270655
-    Data2: 1135649269
-    Data3: -1050242378
-    Data4: -73959839
-  Banks:
-  - {fileID: -3329542250645624403}
+  - {fileID: 8681279139048756686}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters:
-  - {fileID: -8440021328849211905}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-5925887112006146872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Ambient/Music
-  m_EditorClassIdentifier: 
-  Path: event:/Ambient/Music
-  Guid:
-    Data1: 1002208409
-    Data2: 1339170203
-    Data3: -1973167439
-    Data4: -1553776018
-  Banks:
-  - {fileID: -6836188040331696086}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 8629378331539996236}
-  - {fileID: 1875290813082351965}
-  - {fileID: -8960871846265049981}
-  - {fileID: 5550591305637085886}
-  - {fileID: -631145758905829465}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 961381
 --- !u!114 &-4548459294095927071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,10 +328,11 @@ MonoBehaviour:
   - {fileID: -3329542250645624403}
   - {fileID: -7241301765246578763}
   EditorEvents:
-  - {fileID: -5925887112006146872}
-  - {fileID: 8492406256537449914}
-  - {fileID: -6250614659575095637}
-  - {fileID: -7808615309418163463}
+  - {fileID: -2376911509701785950}
+  - {fileID: -1805704906520544374}
+  - {fileID: -2790934153067910964}
+  - {fileID: -834117955666955698}
+  - {fileID: -7326683887644052635}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7241301765246578763}
@@ -470,8 +342,7 @@ MonoBehaviour:
   cacheTime: 638729151189456850
 =======
   - {fileID: -8455208604884043573}
-  cacheTime: 638729186957114230
->>>>>>> origin/soundRework
+  cacheTime: 638732770685510708
   cacheVersion: 131622
 --- !u!114 &1758115556821637519
 MonoBehaviour:
@@ -488,10 +359,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638727500795355077
+  lastModified: 638732770685490657
   FileSizes:
   - Name: Desktop
-    Value: 1512
+    Value: 1816
   Exists: 1
 --- !u!114 &1776376086759640843
 MonoBehaviour:
@@ -580,10 +451,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Ambient.bank
   Name: Ambient
   StudioPath: bank:/Ambient
-  lastModified: 638729186957114230
+  lastModified: 638732770685105665
   FileSizes:
   - Name: Desktop
-    Value: 20674016
+    Value: 20674144
   Exists: 1
 --- !u!114 &5376288414898725824
 MonoBehaviour:
@@ -723,8 +594,8 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 638729133800090961
+  lastModified: 638732770685420389
   FileSizes:
   - Name: Desktop
-    Value: 80960
+    Value: 82144
   Exists: 1

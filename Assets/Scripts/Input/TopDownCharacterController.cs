@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,6 +15,8 @@ public class TopDownCharacterController : MonoBehaviour {
     Rigidbody2D body;
     private Animator animator;
     private bool interacting;
+
+    private bool isWalking = true;
 
     public FMODUnity.EventReference walkRef;
     private FMOD.Studio.EventInstance walkSound;
@@ -45,19 +47,15 @@ public class TopDownCharacterController : MonoBehaviour {
     }
 
     void MovementHandlingEnable(InputAction.CallbackContext ctx) {
-        if (body!=null) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
-            playWalkSound();
-            // TODO: Add Back the animations and the sounds functionality.
-        }
+        body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+        PlayWalkSound();
+        // TODO: Add Back the animations and the sounds functionality.
     }
 
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
-        if (body!=null) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
-            stopWalkSound();
-            // TODO: Add Back the animations and the sounds functionality.
-        }
+        body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+        StopWalkSound();
+        // TODO: Add Back the animations and the sounds functionality.
     }
 
     void InteractionHandling(InputAction.CallbackContext ctx) {
@@ -86,11 +84,26 @@ public class TopDownCharacterController : MonoBehaviour {
         }
     }
 
-    void playWalkSound() {
-        walkSound.start();
+    IEnumerator WalkingSoundRoutine() {
+        yield return new WaitForSeconds(0.1f);
+        while (isWalking) {
+            walkSound.start();
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
-    void stopWalkSound() {
+    void PlayWalkSound() {
+        if (!isWalking) {
+            Debug.Log("WALKING");
+            isWalking = true;
+            StartCoroutine(WalkingSoundRoutine());
+        }
+    }
+
+    void StopWalkSound() {
+        Debug.Log("NOT WALKING");
+        StopCoroutine(WalkingSoundRoutine());
+        isWalking = false;
         walkSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 

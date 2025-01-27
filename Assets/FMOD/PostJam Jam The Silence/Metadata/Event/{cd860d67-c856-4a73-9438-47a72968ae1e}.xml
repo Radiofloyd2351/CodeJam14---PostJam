@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{cd860d67-c856-4a73-9438-47a72968ae1e}">
+		<property name="color">
+			<value>Blue</value>
+		</property>
 		<property name="name">
 			<value>Walk</value>
 		</property>
@@ -49,6 +52,9 @@
 		</relationship>
 	</object>
 	<object class="MixerInput" id="{2261fff0-fe28-4bc4-9437-a3c320629741}">
+		<property name="color">
+			<value>Blue</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{107b37d9-650b-45cb-ac7e-2738e2696a61}</destination>
 		</relationship>
@@ -56,7 +62,7 @@
 			<destination>{ac497b54-22bd-418a-8741-a95ad9c61a49}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{5f42fe12-5d9a-4a53-967c-9a6db7d25076}</destination>
+			<destination>{a87f3c4b-b554-402b-b1b4-a00dc97c87c4}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{511c3936-817e-488f-94eb-0e1b6425de1c}" />
@@ -72,6 +78,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{ecaa0b5e-2d71-490b-9fc7-5e80d42091c3}">
+		<property name="volume">
+			<value>-4.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{ce2bd3bf-35f8-4ef8-96e6-2bb6f3dd4cb7}</destination>
 		</relationship>
@@ -98,10 +107,13 @@
 			<destination>{a1436822-eafe-441b-a172-826a58551561}</destination>
 			<destination>{944ee3a4-7057-4178-a80b-aa4e12a5bdc7}</destination>
 			<destination>{437c1d71-b85b-48e6-a774-8da1957db04b}</destination>
+			<destination>{59f2cd02-abf1-4a45-911d-751fde09eb23}</destination>
+			<destination>{7eac2138-949d-4b90-957d-53bbae73c7b3}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f8b43513-953f-4ee3-bafc-c62f7fc24e9a}" />
 	<object class="MultiSound" id="{226e4a6c-5f71-456c-8aaf-8c0635889d8a}">
+		<property name="name" />
 		<property name="volume">
 			<value>-1</value>
 		</property>
@@ -137,6 +149,28 @@
 		<property name="release">
 			<value>30</value>
 		</property>
+	</object>
+	<object class="ThreeEQEffect" id="{59f2cd02-abf1-4a45-911d-751fde09eb23}">
+		<property name="lowGain">
+			<value>-20.5</value>
+		</property>
+		<property name="highGain">
+			<value>-8</value>
+		</property>
+		<property name="crossoverSlope">
+			<value>0</value>
+		</property>
+	</object>
+	<object class="MixerSend" id="{7eac2138-949d-4b90-957d-53bbae73c7b3}">
+		<property name="level">
+			<value>-32</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{56a0e08b-1ccf-4225-b25e-52fc7b83c7c7}</destination>
+		</relationship>
 	</object>
 	<object class="RandomizerModulator" id="{fe6a6a50-9179-4367-80fe-35af8af2663b}">
 		<property name="nameOfPropertyBeingModulated">

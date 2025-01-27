@@ -4,6 +4,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// TODO: MIGRATE TO FMOD
+/*
+To set the offset of an FMOD event's playhead in milliseconds, you can use the FMOD.Studio.EventInstance.setTimelinePosition() method. This method allows you to move the playhead to a specific position in the timeline of the event.
+
+Here's how to do it:
+
+Setting the Playhead Offset in Milliseconds
+Create an EventInstance: You first need to create an EventInstance for the FMOD event.
+Use setTimelinePosition(): This method takes the position in milliseconds (as a float) to set the playhead's position in the event's timeline.
+*/
+
 #region RecordedData structure
 
 /** <summary> Structure representing recorded data 
@@ -303,7 +314,6 @@ public class InputSystem : MonoBehaviour
     #endregion
 
     public void Awake() {
-        _player = new(_internalAudioSource);
         _devices = new();
         // Create a devices list
         foreach (DeviceDescriptor device in AudioSystem.InputDevices) {

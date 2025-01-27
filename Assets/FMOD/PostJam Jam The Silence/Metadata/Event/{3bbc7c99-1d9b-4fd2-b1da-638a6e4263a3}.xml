@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{3bbc7c99-1d9b-4fd2-b1da-638a6e4263a3}">
+		<property name="color">
+			<value>Green</value>
+		</property>
 		<property name="name">
 			<value>Music</value>
 		</property>
@@ -74,6 +77,9 @@
 		</relationship>
 	</object>
 	<object class="MixerInput" id="{0eb7b18f-416c-42f6-a50c-933ff07c9dbc}">
+		<property name="color">
+			<value>Green</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{bf5570c4-8c71-4c64-bf3b-d881828f2817}</destination>
 		</relationship>
@@ -81,7 +87,7 @@
 			<destination>{b9f952dd-99e1-4605-9128-1358be54e106}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{5f42fe12-5d9a-4a53-967c-9a6db7d25076}</destination>
+			<destination>{ec262f34-5f8a-4689-ae0d-973bd0994368}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{f9201eb4-0a74-4987-a8e8-8b99d667c1a7}">
@@ -306,6 +312,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{7943694a-07b9-4d43-a2b8-6b2228105199}">
+		<property name="volume">
+			<value>-6</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{02164330-44ac-4a53-96a7-2b37e29a912d}</destination>
 		</relationship>
@@ -1677,6 +1686,7 @@
 	<object class="MixerBusEffectChain" id="{02164330-44ac-4a53-96a7-2b37e29a912d}">
 		<relationship name="effects">
 			<destination>{3ef36e26-30df-4ba2-a979-de4aa65f889d}</destination>
+			<destination>{51a208c3-6290-45bc-b548-f6684cb50670}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{df484252-f582-464e-9179-cf0f6b435fce}" />
@@ -2250,6 +2260,20 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{3ef36e26-30df-4ba2-a979-de4aa65f889d}" />
+	<object class="CompressorEffect" id="{51a208c3-6290-45bc-b548-f6684cb50670}">
+		<property name="threshold">
+			<value>-18.5</value>
+		</property>
+		<property name="ratio">
+			<value>1.30000007</value>
+		</property>
+		<property name="attackTime">
+			<value>38</value>
+		</property>
+		<property name="releaseTime">
+			<value>520</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{42ed0592-fc78-4987-a9d3-8031ba5d8836}">
 		<property name="position">
 			<value>2.2204460492503131e-16</value>
