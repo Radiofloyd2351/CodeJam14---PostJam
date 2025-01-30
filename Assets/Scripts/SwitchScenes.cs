@@ -6,15 +6,17 @@ using UnityEngine.SceneManagement;
 public class SwitchScenes : MonoBehaviour
 {
 
-    public GameObject player;
     public void SwitchScenes1() {
-        PlayerStats.playerPos = player.transform.position;
-        SceneManager.LoadScene(sceneBuildIndex:1);
+        PlayerStats.player = DefaultValues.player;
+        DefaultValues.grid.SetActive(false);
+        PlayerStats.heldInstrument = DefaultValues.Current.type;
+        PlayerStats.playerPos = PlayerStats.player.transform.position;
+        SceneManager.LoadScene(sceneBuildIndex:1, LoadSceneMode.Additive);
         PlayerStats.transitionning = true;
     }
 
     public void SwitchScenes2() {
-        SceneManager.LoadScene(sceneBuildIndex: 0);
+        SceneManager.UnloadSceneAsync(sceneBuildIndex:1);
         PlayerStats.transitionning = false;
     }
 }

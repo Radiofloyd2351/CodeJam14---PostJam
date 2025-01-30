@@ -12,7 +12,9 @@ public class PlayerStats : MonoBehaviour {
 
     public static bool transitionning;
 
-   
+    public static Instrument heldInstrument;
+
+    public static GameObject player;
 
     public void Awake() {
         if (instance == null) {

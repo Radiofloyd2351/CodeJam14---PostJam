@@ -11,6 +11,11 @@ public class DefaultValues : MonoBehaviour
     [SerializeField] public SerializedDictionary<Instrument, bool> defaultCollection;
     public static SerializedDictionary<Instrument, bool> staticDefaultCollection;
 
+
+    public static GameObject player;
+    public static GameObject grid;
+    public GameObject gridObj;
+
     public static Vector2 defaultPos = new Vector2(0f, 0f);
 
     private static Instrument _currentInstrument;
@@ -22,6 +27,8 @@ public class DefaultValues : MonoBehaviour
     public void Awake() {
         instrumentsInfo = instrumentsInfoObj;
         staticDefaultCollection = defaultCollection;
+        player = gameObject;
+        grid = gridObj;
        // PlayerStats.Create();
     }
 

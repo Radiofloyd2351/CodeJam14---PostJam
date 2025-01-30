@@ -46,10 +46,7 @@ public class ZonePlayer : MonoBehaviour
                 break;
             case Level.Tech:
                 musicInstance.setParameterByNameWithLabel("Level", "Techno");
-<<<<<<< HEAD
                 Debug.Log("tech");
-=======
->>>>>>> origin/soundRework
                 break;
         }
        

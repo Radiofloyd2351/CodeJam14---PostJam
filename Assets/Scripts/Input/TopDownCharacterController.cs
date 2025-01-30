@@ -16,6 +16,9 @@ public class TopDownCharacterController : MonoBehaviour {
     private Animator animator;
     private bool interacting;
 
+
+    private bool canPlayWalkSound = true;
+
     private bool isWalking = true;
 
     public FMODUnity.EventReference walkRef;
@@ -47,15 +50,19 @@ public class TopDownCharacterController : MonoBehaviour {
     }
 
     void MovementHandlingEnable(InputAction.CallbackContext ctx) {
-        body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
-        PlayWalkSound();
-        // TODO: Add Back the animations and the sounds functionality.
+        if (body != null) {
+            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            PlayWalkSound();
+            // TODO: Add Back the animations and the sounds functionality.
+        }
     }
 
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
-        body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
-        StopWalkSound();
-        // TODO: Add Back the animations and the sounds functionality.
+        if (body != null) {
+            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            StopWalkSound();
+            // TODO: Add Back the animations and the sounds functionality.
+        }
     }
 
     void InteractionHandling(InputAction.CallbackContext ctx) {
@@ -85,10 +92,14 @@ public class TopDownCharacterController : MonoBehaviour {
     }
 
     IEnumerator WalkingSoundRoutine() {
-        yield return new WaitForSeconds(0.1f);
-        while (isWalking) {
-            walkSound.start();
-            yield return new WaitForSeconds(0.5f);
+        if (canPlayWalkSound) {
+            canPlayWalkSound = false;
+            //yield return new WaitForSeconds(0.1f);
+            while (isWalking) {
+                walkSound.start();
+                yield return new WaitForSeconds(0.5f);
+            }
+            canPlayWalkSound = true;
         }
     }
 

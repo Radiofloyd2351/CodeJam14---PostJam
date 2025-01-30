@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9192527679516326989
+--- !u!114 &-9205106331328070120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,45 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/MedleyFinalEnable
+  m_Name: parameter:/Music/NatureEnable
   m_EditorClassIdentifier: 
-  Name: MedleyFinalEnable
+  Name: NatureEnable
   StudioPath: 
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 3694052898
-    data2: 2129277547
+    data1: 3882498223
+    data2: 1758861216
   Type: 0
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-8960871846265049981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/MedleyFinalEnable
-  m_EditorClassIdentifier: 
-  Name: MedleyFinalEnable
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 3694052898
-    data2: 2129277547
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &-8455208604884043573
+--- !u!114 &-8612279552237324971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,17 +34,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Ambient.bank
   m_EditorClassIdentifier: 
-  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638732770685510708
+  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Ambient.bank
+  Name: Ambient
+  StudioPath: bank:/Ambient
+  lastModified: 638735813124429256
   FileSizes:
   - Name: Desktop
-    Value: 1420
+    Value: 20674144
   Exists: 1
---- !u!114 &-7326683887644052635
+--- !u!114 &-8156472901866237088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,16 +54,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Gameplay/Instruments
+  m_Name: event:/Gameplay/Walk
   m_EditorClassIdentifier: 
-  Path: event:/Gameplay/Instruments
+  Path: event:/Gameplay/Walk
   Guid:
-    Data1: -891234964
-    Data2: 1180025870
-    Data3: -1462925147
-    Data4: 181721097
+    Data1: -846852761
+    Data2: 1249101910
+    Data3: -1488504684
+    Data4: 514746409
   Banks:
-  - {fileID: 8681279139048756686}
+  - {fileID: 404851831365008059}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -95,7 +71,75 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-4548459294095927071
+--- !u!114 &-7037426228538806584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/HellEnable
+  m_EditorClassIdentifier: 
+  Name: HellEnable
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 109571558
+    data2: 2891034640
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5949926394068788575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/TechEnable
+  m_EditorClassIdentifier: 
+  Name: TechEnable
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2258774666
+    data2: 2039289256
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5616062861666902221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638735813124479536
+  FileSizes:
+  - Name: Desktop
+    Value: 1816
+  Exists: 1
+--- !u!114 &-4958106283562928182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +168,7 @@ MonoBehaviour:
   - Deg4
   - Deg5
   Exists: 1
---- !u!114 &-3329542250645624403
+--- !u!114 &-2441790164748559924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,45 +178,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Gameplay.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
-  Name: Gameplay
-  StudioPath: bank:/Gameplay
-  lastModified: 638729151189419862
+  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638735813124489868
   FileSizes:
   - Name: Desktop
-    Value: 80960
+    Value: 1420
   Exists: 1
---- !u!114 &-2790934153067910964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Gameplay/Notes
-  m_EditorClassIdentifier: 
-  Path: event:/Gameplay/Notes
-  Guid:
-    Data1: 473270655
-    Data2: 1135649269
-    Data3: -1050242378
-    Data4: -73959839
-  Banks:
-  - {fileID: 8681279139048756686}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -4548459294095927071}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-2376911509701785950
+--- !u!114 &-467084013505532188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,20 +207,20 @@ MonoBehaviour:
     Data3: -1973167439
     Data4: -1553776018
   Banks:
-  - {fileID: 4161927704091067048}
+  - {fileID: -8612279552237324971}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -114981837293089794}
-  - {fileID: 5727079677743944443}
-  - {fileID: -9192527679516326989}
-  - {fileID: 3350712095446860106}
-  - {fileID: 1776376086759640843}
+  - {fileID: 8458323543478420016}
+  - {fileID: -9205106331328070120}
+  - {fileID: 2263013130131245541}
+  - {fileID: -5949926394068788575}
+  - {fileID: -7037426228538806584}
   MinDistance: 1
   MaxDistance: 20
   Length: 961381
---- !u!114 &-1805704906520544374
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,25 +229,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Gameplay/Walk
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  Path: event:/Gameplay/Walk
-  Guid:
-    Data1: -846852761
-    Data2: 1249101910
-    Data3: -1488504684
-    Data4: 514746409
-  Banks:
-  - {fileID: 8681279139048756686}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-834117955666955698
+  EditorBanks:
+  - {fileID: -2441790164748559924}
+  - {fileID: -8612279552237324971}
+  - {fileID: 404851831365008059}
+  - {fileID: -5616062861666902221}
+  EditorEvents:
+  - {fileID: -467084013505532188}
+  - {fileID: -8156472901866237088}
+  - {fileID: 8476031899945343685}
+  - {fileID: 4490896768621975139}
+  - {fileID: 2109518186519215866}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -5616062861666902221}
+  StringsBanks:
+  - {fileID: -2441790164748559924}
+  cacheTime: 638735813124489868
+  cacheVersion: 131622
+--- !u!114 &404851831365008059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Gameplay.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
+  Name: Gameplay
+  StudioPath: bank:/Gameplay
+  lastModified: 638735813124464463
+  FileSizes:
+  - Name: Desktop
+    Value: 82144
+  Exists: 1
+--- !u!114 &2109518186519215866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +289,7 @@ MonoBehaviour:
     Data3: -483310683
     Data4: -560328429
   Banks:
-  - {fileID: 1758115556821637519}
+  - {fileID: -5616062861666902221}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -258,7 +297,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
---- !u!114 &-631145758905829465
+--- !u!114 &2263013130131245541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,21 +307,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/HellEnable
+  m_Name: parameter:/Music/MedleyFinalEnable
   m_EditorClassIdentifier: 
-  Name: HellEnable
+  Name: MedleyFinalEnable
   StudioPath: 
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 109571558
-    data2: 2891034640
+    data1: 3694052898
+    data2: 2129277547
   Type: 0
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-114981837293089794
+--- !u!114 &4490896768621975139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay/Notes
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay/Notes
+  Guid:
+    Data1: 473270655
+    Data2: 1135649269
+    Data3: -1050242378
+    Data4: -73959839
+  Banks:
+  - {fileID: 404851831365008059}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4958106283562928182}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8458323543478420016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -310,221 +377,7 @@ MonoBehaviour:
   - Hell
   - Blank
   Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 5376288414898725824}
-  - {fileID: -6836188040331696086}
-  - {fileID: -3329542250645624403}
-  - {fileID: -7241301765246578763}
-  EditorEvents:
-  - {fileID: -2376911509701785950}
-  - {fileID: -1805704906520544374}
-  - {fileID: -2790934153067910964}
-  - {fileID: -834117955666955698}
-  - {fileID: -7326683887644052635}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: -7241301765246578763}
-  StringsBanks:
-<<<<<<< HEAD
-  - {fileID: 5376288414898725824}
-  cacheTime: 638729151189456850
-=======
-  - {fileID: -8455208604884043573}
-  cacheTime: 638732770685510708
-  cacheVersion: 131622
---- !u!114 &1758115556821637519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638732770685490657
-  FileSizes:
-  - Name: Desktop
-    Value: 1816
-  Exists: 1
---- !u!114 &1776376086759640843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/HellEnable
-  m_EditorClassIdentifier: 
-  Name: HellEnable
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 109571558
-    data2: 2891034640
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &1875290813082351965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/NatureEnable
-  m_EditorClassIdentifier: 
-  Name: NatureEnable
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 3882498223
-    data2: 1758861216
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &3350712095446860106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/TechEnable
-  m_EditorClassIdentifier: 
-  Name: TechEnable
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2258774666
-    data2: 2039289256
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &4161927704091067048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Ambient.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Ambient.bank
-  Name: Ambient
-  StudioPath: bank:/Ambient
-  lastModified: 638732770685105665
-  FileSizes:
-  - Name: Desktop
-    Value: 20674144
-  Exists: 1
---- !u!114 &5376288414898725824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638729151189456850
-  FileSizes:
-  - Name: Desktop
-    Value: 1302
-  Exists: 1
---- !u!114 &5550591305637085886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/TechEnable
-  m_EditorClassIdentifier: 
-  Name: TechEnable
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2258774666
-    data2: 2039289256
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &5727079677743944443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/NatureEnable
-  m_EditorClassIdentifier: 
-  Name: NatureEnable
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 3882498223
-    data2: 1758861216
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &8492406256537449914
+--- !u!114 &8476031899945343685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -534,16 +387,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Gameplay/Walk
+  m_Name: event:/Gameplay/Instruments
   m_EditorClassIdentifier: 
-  Path: event:/Gameplay/Walk
+  Path: event:/Gameplay/Instruments
   Guid:
-    Data1: -846852761
-    Data2: 1249101910
-    Data3: -1488504684
-    Data4: 514746409
+    Data1: -891234964
+    Data2: 1180025870
+    Data3: -1462925147
+    Data4: 181721097
   Banks:
-  - {fileID: -3329542250645624403}
+  - {fileID: 404851831365008059}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -551,51 +404,3 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &8629378331539996236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/Level
-  m_EditorClassIdentifier: 
-  Name: Level
-  StudioPath: 
-  Min: 0
-  Max: 3
-  Default: 0
-  ID:
-    data1: 3671596658
-    data2: 2785414231
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - Techno
-  - Nature
-  - Hell
-  - Blank
-  Exists: 1
---- !u!114 &8681279139048756686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Gameplay.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
-  Name: Gameplay
-  StudioPath: bank:/Gameplay
-  lastModified: 638732770685420389
-  FileSizes:
-  - Name: Desktop
-    Value: 82144
-  Exists: 1

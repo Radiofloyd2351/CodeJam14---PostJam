@@ -32,7 +32,7 @@ public class LaunchpadGame : MonoBehaviour
 
     public void Update()
     {
-        if (!isPlaying && DefaultValues.Current.type == Instrument.Launch)
+        if (!isPlaying && PlayerStats.heldInstrument == Instrument.Launch)
         {
             float distance = Vector3.Distance(computerLocation.position, player.transform.position);
             if (distance <= 1.5f)
