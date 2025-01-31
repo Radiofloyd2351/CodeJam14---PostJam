@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaunchpadGame : MonoBehaviour
-{
+public class LaunchpadGame : MonoBehaviour {
 
 
     public static bool win = false;
@@ -14,7 +13,7 @@ public class LaunchpadGame : MonoBehaviour
 
     public int score = 0;
 
-    [SerializeField] private GameObject E;
+    [SerializeField] private GameObject button;
 
     [SerializeField] private bool isUnlockNature = false;
 
@@ -24,22 +23,36 @@ public class LaunchpadGame : MonoBehaviour
     //[SerializeField] private InputSystem inputSystem;
 
 
-    private void OnCollisionStay2D(Collision2D collision) {
-        if (PlayerStats.heldInstrument == Instrument.Launch)
-        {
-            E.SetActive(true);
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (PlayerStats.heldInstrument == Instrument.Launch) {
+            button.SetActive(true);
+            EventHandler.instance.OnInterract += ActivateGame;
 
-            if (Input.GetKey(KeyCode.E))
-            {
-                SwitchScenes.SwitchScenes1();
-            }
         } else {
-            E.SetActive(false);
+            EventHandler.instance.OnInstrumentSwitch += ActivateButton;
         }
     }
 
+    private IEnumerator ActivateButton(Instrument instrument) {
+        if (instrument == Instrument.Launch) {
+            button.SetActive(true);
+            EventHandler.instance.OnInterract += ActivateGame;
+        } else {
+            button.SetActive(false);
+            EventHandler.instance.OnInterract -= ActivateGame;
+        }
+        yield return null;
+    }
+
+    private IEnumerator ActivateGame() {
+        SwitchScenes.SwitchScenes1();
+        yield return null;
+    }
+
     private void OnCollisionExit2D(Collision2D collision) {
-        E.SetActive(false);
+        button.SetActive(false);
+        EventHandler.instance.OnInterract -= ActivateGame;
+        EventHandler.instance.OnInstrumentSwitch -= ActivateButton;
     }
 
 

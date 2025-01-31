@@ -21,6 +21,9 @@ public class TopDownCharacterController : MonoBehaviour {
 
     private bool isWalking = true;
 
+    private bool isPressing = false;
+    private bool deActivate = false;
+
     public FMODUnity.EventReference walkRef;
     private FMOD.Studio.EventInstance walkSound;
 
@@ -34,7 +37,7 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.Enable();
 
         _controls.BasicActions.Movement.started += MovementHandlingEnable;
-        _controls.BasicActions.Movement.performed += MovementHandlingEnable;
+        _controls.BasicActions.Movement.performed += MovementHandlingPerform;
         _controls.BasicActions.Movement.canceled += MovementHandlingDisable;
 
         _controls.BasicActions.Interact.performed += InteractionHandling;
@@ -49,7 +52,8 @@ public class TopDownCharacterController : MonoBehaviour {
 
     }
 
-    void MovementHandlingEnable(InputAction.CallbackContext ctx) {
+    void MovementHandlingPerform(InputAction.CallbackContext ctx) {
+
         if (body != null) {
             body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
             PlayWalkSound();
@@ -57,16 +61,41 @@ public class TopDownCharacterController : MonoBehaviour {
         }
     }
 
+    void MovementHandlingEnable(InputAction.CallbackContext ctx) {
+        deActivate = false;
+        if (body != null) {
+            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            if (!isPressing) {
+                isPressing = true;
+                StartCoroutine(ChangeVelocity(ctx));
+            }
+            Debug.Log("My Pen is Sharp");
+            PlayWalkSound();
+            // TODO: Add Back the animations and the sounds functionality.
+        }
+    }
+
+    IEnumerator ChangeVelocity(InputAction.CallbackContext ctx) {
+        while(!deActivate) {
+            Debug.Log("aAAAAAA");
+            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            yield return new WaitForFixedUpdate();
+        }
+        isPressing = false;
+    }
+
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
         if (body != null) {
             body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
             StopWalkSound();
+            deActivate = true;
             // TODO: Add Back the animations and the sounds functionality.
         }
     }
 
     void InteractionHandling(InputAction.CallbackContext ctx) {
         interacting = _controls.BasicActions.Interact.triggered;
+        EventHandler.instance.RunInterraction();
         Debug.Log("INTERACTED" + " " + interacting);
         // TODO: implement logic for interaction.
     }

@@ -24,6 +24,9 @@ public class ModeSwitcher : MonoBehaviour
     }
 
     public void ChangeMode(Instrument instrument) {
+
+        EventHandler.instance.RunSwitchInstrument(instrument);
+
         //Changes instruments, indicators and grids
         DefaultValues.HoldInstrument(instrument);
         //Toggles Mask
