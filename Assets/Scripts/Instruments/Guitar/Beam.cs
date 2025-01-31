@@ -26,7 +26,6 @@ public class Beam : MonoBehaviour
     public static bool gameOver = false;
 
     public AudioSource source;
-    public InputSystem inputSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -63,12 +62,7 @@ public class Beam : MonoBehaviour
     public IEnumerator BasisBeamOut() 
     {
 
-        if (RecordingContainer.recordings.ContainsKey(Instrument.Guitar)) {
-            source.clip = RecordingContainer.recordings[Instrument.Guitar].internalClip;
-            source.Stop();
-            source.timeSamples = RecordingContainer.recordings[Instrument.Guitar].offset;
-            source.Play();
-        }
+        //add beam sound
 
         int i = 0;
         while (currentPoint.y > -37 && currentPoint.x > -19 && currentPoint.x < 0)
@@ -92,12 +86,8 @@ public class Beam : MonoBehaviour
             }
             RaycastHit2D hit = Physics2D.Raycast(currentPoint, currentDirection, 0.11f, mirrorMask);
             if (hit) {
-                if (RecordingContainer.recordings.ContainsKey(Instrument.Guitar)) {
-                    source.clip = RecordingContainer.recordings[Instrument.Guitar].internalClip;
-                    source.Stop();
-                    source.timeSamples = RecordingContainer.recordings[Instrument.Guitar].offset;
-                    source.Play();
-                }
+
+                //add beam sound
 
                 Vector2 ihat = new Vector2(hit.normal.x, hit.normal.y);
                 Vector2 jhat = new Vector2(ihat.y, -ihat.x);

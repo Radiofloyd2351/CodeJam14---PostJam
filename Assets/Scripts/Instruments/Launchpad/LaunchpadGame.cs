@@ -66,12 +66,7 @@ public class LaunchpadGame : MonoBehaviour {
 
     public void ChangeColor(GameObject button) {
 
-        if (RecordingContainer.recordings.ContainsKey(Instrument.Launch)) {
-            source.clip = RecordingContainer.recordings[Instrument.Launch].internalClip;
-            source.Stop();
-            source.timeSamples = RecordingContainer.recordings[Instrument.Launch].offset;
-            source.Play();
-        }
+        //add launchpad sound;
 
         LaunchColor color = button.GetComponent<LaunchPadButton>().color;
         Debug.Log(color);

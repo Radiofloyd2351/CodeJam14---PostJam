@@ -11,7 +11,6 @@ public class PlayerShoot : MonoBehaviour
 
 
     public AudioSource source;
-    public InputSystem inputSystem;
 
     void Update()
     {
@@ -51,12 +50,8 @@ public class PlayerShoot : MonoBehaviour
 
     }
     void ShootArrow() {
-        if (RecordingContainer.recordings.ContainsKey(Instrument.Lyre)) {
-            source.clip = RecordingContainer.recordings[Instrument.Lyre].internalClip;
-            source.Stop();
-            source.timeSamples = RecordingContainer.recordings[Instrument.Lyre].offset;
-            source.Play();
-        }
+
+        //add lyre sound
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = -(mousePos - shootPoint.transform.position).normalized;

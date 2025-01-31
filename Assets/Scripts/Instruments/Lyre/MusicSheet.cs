@@ -6,7 +6,6 @@ public class MusicSheet : MonoBehaviour
 {
     public GameObject notePrefab;
     public Transform parent;
-    public MusicPlayer musicPlayer;
     public int degree;
     public bool targeted = false;
 
@@ -23,7 +22,7 @@ public class MusicSheet : MonoBehaviour
 
             Instantiate(notePrefab, transform.position, Quaternion.identity, parent);
 
-            musicPlayer.playNote(degree);
+            //play the note of the degree
 
         }
     }
