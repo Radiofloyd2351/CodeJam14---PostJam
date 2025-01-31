@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+
+    //Passes Eh
+
+
     public Transform target;
     public float lerpSpeed = 1.0f;
 

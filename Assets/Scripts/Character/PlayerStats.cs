@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
+    //Passes Chill
 
     public static Dictionary<Instrument, bool> collected;
-    public static Vector2 playerPos;
+    public static Vector3 playerPos;
 
     private static PlayerStats instance;
 
     public static bool transitionning;
 
     public static Instrument heldInstrument;
+
 
     public static GameObject player;
 

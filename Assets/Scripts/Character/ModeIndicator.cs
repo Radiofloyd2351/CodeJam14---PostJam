@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ModeIndicator : MonoBehaviour
 {
 
+    //Passes Chill
+
     public Sprite active;
     public Sprite inactive;
     [SerializeField]

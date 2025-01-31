@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class ModeSwitcher : MonoBehaviour
 {
+
+    //Passes Chill
+
     public GameObject lastGrid;
     public GameObject mainGrid;
 
@@ -30,6 +33,7 @@ public class ModeSwitcher : MonoBehaviour
             mask.SetActive(true);
         }
         //Changes Animation,
+        PlayerStats.heldInstrument = instrument;
         animator.runtimeAnimatorController = DefaultValues.Current.controller;
     }
 

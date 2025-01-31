@@ -5,6 +5,8 @@ using UnityEngine;
 public class DefaultValues : MonoBehaviour 
 {
 
+    //Passes OK
+
     [SerializeField] public SerializedDictionary<Instrument, InstrumentInfo> instrumentsInfoObj;
     public static SerializedDictionary<Instrument, InstrumentInfo> instrumentsInfo;
 

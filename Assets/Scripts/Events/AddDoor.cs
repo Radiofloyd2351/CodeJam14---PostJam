@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class AddDoor : Subscriber {
     public Level levelName;
     public override void Run(GameState g, Level level) {

@@ -4,68 +4,47 @@ using UnityEngine;
 
 public class LaunchpadGame : MonoBehaviour
 {
-    public Sprite red;
-    public Sprite green;
-    public Sprite blue;
+
+
+    public static bool win = false;
+
+    [SerializeField] private Sprite red;
+    [SerializeField] private Sprite green;
+    [SerializeField] private Sprite blue;
 
     public int score = 0;
 
-    public Transform gamePosition;
+    [SerializeField] private GameObject E;
 
-    public GameObject player;
-
-    public GameObject door; 
-    public static bool isPlaying = false;
-
-    public Transform computerLocation;
-    public GameObject E;
-
-    public static bool win = false;
-    private Vector2 returnPosition;
-    public bool isUnlockNature = false;
+    [SerializeField] private bool isUnlockNature = false;
 
     public AudioSource source;
     public AudioClip clip;
 
-    public InputSystem inputSystem;
+    //[SerializeField] private InputSystem inputSystem;
 
 
-    public void Update()
-    {
-        if (!isPlaying && PlayerStats.heldInstrument == Instrument.Launch)
+    private void OnCollisionStay2D(Collision2D collision) {
+        if (PlayerStats.heldInstrument == Instrument.Launch)
         {
-            float distance = Vector3.Distance(computerLocation.position, player.transform.position);
-            if (distance <= 1.5f)
-            {
-                returnPosition = player.transform.position;
-                E.SetActive(true);
-            }
-            else
-            {
-                E.SetActive(false);
-            }
+            E.SetActive(true);
 
-            if (E.activeSelf && Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E))
             {
-                isPlaying = true;
-                StartGame();
+                SwitchScenes.SwitchScenes1();
             }
-
+        } else {
+            E.SetActive(false);
         }
-
-
-
     }
 
-    public void StartGame() {
-        returnPosition = player.transform.position;
-        player.transform.position = gamePosition.transform.position;
-
+    private void OnCollisionExit2D(Collision2D collision) {
+        E.SetActive(false);
     }
+
 
     public void EndGame() {
-        player.transform.position = returnPosition;
-        isPlaying = false;
+        SwitchScenes.SwitchScenes2();
         if (isUnlockNature) {
             Progression.Open(Level.Nature);
         } else
