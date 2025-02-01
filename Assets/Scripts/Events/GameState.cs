@@ -13,19 +13,21 @@ public class GameState : MonoBehaviour
         Progression.gameState = this;  
     }
     public void Win(Level level) {
+        /*
         if (winners != null) {
             foreach (Subscriber sub in winners) {
                 sub.Run(this, level);
             }
-        }
+        }*/
     }
 
     public void Open(Level level) {
+        /*
         if (winners != null) {
             foreach (Subscriber sub in winners) {
                 sub.Run(this, level);
             }
-        }
+        }*/
     }
 
     public void Enter(Level level) {

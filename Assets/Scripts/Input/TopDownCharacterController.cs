@@ -49,6 +49,7 @@ public class TopDownCharacterController : MonoBehaviour {
             body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
             PlayWalkSound();
             // TODO: Add Back the animations and the sounds functionality.
+            DefaultValues.player.GetComponent<PlayerAnims>().RunAnim(body.velocity);
         }
     }
 
@@ -77,7 +78,9 @@ public class TopDownCharacterController : MonoBehaviour {
             body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
             StopWalkSound();
             isReleased = true;
+            DefaultValues.player.GetComponent<PlayerAnims>().StopAnim();
         }
+        
     }
 
     void InteractionHandling(InputAction.CallbackContext ctx) {
