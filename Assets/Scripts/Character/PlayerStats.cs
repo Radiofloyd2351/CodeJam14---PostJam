@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
-    //Passes Chill
-
-    public static Dictionary<Instrument, bool> collected;
     public static Vector3 playerPos;
 
     private static PlayerStats instance;
@@ -20,13 +17,10 @@ public class PlayerStats : MonoBehaviour {
 
     public void Awake() {
         if (instance == null) {
+            player = DefaultValues.player;
             instance = this;
             DontDestroyOnLoad(gameObject);
             Debug.Log("Created Instance");
-            if (collected == null) {
-                Debug.Log(DefaultValues.staticDefaultCollection[0]);
-                collected = DefaultValues.staticDefaultCollection;
-            }
         } else {
             Destroy(gameObject);
         }

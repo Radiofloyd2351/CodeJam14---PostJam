@@ -28,9 +28,9 @@ public class LaunchpadGame : MonoBehaviour {
             button.SetActive(true);
             EventHandler.instance.OnInterract += ActivateGame;
 
-        } else {
-            EventHandler.instance.OnInstrumentSwitch += ActivateButton;
         }
+        EventHandler.instance.OnInstrumentSwitch += ActivateButton;
+        
     }
 
     private IEnumerator ActivateButton(Instrument instrument) {

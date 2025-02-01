@@ -12,7 +12,7 @@ public class SerializedDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISer
     [SerializeField] private int newKeyInt = 0;
     [SerializeField] private Color newKeyColor = new Color32(0,0,0,0);
     [SerializeField] private Level newKeyLevel = Level.Blank;
-    [SerializeField] private Instrument newKeyInstrument = Instrument.Launch;
+    [SerializeField] private Instrument newKeyInstrument = Instrument.None;
     [SerializeField] private string error = "Error";
     public void OnBeforeSerialize() {
         keys.Clear();

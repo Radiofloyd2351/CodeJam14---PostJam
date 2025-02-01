@@ -10,7 +10,6 @@ public class SwitchScenes : MonoBehaviour
         PlayerStats.transitionning = true;
         PlayerStats.player = DefaultValues.player;
         DefaultValues.grid.SetActive(false);
-        PlayerStats.heldInstrument = DefaultValues.Current.type;
         PlayerStats.playerPos = PlayerStats.player.transform.position;
         PlayerStats.player.transform.position = new Vector3(0f, 0f, 0f);
         SceneManager.LoadScene(sceneBuildIndex:1, LoadSceneMode.Additive);

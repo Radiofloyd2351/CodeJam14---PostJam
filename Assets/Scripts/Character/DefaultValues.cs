@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class DefaultValues : MonoBehaviour 
-{
+public class DefaultValues : MonoBehaviour {
 
     //Passes OK
 
-    [SerializeField] public SerializedDictionary<Instrument, InstrumentInfo> instrumentsInfoObj;
-    public static SerializedDictionary<Instrument, InstrumentInfo> instrumentsInfo;
+    public List<Type> types;
 
-    [SerializeField] public SerializedDictionary<Instrument, bool> defaultCollection;
-    public static SerializedDictionary<Instrument, bool> staticDefaultCollection;
 
+    [SerializeField] private SerializedDictionary<Instrument, AbsInstrument> instrumentTypeTemplates;
+
+
+
+    public static Dictionary<Instrument, Type> instrumentClassTypes = new();
+
+    public static Type GetClassType (Instrument type) { return instrumentClassTypes[type]; }
+
+    [SerializeField] private GameObject playerObj;
 
     public static GameObject player;
     public static GameObject grid;
@@ -23,36 +29,20 @@ public class DefaultValues : MonoBehaviour
     private static Instrument _currentInstrument;
     private static Instrument _lastInstrument;
 
-    public static InstrumentInfo Current { get { return instrumentsInfo[_currentInstrument]; } }
-    public static InstrumentInfo Last { get { return instrumentsInfo[_lastInstrument]; } }
+    public static Type Current { get { return instrumentClassTypes[_currentInstrument]; } }
+    public static Type Last { get { return instrumentClassTypes[_lastInstrument]; } }
 
-    public void Awake() {
-        instrumentsInfo = instrumentsInfoObj;
-        staticDefaultCollection = defaultCollection;
-        player = gameObject;
-        grid = gridObj;
-       // PlayerStats.Create();
-    }
-
-    public static void HoldInstrument(Instrument newInstrument) {
-        if (instrumentsInfo != null) {
-            _lastInstrument = _currentInstrument;
-            _currentInstrument = newInstrument;
-            if (Last.indicator != null) {
-                Last.indicator.Disable();
-            }
-            Debug.Log(instrumentsInfo[Instrument.None]);
-            Current.indicator.Enable();
-            Debug.Log(Current.grid);
-            if (Last.grid != null && _lastInstrument != Instrument.None) {
-                Last.grid.SetActive(false);
-            }
-            Current.grid.SetActive(true);
-
-        }
-    }
 
     public void Start() {
+        player = playerObj;
+        grid = gridObj;
+        foreach (KeyValuePair<Instrument, AbsInstrument> type in instrumentTypeTemplates) {
+            instrumentClassTypes.Add(type.Key, type.Value.GetType());
+            Destroy(type.Value);
+        }
         gameObject.transform.position = PlayerStats.playerPos;
+        InstrumentFactory.instance.FillDict();
+        InstrumentFactory.instance.GetInstrument(Instrument.None).Equip();
+        InstrumentFactory.instance.InstantiateInstruments();
     }
 }

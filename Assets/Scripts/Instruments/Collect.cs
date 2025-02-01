@@ -6,18 +6,12 @@ public class Collect : MonoBehaviour
 {
     public GameObject player;
     public GameObject button;
-    private ModeSwitcher modeSwitcher;
-    [SerializeField]
-    private Level level;
-    private InstrumentInfo info;
+
+    [SerializeField] private Level level;
+    [SerializeField] private Instrument type;
 
     public GameObject Ui;
 
-    void Start()
-    {
-        modeSwitcher = player.GetComponent<ModeSwitcher>();
-        info = GetComponent<InstrumentInfo>();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         button.SetActive(true);
@@ -31,11 +25,11 @@ public class Collect : MonoBehaviour
 
     private IEnumerator PickUp() {
         yield return null;
+        Debug.Log(type);
         Ui.SetActive(true);
         Progression.Enter(level);
-        modeSwitcher.SwitchToCollected(info.type);
+        InstrumentFactory.instance.GetInstrument(type).Equip();
         gameObject.SetActive(false);
-        PlayerStats.collected[info.type] = true;
         button.SetActive(false);
         EventHandler.instance.OnInterract -= PickUp;
     }
