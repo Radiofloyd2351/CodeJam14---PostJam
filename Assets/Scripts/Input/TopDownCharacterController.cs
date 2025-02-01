@@ -46,17 +46,17 @@ public class TopDownCharacterController : MonoBehaviour {
     void MovementHandlingPerform(InputAction.CallbackContext ctx) {
 
         if (body != null) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            //body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
             PlayWalkSound();
             // TODO: Add Back the animations and the sounds functionality.
-            DefaultValues.player.GetComponent<PlayerAnims>().RunAnim(body.velocity);
+            DefaultValues.player.GetComponent<PlayerAnims>().RunAnim(Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed);
         }
     }
 
     void MovementHandlingEnable(InputAction.CallbackContext ctx) {
         isReleased = false;
         if (body != null) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            //body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
             if (!isPressed) {
                 isPressed = true;
                 StartCoroutine(ChangeVelocity(ctx));
@@ -67,7 +67,7 @@ public class TopDownCharacterController : MonoBehaviour {
 
     IEnumerator ChangeVelocity(InputAction.CallbackContext ctx) {
         while(!isReleased) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            //body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
             yield return new WaitForFixedUpdate();
         }
         isPressed = false;
@@ -75,7 +75,7 @@ public class TopDownCharacterController : MonoBehaviour {
 
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
         if (body != null) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            //body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
             StopWalkSound();
             isReleased = true;
             DefaultValues.player.GetComponent<PlayerAnims>().StopAnim();
