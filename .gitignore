@@ -72,7 +72,3 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 *.log
-fmod_editor.log
-fmod_editor.log
-*.log
-*.log
