@@ -27,7 +27,6 @@ public class Collect : MonoBehaviour
         yield return null;
         Debug.Log(type);
         Ui.SetActive(true);
-        Progression.Enter(level);
         InstrumentFactory.instance.GetInstrument(type).Equip();
         gameObject.SetActive(false);
         button.SetActive(false);

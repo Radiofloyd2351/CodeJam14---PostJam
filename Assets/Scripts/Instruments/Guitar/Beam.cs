@@ -113,7 +113,7 @@ public class Beam : MonoBehaviour
     public void GameOver(){
         print("reached goal");
         goalObject.GetComponent<SpriteRenderer>().sprite = Light;
-        Progression.Win(Level.Hell);
+       // Progression.Win(Level.Hell);
         gameOver = true;
     }
 }

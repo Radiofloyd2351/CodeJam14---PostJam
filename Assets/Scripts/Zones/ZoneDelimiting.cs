@@ -15,7 +15,7 @@ public class ZoneDelimiting : MonoBehaviour {
     [SerializeField]
     private float transitionSpeed;
     [SerializeField]
-    private SerializedDictionary<Level, int> directions;
+    private SerializedDictionary<Level, Direction> directions;
     [SerializeField]
     private ZonePlayer _player;
     private Collider2D _collider;
@@ -59,21 +59,22 @@ public class ZoneDelimiting : MonoBehaviour {
         }
     }
 
-    private IEnumerator LoopMovement(int direction) {
+    private IEnumerator LoopMovement(Direction direction) {
         _controls.DisableControls();
         _animator.RunAnim(direction);
+        Debug.Log("bafanada + " + started + " *ghasp* " + direction);
         while (started) {
             switch (direction) {
-                case 0:
+                case Direction.Down:
                     playerObj.transform.position += new Vector3(0f, -transitionSpeed, 0f);
                     break;
-                case 1:
+                case Direction.Up:
                     playerObj.transform.position += new Vector3(0f, transitionSpeed, 0f);
                     break;
-                case 2:
+                case Direction.Right:
                     playerObj.transform.position += new Vector3(transitionSpeed, 0f, 0f);
                     break;
-                case 3:
+                case Direction.Left:
                     playerObj.transform.position += new Vector3(-transitionSpeed, 0f, 0f);
                     break;
                 default:

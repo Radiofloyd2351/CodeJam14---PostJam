@@ -8,23 +8,22 @@ public class PlayerAnims : MonoBehaviour
 
     public void RunAnim(Vector2 velocity) {
         animator.SetBool("IsMoving", true);
-        Debug.Log(velocity + "pen is");
         if (velocity.y > 0) {
-            animator.SetInteger("Direction", 1);
-        } else if (velocity.y < 0) {
             animator.SetInteger("Direction", 0);
+        } else if (velocity.y < 0) {
+            animator.SetInteger("Direction", 1);
         }
 
         if (velocity.x > 0) {
-            animator.SetInteger("Direction", 2);
-        } else if (velocity.x < 0) {
             animator.SetInteger("Direction", 3);
+        } else if (velocity.x < 0) {
+            animator.SetInteger("Direction", 2);
         }
     }
 
-    public void RunAnim(int direction) {
+    public void RunAnim(Direction direction) {
         animator.SetBool("IsMoving", true);
-        animator.SetInteger("Direction", direction);
+        animator.SetInteger("Direction", (int)direction);
     }
 
     public void StopAnim() {
