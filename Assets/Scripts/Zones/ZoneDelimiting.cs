@@ -54,8 +54,6 @@ public class ZoneDelimiting : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision) {
         if (gameObject.activeInHierarchy && !PlayerStats.transitionning && started && collision == _character) {
             started = false;
-            _animator.StopAnim();
-            _controls.EnableControls();
         }
     }
 
@@ -63,7 +61,8 @@ public class ZoneDelimiting : MonoBehaviour {
         _controls.DisableControls();
         _animator.RunAnim(direction);
         Debug.Log("bafanada + " + started + " *ghasp* " + direction);
-        while (started) {
+        int count = 0;
+        while (count < 20) {
             switch (direction) {
                 case Direction.Down:
                     playerObj.transform.position += new Vector3(0f, -transitionSpeed, 0f);
@@ -81,8 +80,14 @@ public class ZoneDelimiting : MonoBehaviour {
                     break;
             }
 
+            if (!started) {
+                count++;
+            }
+
             yield return new WaitForSeconds(0.01f);
         }
+        _animator.StopAnim();
+        _controls.EnableControls();
     }
 
     private IEnumerator StartWelcomeAnim(GameObject obj) {

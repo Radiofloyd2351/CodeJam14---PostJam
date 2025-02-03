@@ -5,8 +5,11 @@ using UnityEngine;
 public class Collect : MonoBehaviour
 {
     public GameObject player;
+    public GameObject bag;
     public GameObject button;
 
+    [SerializeField] private Camera cam;
+    [SerializeField] private int steps;
     [SerializeField] private Level level;
     [SerializeField] private Instrument type;
 
@@ -28,8 +31,17 @@ public class Collect : MonoBehaviour
         Debug.Log(type);
         Ui.SetActive(true);
         InstrumentFactory.instance.GetInstrument(type).Equip();
-        gameObject.SetActive(false);
-        button.SetActive(false);
         EventHandler.instance.OnInterract -= PickUp;
+        button.SetActive(false);
+
+
+        Vector3 bagPos = cam.ScreenToWorldPoint(new Vector3(bag.transform.position.x, bag.transform.position.y, bag.transform.position.z));
+
+        Vector3 diff = bagPos - transform.position;
+        for (int i = 0; i < steps; i++) {
+            transform.position += diff / steps;
+            yield return new WaitForSeconds(0.01f);
+        }
+        gameObject.SetActive(false);
     }
 }
