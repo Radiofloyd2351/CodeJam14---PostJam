@@ -4,88 +4,89 @@ using Unity.VisualScripting;
 using UnityEngine;
 using FMODUnity;
 
-public class ZoneDelimiting : MonoBehaviour
-{
+public class ZoneDelimiting : MonoBehaviour {
 
     [SerializeField]
     private Collider2D _character;
     [SerializeField]
+    private GameObject playerObj;
+    private PlayerAnims _animator;
+    private TopDownCharacterController _controls;
+    [SerializeField]
+    private float transitionSpeed;
+    [SerializeField]
+    private SerializedDictionary<Level, int> directions;
+    [SerializeField]
     private ZonePlayer _player;
     private Collider2D _collider;
-    [SerializeField]
-    private bool started = false;
+    private static bool started = false;
     [SerializeField]
     public GameObject welcome;
     [SerializeField]
     public float camSize;
     [SerializeField]
-    private Level level;
+    public Level level;
     [SerializeField]
     public Vector2 minBounds;
     [SerializeField]
     public Vector2 maxBounds;
 
-
-    private bool isDone;
-
-    private bool legit = true;
-
-    private int i = 0;
-
     private void Awake() {
         _collider = GetComponent<Collider2D>();
         _collider.isTrigger = true;
+        _animator = playerObj.GetComponent<PlayerAnims>();
+        _controls = playerObj.GetComponent<TopDownCharacterController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if (legit && !started && collider == _character) {
-            StartCoroutine(Timer(collider));
+        if (CameraFollow.currentZone != level && !started && collider == _character) {
             started = true;
-            i++;
+            StartCoroutine(LoopMovement(directions[CameraFollow.currentZone]));
+            CameraFollow.currentZone = level;
+            _player.SetZoneTrack(level);
+            _player.addBlankLayer(level);
         }
-        if (!isDone && welcome != null) {
-            welcome.SetActive(true);
+        if (welcome != null) {
             StartCoroutine(StartWelcomeAnim(welcome));
         }
-        isDone = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-
-        if(gameObject.activeInHierarchy && !PlayerStats.transitionning  && legit && started && collision == _character) {
-            StartCoroutine(Timer(collision));   
+        if (gameObject.activeInHierarchy && !PlayerStats.transitionning && started && collision == _character) {
             started = false;
-            i++;
+            _animator.StopAnim();
+            _controls.EnableControls();
         }
     }
 
+    private IEnumerator LoopMovement(int direction) {
+        _controls.DisableControls();
+        _animator.RunAnim(direction);
+        while (started) {
+            switch (direction) {
+                case 0:
+                    playerObj.transform.position += new Vector3(0f, -transitionSpeed, 0f);
+                    break;
+                case 1:
+                    playerObj.transform.position += new Vector3(0f, transitionSpeed, 0f);
+                    break;
+                case 2:
+                    playerObj.transform.position += new Vector3(transitionSpeed, 0f, 0f);
+                    break;
+                case 3:
+                    playerObj.transform.position += new Vector3(-transitionSpeed, 0f, 0f);
+                    break;
+                default:
+                    break;
+            }
+
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
 
     private IEnumerator StartWelcomeAnim(GameObject obj) {
+        welcome.SetActive(true);
         yield return new WaitForSeconds(3);
         Destroy(obj);
-    }
-
-
-
-
-private IEnumerator Timer(Collider2D collider) {
-        yield return new WaitForSeconds(0.1f);
-        if (i > 1) {
-            legit = false;
-            yield return Timer2();
-        } else {
-            i = 0;
-            if (legit && started && collider == _character) {
-                CameraFollow.currentZone = level;
-                _player.SetZoneTrack(level);
-                _player.addBlankLayer(level);
-            }
-        }
-    }
-
-    private IEnumerator Timer2() {
-        yield return new WaitForSeconds(3f);
-        legit = true;
-        i = 0;
     }
 }

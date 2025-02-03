@@ -101,5 +101,12 @@ public class TopDownCharacterController : MonoBehaviour {
     public void PlayWalkSound() {
         walkSound.start();
     }
+
+    public void DisableControls() {
+        _controls.Disable();
+    }
+    public void EnableControls() {
+        _controls.Enable();
+    }
 }
 

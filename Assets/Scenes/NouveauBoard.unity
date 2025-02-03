@@ -2205,7 +2205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1414394262}
-  lerpSpeed: 5
+  lerpSpeed: 3
   zones:
     keys: 00000000010000000200000003000000
     keyType: 0
@@ -3082,8 +3082,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 1414394261}
+  playerObj: {fileID: 1414394258}
+  transitionSpeed: 0.08
+  directions:
+    keys: 
+    keyType: 0
+    values: 
+    newKeyString: 
+    newKeyInt: 0
+    newKeyColor: {r: 0, g: 0, b: 0, a: 0}
+    newKeyLevel: 0
+    newKeyInstrument: 0
+    error: Error
   _player: {fileID: 961199966}
-  started: 0
   welcome: {fileID: 1341886781}
   camSize: 5
   level: 3
@@ -3472,8 +3483,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 1414394261}
+  playerObj: {fileID: 1414394258}
+  transitionSpeed: 0.08
+  directions:
+    keys: 
+    keyType: 0
+    values: 
+    newKeyString: 
+    newKeyInt: 0
+    newKeyColor: {r: 0, g: 0, b: 0, a: 0}
+    newKeyLevel: 0
+    newKeyInstrument: 0
+    error: Error
   _player: {fileID: 961199966}
-  started: 0
   welcome: {fileID: 1616654152}
   camSize: 5
   level: 2
@@ -44293,8 +44315,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 1414394261}
+  playerObj: {fileID: 1414394258}
+  transitionSpeed: 0.08
+  directions:
+    keys: 00000000
+    keyType: 0
+    values: 02000000
+    newKeyString: 
+    newKeyInt: 0
+    newKeyColor: {r: 0, g: 0, b: 0, a: 0}
+    newKeyLevel: 0
+    newKeyInstrument: 0
+    error: Error
   _player: {fileID: 961199966}
-  started: 0
   welcome: {fileID: 1375336727}
   camSize: 5
   level: 1
@@ -84143,8 +84176,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 1414394261}
+  playerObj: {fileID: 1414394258}
+  transitionSpeed: 0.08
+  directions:
+    keys: 01000000
+    keyType: 0
+    values: 03000000
+    newKeyString: 
+    newKeyInt: 0
+    newKeyColor: {r: 0, g: 0, b: 0, a: 0}
+    newKeyLevel: 1
+    newKeyInstrument: 0
+    error: Error
   _player: {fileID: 961199966}
-  started: 0
   welcome: {fileID: 0}
   camSize: 5
   level: 0

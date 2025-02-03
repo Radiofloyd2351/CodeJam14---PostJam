@@ -6,11 +6,7 @@ public class PlayerAnims : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    private Vector2 lastVelocity = new Vector2(0f,0f);
-
     public void RunAnim(Vector2 velocity) {
-
-        //animator.SetTrigger("Debounce");
         animator.SetBool("IsMoving", true);
         Debug.Log(velocity + "pen is");
         if (velocity.y > 0) {
@@ -26,8 +22,12 @@ public class PlayerAnims : MonoBehaviour
         }
     }
 
+    public void RunAnim(int direction) {
+        animator.SetBool("IsMoving", true);
+        animator.SetInteger("Direction", direction);
+    }
+
     public void StopAnim() {
-        //animator.SetTrigger("Debounce");
         animator.SetBool("IsMoving", false);
     } 
 }
