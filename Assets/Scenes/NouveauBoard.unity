@@ -3486,9 +3486,9 @@ MonoBehaviour:
   playerObj: {fileID: 1414394258}
   transitionSpeed: 0.08
   directions:
-    keys: 
+    keys: 00000000
     keyType: 0
-    values: 
+    values: 00000000
     newKeyString: 
     newKeyInt: 0
     newKeyColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3499,8 +3499,8 @@ MonoBehaviour:
   welcome: {fileID: 1616654152}
   camSize: 5
   level: 2
-  minBounds: {x: 0, y: 0}
-  maxBounds: {x: 0, y: 0}
+  minBounds: {x: 0, y: 10}
+  maxBounds: {x: 0, y: 12}
 --- !u!61 &333636301
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3533,7 +3533,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025461853, y: -0.0439796}
+  m_Offset: {x: 0.025461853, y: -0.07772896}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3544,7 +3544,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.57872236, y: 0.4676161}
+  m_Size: {x: 0.57872236, y: 0.53511477}
   m_EdgeRadius: 0
 --- !u!1 &338672138
 GameObject:
@@ -44320,7 +44320,7 @@ MonoBehaviour:
   directions:
     keys: 00000000
     keyType: 0
-    values: 02000000
+    values: 03000000
     newKeyString: 
     newKeyInt: 0
     newKeyColor: {r: 0, g: 0, b: 0, a: 0}
@@ -84179,13 +84179,13 @@ MonoBehaviour:
   playerObj: {fileID: 1414394258}
   transitionSpeed: 0.08
   directions:
-    keys: 01000000
+    keys: 0100000002000000
     keyType: 0
-    values: 03000000
+    values: 0200000001000000
     newKeyString: 
     newKeyInt: 0
     newKeyColor: {r: 0, g: 0, b: 0, a: 0}
-    newKeyLevel: 1
+    newKeyLevel: 2
     newKeyInstrument: 0
     error: Error
   _player: {fileID: 961199966}
@@ -84226,7 +84226,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.003612876, y: 0.009109259}
+  m_Offset: {x: -0.003612876, y: 0.014336318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -84237,7 +84237,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1281121, y: 0.83603334}
+  m_Size: {x: 1.1281121, y: 0.84648746}
   m_EdgeRadius: 0
 --- !u!1 &2110254625
 GameObject:

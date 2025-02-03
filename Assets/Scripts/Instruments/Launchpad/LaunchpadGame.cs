@@ -56,9 +56,9 @@ public class LaunchpadGame : MonoBehaviour {
     public void EndGame() {
         SwitchScenes.SwitchScenes2();
         if (isUnlockNature) {
-            Progression.Open(Level.Nature);
-        } else
-            Progression.Win(Level.Tech);
+            //Progression.Open(Level.Nature);
+        } else { }
+            //Progression.Win(Level.Tech);
     }
 
     public void ChangeColor(GameObject button) {
