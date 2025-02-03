@@ -12,12 +12,6 @@ public class TopDownCharacterController : MonoBehaviour {
     private Characters _controls;
     Rigidbody2D body;
 
-
-    private bool canPlayWalkSound = true;
-
-    private bool isWalking = true;
-
-    
     private bool isPressed = false;
     private bool isReleased = false;
 
@@ -61,7 +55,6 @@ public class TopDownCharacterController : MonoBehaviour {
                 isPressed = true;
                 StartCoroutine(ChangeVelocity(ctx));
             }
-            PlayWalkSound();
         }
     }
     
@@ -76,7 +69,6 @@ public class TopDownCharacterController : MonoBehaviour {
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
         if (body != null) {
             body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
-            StopWalkSound();
             isReleased = true;
             DefaultValues.player.GetComponent<PlayerAnims>().StopAnim();
         }
@@ -106,29 +98,8 @@ public class TopDownCharacterController : MonoBehaviour {
             InstrumentManager.instance.GetIndicator(Instrument.Guitar).Click();
         }
     }
-
-    IEnumerator WalkingSoundRoutine() {
-        if (canPlayWalkSound) {
-            canPlayWalkSound = false;
-            while (isWalking) {
-                walkSound.start();
-                yield return new WaitForSeconds(0.5f);
-            }
-            canPlayWalkSound = true;
-        }
-    }
-
-    void PlayWalkSound() {
-        if (!isWalking) {
-            isWalking = true;
-            StartCoroutine(WalkingSoundRoutine());
-        }
-    }
-
-    void StopWalkSound() {
-        StopCoroutine(WalkingSoundRoutine());
-        isWalking = false;
-        walkSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    public void PlayWalkSound() {
+        walkSound.start();
     }
 }
 
