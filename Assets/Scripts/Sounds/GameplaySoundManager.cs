@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class GameplaySoundManager : MonoBehaviour
 {
+    const string BASE_PATH = "event:/Gameplay/";
 
     private FMOD.Studio.EventInstance walkSound;
-
-    public FMODUnity.EventReference walkRef;
 
     public static GameplaySoundManager instance;
     public void Awake() {
@@ -16,7 +15,7 @@ public class GameplaySoundManager : MonoBehaviour
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            walkSound = FMODUnity.RuntimeManager.CreateInstance(walkRef);
+            walkSound = FMODUnity.RuntimeManager.CreateInstance(BASE_PATH + "Walk");
         } else {
             Destroy(gameObject);
         }
