@@ -17,9 +17,6 @@ public class LaunchpadGame : MonoBehaviour {
 
     [SerializeField] private bool isUnlockNature = false;
 
-    public AudioSource source;
-    public AudioClip clip;
-
     //[SerializeField] private InputSystem inputSystem;
 
 
