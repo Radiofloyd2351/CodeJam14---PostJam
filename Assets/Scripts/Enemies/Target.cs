@@ -10,4 +10,10 @@ public class Target : MonoBehaviour
         Debug.Log("SHIT IM HIT!!!!");
         return true;
     }
+
+    public IEnumerator HitThis(float stunTime) {
+        GetComponent<TopDownCharacterController>().DisableControls();
+        yield return new WaitForSeconds(stunTime);
+        GetComponent<TopDownCharacterController>().EnableControls();
+    }
 }

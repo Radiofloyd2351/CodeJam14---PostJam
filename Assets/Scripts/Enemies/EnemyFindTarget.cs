@@ -9,7 +9,6 @@ public class EnemyFindTarget : AbsEnemyState
     public override void CheckSwitchStates(EnemyStateMachine ctx)
     {
         if (ctx.VerifyFoundTarget()) {
-            Debug.Log("adsads");
             SwitchStates(ctx, EnemyStateFactory.instance["Move"]);
         }
     }
