@@ -1,0 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public delegate IEnumerator EntityPlayerEventHandler(Entity target);
+public abstract class Entity : MonoBehaviour {
+    private int _health;
+
+    public event EntityPlayerEventHandler OnCollision;
+    public event EntityPlayerEventHandler OnTrigger;
+
+    public bool RunCollision(Entity target) {
+        if (OnCollision != null) {
+            foreach (EntityPlayerEventHandler handler in OnCollision.GetInvocationList()) {
+                StartCoroutine(handler(target));
+            }
+        }
+        return false;
+    }
+
+    public bool RunTrigger(Entity target) {
+        if (OnTrigger != null) {
+            foreach (EntityPlayerEventHandler handler in OnTrigger.GetInvocationList()) {
+                StartCoroutine(handler(target));
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.GetComponent<Entity>() != null) {
+            RunCollision(collision.gameObject.GetComponent<Entity>());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider) {
+        Debug.Log(collider);
+        if (collider.gameObject.GetComponent<Entity>() != null) {
+            RunTrigger(collider.gameObject.GetComponent<Entity>());
+        }
+    }
+}

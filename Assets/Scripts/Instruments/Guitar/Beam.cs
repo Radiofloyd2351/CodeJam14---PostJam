@@ -45,7 +45,7 @@ public class Beam : MonoBehaviour
 
     public void Fire(InputAction.CallbackContext callbackContext)
     {
-        if (canFire && PlayerStats.heldInstrument == Instrument.Guitar) {
+        if (canFire && PlayerInfos.heldInstrument == Instrument.Guitar) {
 
             
 

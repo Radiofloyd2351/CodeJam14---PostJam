@@ -21,7 +21,7 @@ public class LaunchpadGame : MonoBehaviour {
 
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (PlayerStats.heldInstrument == Instrument.Launch) {
+        if (PlayerInfos.heldInstrument == Instrument.Launch) {
             button.SetActive(true);
             EventHandler.instance.OnInterract += ActivateGame;
 

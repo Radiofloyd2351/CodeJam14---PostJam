@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour {
+public class PlayerInfos : MonoBehaviour {
 
     public static Vector3 playerPos;
 
-    private static PlayerStats instance;
+    private static PlayerInfos instance;
 
     public static bool transitionning;
 

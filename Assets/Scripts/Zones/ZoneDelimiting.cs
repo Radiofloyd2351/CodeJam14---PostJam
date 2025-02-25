@@ -52,7 +52,7 @@ public class ZoneDelimiting : MonoBehaviour {
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (gameObject.activeInHierarchy && !PlayerStats.transitionning && started && collision == _character) {
+        if (gameObject.activeInHierarchy && !PlayerInfos.transitionning && started && collision == _character) {
             started = false;
         }
     }
