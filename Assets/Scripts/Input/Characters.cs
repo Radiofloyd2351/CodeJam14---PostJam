@@ -53,6 +53,15 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                     ""processors"": ""NormalizeVector2"",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SpecialMove"",
+                    ""type"": ""Button"",
+                    ""id"": ""5168ea14-6af9-4634-9362-c363608db036"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +218,28 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                     ""action"": ""InstrumentSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6f0e26a-8741-4b00-a125-d127cc71e234"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpecialMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce5e9709-3cb1-47b7-b747-f6a20735422f"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpecialMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -220,6 +251,7 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         m_BasicActions_Movement = m_BasicActions.FindAction("Movement", throwIfNotFound: true);
         m_BasicActions_Interact = m_BasicActions.FindAction("Interact", throwIfNotFound: true);
         m_BasicActions_InstrumentSwitch = m_BasicActions.FindAction("InstrumentSwitch", throwIfNotFound: true);
+        m_BasicActions_SpecialMove = m_BasicActions.FindAction("SpecialMove", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,6 +316,7 @@ public partial class @Characters: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicActions_Movement;
     private readonly InputAction m_BasicActions_Interact;
     private readonly InputAction m_BasicActions_InstrumentSwitch;
+    private readonly InputAction m_BasicActions_SpecialMove;
     public struct BasicActionsActions
     {
         private @Characters m_Wrapper;
@@ -291,6 +324,7 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_BasicActions_Movement;
         public InputAction @Interact => m_Wrapper.m_BasicActions_Interact;
         public InputAction @InstrumentSwitch => m_Wrapper.m_BasicActions_InstrumentSwitch;
+        public InputAction @SpecialMove => m_Wrapper.m_BasicActions_SpecialMove;
         public InputActionMap Get() { return m_Wrapper.m_BasicActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -309,6 +343,9 @@ public partial class @Characters: IInputActionCollection2, IDisposable
             @InstrumentSwitch.started += instance.OnInstrumentSwitch;
             @InstrumentSwitch.performed += instance.OnInstrumentSwitch;
             @InstrumentSwitch.canceled += instance.OnInstrumentSwitch;
+            @SpecialMove.started += instance.OnSpecialMove;
+            @SpecialMove.performed += instance.OnSpecialMove;
+            @SpecialMove.canceled += instance.OnSpecialMove;
         }
 
         private void UnregisterCallbacks(IBasicActionsActions instance)
@@ -322,6 +359,9 @@ public partial class @Characters: IInputActionCollection2, IDisposable
             @InstrumentSwitch.started -= instance.OnInstrumentSwitch;
             @InstrumentSwitch.performed -= instance.OnInstrumentSwitch;
             @InstrumentSwitch.canceled -= instance.OnInstrumentSwitch;
+            @SpecialMove.started -= instance.OnSpecialMove;
+            @SpecialMove.performed -= instance.OnSpecialMove;
+            @SpecialMove.canceled -= instance.OnSpecialMove;
         }
 
         public void RemoveCallbacks(IBasicActionsActions instance)
@@ -344,5 +384,6 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnInstrumentSwitch(InputAction.CallbackContext context);
+        void OnSpecialMove(InputAction.CallbackContext context);
     }
 }

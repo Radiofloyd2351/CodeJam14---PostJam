@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using FMODUnity;
+using Movement;
 
 public class TopDownCharacterController : MonoBehaviour {
     #region Attributes
@@ -11,6 +12,8 @@ public class TopDownCharacterController : MonoBehaviour {
     public float speed;
     private Characters _controls;
     Rigidbody2D body;
+    public AbsPlayerMovementAbility moveAbility = null;
+    Vector2 direction = Vector2.zero;
 
     private bool isPressed = false;
     private bool isReleased = false;
@@ -21,6 +24,11 @@ public class TopDownCharacterController : MonoBehaviour {
 
     private void Start()
     {
+        // TESTING
+        moveAbility = gameObject.AddComponent<Dash>();
+        // END TEST
+
+
         walkSound = FMODUnity.RuntimeManager.CreateInstance(walkRef);
 
         _controls = new Characters();
@@ -31,6 +39,8 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.BasicActions.Movement.canceled += MovementHandlingDisable;
 
         _controls.BasicActions.Interact.performed += InteractionHandling;
+
+        _controls.BasicActions.SpecialMove.performed += SpecialMovementAbilityExecute;
 
         _controls.BasicActions.InstrumentSwitch.performed += InstrumentSwitching;
 
@@ -50,7 +60,8 @@ public class TopDownCharacterController : MonoBehaviour {
     void MovementHandlingEnable(InputAction.CallbackContext ctx) {
         isReleased = false;
         if (body != null) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
+            body.velocity = direction * speed;
             if (!isPressed) {
                 isPressed = true;
                 StartCoroutine(ChangeVelocity(ctx));
@@ -60,7 +71,8 @@ public class TopDownCharacterController : MonoBehaviour {
     
     IEnumerator ChangeVelocity(InputAction.CallbackContext ctx) {
         while(!isReleased) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
+            body.velocity = direction * speed;
             yield return new WaitForFixedUpdate();
         }
         isPressed = false;
@@ -68,7 +80,8 @@ public class TopDownCharacterController : MonoBehaviour {
 
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
         if (body != null) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
+            body.velocity = direction * speed;
             isReleased = true;
             DefaultValues.player.GetComponent<PlayerAnims>().StopAnim();
         }
@@ -79,6 +92,12 @@ public class TopDownCharacterController : MonoBehaviour {
         EventHandler.instance.RunInterraction();
     }
 
+
+    void SpecialMovementAbilityExecute(InputAction.CallbackContext ctx) {
+        _controls.BasicActions.Movement.Disable();
+        Debug.Log("Triggered Special Ability");
+        moveAbility.Move(body, direction);
+    }
     void InstrumentSwitching(InputAction.CallbackContext ctx) {
         Instrument currInstrument = Instrument.None;
         if(ctx.ReadValue<Vector2>().y  > 0){
