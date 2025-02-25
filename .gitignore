@@ -62,6 +62,11 @@ sysinfo.txt
 *.unitypackage
 *.app
 
+# FMOD files
+Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
+Assets/StreamingAssets/*.bank
+fmod_editor.log
+
 # Crashlytics generated file
 crashlytics-build.properties
 
