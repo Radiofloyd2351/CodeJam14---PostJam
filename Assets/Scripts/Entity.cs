@@ -7,7 +7,8 @@ public abstract class Entity : MonoBehaviour {
     private int _health;
 
     public event EntityPlayerEventHandler OnCollision;
-    public event EntityPlayerEventHandler OnTrigger;
+    public event EntityPlayerEventHandler OnTriggerEnter;
+    public event EntityPlayerEventHandler OnTriggerExit;
 
     public bool RunCollision(Entity target) {
         if (OnCollision != null) {
@@ -18,9 +19,19 @@ public abstract class Entity : MonoBehaviour {
         return false;
     }
 
-    public bool RunTrigger(Entity target) {
-        if (OnTrigger != null) {
-            foreach (EntityPlayerEventHandler handler in OnTrigger.GetInvocationList()) {
+    public bool RunTriggerEnter(Entity target) {
+        if (OnTriggerEnter != null) {
+            foreach (EntityPlayerEventHandler handler in OnTriggerEnter.GetInvocationList()) {
+                StartCoroutine(handler(target));
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public bool RunTriggerExit(Entity target) {
+        if (OnTriggerExit != null) {
+            foreach (EntityPlayerEventHandler handler in OnTriggerExit.GetInvocationList()) {
                 StartCoroutine(handler(target));
             }
             return true;
@@ -37,7 +48,13 @@ public abstract class Entity : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collider) {
         Debug.Log(collider);
         if (collider.gameObject.GetComponent<Entity>() != null) {
-            RunTrigger(collider.gameObject.GetComponent<Entity>());
+            RunTriggerEnter(collider.gameObject.GetComponent<Entity>());
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collider) {
+        Debug.Log(collider);
+        if (collider.gameObject.GetComponent<Entity>() != null) {
+            RunTriggerExit(collider.gameObject.GetComponent<Entity>());
         }
     }
 }
