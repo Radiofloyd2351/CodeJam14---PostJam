@@ -33,7 +33,7 @@ public class TopDownCharacterController : MonoBehaviour {
     private void Start()
     {
         // TESTING
-        moveAbility = new ChainDash();
+        moveAbility = new SlowDown(true);
         // END TEST
 
 
@@ -49,15 +49,11 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.BasicActions.Interact.performed += InteractionHandling;
 
         _controls.BasicActions.SpecialMove.performed += SpecialMovementAbilityExecute;
+        _controls.BasicActions.SpecialMove.canceled += SpecialMovementAbilityCancel;
 
         _controls.BasicActions.InstrumentSwitch.performed += InstrumentSwitching;
 
         body = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        ((ChainDash)moveAbility).MaxDashAmount = maxDashesForMove;
     }
 
     void MovementHandlingPerform(InputAction.CallbackContext ctx) {
@@ -112,6 +108,11 @@ public class TopDownCharacterController : MonoBehaviour {
     void SpecialMovementAbilityExecute(InputAction.CallbackContext ctx) {
         Debug.Log("Triggered Special Ability");
         moveAbility.Move(this);
+    }
+
+    void SpecialMovementAbilityCancel(InputAction.CallbackContext ctx) {
+        Debug.Log("Special Ability disabled");
+        moveAbility.Cancel(this);
     }
 
     void InstrumentSwitching(InputAction.CallbackContext ctx) {

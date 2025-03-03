@@ -26,7 +26,9 @@ public class CoroutineManager : MonoBehaviour
     }
     public void RunCoroutine(IEnumerator routine, int id) {
         if (coroutines.ContainsKey(id)) {
-            StopCoroutine(coroutines[id]);
+            if (coroutines[id] != null) {
+                StopCoroutine(coroutines[id]);
+            }
             coroutines[id] = StartCoroutine(routine);
         } else {
             coroutines.Add(id, StartCoroutine(routine));
