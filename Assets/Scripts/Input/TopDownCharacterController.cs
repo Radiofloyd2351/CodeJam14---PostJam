@@ -25,12 +25,15 @@ public class TopDownCharacterController : MonoBehaviour {
 
     public FMODUnity.EventReference walkRef;
     private FMOD.Studio.EventInstance walkSound;
+
+    // FOR MESSING AROUND ONLY
+    public int maxDashesForMove = 0;
     #endregion
 
     private void Start()
     {
         // TESTING
-        moveAbility = new Dash();
+        moveAbility = new SlowDown(true);
         // END TEST
 
 
@@ -46,6 +49,7 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.BasicActions.Interact.performed += InteractionHandling;
 
         _controls.BasicActions.SpecialMove.performed += SpecialMovementAbilityExecute;
+        _controls.BasicActions.SpecialMove.canceled += SpecialMovementAbilityCancel;
 
         _controls.BasicActions.InstrumentSwitch.performed += InstrumentSwitching;
 
@@ -104,6 +108,11 @@ public class TopDownCharacterController : MonoBehaviour {
     void SpecialMovementAbilityExecute(InputAction.CallbackContext ctx) {
         Debug.Log("Triggered Special Ability");
         moveAbility.Move(this);
+    }
+
+    void SpecialMovementAbilityCancel(InputAction.CallbackContext ctx) {
+        Debug.Log("Special Ability disabled");
+        moveAbility.Cancel(this);
     }
 
     void InstrumentSwitching(InputAction.CallbackContext ctx) {
