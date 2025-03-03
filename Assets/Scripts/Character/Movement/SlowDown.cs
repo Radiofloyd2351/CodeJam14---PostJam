@@ -5,8 +5,7 @@ using UnityEngine;
 public class SlowDown : AbsPlayerMovementAbility
 {
     const float SPEED_MULT = 0.4f;
-    const int COOLDOWN_SECONDS = 10;
-    private int _remainingStamina;
+    const int COOLDOWN_SECONDS = 15;
     const int TIMER_ID = 1500;
     int timer;
     bool isActive = false;
@@ -14,6 +13,7 @@ public class SlowDown : AbsPlayerMovementAbility
     bool isAvailable = true;
 
     public SlowDown(bool isTimed = false,  int timer = 3) {
+        _eventInstance = FMODUnity.RuntimeManager.CreateInstance(Audio.AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY + "AbSlow");
         this.isTimed = isTimed;
         this.timer = timer;
     }
@@ -35,7 +35,6 @@ public class SlowDown : AbsPlayerMovementAbility
         if(!isAvailable) { return; }
         if(isActive) { return; }
         if(isTimed) {
-            _remainingStamina = timer;
             CoroutineManager.instance.RunCoroutine(ExcecuteTimer(ctx), TIMER_ID);
         }
         isActive = true;
@@ -44,19 +43,8 @@ public class SlowDown : AbsPlayerMovementAbility
     }
 
     IEnumerator ExcecuteTimer(Entity ctx) {
-        Debug.Log("Timed: " + _remainingStamina);
-        yield return WaitForSecondsAndSaveTime(ctx);
-    }
-
-    IEnumerator WaitForSecondsAndSaveTime(Entity ctx) {
-        while (isActive && _remainingStamina > 0) {
-            yield return new WaitForSeconds(1);
-            Debug.Log(_remainingStamina);
-            _remainingStamina--;
-        }
-        if(_remainingStamina <= 0) {
-            Cancel(ctx);
-        }
+        yield return new WaitForSeconds(timer);
+        Cancel(ctx);
     }
 
     IEnumerator StartCooldownTimer() {

@@ -14,8 +14,6 @@ namespace Movement
         public int MaxDashAmount { set {_maxDashAmount = value;} }
         private int _currentDashAmount = 1;
 
-        private Coroutine resetCoroutine = null;
-
         public ChainDash(Dash copy, int maxDashes = 2)
         {
             speed = copy.speed;
@@ -41,7 +39,8 @@ namespace Movement
         {
             Debug.Log("Dashed: " + _currentDashAmount);
             ctx.DisableControls();
-            ctx.gameObject.GetComponent<Rigidbody2D>().AddForce(speed * 50 * ctx.GetLastDirection().normalized);
+            ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass);
+            _eventInstance.start();
             _onCooldown = true;
             yield return new WaitForSeconds(LENGTH/speed);
             yield return new WaitForSeconds(CONSISTENCY_LATENCY);
@@ -50,7 +49,7 @@ namespace Movement
             CoroutineManager.instance.RunCoroutine(ResetDashes(), ID);
             if (ctx.GetDirection().magnitude == 0)
             {
-                ctx.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                ctx.Body.velocity = Vector3.zero;
             }
             Debug.Log("finished 2");
             _currentDashAmount++;

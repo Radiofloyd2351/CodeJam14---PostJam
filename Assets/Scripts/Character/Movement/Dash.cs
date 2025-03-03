@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using Audio;
 
 namespace Movement
 {
@@ -14,6 +14,7 @@ namespace Movement
 
         public Dash(float speed = 15f)
         {
+            _eventInstance = FMODUnity.RuntimeManager.CreateInstance(AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY + "AbDash");
             this.speed = speed;
         }
 
@@ -21,15 +22,12 @@ namespace Movement
 
         public override void Cancel(Entity ctx)
         {
-                //CoroutineManager.instance.CancelCoroutine(COROUTINE_ID + ctx.id);
-                //ctx.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
         }
 
         public override void Move(Entity ctx)
         {
-            Debug.Log("AAA");
             if (!_onCooldown) {
-                Debug.Log("BBB");
                 CoroutineManager.instance.RunCoroutine(DashFunction(ctx), COROUTINE_ID + ctx.id);
             }
         }
@@ -37,13 +35,15 @@ namespace Movement
         virtual protected IEnumerator DashFunction(Entity ctx)
         {
             ctx.DisableControls();
-            ctx.gameObject.GetComponent<Rigidbody2D>().AddForce(speed * 50 * ctx.GetLastDirection().normalized);
+            ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass);
+            _eventInstance.start();
+            Debug.Log("SPEED IS: " + speed * 50 * ctx.GetLastDirection().normalized);
             _onCooldown = true;
             yield return new WaitForSeconds(LENGTH/speed);
             ctx.EnableControls();
             if (ctx.GetDirection().magnitude == 0)
             {
-                ctx.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                ctx.Body.velocity = Vector3.zero;
             }
             yield return new WaitForSeconds(COOLDOWN);
             _onCooldown = false;
