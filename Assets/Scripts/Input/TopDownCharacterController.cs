@@ -6,14 +6,19 @@ using FMODUnity;
 using Movement;
 
 public class TopDownCharacterController : MonoBehaviour {
+    const int COROUTINE_ID_CHANGE_VELOCITY = 50000;
     #region Attributes
     [SerializeField]
     List<Instrument> instrumentNames;
     public float speed;
     private Characters _controls;
-    Rigidbody2D body;
+    private Rigidbody2D body;
+    public int id = 0; // temporary, switch to entity
+    public Rigidbody2D Body { get { return body; } }
     public AbsPlayerMovementAbility moveAbility = null;
     Vector2 direction = Vector2.zero;
+    public Vector2 Direction { get { return direction; } }
+    public Vector2 LastDirection = Vector2.zero;
 
     private bool isPressed = false;
     private bool isReleased = false;
@@ -25,7 +30,7 @@ public class TopDownCharacterController : MonoBehaviour {
     private void Start()
     {
         // TESTING
-        moveAbility = gameObject.AddComponent<Dash>();
+        moveAbility = new Dash();
         // END TEST
 
 
@@ -51,6 +56,9 @@ public class TopDownCharacterController : MonoBehaviour {
 
         if (body != null) {
             body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            if (body.velocity.magnitude != 0) {
+                LastDirection = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
+            }
             //PlayWalkSound();
             // TODO: Add Back the animations and the sounds functionality.
             DefaultValues.player.GetComponent<PlayerAnims>().RunAnim(body.velocity);
@@ -64,7 +72,7 @@ public class TopDownCharacterController : MonoBehaviour {
             body.velocity = direction * speed;
             if (!isPressed) {
                 isPressed = true;
-                StartCoroutine(ChangeVelocity(ctx));
+                CoroutineManager.instance.RunCoroutine(ChangeVelocity(ctx), COROUTINE_ID_CHANGE_VELOCITY);
             }
         }
     }
@@ -94,10 +102,10 @@ public class TopDownCharacterController : MonoBehaviour {
 
 
     void SpecialMovementAbilityExecute(InputAction.CallbackContext ctx) {
-        _controls.BasicActions.Movement.Disable();
         Debug.Log("Triggered Special Ability");
-        moveAbility.Move(body, direction);
+        moveAbility.Move(this);
     }
+
     void InstrumentSwitching(InputAction.CallbackContext ctx) {
         Instrument currInstrument = Instrument.None;
         if(ctx.ReadValue<Vector2>().y  > 0){

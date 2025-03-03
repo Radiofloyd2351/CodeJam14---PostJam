@@ -1,36 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
+
 
 namespace Movement
 {
     public class Dash : AbsPlayerMovementAbility
     {
-        const int DURATION_MS = 100000;
-        public float speed = 100;
-        private bool isDashing = false;
+        const int COOLDOWN = 1;
+        const int LENGTH = 3;
+        const int COROUTINE_ID = 20000;
+        public float speed = 15;
+        private bool onCooldown = false;
+        private Vector2 lastSpeed = Vector2.zero;
+        Coroutine currentRoutine = null;
+        int i = 0;
 
-        public override void Cancel(Rigidbody2D body)
+        public override void Cancel(TopDownCharacterController ctx)
         {
-            if (isDashing) {
+            /*if (currentRoutine != null && isDashing) {
+                CoroutineManager.instance.CancelCoroutine(COROUTINE_ID + ctx.id);
                 isDashing = false;
-                body.velocity = Vector3.zero;
+                ctx.Body.velocity = Vector3.zero;
+            }*/
+        }
+
+        public override void Move(TopDownCharacterController ctx)
+        {
+            if (!onCooldown)
+            {
+                CoroutineManager.instance.RunCoroutine(DashFunction(ctx), COROUTINE_ID + ctx.id);
             }
         }
 
-        public override void Move(Rigidbody2D body, Vector2 direction)
+        IEnumerator DashFunction(TopDownCharacterController ctx)
         {
-            if (!isDashing) {
-                isDashing = true;
-                StartCoroutine(DashFunction(body, direction));
+            i++;
+            yield return new WaitForSeconds(0.01f);
+            ctx.DisableControls();
+            Debug.Log("Speed " + lastSpeed.normalized + "instances: " + i + " feur: " + ctx.Body.velocity);
+            ctx.Body.velocity = speed * ctx.LastDirection.normalized;
+            onCooldown = true;
+            yield return new WaitForSeconds(LENGTH/speed);
+            ctx.EnableControls();
+            i= 0;
+            if (ctx.Direction.magnitude == 0)
+            {
+                ctx.Body.velocity = Vector3.zero;
             }
-        }
-
-        IEnumerator DashFunction(Rigidbody2D body, Vector2 direction)
-        {
-            body.velocity = (speed * direction);
-            yield return new WaitForSeconds(DURATION_MS);
-            Cancel(body);
+            yield return new WaitForSeconds(COOLDOWN);
+            onCooldown = false;
         }
     }
 }

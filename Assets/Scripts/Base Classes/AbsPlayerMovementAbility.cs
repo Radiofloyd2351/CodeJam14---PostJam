@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbsPlayerMovementAbility : MonoBehaviour
+public abstract class AbsPlayerMovementAbility
 {
-    abstract public void Move(Rigidbody2D body, Vector2 direction);
-    abstract public void Cancel(Rigidbody2D body);
+    abstract public void Move(TopDownCharacterController ctx);
+    abstract public void Cancel(TopDownCharacterController ctx);
 }
