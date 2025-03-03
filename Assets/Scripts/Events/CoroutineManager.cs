@@ -21,27 +21,20 @@ public class CoroutineManager : MonoBehaviour
         }
     }
 
-    public void RunCoroutine(IEnumerator routine)
-    {
+    public void RunCoroutine(IEnumerator routine) {
         StartCoroutine(routine);
     }
-    public void RunCoroutine(IEnumerator routine, int id)
-    {
-        if (coroutines.ContainsKey(id))
-        {
+    public void RunCoroutine(IEnumerator routine, int id) {
+        if (coroutines.ContainsKey(id)) {
             StopCoroutine(coroutines[id]);
             coroutines[id] = StartCoroutine(routine);
-        }
-        else
-        {
+        } else {
             coroutines.Add(id, StartCoroutine(routine));
         }
     }
 
-    public void CancelCoroutine(int id)
-    {
-        if (coroutines.ContainsKey(id))
-        {
+    public void CancelCoroutine(int id) {
+        if (coroutines.ContainsKey(id)) {
             StopCoroutine(coroutines[id]);
             coroutines.Remove(id);
         }

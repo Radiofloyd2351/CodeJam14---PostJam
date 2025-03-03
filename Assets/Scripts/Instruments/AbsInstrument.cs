@@ -14,7 +14,7 @@ public abstract class AbsInstrument : MonoBehaviour {
 
     public abstract void PlaySound();
     public virtual void Equip() {
-        InstrumentFactory.instance.GetInstrument(PlayerStats.heldInstrument).Unequip();
+        InstrumentFactory.instance.GetInstrument(PlayerInfos.heldInstrument).Unequip();
         Debug.Log("equipped " + type);
         Debug.Log(this.GetType());
         EventHandler.instance.RunSwitchInstrument(type);
@@ -23,7 +23,7 @@ public abstract class AbsInstrument : MonoBehaviour {
         InstrumentManager.instance.GetIndicator(type).Enable();
         Debug.Log(type.ToString());
         DefaultValues.player.layer = LayerMask.NameToLayer(type.ToString());
-        PlayerStats.heldInstrument = type;
+        PlayerInfos.heldInstrument = type;
         //animator.runtimeAnimatorController = DefaultValues.Current.controller;
         EquipAbilities();
     }
