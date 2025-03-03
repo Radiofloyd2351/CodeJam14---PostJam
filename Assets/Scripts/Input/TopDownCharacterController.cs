@@ -25,12 +25,15 @@ public class TopDownCharacterController : MonoBehaviour {
 
     public FMODUnity.EventReference walkRef;
     private FMOD.Studio.EventInstance walkSound;
+
+    // FOR MESSING AROUND ONLY
+    public int maxDashesForMove = 0;
     #endregion
 
     private void Start()
     {
         // TESTING
-        moveAbility = new Dash();
+        moveAbility = new ChainDash();
         // END TEST
 
 
@@ -50,6 +53,11 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.BasicActions.InstrumentSwitch.performed += InstrumentSwitching;
 
         body = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        ((ChainDash)moveAbility).MaxDashAmount = maxDashesForMove;
     }
 
     void MovementHandlingPerform(InputAction.CallbackContext ctx) {
