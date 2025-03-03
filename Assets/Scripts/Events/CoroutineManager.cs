@@ -21,8 +21,8 @@ public class CoroutineManager : MonoBehaviour
         }
     }
 
-    public void RunCoroutine(IEnumerator routine) {
-        StartCoroutine(routine);
+    public Coroutine RunCoroutine(IEnumerator routine) {
+        return StartCoroutine(routine);
     }
     public void RunCoroutine(IEnumerator routine, int id) {
         if (coroutines.ContainsKey(id)) {

@@ -6,9 +6,10 @@ namespace Movement
 {
     public class ChainDash : Dash
     {
-        const float COOLDOWN = 0.750f;
+        const float COOLDOWN = 3f;
+        const float SLIDE_TIME_S = 0.750f;
         const float CONSISTENCY_LATENCY = 0.1f;
-        const int ID = 100;
+        const int RESET_ID = 100;
         const int LENGTH = 3;
         private int _maxDashAmount;
         public int MaxDashAmount { set {_maxDashAmount = value;} }
@@ -26,12 +27,33 @@ namespace Movement
             _maxDashAmount = maxDashes;
         }
 
-        private IEnumerator ResetDashes()
+        public override void Cancel(Entity ctx) {
+            if (_onCooldown) {  return; }
+            CoroutineManager.instance.RunCoroutine(ResetDashes(ctx, ctx.Body.velocity), RESET_ID);
+        }
+
+        private IEnumerator ResetDashes(Entity ctx, Vector2 entryVelocity)
         {
             if (_currentDashAmount > 1)
             {
+                yield return new WaitForSeconds(3.5f * CONSISTENCY_LATENCY);
+                _onCooldown = true;
+                if (_currentDashAmount > 3) 
+                {
+                    yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, entryVelocity));
+                }
                 yield return new WaitForSeconds(COOLDOWN);
                 _currentDashAmount = 1;
+                _onCooldown = false;
+            }
+        }
+
+        private IEnumerator Slide(Entity ctx, Vector2 entryVelocity) {
+            float t = 0;
+            while (t < 1) {
+                ctx.Body.velocity = Vector2.Lerp(entryVelocity, Vector2.zero, t);
+                t += Time.fixedDeltaTime/(SLIDE_TIME_S * Mathf.Clamp(entryVelocity.magnitude/10, 0, 1));
+                yield return null;
             }
         }
 
@@ -41,26 +63,24 @@ namespace Movement
             ctx.DisableControls();
             ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass);
             _eventInstance.start();
-            _onCooldown = true;
             yield return new WaitForSeconds(LENGTH/speed);
             yield return new WaitForSeconds(CONSISTENCY_LATENCY);
-            Debug.Log("finished dash");
+            Vector3 savedVelocity = ctx.Body.velocity;
+            CoroutineManager.instance.RunCoroutine(ResetDashes(ctx, savedVelocity), RESET_ID);
             ctx.EnableControls();
-            CoroutineManager.instance.RunCoroutine(ResetDashes(), ID);
             if (ctx.GetDirection().magnitude == 0)
             {
                 ctx.Body.velocity = Vector3.zero;
             }
-            Debug.Log("finished 2");
             _currentDashAmount++;
             if (_currentDashAmount > _maxDashAmount) {
-                _currentDashAmount = 1;
-                Debug.Log("finished 3");
+                ctx.DisableControls();
+                yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity));
+                ctx.EnableControls();
                 yield return new WaitForSeconds(COOLDOWN);
-                Debug.Log("finished 4");
+                _currentDashAmount = 1;
+                _onCooldown = false;
             }
-            _onCooldown = false;
-            Debug.Log("finished cooldown");
         }
     }
 }

@@ -13,7 +13,7 @@ public class SlowDown : AbsPlayerMovementAbility
     bool isAvailable = true;
 
     public SlowDown(bool isTimed = false,  int timer = 3) {
-        _eventInstance = FMODUnity.RuntimeManager.CreateInstance(Audio.AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY + "AbSlow");
+        _eventInstance = FMODUnity.RuntimeManager.CreateInstance(Audio.AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY_ABILITIES + "Slow");
         this.isTimed = isTimed;
         this.timer = timer;
     }
