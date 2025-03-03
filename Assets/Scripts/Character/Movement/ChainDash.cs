@@ -22,7 +22,7 @@ namespace Movement
             _maxDashAmount = maxDashes;
         }
 
-        public ChainDash(float speed = 15, int maxDashes = 2)
+        public ChainDash(float speed = 15f, int maxDashes = 2)
         {
             this.speed = speed;
             _maxDashAmount = maxDashes;
@@ -37,27 +37,31 @@ namespace Movement
             }
         }
 
-        override protected IEnumerator DashFunction(TopDownCharacterController ctx)
+        override protected IEnumerator DashFunction(Entity ctx)
         {
             Debug.Log("Dashed: " + _currentDashAmount);
             ctx.DisableControls();
-            ctx.Body.AddForce(speed * 50 * ctx.LastDirection.normalized);
+            ctx.gameObject.GetComponent<Rigidbody2D>().AddForce(speed * 50 * ctx.GetLastDirection().normalized);
             _onCooldown = true;
             yield return new WaitForSeconds(LENGTH/speed);
             yield return new WaitForSeconds(CONSISTENCY_LATENCY);
+            Debug.Log("finished dash");
             ctx.EnableControls();
             CoroutineManager.instance.RunCoroutine(ResetDashes(), ID);
-            if (ctx.Direction.magnitude == 0)
+            if (ctx.GetDirection().magnitude == 0)
             {
-                ctx.Body.velocity = Vector3.zero;
+                ctx.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             }
+            Debug.Log("finished 2");
             _currentDashAmount++;
-            if (_currentDashAmount > _maxDashAmount)
-            {
+            if (_currentDashAmount > _maxDashAmount) {
                 _currentDashAmount = 1;
+                Debug.Log("finished 3");
                 yield return new WaitForSeconds(COOLDOWN);
+                Debug.Log("finished 4");
             }
-                _onCooldown = false;
+            _onCooldown = false;
+            Debug.Log("finished cooldown");
         }
     }
 }

@@ -57898,7 +57898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instrumentNames: 00000000010000000200000003000000
-  speed: 5
+  stats: {fileID: 0}
   id: 0
   LastDirection: {x: 0, y: 0}
   walkRef:
@@ -57908,6 +57908,7 @@ MonoBehaviour:
       Data3: -1488504684
       Data4: 514746409
     Path: event:/Gameplay/Walk
+  maxDashesForMove: 0
 --- !u!114 &1414394268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58063,6 +58064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  speed: 5
 --- !u!1 &1424845692
 GameObject:
   m_ObjectHideFlags: 0
@@ -86118,6 +86120,7 @@ MonoBehaviour:
   speed: 75
   agressionModifier: 1.5
   animator: {fileID: 2004167995}
+  direction: {x: 0, y: 0}
   enemyType: slime
 --- !u!212 &2004167990
 SpriteRenderer:

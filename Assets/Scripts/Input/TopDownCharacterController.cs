@@ -10,7 +10,7 @@ public class TopDownCharacterController : MonoBehaviour {
     #region Attributes
     [SerializeField]
     List<Instrument> instrumentNames;
-    public float speed;
+    public PlayerStats stats;
     private Characters _controls;
     private Rigidbody2D body;
     public int id = 0; // temporary, switch to entity
@@ -32,8 +32,12 @@ public class TopDownCharacterController : MonoBehaviour {
 
     private void Start()
     {
+
+        stats = gameObject.GetComponent<PlayerStats>();
         // TESTING
-        moveAbility = new SlowDown(true);
+
+         moveAbility = new ChainDash();
+        // moveAbility = new SlowDown(true);
         // END TEST
 
 
@@ -59,7 +63,7 @@ public class TopDownCharacterController : MonoBehaviour {
     void MovementHandlingPerform(InputAction.CallbackContext ctx) {
 
         if (body != null) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * speed;
+            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * stats.speed;
             if (body.velocity.magnitude != 0) {
                 LastDirection = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
             }
@@ -73,7 +77,7 @@ public class TopDownCharacterController : MonoBehaviour {
         isReleased = false;
         if (body != null) {
             direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
-            body.velocity = direction * speed;
+            body.velocity = direction * stats.speed;
             if (!isPressed) {
                 isPressed = true;
                 CoroutineManager.instance.RunCoroutine(ChangeVelocity(ctx), COROUTINE_ID_CHANGE_VELOCITY);
@@ -84,7 +88,7 @@ public class TopDownCharacterController : MonoBehaviour {
     IEnumerator ChangeVelocity(InputAction.CallbackContext ctx) {
         while(!isReleased) {
             direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
-            body.velocity = direction * speed;
+            body.velocity = direction * stats.speed;
             yield return new WaitForFixedUpdate();
         }
         isPressed = false;
@@ -93,7 +97,7 @@ public class TopDownCharacterController : MonoBehaviour {
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
         if (body != null) {
             direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
-            body.velocity = direction * speed;
+            body.velocity = direction * stats.speed;
             isReleased = true;
             DefaultValues.player.GetComponent<PlayerAnims>().StopAnim();
         }
@@ -107,12 +111,12 @@ public class TopDownCharacterController : MonoBehaviour {
 
     void SpecialMovementAbilityExecute(InputAction.CallbackContext ctx) {
         Debug.Log("Triggered Special Ability");
-        moveAbility.Move(this);
+        moveAbility.Move(stats);
     }
 
     void SpecialMovementAbilityCancel(InputAction.CallbackContext ctx) {
         Debug.Log("Special Ability disabled");
-        moveAbility.Cancel(this);
+        moveAbility.Cancel(stats);
     }
 
     void InstrumentSwitching(InputAction.CallbackContext ctx) {

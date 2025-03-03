@@ -12,37 +12,38 @@ namespace Movement
         public float speed;
         protected bool _onCooldown = false;
 
-        public Dash(float speed = 15)
+        public Dash(float speed = 15f)
         {
             this.speed = speed;
         }
 
 
 
-        public override void Cancel(TopDownCharacterController ctx)
+        public override void Cancel(Entity ctx)
         {
-                CoroutineManager.instance.CancelCoroutine(COROUTINE_ID + ctx.id);
-                ctx.Body.velocity = Vector3.zero;
+                //CoroutineManager.instance.CancelCoroutine(COROUTINE_ID + ctx.id);
+                //ctx.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
 
-        public override void Move(TopDownCharacterController ctx)
+        public override void Move(Entity ctx)
         {
-            if (!_onCooldown)
-            {
+            Debug.Log("AAA");
+            if (!_onCooldown) {
+                Debug.Log("BBB");
                 CoroutineManager.instance.RunCoroutine(DashFunction(ctx), COROUTINE_ID + ctx.id);
             }
         }
 
-        virtual protected IEnumerator DashFunction(TopDownCharacterController ctx)
+        virtual protected IEnumerator DashFunction(Entity ctx)
         {
             ctx.DisableControls();
-            ctx.Body.AddForce(speed * ctx.LastDirection.normalized);
+            ctx.gameObject.GetComponent<Rigidbody2D>().AddForce(speed * 50 * ctx.GetLastDirection().normalized);
             _onCooldown = true;
             yield return new WaitForSeconds(LENGTH/speed);
             ctx.EnableControls();
-            if (ctx.Direction.magnitude == 0)
+            if (ctx.GetDirection().magnitude == 0)
             {
-                ctx.Body.velocity = Vector3.zero;
+                ctx.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             }
             yield return new WaitForSeconds(COOLDOWN);
             _onCooldown = false;

@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class AbsPlayerMovementAbility
 {
-    abstract public void Move(TopDownCharacterController ctx);
-    abstract public void Cancel(TopDownCharacterController ctx);
+    abstract public void Move(Entity ctx);
+    abstract public void Cancel(Entity ctx);
 }

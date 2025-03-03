@@ -18,7 +18,7 @@ public class SlowDown : AbsPlayerMovementAbility
         this.timer = timer;
     }
 
-    public override void Cancel(TopDownCharacterController ctx) {
+    public override void Cancel(Entity ctx) {
         if (isActive) {
             ctx.speed /= SPEED_MULT;
             isActive = false;
@@ -31,7 +31,7 @@ public class SlowDown : AbsPlayerMovementAbility
         
     }
 
-    public override void Move(TopDownCharacterController ctx) {
+    public override void Move(Entity ctx) {
         if(!isAvailable) { return; }
         if(isActive) { return; }
         if(isTimed) {
@@ -43,12 +43,12 @@ public class SlowDown : AbsPlayerMovementAbility
         Debug.Log("Slowed");
     }
 
-    IEnumerator ExcecuteTimer(TopDownCharacterController ctx) {
+    IEnumerator ExcecuteTimer(Entity ctx) {
         Debug.Log("Timed: " + _remainingStamina);
         yield return WaitForSecondsAndSaveTime(ctx);
     }
 
-    IEnumerator WaitForSecondsAndSaveTime(TopDownCharacterController ctx) {
+    IEnumerator WaitForSecondsAndSaveTime(Entity ctx) {
         while (isActive && _remainingStamina > 0) {
             yield return new WaitForSeconds(1);
             Debug.Log(_remainingStamina);

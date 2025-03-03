@@ -11,8 +11,6 @@ public class EnemyStats : Entity
     const float ROTATION_VALUE_DEGREES = 2f;
     private int _attack;
     [SerializeField]
-    public float speed;
-    [SerializeField]
     public float agressionModifier;
     RaycastHit2D ray;
     private bool _isOver;
@@ -21,11 +19,18 @@ public class EnemyStats : Entity
     private bool found = false;
     private bool isRunningTimer = false;
     [SerializeField] public Animator animator;
+    public Vector2 direction;
 
     [SerializeField] private string enemyType;
     private AbsEnemyTargetting targetStrat;
     public AbsEnemyMovement movementStrat;
 
+    public override Vector2 GetDirection() {
+        return direction;
+    }
+    public override void SetDirection(Vector2 newDir) {
+        direction = newDir;
+    }
 
     public void Start() {
         if (enemyType == "slime") {

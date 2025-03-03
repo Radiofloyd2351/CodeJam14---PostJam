@@ -12,6 +12,16 @@ public abstract class Entity : MonoBehaviour {
 
     [SerializeField] public int id;
 
+    [SerializeField] public float speed;
+
+    public virtual Vector2 GetDirection() { return new Vector2(); }
+    public virtual void SetDirection(Vector2 newDir) { }
+
+    public virtual Vector2 GetLastDirection() { return new Vector2(); }
+    public virtual void SetLastDirection(Vector2 newDir) { }
+
+    public virtual void EnableControls() { }
+    public virtual void DisableControls() { }
     public bool RunCollision(Entity target) {
         if (OnCollision != null) {
             foreach (EntityPlayerEventHandler handler in OnCollision.GetInvocationList()) {
@@ -48,13 +58,13 @@ public abstract class Entity : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        Debug.Log(collider);
+        //Debug.Log(collider);
         if (collider.gameObject.GetComponent<Entity>() != null) {
             RunTriggerEnter(collider.gameObject.GetComponent<Entity>());
         }
     }
     private void OnTriggerExit2D(Collider2D collider) {
-        Debug.Log(collider);
+        //Debug.Log(collider);
         if (collider.gameObject.GetComponent<Entity>() != null) {
             RunTriggerExit(collider.gameObject.GetComponent<Entity>());
         }
