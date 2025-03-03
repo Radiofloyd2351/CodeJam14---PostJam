@@ -11,12 +11,12 @@ public class WobbleEnemyMovement : AbsEnemyMovement
 
         isActive = true;
         while (true) {
-            Debug.Log("Lasagna");
             float angle = (Random.Range(0, 365));
             float x = Mathf.Cos(angle);
             float y = Mathf.Sin(angle);
             direction = new Vector2(x, y);
-
+            ctx.gameObject.GetComponent<SpriteRenderer>().flipX = x > 0;
+            ctx.animator.SetFloat("y", y);
 
             ctx.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * ctx.speed);
             yield return new WaitForSeconds(cycleloop);
@@ -31,6 +31,8 @@ public class WobbleEnemyMovement : AbsEnemyMovement
         while (target != null) {
             ctx.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             direction = (target.transform.position - ctx.gameObject.transform.position).normalized;
+            ctx.gameObject.GetComponent<SpriteRenderer>().flipX = direction.x > 0;
+            ctx.animator.SetFloat("y", direction.y);
             ctx.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * ctx.speed * ctx.agressionModifier);
             yield return null;
         }

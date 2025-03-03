@@ -20,6 +20,7 @@ public class EnemyStats : Entity
     private int time = 0;
     private bool found = false;
     private bool isRunningTimer = false;
+    [SerializeField] public Animator animator;
 
     [SerializeField] private string enemyType;
     private AbsEnemyTargetting targetStrat;
