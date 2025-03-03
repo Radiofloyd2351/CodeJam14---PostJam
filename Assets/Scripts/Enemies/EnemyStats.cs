@@ -42,5 +42,4 @@ public class EnemyStats : Entity
             CoroutineManager.instance.RunCoroutine(movementStrat.Start(this), 10000 + id);
         }
     }
-
 }

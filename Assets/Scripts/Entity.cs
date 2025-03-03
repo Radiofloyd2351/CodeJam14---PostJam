@@ -14,6 +14,13 @@ public abstract class Entity : MonoBehaviour {
 
     [SerializeField] public float speed;
 
+    private Rigidbody2D _body;
+    public Rigidbody2D Body {  get { return _body; } }
+
+    private void Awake() {
+        _body = GetComponent<Rigidbody2D>();
+    }
+
     public virtual Vector2 GetDirection() { return new Vector2(); }
     public virtual void SetDirection(Vector2 newDir) { }
 
@@ -51,22 +58,23 @@ public abstract class Entity : MonoBehaviour {
         return false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.GetComponent<Entity>() != null) {
-            RunCollision(collision.gameObject.GetComponent<Entity>());
+    private void OnCollisionEnter2D(Collision2D collider) { 
+        Entity entity = collider.gameObject.GetComponent<Entity>();
+        if (entity != null) {
+            RunCollision(entity);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        //Debug.Log(collider);
-        if (collider.gameObject.GetComponent<Entity>() != null) {
-            RunTriggerEnter(collider.gameObject.GetComponent<Entity>());
+        Entity entity = collider.gameObject.GetComponent<Entity>();
+        if (entity != null) {
+            RunTriggerEnter(entity);
         }
     }
     private void OnTriggerExit2D(Collider2D collider) {
-        //Debug.Log(collider);
-        if (collider.gameObject.GetComponent<Entity>() != null) {
-            RunTriggerExit(collider.gameObject.GetComponent<Entity>());
+        Entity entity = collider.gameObject.GetComponent<Entity>();
+        if (entity != null) {
+            RunTriggerExit(entity);
         }
     }
 }

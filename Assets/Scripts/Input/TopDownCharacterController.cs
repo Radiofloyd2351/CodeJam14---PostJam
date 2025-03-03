@@ -36,7 +36,7 @@ public class TopDownCharacterController : MonoBehaviour {
         stats = gameObject.GetComponent<PlayerStats>();
         // TESTING
 
-         moveAbility = new ChainDash();
+        moveAbility = new ChainDash(15, maxDashesForMove);
         // moveAbility = new SlowDown(true);
         // END TEST
 
