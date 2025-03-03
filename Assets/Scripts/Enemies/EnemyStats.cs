@@ -12,6 +12,8 @@ public class EnemyStats : Entity
     private int _attack;
     [SerializeField]
     public float speed;
+    [SerializeField]
+    public float agressionModifier;
     RaycastHit2D ray;
     private bool _isOver;
     private Target _target;
@@ -23,6 +25,7 @@ public class EnemyStats : Entity
     private AbsEnemyTargetting targetStrat;
     public AbsEnemyMovement movementStrat;
 
+
     public void Start() {
         if (enemyType == "slime") {
             targetStrat = new ZoneEnemyTargetting();
@@ -30,7 +33,7 @@ public class EnemyStats : Entity
             movementStrat = new WobbleEnemyMovement();
             ((WobbleEnemyMovement)movementStrat).cooldown = 1f;
             ((WobbleEnemyMovement)movementStrat).cycleloop = 3f;
-            StartCoroutine(movementStrat.Start(this));
+            CoroutineManager.instance.RunCoroutine(movementStrat.Start(this), 10000 + id);
         }
     }
 

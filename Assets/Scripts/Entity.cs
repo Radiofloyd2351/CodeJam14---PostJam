@@ -10,6 +10,8 @@ public abstract class Entity : MonoBehaviour {
     public event EntityPlayerEventHandler OnTriggerEnter;
     public event EntityPlayerEventHandler OnTriggerExit;
 
+    [SerializeField] public int id;
+
     public bool RunCollision(Entity target) {
         if (OnCollision != null) {
             foreach (EntityPlayerEventHandler handler in OnCollision.GetInvocationList()) {

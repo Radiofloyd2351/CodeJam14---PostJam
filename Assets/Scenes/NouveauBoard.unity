@@ -38351,7 +38351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1047817823
 Transform:
   m_ObjectHideFlags: 0
@@ -38361,8 +38361,8 @@ Transform:
   m_GameObject: {fileID: 1047817822}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75482225, y: 0.4717641, z: 0}
-  m_LocalScale: {x: 120, y: 120, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1414394262}
@@ -86110,7 +86110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54a825ddb262aa41916e3360f9745bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 75
+  agressionModifier: 1.5
   enemyType: slime
 --- !u!212 &2004167990
 SpriteRenderer:
@@ -86214,7 +86215,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 7
 --- !u!50 &2004167993
 Rigidbody2D:
   serializedVersion: 4

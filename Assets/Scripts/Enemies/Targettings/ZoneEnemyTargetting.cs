@@ -12,7 +12,8 @@ public class ZoneEnemyTargetting : AbsEnemyTargetting {
 
     public IEnumerator Target(Entity target) {
         _ctx.movementStrat.target = target;
-        yield return _ctx.movementStrat.FollowPlayer(_ctx);
+
+        CoroutineManager.instance.RunCoroutine(_ctx.movementStrat.FollowPlayer(_ctx), 10000 + _ctx.id);
         yield return null;
     }
 
