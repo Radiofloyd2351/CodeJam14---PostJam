@@ -17,6 +17,7 @@ public class PlayerStats : Entity
 
         _controller = gameObject.GetComponent<TopDownCharacterController>();
     }
+
     public override Vector2 GetDirection() {
         return _controller.Direction;
     }

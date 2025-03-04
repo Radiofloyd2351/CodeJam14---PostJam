@@ -22,7 +22,7 @@ public abstract class Entity : MonoBehaviour {
     private float maxStamina = 10f;
     const int STAMINA_ID = 4000;
     private float stamina_regen_cooldown = 2f;
-    private float stamina_regen = 1f;
+    private float stamina_regen = 3f;
     private float stamina_bar_size;
     public AbsPlayerMovementAbility moveAbility = null;
 
@@ -79,6 +79,10 @@ public abstract class Entity : MonoBehaviour {
         animator.SetFloat("y", velocity.y);
     }
 
+    public void RunAnim() {
+        animator.SetBool("IsMoving", true);
+    }
+
     public void RunAnim(Direction direction) {
         animator.SetBool("IsMoving", true);
         animator.SetInteger("Direction", (int)direction);
@@ -87,6 +91,8 @@ public abstract class Entity : MonoBehaviour {
     public void StopAnims() {
         animator.SetBool("IsMoving", false);
     }
+
+    public virtual IEnumerator ResetControls() { yield return null; }
 
     public virtual Vector2 GetDirection() { return new Vector2(); }
     public virtual void SetDirection(Vector2 newDir) { }

@@ -67,8 +67,6 @@ public class TopDownCharacterController : MonoBehaviour {
             if (body.velocity.magnitude != 0) {
                 LastDirection = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
             }
-            //PlayWalkSound();
-            // TODO: Add Back the animations and the sounds functionality.
         }
     }
 
@@ -102,9 +100,7 @@ public class TopDownCharacterController : MonoBehaviour {
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
         if (body != null) {
             direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
-            if (!isFrozen) {
                 body.velocity = direction * stats.speed;
-            }
             isReleased = true;
             DefaultValues.playerStats.StopAnims();
         }
@@ -117,12 +113,10 @@ public class TopDownCharacterController : MonoBehaviour {
 
 
     void SpecialMovementAbilityExecute(InputAction.CallbackContext ctx) {
-        Debug.Log("Triggered Special Ability");
         stats.moveAbility.Move(stats);
     }
 
     void SpecialMovementAbilityCancel(InputAction.CallbackContext ctx) {
-        Debug.Log("Special Ability disabled");
         stats.moveAbility.Cancel(stats);
     }
 
