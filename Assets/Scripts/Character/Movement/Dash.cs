@@ -45,13 +45,15 @@ namespace Movement
         }
 
         protected IEnumerator Slide(Entity ctx, Vector2 entryVelocity, int amount = 3) {
-            float t = 0;
-            ctx.Body.velocity = Vector3.zero;
-            while (t < 1) {
-                ctx.Body.velocity = Vector2.Lerp(entryVelocity, Vector2.zero, t);
-                t += Time.fixedDeltaTime / (SLIDE_TIME_S * Mathf.Pow((amount - 2), 1.3f) * Mathf.Clamp(entryVelocity.magnitude / 10, 0, 1));
+            if (amount - 2 > 0) {
+                float t = 0;
+                ctx.Body.velocity = Vector3.zero;
+                while (t < 1) {
+                    ctx.Body.velocity = Vector2.Lerp(entryVelocity, Vector2.zero, t);
+                    t += Time.fixedDeltaTime / (SLIDE_TIME_S * Mathf.Pow((amount - 2), 1.3f) * Mathf.Clamp(entryVelocity.magnitude / 10, 0, 1));
 
-                yield return null;
+                    yield return null;
+                }
             }
             ctx.RunAnim(ctx.GetLastDirection());
         }

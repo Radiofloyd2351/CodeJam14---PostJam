@@ -63,9 +63,9 @@ namespace Movement
                 yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
             } else {
                 CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, CONSISTENCY_LATENCY * 1f), TIME_WINDOW_ID + ctx.id);
-                if (_currentDashAmount - 2 > 0) {
-                    yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
-                }
+                
+                yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
+                
                 if (ctx.GetDirection().magnitude == 0) {
                     ctx.Body.velocity = Vector3.zero;
                 }
