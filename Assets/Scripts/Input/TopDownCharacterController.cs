@@ -28,6 +28,7 @@ public class TopDownCharacterController : MonoBehaviour {
 
     // FOR MESSING AROUND ONLY
     public int maxDashesForMove = 0;
+    public float speed = 15;
     #endregion
 
     private void Start()
@@ -36,7 +37,7 @@ public class TopDownCharacterController : MonoBehaviour {
         stats = gameObject.GetComponent<PlayerStats>();
         // TESTING
 
-        moveAbility = new ChainDash(15, maxDashesForMove);
+        moveAbility = new ChainDash(speed, maxDashesForMove);
         // moveAbility = new SlowDown(true);
         // END TEST
 
@@ -140,6 +141,10 @@ public class TopDownCharacterController : MonoBehaviour {
     }
     public void PlayWalkSound() {
         walkSound.start();
+    }
+
+    public void DisableMovementAbility() {
+        _controls.BasicActions.SpecialMove.Disable();
     }
 
     public void DisableControls() {

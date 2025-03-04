@@ -9,6 +9,7 @@ namespace Movement
         const float COOLDOWN = 3f;
         const float SLIDE_TIME_S = 0.750f;
         const float CONSISTENCY_LATENCY = 0.1f;
+        const float BUFFER_WINDOW_S = 0.45f;
         const int RESET_ID = 100;
         const int LENGTH = 3;
         private int _maxDashAmount;
@@ -27,7 +28,8 @@ namespace Movement
             _maxDashAmount = maxDashes;
         }
 
-        public override void Cancel(Entity ctx) {
+        public override void Cancel(Entity ctx)
+        {
             if (_onCooldown) {  return; }
             CoroutineManager.instance.RunCoroutine(ResetDashes(ctx, ctx.Body.velocity), RESET_ID);
         }
@@ -36,25 +38,25 @@ namespace Movement
         {
             if (_currentDashAmount > 1)
             {
-                yield return new WaitForSeconds(3.5f * CONSISTENCY_LATENCY);
+                yield return new WaitForSeconds(BUFFER_WINDOW_S);
+                ctx.DisableControls();
                 _onCooldown = true;
                 if (_currentDashAmount > 3) 
                 {
-                    yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, entryVelocity));
+                    Debug.Log("Dashes: " + _currentDashAmount + ", Speed: " + ctx.Body.velocity);
+                    float t = 0;
+                    ctx.Body.velocity = entryVelocity;
+                    while (t < 1) {
+                        Slide(ctx, entryVelocity, ref t);
+                        yield return null;
+                    }
                 }
-                yield return new WaitForSeconds(COOLDOWN);
-                _currentDashAmount = 1;
-                _onCooldown = false;
             }
         }
 
-        private IEnumerator Slide(Entity ctx, Vector2 entryVelocity) {
-            float t = 0;
-            while (t < 1) {
-                ctx.Body.velocity = Vector2.Lerp(entryVelocity, Vector2.zero, t);
-                t += Time.fixedDeltaTime/(SLIDE_TIME_S * Mathf.Clamp(entryVelocity.magnitude/10, 0, 1));
-                yield return null;
-            }
+        private void Slide(Entity ctx, Vector2 entryVelocity, ref float t) {
+            ctx.Body.velocity = Vector2.Lerp(entryVelocity, Vector2.zero, t);
+            t += Time.fixedDeltaTime/(SLIDE_TIME_S * Mathf.Clamp(entryVelocity.magnitude/10, 0, 1));
         }
 
         override protected IEnumerator DashFunction(Entity ctx)
@@ -66,21 +68,19 @@ namespace Movement
             yield return new WaitForSeconds(LENGTH/speed);
             yield return new WaitForSeconds(CONSISTENCY_LATENCY);
             Vector3 savedVelocity = ctx.Body.velocity;
-            CoroutineManager.instance.RunCoroutine(ResetDashes(ctx, savedVelocity), RESET_ID);
+            _currentDashAmount++;
             ctx.EnableControls();
+            yield return CoroutineManager.instance.RunCoroutine(ResetDashes(ctx, savedVelocity), RESET_ID);
+            ctx.EnableControls();
+            if (_onCooldown) {
+                yield return new WaitForSeconds(COOLDOWN);
+                _currentDashAmount = 1;
+            }
             if (ctx.GetDirection().magnitude == 0)
             {
                 ctx.Body.velocity = Vector3.zero;
             }
-            _currentDashAmount++;
-            if (_currentDashAmount > _maxDashAmount) {
-                ctx.DisableControls();
-                yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity));
-                ctx.EnableControls();
-                yield return new WaitForSeconds(COOLDOWN);
-                _currentDashAmount = 1;
-                _onCooldown = false;
-            }
+            _onCooldown = false;
         }
     }
 }

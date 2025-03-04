@@ -24,7 +24,7 @@ public class CoroutineManager : MonoBehaviour
     public Coroutine RunCoroutine(IEnumerator routine) {
         return StartCoroutine(routine);
     }
-    public void RunCoroutine(IEnumerator routine, int id) {
+    public Coroutine RunCoroutine(IEnumerator routine, int id) {
         if (coroutines.ContainsKey(id)) {
             if (coroutines[id] != null) {
                 StopCoroutine(coroutines[id]);
@@ -33,6 +33,7 @@ public class CoroutineManager : MonoBehaviour
         } else {
             coroutines.Add(id, StartCoroutine(routine));
         }
+        return coroutines[id];
     }
 
     public void CancelCoroutine(int id) {
