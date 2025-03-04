@@ -39,17 +39,8 @@ public class TopDownCharacterController : MonoBehaviour {
         stats = gameObject.GetComponent<PlayerStats>();
         // TESTING
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        moveAbility = new ChainDash(speed, maxDashesForMove);
-=======
         //moveAbility = new Dash(15f);
         moveAbility = new ChainDash(15f, 10);
->>>>>>> Stashed changes
-=======
-        //moveAbility = new Dash(15f);
-        moveAbility = new ChainDash(15f, 10);
->>>>>>> Stashed changes
         // moveAbility = new SlowDown(true);
         // END TEST
 
