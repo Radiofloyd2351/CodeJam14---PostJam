@@ -40,7 +40,12 @@ public class TopDownCharacterController : MonoBehaviour {
         // TESTING
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         moveAbility = new ChainDash(speed, maxDashesForMove);
+=======
+        //moveAbility = new Dash(15f);
+        moveAbility = new ChainDash(15f, 10);
+>>>>>>> Stashed changes
 =======
         //moveAbility = new Dash(15f);
         moveAbility = new ChainDash(15f, 10);
