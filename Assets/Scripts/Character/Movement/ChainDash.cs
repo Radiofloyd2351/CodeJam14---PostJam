@@ -6,11 +6,9 @@ namespace Movement
 {
     public class ChainDash : Dash {
         const float COOLDOWN = 1f;
-        const float SLIDE_TIME_S = 0.1f;
-        const float CONSISTENCY_LATENCY = 0.1f;
-        const int SLIDE_ID = 200;
+        const float CONSISTENCY_LATENCY = 0.2f;
         const int TIME_WINDOW_ID = 300;
-        const float LENGTH = 3f;
+        const float LENGTH = 2f;
         private int _maxDashAmount;
         public int MaxDashAmount { set { _maxDashAmount = value; } }
         private int _currentDashAmount = 1;
@@ -38,24 +36,13 @@ namespace Movement
             CoroutineManager.instance.tester.color = Color.red;
             _onCooldown = true;
             yield return new WaitForSeconds(COOLDOWN);
-            CoroutineManager.instance.tester.color = Color.green;
             _currentDashAmount = 1;
+            CoroutineManager.instance.tester.color = Color.green;
             _onCooldown = false;
+            _isPenalised = false;
         }
 
-        private IEnumerator Slide(Entity ctx, Vector2 entryVelocity) {
-            if ((_currentDashAmount - 2) > 0) {
-                float t = 0;
-                ctx.Body.velocity = Vector3.zero;
-                while (t < 1) {
-                    ctx.Body.velocity = Vector2.Lerp(entryVelocity, Vector2.zero, t);
-                    t += Time.fixedDeltaTime / (SLIDE_TIME_S * Mathf.Pow((_currentDashAmount - 2), 1.3f) * Mathf.Clamp(entryVelocity.magnitude / 10, 0, 1));
 
-                    yield return null;
-                }
-                ctx.RunAnim(ctx.GetLastDirection());
-            }
-        }
 
         override protected IEnumerator DashFunction(Entity ctx) {
             _isDashing = true;
@@ -65,18 +52,20 @@ namespace Movement
             CoroutineManager.instance.CancelCoroutine(TIME_WINDOW_ID + ctx.id);
             CoroutineManager.instance.CancelCoroutine(SLIDE_ID + ctx.id);
             ctx.DisableMovement();
-            Debug.Log("Dashed: " + _currentDashAmount);
+            Debug.Log("Dashed: " + _currentDashAmount + " and is penalised:  " + _isPenalised);
             ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass);
             _eventInstance.start();
             yield return new WaitForSeconds(LENGTH/speed);
             Vector3 savedVelocity = ctx.Body.velocity;
-            if (_currentDashAmount > _maxDashAmount) {
+            if (_currentDashAmount > _maxDashAmount || _isPenalised) {
                 _onCooldown = true;
                 CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, 0f), TIME_WINDOW_ID + ctx.id);
-                yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity), SLIDE_ID + ctx.id);
+                yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
             } else {
                 CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, CONSISTENCY_LATENCY * 1f), TIME_WINDOW_ID + ctx.id);
-                yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity), SLIDE_ID + ctx.id);
+                if (_currentDashAmount - 2 > 0) {
+                    yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
+                }
                 if (ctx.GetDirection().magnitude == 0) {
                     ctx.Body.velocity = Vector3.zero;
                 }

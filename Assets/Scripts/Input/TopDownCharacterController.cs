@@ -15,7 +15,6 @@ public class TopDownCharacterController : MonoBehaviour {
     private Rigidbody2D body;
     public int id = 0; // temporary, switch to entity
     public Rigidbody2D Body { get { return body; } }
-    public AbsPlayerMovementAbility moveAbility = null;
     Vector2 direction = Vector2.zero;
     public Vector2 Direction { get { return direction; } }
     public Vector2 LastDirection = Vector2.zero;
@@ -38,11 +37,6 @@ public class TopDownCharacterController : MonoBehaviour {
 
         stats = gameObject.GetComponent<PlayerStats>();
         // TESTING
-
-        //moveAbility = new Dash(15f);
-        moveAbility = new ChainDash(15f, 10);
-        // moveAbility = new SlowDown(true);
-        // END TEST
 
 
         walkSound = FMODUnity.RuntimeManager.CreateInstance(walkRef);
@@ -124,12 +118,12 @@ public class TopDownCharacterController : MonoBehaviour {
 
     void SpecialMovementAbilityExecute(InputAction.CallbackContext ctx) {
         Debug.Log("Triggered Special Ability");
-        moveAbility.Move(stats);
+        stats.moveAbility.Move(stats);
     }
 
     void SpecialMovementAbilityCancel(InputAction.CallbackContext ctx) {
         Debug.Log("Special Ability disabled");
-        moveAbility.Cancel(stats);
+        stats.moveAbility.Cancel(stats);
     }
 
     void InstrumentSwitching(InputAction.CallbackContext ctx) {

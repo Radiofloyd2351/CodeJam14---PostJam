@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Movement;
 
 public class PlayerStats : Entity
 {
     private TopDownCharacterController _controller;
 
     private void Start() {
+
+
+       // moveAbility = new Dash(15f, 3f, true);
+        moveAbility = new ChainDash(15f, 10);
+        // moveAbility = new SlowDown(true);
+        // END TEST
 
         _controller = gameObject.GetComponent<TopDownCharacterController>();
     }

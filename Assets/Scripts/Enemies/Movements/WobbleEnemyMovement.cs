@@ -30,12 +30,24 @@ public class WobbleEnemyMovement : AbsEnemyMovement
     public override IEnumerator FollowPlayer(EnemyStats ctx) {
         isActive = false;
         _body.velocity = Vector3.zero;
-        while (target != null) {
+        while (targetting) {
             _body.velocity = Vector3.zero;
             ctx.SetDirection((target.transform.position - ctx.gameObject.transform.position).normalized);
             _sprite.flipX = ctx.GetDirection().x > 0;
             ctx.RunAnim(ctx.GetDirection());
             _body.AddForce(ctx.GetDirection() * ctx.speed * ctx.agressionModifier * _body.mass);
+            if (Vector3.Distance(target.gameObject.transform.position, ctx.gameObject.transform.position) < ctx.aggressionDistance) {
+                CoroutineManager.instance.tester.color = Color.blue;
+                ctx.SetDirection(Vector2.zero);
+                _body.velocity = Vector2.zero;
+                yield return new WaitForSeconds(1f);
+                ctx.SetDirection((target.transform.position - ctx.gameObject.transform.position).normalized);
+                ctx.RunAnim(ctx.GetDirection());
+                CoroutineManager.instance.tester.color = Color.red;
+                ctx.moveAbility.Move(ctx);
+                yield return new WaitForSeconds(1f);
+                CoroutineManager.instance.tester.color = Color.green;
+            }
             yield return null;
         }
 

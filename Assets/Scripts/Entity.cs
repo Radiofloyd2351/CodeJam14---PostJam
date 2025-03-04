@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Movement;
 
 public delegate IEnumerator EntityPlayerEventHandler(Entity target);
 public abstract class Entity : MonoBehaviour {
@@ -15,24 +16,70 @@ public abstract class Entity : MonoBehaviour {
 
     [SerializeField] public int id;
 
+    [SerializeField] private GameObject staminaBar;
+    [SerializeField] private GameObject staminaContainer;
+    private float stamina;
+    private float maxStamina = 10f;
+    const int STAMINA_ID = 4000;
+    private float stamina_regen_cooldown = 2f;
+    private float stamina_regen = 1f;
+    private float stamina_bar_size;
+    public AbsPlayerMovementAbility moveAbility = null;
+
     [SerializeField] public float speed;
 
     private Rigidbody2D _body;
     public Rigidbody2D Body {  get { return _body; } }
 
     private void Awake() {
+
+
+        stamina = maxStamina;
+        stamina_bar_size = staminaBar.transform.localScale.x;
         _body = GetComponent<Rigidbody2D>();
     }
 
+
+
+    public bool PayStamina(float cost) {
+        if (stamina < cost) {
+            return false;
+        }
+        staminaContainer.SetActive(true);
+        stamina -= cost;
+        staminaBar.transform.localPosition = new Vector3(((stamina/maxStamina)-1) * stamina_bar_size / 2f, 0f, 0f);
+        staminaBar.transform.localScale = new Vector3(stamina_bar_size * stamina / maxStamina, staminaBar.transform.localScale.y, 0f);
+        CoroutineManager.instance.RunCoroutine(ReloadStamina(), STAMINA_ID + id);
+        return true;
+    }
+    public IEnumerator ReloadStamina() {
+        yield return new WaitForSeconds(stamina_regen_cooldown);
+        float t = 0;
+        while (stamina < maxStamina) {
+            yield return new WaitForSeconds(1f);
+            stamina += stamina_regen;
+            if (stamina > maxStamina) {
+                stamina = maxStamina;
+            }
+            staminaBar.transform.localPosition = new Vector3(((stamina / maxStamina) - 1) * stamina_bar_size / 2f, 0f, 0f);
+            staminaBar.transform.localScale = new Vector3(stamina_bar_size * stamina / maxStamina, staminaBar.transform.localScale.y, 0f);
+        }
+        yield return new WaitForSeconds(1f);
+        staminaContainer.SetActive(false);
+    }
+
+
+    public float GetStamina() {
+        return stamina;
+    }
+
     public void RunAnim(Vector2 velocity) {
-        Debug.Log("running anim (velo)!");
         animator.SetBool("IsMoving", true);
         animator.SetFloat("x", velocity.x);
         animator.SetFloat("y", velocity.y);
     }
 
     public void RunAnim(Direction direction) {
-        Debug.Log("running anim!");
         animator.SetBool("IsMoving", true);
         animator.SetInteger("Direction", (int)direction);
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Movement;
 
 
 public class EnemyStats : Entity
@@ -19,7 +20,11 @@ public class EnemyStats : Entity
     private bool found = false;
     private bool isRunningTimer = false;
     public Vector2 direction;
+    public Vector2 lastDirection;
 
+
+
+    [SerializeField] public float aggressionDistance;
     [SerializeField] private string enemyType;
     private AbsEnemyTargetting targetStrat;
     public AbsEnemyMovement movementStrat;
@@ -29,11 +34,20 @@ public class EnemyStats : Entity
     }
     public override void SetDirection(Vector2 newDir) {
         direction = newDir;
+        if (newDir != Vector2.zero) {
+            lastDirection = direction;
+        }
     }
+
+    public override Vector2 GetLastDirection() {
+        return lastDirection;
+    }
+
 
     public void Start() {
         if (enemyType == "slime") {
             targetStrat = new ZoneEnemyTargetting();
+            moveAbility = new Dash(10f, 3f, true);
             targetStrat.Init(this);
             movementStrat = new WobbleEnemyMovement();
             ((WobbleEnemyMovement)movementStrat).cooldown = 1f;
