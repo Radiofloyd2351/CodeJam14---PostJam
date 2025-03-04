@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerStats : Entity
 {
-
-
     private TopDownCharacterController _controller;
 
     private void Start() {
+
         _controller = gameObject.GetComponent<TopDownCharacterController>();
     }
     public override Vector2 GetDirection() {
@@ -20,11 +19,11 @@ public class PlayerStats : Entity
     public override void SetLastDirection(Vector2 newDir) {
         _controller.LastDirection = newDir;
     }
-    public override void EnableControls() {
-        _controller.EnableControls();
+    public override void EnableMovement() {
+        _controller.EnableMovement();
     }
-    public override void DisableControls() {
-        _controller.DisableControls();
+    public override void DisableMovement() {
+        _controller.DisableMovement();
     }
 
 }

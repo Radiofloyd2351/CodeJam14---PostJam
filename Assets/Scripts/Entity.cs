@@ -10,6 +10,9 @@ public abstract class Entity : MonoBehaviour {
     public event EntityPlayerEventHandler OnTriggerEnter;
     public event EntityPlayerEventHandler OnTriggerExit;
 
+
+    [SerializeField] private Animator animator;
+
     [SerializeField] public int id;
 
     [SerializeField] public float speed;
@@ -21,14 +24,31 @@ public abstract class Entity : MonoBehaviour {
         _body = GetComponent<Rigidbody2D>();
     }
 
+    public void RunAnim(Vector2 velocity) {
+        Debug.Log("running anim (velo)!");
+        animator.SetBool("IsMoving", true);
+        animator.SetFloat("x", velocity.x);
+        animator.SetFloat("y", velocity.y);
+    }
+
+    public void RunAnim(Direction direction) {
+        Debug.Log("running anim!");
+        animator.SetBool("IsMoving", true);
+        animator.SetInteger("Direction", (int)direction);
+    }
+
+    public void StopAnims() {
+        animator.SetBool("IsMoving", false);
+    }
+
     public virtual Vector2 GetDirection() { return new Vector2(); }
     public virtual void SetDirection(Vector2 newDir) { }
 
     public virtual Vector2 GetLastDirection() { return new Vector2(); }
     public virtual void SetLastDirection(Vector2 newDir) { }
 
-    public virtual void EnableControls() { }
-    public virtual void DisableControls() { }
+    public virtual void EnableMovement() { }
+    public virtual void DisableMovement() { }
     public bool RunCollision(Entity target) {
         if (OnCollision != null) {
             foreach (EntityPlayerEventHandler handler in OnCollision.GetInvocationList()) {

@@ -7,9 +7,13 @@ public class CoroutineManager : MonoBehaviour
 
     private Dictionary<int, Coroutine> coroutines = new();
 
+    public GameObject indicator;
+    public SpriteRenderer tester;
+
     public static CoroutineManager instance;
     void Start()
     {
+        tester = indicator.GetComponent<SpriteRenderer>();
         if (instance == null)
         {
             instance = this;
@@ -37,7 +41,7 @@ public class CoroutineManager : MonoBehaviour
     }
 
     public void CancelCoroutine(int id) {
-        if (coroutines.ContainsKey(id)) {
+        if (coroutines.ContainsKey(id) && coroutines[id] != null) {
             StopCoroutine(coroutines[id]);
             coroutines.Remove(id);
         }

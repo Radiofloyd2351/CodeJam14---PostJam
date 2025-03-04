@@ -10,7 +10,7 @@ public class ZoneDelimiting : MonoBehaviour {
     private Collider2D _character;
     [SerializeField]
     private GameObject playerObj;
-    private PlayerAnims _animator;
+    private PlayerStats _playerStats;
     private TopDownCharacterController _controls;
     [SerializeField]
     private float transitionSpeed;
@@ -34,7 +34,7 @@ public class ZoneDelimiting : MonoBehaviour {
     private void Awake() {
         _collider = GetComponent<Collider2D>();
         _collider.isTrigger = true;
-        _animator = playerObj.GetComponent<PlayerAnims>();
+        _playerStats = playerObj.GetComponent<PlayerStats>();
         _controls = playerObj.GetComponent<TopDownCharacterController>();
     }
 
@@ -59,7 +59,7 @@ public class ZoneDelimiting : MonoBehaviour {
 
     private IEnumerator LoopMovement(Direction direction) {
         _controls.DisableControls();
-        _animator.RunAnim(direction);
+        _playerStats.RunAnim(direction);
         Debug.Log("bafanada + " + started + " *ghasp* " + direction);
         int count = 0;
         while (count < 20) {
@@ -86,7 +86,7 @@ public class ZoneDelimiting : MonoBehaviour {
 
             yield return new WaitForSeconds(0.01f);
         }
-        _animator.StopAnim();
+        _playerStats.StopAnims();
         _controls.EnableControls();
     }
 

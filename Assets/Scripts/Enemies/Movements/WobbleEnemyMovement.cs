@@ -15,9 +15,10 @@ public class WobbleEnemyMovement : AbsEnemyMovement
             float angle = (Random.Range(0, 365));
             float x = Mathf.Cos(angle);
             float y = Mathf.Sin(angle);
-            ctx.SetDirection(new Vector2(x, y));
+            Vector2 dir = new Vector2(x, y);
+            ctx.SetDirection(dir);
             _sprite.flipX = x > 0;
-            ctx.animator.SetFloat("y", y);
+            ctx.RunAnim(dir);
 
             _body.AddForce(ctx.GetDirection() * ctx.speed * _body.mass);
             yield return new WaitForSeconds(cycleloop);
@@ -33,7 +34,7 @@ public class WobbleEnemyMovement : AbsEnemyMovement
             _body.velocity = Vector3.zero;
             ctx.SetDirection((target.transform.position - ctx.gameObject.transform.position).normalized);
             _sprite.flipX = ctx.GetDirection().x > 0;
-            ctx.animator.SetFloat("y", ctx.GetDirection().y);
+            ctx.RunAnim(ctx.GetDirection());
             _body.AddForce(ctx.GetDirection() * ctx.speed * ctx.agressionModifier * _body.mass);
             yield return null;
         }

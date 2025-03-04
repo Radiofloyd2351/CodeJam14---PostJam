@@ -7,11 +7,12 @@ namespace Movement
     public class Dash : AbsPlayerMovementAbility
     {
         const float COOLDOWN = 0.750f;
-        const int LENGTH = 3;
+        const float LENGTH = 3f;
         const int COROUTINE_DASH_ID = 2000;
         const int COROUTINE_COOLDOWN_ID = 3000;
         public float speed;
         protected bool _onCooldown = false;
+        protected bool _isDashing = false;
 
         public Dash(float speed = 15f)
         {
@@ -28,7 +29,7 @@ namespace Movement
 
         public override void Move(Entity ctx)
         {
-            if (!_onCooldown) {
+            if (!_onCooldown && !_isDashing) {
                 CoroutineManager.instance.RunCoroutine(DashFunction(ctx), COROUTINE_DASH_ID + ctx.id);
             }
         }
@@ -41,13 +42,16 @@ namespace Movement
 
         virtual protected IEnumerator DashFunction(Entity ctx)
         {
-            ctx.DisableControls();
+            ctx.RunAnim(ctx.GetLastDirection());
+            ctx.StopAnims();
+            ctx.DisableMovement();
+            ctx.Body.velocity = Vector3.zero;
             ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass * ctx.Body.drag);
             _eventInstance.start();
             Debug.Log("SPEED IS: " + speed * 50 * ctx.GetLastDirection().normalized);
             _onCooldown = true;
             yield return new WaitForSeconds(LENGTH/speed);
-            ctx.EnableControls();
+            ctx.EnableMovement();
             if (ctx.GetDirection().magnitude == 0)
             {
                 ctx.Body.velocity = Vector3.zero;

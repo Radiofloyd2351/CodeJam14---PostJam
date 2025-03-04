@@ -20,6 +20,8 @@ public class TopDownCharacterController : MonoBehaviour {
     public Vector2 Direction { get { return direction; } }
     public Vector2 LastDirection = Vector2.zero;
 
+    private bool isFrozen = false;
+
     private bool isPressed = false;
     private bool isReleased = false;
 
@@ -37,7 +39,12 @@ public class TopDownCharacterController : MonoBehaviour {
         stats = gameObject.GetComponent<PlayerStats>();
         // TESTING
 
+<<<<<<< Updated upstream
         moveAbility = new ChainDash(speed, maxDashesForMove);
+=======
+        //moveAbility = new Dash(15f);
+        moveAbility = new ChainDash(15f, 10);
+>>>>>>> Stashed changes
         // moveAbility = new SlowDown(true);
         // END TEST
 
@@ -62,15 +69,16 @@ public class TopDownCharacterController : MonoBehaviour {
     }
 
     void MovementHandlingPerform(InputAction.CallbackContext ctx) {
-
         if (body != null) {
-            body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * stats.speed;
+            if (!isFrozen) {
+                body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * stats.speed;
+                DefaultValues.playerStats.RunAnim(body.velocity);
+            }
             if (body.velocity.magnitude != 0) {
                 LastDirection = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
             }
             //PlayWalkSound();
             // TODO: Add Back the animations and the sounds functionality.
-            DefaultValues.player.GetComponent<PlayerAnims>().RunAnim(body.velocity);
         }
     }
 
@@ -78,7 +86,9 @@ public class TopDownCharacterController : MonoBehaviour {
         isReleased = false;
         if (body != null) {
             direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
-            body.velocity = direction * stats.speed;
+            if (!isFrozen) {
+                body.velocity = direction * stats.speed;
+            }
             if (!isPressed) {
                 isPressed = true;
                 CoroutineManager.instance.RunCoroutine(ChangeVelocity(ctx), COROUTINE_ID_CHANGE_VELOCITY);
@@ -87,20 +97,26 @@ public class TopDownCharacterController : MonoBehaviour {
     }
     
     IEnumerator ChangeVelocity(InputAction.CallbackContext ctx) {
-        while(!isReleased) {
+
+        while (!isReleased) {
             direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
-            body.velocity = direction * stats.speed;
+            if (!isFrozen) {
+                body.velocity = direction * stats.speed;
+            }
             yield return new WaitForFixedUpdate();
         }
         isPressed = false;
+        
     }
 
     void MovementHandlingDisable(InputAction.CallbackContext ctx) {
         if (body != null) {
             direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
-            body.velocity = direction * stats.speed;
+            if (!isFrozen) {
+                body.velocity = direction * stats.speed;
+            }
             isReleased = true;
-            DefaultValues.player.GetComponent<PlayerAnims>().StopAnim();
+            DefaultValues.playerStats.StopAnims();
         }
         
     }
@@ -152,6 +168,18 @@ public class TopDownCharacterController : MonoBehaviour {
     }
     public void EnableControls() {
         _controls.Enable();
+    }
+    public void DisableMovement() {
+        isFrozen = true;
+        /*_controls.BasicActions.Movement.started -= MovementHandlingEnable;
+        _controls.BasicActions.Movement.performed -= MovementHandlingPerform;*/
+    }
+
+    public void EnableMovement() {
+        isFrozen = false;
+        /*
+        _controls.BasicActions.Movement.started += MovementHandlingEnable;
+        _controls.BasicActions.Movement.performed += MovementHandlingPerform;*/
     }
 }
 

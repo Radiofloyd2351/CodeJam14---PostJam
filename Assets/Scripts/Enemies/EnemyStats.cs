@@ -18,7 +18,6 @@ public class EnemyStats : Entity
     private int time = 0;
     private bool found = false;
     private bool isRunningTimer = false;
-    [SerializeField] public Animator animator;
     public Vector2 direction;
 
     [SerializeField] private string enemyType;
