@@ -55,7 +55,7 @@ namespace Movement
                     yield return null;
                 }
             }
-            ctx.RunAnim(ctx.GetLastDirection());
+            ctx.EnableMovement();
         }
 
         protected IEnumerator CoolDown() 

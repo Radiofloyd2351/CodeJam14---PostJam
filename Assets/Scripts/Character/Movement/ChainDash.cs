@@ -6,7 +6,8 @@ namespace Movement
 {
     public class ChainDash : Dash {
         const float COOLDOWN = 1f;
-        const float TIME_WINDOW_MS = 0.5f;
+        const float TIME_WINDOW_MS = 0.4f;
+        const float PENALITY_WINDOW_MS = 0.2f;
         const int TIME_WINDOW_ID = 300;
         const float LENGTH = 2f;
         private int _maxDashAmount;
@@ -29,6 +30,8 @@ namespace Movement
         }
 
         private IEnumerator TimeWindow(Entity ctx, float time) {
+            CoroutineManager.instance.tester.color = Color.cyan;
+            yield return new WaitForSeconds(PENALITY_WINDOW_MS);
             _isDashing = false;
             ctx.EnableMovement();
             CoroutineManager.instance.tester.color = Color.blue;

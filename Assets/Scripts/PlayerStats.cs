@@ -6,11 +6,13 @@ using Movement;
 public class PlayerStats : Entity
 {
     private TopDownCharacterController _controller;
+    const string WALK_SOUND = "Walk";
 
     private void Start() {
 
 
-       // moveAbility = new Dash(15f, 3f, true);
+        _walkSound = FMODUnity.RuntimeManager.CreateInstance(Audio.AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY + WALK_SOUND);
+        // moveAbility = new Dash(15f, 3f, true);
         moveAbility = new ChainDash(15f, 10);
         // moveAbility = new SlowDown(true);
         // END TEST
