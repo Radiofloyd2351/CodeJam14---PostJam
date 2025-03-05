@@ -62,7 +62,14 @@
 			<destination>{8e689b57-dd7c-4d60-9b29-e328bd7ca7e4}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{60bd338c-c94c-471b-a7b9-9c928fca7a5d}" />
+	<object class="EventAutomatableProperties" id="{60bd338c-c94c-471b-a7b9-9c928fca7a5d}">
+		<property name="isPersistent">
+			<value>true</value>
+		</property>
+		<property name="triggerCooldown">
+			<value>920</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{0d47334f-57db-4fef-8dc6-292199b42acd}" />
 	<object class="Timeline" id="{037f8de2-ccd9-4ca9-9b08-40eb413b69c6}">
 		<property name="isProxyEnabled">
@@ -102,7 +109,11 @@
 			<destination>{23cb0947-5b1e-4abe-9f4e-ad12d9586e5b}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{bc189900-af6d-4834-8364-36ee9797ed18}" />
+	<object class="MixerBusPanner" id="{bc189900-af6d-4834-8364-36ee9797ed18}">
+		<property name="surroundLFELevel">
+			<value>-11.5</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{e6d668d5-709c-448a-b5ca-a6e506407a9f}">
 		<relationship name="modulators">
 			<destination>{469c6255-0e9f-41a4-abc3-fb535bcbbce7}</destination>

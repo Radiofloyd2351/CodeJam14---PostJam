@@ -37,9 +37,10 @@ public class WobbleEnemyMovement : AbsEnemyMovement
         float i = 0;
         while (targetting) {
 
+            ctx.PlaySound(ctx.baseSoundDir + "Walk");
+
             if (i >= 1) {
                 i = 0;
-                ctx.PlaySound(ctx.baseSoundDir + "Walk");
             }
             i += Time.deltaTime;
 

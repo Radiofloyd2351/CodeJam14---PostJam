@@ -128,7 +128,7 @@
 			<value>startOffset</value>
 		</property>
 		<property name="amount">
-			<value>14</value>
+			<value>10.5</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{288d0bbc-03e2-4242-9b27-faf36556742e}">

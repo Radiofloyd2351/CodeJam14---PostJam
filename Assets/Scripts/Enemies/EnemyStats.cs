@@ -47,7 +47,7 @@ public class EnemyStats : Entity {
             baseSoundDir = AudioDirectoryConstants.BASE_DIRECTORY_SLIME;
 
             targetStrat = new ZoneEnemyTargetting();
-            moveAbility = new Dash(10f, 3f, true);
+            moveAbility = new Dash(15f, 5f, true);
             targetStrat.Init(this);
             movementStrat = new WobbleEnemyMovement();
             ((WobbleEnemyMovement)movementStrat).cooldown = 1f;
