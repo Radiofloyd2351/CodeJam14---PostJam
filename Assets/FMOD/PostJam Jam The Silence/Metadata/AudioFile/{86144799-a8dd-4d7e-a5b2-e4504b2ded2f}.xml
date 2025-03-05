@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{86144799-a8dd-4d7e-a5b2-e4504b2ded2f}">
 		<property name="assetPath">
 			<value>SFX/Notes/Notes Deg5.wav</value>

@@ -74,7 +74,9 @@ namespace Movement
             _eventInstance.start();
             Debug.Log("SPEED IS: " + speed * 50 * ctx.GetLastDirection().normalized);
             _onCooldown = true;
+            ctx.PlaySound(ctx.baseSoundDir + "Dash");
             yield return new WaitForSeconds(length/speed);
+            ctx.PlaySound(ctx.baseSoundDir + "Land");
             Vector3 savedVelocity = ctx.Body.velocity;
             if (withSlide) {
                 yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, 10), SLIDE_ID + ctx.id);

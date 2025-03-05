@@ -11,7 +11,7 @@ public abstract class AbsEnemyMovement {
     public abstract IEnumerator Start(EnemyStats ctx);
     public abstract IEnumerator Stop(EnemyStats ctx);
 
-    public abstract IEnumerator FollowPlayer(EnemyStats ctx);
+    public abstract IEnumerator FollowTarget(EnemyStats ctx);
 
     ~AbsEnemyMovement() { 
     }

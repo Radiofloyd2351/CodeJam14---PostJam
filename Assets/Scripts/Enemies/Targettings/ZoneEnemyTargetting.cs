@@ -14,7 +14,7 @@ public class ZoneEnemyTargetting : AbsEnemyTargetting {
         _ctx.movementStrat.target = target;
         _ctx.movementStrat.targetting = true;
 
-        CoroutineManager.instance.RunCoroutine(_ctx.movementStrat.FollowPlayer(_ctx), 10000 + _ctx.id);
+        CoroutineManager.instance.RunCoroutine(_ctx.movementStrat.FollowTarget(_ctx), 10000 + _ctx.id);
         yield return null;
     }
 

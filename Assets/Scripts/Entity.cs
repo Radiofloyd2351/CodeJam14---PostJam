@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Movement;
+using FMODUnity;
 
 public delegate IEnumerator EntityPlayerEventHandler(Entity target);
 public abstract class Entity : MonoBehaviour {
@@ -12,7 +13,7 @@ public abstract class Entity : MonoBehaviour {
     public event EntityPlayerEventHandler OnTriggerExit;
 
 
-    protected FMOD.Studio.EventInstance _walkSound;
+    public string baseSoundDir;
 
     [SerializeField] private Animator _animator;
 
@@ -43,8 +44,11 @@ public abstract class Entity : MonoBehaviour {
     }
 
 
-    public void PlayWalkSound() {
-        _walkSound.start();
+    public void PlaySound(string sound) {
+        if (!EventManager.IsInitialized) {
+            return;
+        }
+        RuntimeManager.PlayOneShotAttached(EventReference.Find(sound), gameObject);
     }
 
     public bool PayStamina(float cost) {
@@ -60,7 +64,6 @@ public abstract class Entity : MonoBehaviour {
     }
     public IEnumerator ReloadStamina() {
         yield return new WaitForSeconds(_stamina_regen_cooldown);
-        float t = 0;
         while (_stamina < _maxStamina) {
             yield return new WaitForSeconds(0.01f);
             _stamina += _stamina_regen;

@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Movement;
+using Audio;
 
 public class PlayerStats : Entity
 {
     private TopDownCharacterController _controller;
-    const string WALK_SOUND = "Walk";
 
     private void Start() {
-
-
-        _walkSound = FMODUnity.RuntimeManager.CreateInstance(Audio.AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY + WALK_SOUND);
+        baseSoundDir = AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY;
         // moveAbility = new Dash(15f, 3f, true);
         moveAbility = new ChainDash(15f, 10);
         // moveAbility = new SlowDown(true);
         // END TEST
 
         _controller = gameObject.GetComponent<TopDownCharacterController>();
+    }
+
+    public void PlayWalkSound() {
+        PlaySound(baseSoundDir + "Walk");
     }
 
     public override Vector2 GetDirection() {

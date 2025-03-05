@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using Movement;
+using Audio;
 
 
 public class EnemyStats : Entity {
 
 
     const float ROTATION_VALUE_DEGREES = 2f;
-    const string WALK_SOUND = "Walk";
     private int _attack;
     [SerializeField]
     public float agressionModifier;
@@ -44,7 +44,7 @@ public class EnemyStats : Entity {
     }
     public void Start() {
         if (enemyType == "slime") {
-            _walkSound = FMODUnity.RuntimeManager.CreateInstance(Audio.AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY + WALK_SOUND);
+            baseSoundDir = AudioDirectoryConstants.BASE_DIRECTORY_SLIME;
 
             targetStrat = new ZoneEnemyTargetting();
             moveAbility = new Dash(10f, 3f, true);
@@ -52,6 +52,7 @@ public class EnemyStats : Entity {
             movementStrat = new WobbleEnemyMovement();
             ((WobbleEnemyMovement)movementStrat).cooldown = 1f;
             ((WobbleEnemyMovement)movementStrat).cycleloop = 3f;
+            Debug.Log(CoroutineManager.instance);
             CoroutineManager.instance.RunCoroutine(movementStrat.Start(this), 10000 + id);
         }
     }

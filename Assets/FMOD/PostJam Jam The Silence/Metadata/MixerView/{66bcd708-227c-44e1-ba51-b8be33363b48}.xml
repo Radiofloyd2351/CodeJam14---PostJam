@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="UiMixerView" id="{66bcd708-227c-44e1-ba51-b8be33363b48}">
 		<property name="name">
 			<value>All</value>

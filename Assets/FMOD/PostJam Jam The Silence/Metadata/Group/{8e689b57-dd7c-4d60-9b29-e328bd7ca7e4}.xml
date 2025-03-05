@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="MixerGroup" id="{8e689b57-dd7c-4d60-9b29-e328bd7ca7e4}">
 		<property name="color">
 			<value>Green</value>

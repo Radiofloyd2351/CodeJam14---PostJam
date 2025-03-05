@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="MixerMaster" id="{5f42fe12-5d9a-4a53-967c-9a6db7d25076}">
 		<property name="volume">
 			<value>3.5</value>

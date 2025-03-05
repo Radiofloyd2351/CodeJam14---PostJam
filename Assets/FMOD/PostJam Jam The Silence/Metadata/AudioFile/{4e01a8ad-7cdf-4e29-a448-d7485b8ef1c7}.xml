@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{4e01a8ad-7cdf-4e29-a448-d7485b8ef1c7}">
 		<property name="assetPath">
 			<value>SFX/Slime/Slime Dash.wav</value>

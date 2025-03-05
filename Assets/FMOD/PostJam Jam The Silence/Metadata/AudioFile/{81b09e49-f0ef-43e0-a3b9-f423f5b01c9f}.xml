@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{81b09e49-f0ef-43e0-a3b9-f423f5b01c9f}">
 		<property name="assetPath">
 			<value>SFX/Ambient SFX/Amb - Redesign Bitcrush Amb.wav</value>

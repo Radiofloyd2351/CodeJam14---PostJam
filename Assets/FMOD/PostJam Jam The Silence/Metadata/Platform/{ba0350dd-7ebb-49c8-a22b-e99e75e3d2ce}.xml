@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Platform" id="{ba0350dd-7ebb-49c8-a22b-e99e75e3d2ce}">
 		<property name="hardwareType">
 			<value>0</value>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{ec17e314-8f3f-432d-85c7-68d3c9df9bcc}">
 		<property name="color">
 			<value>Blue</value>
@@ -89,8 +89,8 @@
 	</object>
 	<object class="Timeline" id="{5727c219-a485-4f57-8c8d-7b38d79cac76}">
 		<relationship name="modules">
-			<destination>{3d198044-e304-41a5-9752-44ccc04f1e16}</destination>
 			<destination>{18461dc9-0e65-4cd2-b422-4d4ec0fff002}</destination>
+			<destination>{3d198044-e304-41a5-9752-44ccc04f1e16}</destination>
 			<destination>{7ea4d948-5d52-482f-ae04-b5eda2cdd254}</destination>
 		</relationship>
 		<relationship name="markers">

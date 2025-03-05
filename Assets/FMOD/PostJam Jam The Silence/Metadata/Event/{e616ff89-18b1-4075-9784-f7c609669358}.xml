@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{e616ff89-18b1-4075-9784-f7c609669358}">
 		<property name="color">
 			<value>Green</value>
@@ -130,8 +130,8 @@
 			<value>-19</value>
 		</property>
 		<relationship name="modulators">
-			<destination>{d3bd7951-5106-499f-b427-233ddf932c54}</destination>
 			<destination>{3a45a6c6-2640-4000-bb25-8ea6fcb81c70}</destination>
+			<destination>{d3bd7951-5106-499f-b427-233ddf932c54}</destination>
 			<destination>{20e64d37-5dce-424f-967b-0f9a693dcae8}</destination>
 		</relationship>
 		<relationship name="sounds">
@@ -236,20 +236,20 @@
 			<value>0</value>
 		</property>
 	</object>
-	<object class="RandomizerModulator" id="{d3bd7951-5106-499f-b427-233ddf932c54}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>startOffset</value>
-		</property>
-		<property name="amount">
-			<value>10.5</value>
-		</property>
-	</object>
 	<object class="RandomizerModulator" id="{3a45a6c6-2640-4000-bb25-8ea6fcb81c70}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>
 		</property>
 		<property name="amount">
 			<value>6</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{d3bd7951-5106-499f-b427-233ddf932c54}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>startOffset</value>
+		</property>
+		<property name="amount">
+			<value>10.5</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{20e64d37-5dce-424f-967b-0f9a693dcae8}">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{c68cc3f8-b00f-4b2f-80aa-479b785c85f2}">
 		<property name="assetPath">
 			<value>SFX/Walk/Walk Step4.wav</value>

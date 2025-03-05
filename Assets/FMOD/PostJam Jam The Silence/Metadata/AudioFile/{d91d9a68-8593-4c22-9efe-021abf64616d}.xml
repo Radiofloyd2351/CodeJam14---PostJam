@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{d91d9a68-8593-4c22-9efe-021abf64616d}">
 		<property name="assetPath">
 			<value>SFX/Walk/Redesign - Walk 8-2.wav</value>

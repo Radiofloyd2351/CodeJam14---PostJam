@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{2c36758e-c0b6-4455-bf1d-2103ec3b02a2}">
 		<property name="assetPath">
 			<value>SFX/Slime/Slime Squish 2.wav</value>
