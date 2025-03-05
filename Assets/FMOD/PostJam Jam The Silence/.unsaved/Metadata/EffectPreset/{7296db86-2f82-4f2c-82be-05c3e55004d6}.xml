@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EffectPreset" id="{7296db86-2f82-4f2c-82be-05c3e55004d6}">
+		<property name="name">
+			<value>Slime</value>
+		</property>
+		<relationship name="folder">
+			<destination>{8d4e0c2a-c6c3-44d4-81f8-c0ae1327eb25}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{a3a29339-2726-4152-a48e-26981a1a385b}</destination>
+		</relationship>
+	</object>
+	<object class="EffectChain" id="{a3a29339-2726-4152-a48e-26981a1a385b}">
+		<relationship name="effects">
+			<destination>{227739ad-276e-4d3b-8be9-bfbc631b7e85}</destination>
+			<destination>{4a298acb-0d23-40d3-b6fd-2e8d0c6cf4bb}</destination>
+			<destination>{711b7589-813b-4f67-959b-78ce00622eaa}</destination>
+			<destination>{d756ea6e-6546-4ff7-9a7c-00e0242b306c}</destination>
+			<destination>{e96b5b71-bf9a-4517-861f-1821bdaaf8ff}</destination>
+			<destination>{624770a5-a464-479c-8871-9aea751fea5d}</destination>
+		</relationship>
+	</object>
+	<object class="ThreeEQEffect" id="{227739ad-276e-4d3b-8be9-bfbc631b7e85}">
+		<property name="lowGain">
+			<value>-2</value>
+		</property>
+		<property name="midGain">
+			<value>2.5</value>
+		</property>
+		<property name="highGain">
+			<value>-2.5</value>
+		</property>
+		<property name="lowCrossover">
+			<value>460</value>
+		</property>
+		<property name="highCrossover">
+			<value>8500</value>
+		</property>
+		<property name="crossoverSlope">
+			<value>2</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{4a298acb-0d23-40d3-b6fd-2e8d0c6cf4bb}">
+		<property name="threshold">
+			<value>-35.5</value>
+		</property>
+		<property name="ratio">
+			<value>3.29999995</value>
+		</property>
+		<property name="attackTime">
+			<value>28</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{711b7589-813b-4f67-959b-78ce00622eaa}">
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>8841.00391</value>
+		</property>
+		<property name="frequencyB">
+			<value>72.2634354</value>
+		</property>
+		<property name="frequencyC">
+			<value>766.855774</value>
+		</property>
+		<property name="qualityA">
+			<value>0.518620729</value>
+		</property>
+		<property name="qualityC">
+			<value>2.60000014</value>
+		</property>
+		<property name="gainB">
+			<value>-20.6896553</value>
+		</property>
+		<property name="gainC">
+			<value>-7.24137878</value>
+		</property>
+	</object>
+	<object class="LimiterEffect" id="{d756ea6e-6546-4ff7-9a7c-00e0242b306c}">
+		<property name="boost">
+			<value>1.20000005</value>
+		</property>
+		<property name="ceiling">
+			<value>-9.19999981</value>
+		</property>
+	</object>
+	<object class="SpatialiserEffect" id="{e96b5b71-bf9a-4517-861f-1821bdaaf8ff}">
+		<property name="distanceRolloffType">
+			<value>2</value>
+		</property>
+		<property name="minimumDistance">
+			<value>7.80000019</value>
+		</property>
+		<property name="maximumDistance">
+			<value>95</value>
+		</property>
+		<property name="userStereoSeparation">
+			<value>0</value>
+		</property>
+	</object>
+	<object class="MixerSend" id="{624770a5-a464-479c-8871-9aea751fea5d}">
+		<property name="level">
+			<value>-42</value>
+		</property>
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{56a0e08b-1ccf-4225-b25e-52fc7b83c7c7}</destination>
+		</relationship>
+	</object>
+</objects>

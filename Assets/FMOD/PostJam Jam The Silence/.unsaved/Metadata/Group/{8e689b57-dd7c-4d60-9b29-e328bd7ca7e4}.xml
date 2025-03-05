@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MixerGroup" id="{8e689b57-dd7c-4d60-9b29-e328bd7ca7e4}">
+		<property name="color">
+			<value>Green</value>
+		</property>
+		<property name="name">
+			<value>Slime</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{7182a545-6146-4497-876a-74f949efe7d5}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{b97ec08f-143d-4183-a201-1e1a56103ba3}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{5f42fe12-5d9a-4a53-967c-9a6db7d25076}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{7182a545-6146-4497-876a-74f949efe7d5}">
+		<relationship name="effects">
+			<destination>{e881f90e-e12d-42a7-bbfa-196264c48ece}</destination>
+			<destination>{4a2cd1c4-9851-4c7f-9232-a3ff9ef81160}</destination>
+			<destination>{8188321d-4bae-4ce9-8ccc-51c0826a892a}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{b97ec08f-143d-4183-a201-1e1a56103ba3}" />
+	<object class="MixerBusFader" id="{e881f90e-e12d-42a7-bbfa-196264c48ece}" />
+	<object class="CompressorEffect" id="{4a2cd1c4-9851-4c7f-9232-a3ff9ef81160}">
+		<property name="threshold">
+			<value>-51</value>
+		</property>
+		<property name="attackTime">
+			<value>46</value>
+		</property>
+		<property name="releaseTime">
+			<value>74</value>
+		</property>
+		<property name="gain">
+			<value>9.5</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{8188321d-4bae-4ce9-8ccc-51c0826a892a}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>720.641174</value>
+		</property>
+		<property name="qualityA">
+			<value>0.519999981</value>
+		</property>
+		<property name="gainA">
+			<value>-3</value>
+		</property>
+	</object>
+</objects>
