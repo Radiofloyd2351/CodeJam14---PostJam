@@ -53,7 +53,7 @@ public class WobbleEnemyMovement : AbsEnemyMovement
                 CoroutineManager.instance.tester.color = Color.blue;
                 ctx.SetDirection(Vector2.zero);
                 _body.velocity = Vector2.zero;
-                ctx.PlaySound<int>(ctx.baseSoundDir + "WindUp");
+                ctx.PlaySound<int>(ctx.baseSoundDir + "Abilities/WindUp");
                 yield return new WaitForSeconds(1f);
                 ctx.SetDirection((target.transform.position - ctx.gameObject.transform.position).normalized);
                 ctx.RunMoveAnim(ctx.GetDirection());

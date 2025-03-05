@@ -21,7 +21,6 @@ namespace Movement
 
         public Dash(float speed = 15f, float length = 3f, bool withSlide = false)
         {
-            _eventInstance = FMODUnity.RuntimeManager.CreateInstance(AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY_ABILITIES + "Dash");
             this.speed = speed;
             this.length = length;
             this.withSlide = withSlide;
@@ -72,12 +71,11 @@ namespace Movement
             ctx.DisableMovement();
             ctx.Body.velocity = Vector3.zero;
             ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass * ctx.Body.drag);
-            _eventInstance.start();
             Debug.Log("SPEED IS: " + speed * 50 * ctx.GetLastDirection().normalized);
             _onCooldown = true;
-            ctx.PlaySound<int>(ctx.baseSoundDir + "Dash");
+            ctx.PlaySound<int>(ctx.baseSoundDir + "Abilities/Dash");
             yield return new WaitForSeconds(length/speed);
-            ctx.PlaySound<Null>(ctx.baseSoundDir + "Land");
+            ctx.PlaySound<int>(ctx.baseSoundDir + "Abilities/Land");
             Vector3 savedVelocity = ctx.Body.velocity;
             if (withSlide) {
                 yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, 10), SLIDE_ID + ctx.id);
