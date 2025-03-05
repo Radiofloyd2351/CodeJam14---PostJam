@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638767387001535698
+  lastModified: 638767524874495192
   FileSizes:
   - Name: Desktop
-    Value: 1962
+    Value: 2000
   Exists: 1
 --- !u!114 &-7636068568066509203
 MonoBehaviour:
@@ -121,10 +121,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 638767410402987189
+  lastModified: 638767524874330677
   FileSizes:
   - Name: Desktop
-    Value: 120448
+    Value: 120864
   Exists: 1
 --- !u!114 &-4706324362111102335
 MonoBehaviour:
@@ -272,7 +272,7 @@ MonoBehaviour:
   - {fileID: -9016736872813275045}
   StringsBanks:
   - {fileID: 1110263652952514318}
-  cacheTime: 638767410402987189
+  cacheTime: 638767524874518448
   cacheVersion: 131846
 --- !u!114 &829841148262363988
 MonoBehaviour:
@@ -316,10 +316,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638767387001558505
+  lastModified: 638767524874518448
   FileSizes:
   - Name: Desktop
-    Value: 1766
+    Value: 1778
   Exists: 1
 --- !u!114 &1352284884649928276
 MonoBehaviour:
@@ -388,10 +388,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Ambient.bank
   Name: Ambient
   StudioPath: bank:/Ambient
-  lastModified: 638766137791018095
+  lastModified: 638767524872413772
   FileSizes:
   - Name: Desktop
-    Value: 21660544
+    Value: 21661376
   Exists: 1
 --- !u!114 &3020755223408677082
 MonoBehaviour:
