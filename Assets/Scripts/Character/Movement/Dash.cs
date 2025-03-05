@@ -38,7 +38,7 @@ namespace Movement
             if (ctx.PayStamina(1f)) {
                 if (!_onCooldown && !_isDashing) {
                     CoroutineManager.instance.RunCoroutine(DashFunction(ctx), COROUTINE_DASH_ID + ctx.id);
-                } else {
+                } else if (_isDashing) {
                     _isPenalised = true;
                 }
             }
@@ -66,8 +66,7 @@ namespace Movement
 
         virtual protected IEnumerator DashFunction(Entity ctx)
         {
-            ctx.RunAnim(ctx.GetLastDirection());
-            ctx.StopAnims();
+            ctx.RunDashAnim(ctx.GetLastDirection());
             CoroutineManager.instance.CancelCoroutine(SLIDE_ID + ctx.id);
             ctx.DisableMovement();
             ctx.Body.velocity = Vector3.zero;

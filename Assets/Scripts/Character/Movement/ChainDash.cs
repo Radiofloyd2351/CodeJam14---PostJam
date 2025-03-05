@@ -49,8 +49,7 @@ namespace Movement
 
         override protected IEnumerator DashFunction(Entity ctx) {
             _isDashing = true;
-            ctx.RunAnim(ctx.GetLastDirection());
-            ctx.StopAnims();
+            ctx.RunDashAnim(ctx.GetLastDirection());
             _currentDashAmount++;
             CoroutineManager.instance.CancelCoroutine(TIME_WINDOW_ID + ctx.id);
             CoroutineManager.instance.CancelCoroutine(SLIDE_ID + ctx.id);
@@ -61,6 +60,9 @@ namespace Movement
             yield return new WaitForSeconds(LENGTH/speed);
             Vector3 savedVelocity = ctx.Body.velocity;
             if (_currentDashAmount > _maxDashAmount || _isPenalised) {
+                if (_isPenalised) {
+                    ctx.PayStamina(ctx.GetStamina());
+                }
                 _onCooldown = true;
                 CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, 0f), TIME_WINDOW_ID + ctx.id);
                 yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);

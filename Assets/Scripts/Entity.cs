@@ -21,12 +21,13 @@ public abstract class Entity : MonoBehaviour {
     [SerializeField] private GameObject _staminaBar;
     [SerializeField] private GameObject _staminaContainer;
     private float _stamina;
-    private float _maxStamina = 10f;
+    private float _maxStamina = 100f;
     const int STAMINA_ID = 4000;
     private float _stamina_regen_cooldown = 2f;
     private float _stamina_regen = 1f;
     private float _stamina_bar_size;
     public AbsPlayerMovementAbility moveAbility = null;
+    public string soundBank;
 
     [SerializeField] public float speed;
 
@@ -61,7 +62,7 @@ public abstract class Entity : MonoBehaviour {
         yield return new WaitForSeconds(_stamina_regen_cooldown);
         float t = 0;
         while (_stamina < _maxStamina) {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.01f);
             _stamina += _stamina_regen;
             if (_stamina > _maxStamina) {
                 _stamina = _maxStamina;
@@ -78,18 +79,25 @@ public abstract class Entity : MonoBehaviour {
         return _stamina;
     }
 
-    public void RunAnim(Vector2 velocity) {
+    public void RunMoveAnim(Vector2 velocity) {
         _animator.SetBool("IsMoving", true);
         _animator.SetFloat("x", velocity.x);
         _animator.SetFloat("y", velocity.y);
     }
 
-    public void RunAnim(Direction direction) {
+    public void RunDashAnim(Vector2 velocity) {
+        _animator.SetBool("IsDashing", true);
+        _animator.SetFloat("x", velocity.x);
+        _animator.SetFloat("y", velocity.y);
+    }
+
+    public void RunMoveAnim(Direction direction) {
         _animator.SetBool("IsMoving", true);
         _animator.SetInteger("Direction", (int)direction);
     }
 
     public void StopAnims() {
+        _animator.SetBool("IsDashing", false);
         _animator.SetBool("IsMoving", false);
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1187e1056d4df4b4ba962d529ac40881
+guid: b1555cbc804ccfc47bd1690a2f202a2b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_0
+      name: charactersAnimsBandeau_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2c2b099419c2d44ba16eeffd48205e2
-      internalID: 1059455753
+      spriteID: 130a8c5147b25f94c887784fe2bc2d7c
+      internalID: -757058293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_1
+      name: charactersAnimsBandeau_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37761b586dbdebc439ce3dc527b257c1
-      internalID: 1042152564
+      spriteID: 7c9e73c588746824cab3df1d45195cf8
+      internalID: 1492208331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_2
+      name: charactersAnimsBandeau_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23cacd7bb3460934fbd7c0f582e29e5c
-      internalID: -2057472782
+      spriteID: e39bb5fc0be9cd149ba00b0f91944f2d
+      internalID: 95726690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_3
+      name: charactersAnimsBandeau_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,14 +187,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c8f119fd7f559e49979e5fa6133cf87
-      internalID: -1661458708
+      spriteID: dbadca0af0fa10646bb787713fdc7890
+      internalID: 2113436795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_4
+      name: charactersAnimsBandeau_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356b8101c7cb4d44bb9ac5e77bf6730c
+      internalID: 411591507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baad16bbb6eddeb4082e4fc29c3470ff
+      internalID: -1278959187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a0a1bb887b935946899faf15cb0b5c4
+      internalID: 1245580706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_7
       rect:
         serializedVersion: 2
         x: 0
@@ -208,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90bb658411141f54085da9e4aad7ff51
-      internalID: -856928338
+      spriteID: 0eac465037cff1f48ba7e3037fd87696
+      internalID: -453378828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_5
+      name: charactersAnimsBandeau_8
       rect:
         serializedVersion: 2
         x: 32
@@ -229,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6117129a1a7d16c4b8a6a791f01ea8b6
-      internalID: 1097051735
+      spriteID: 96e4e3b23a295054a9245288e7d88b53
+      internalID: 954220650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_6
+      name: charactersAnimsBandeau_9
       rect:
         serializedVersion: 2
         x: 64
@@ -250,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43b217fc5bc1f6c468e2fb156e82c406
-      internalID: 446152313
+      spriteID: 6ead627f25a39424ab51ebc800389f2b
+      internalID: -689978626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_7
+      name: charactersAnimsBandeau_10
       rect:
         serializedVersion: 2
         x: 96
@@ -271,14 +334,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7ef2f6926fc36e47b9c7c65efec2869
-      internalID: 2011325203
+      spriteID: 3de087eabd04d4946b0c66d2b5bb757a
+      internalID: 1651227545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_8
+      name: charactersAnimsBandeau_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f81870b6fbaf9de47afda50302042e65
+      internalID: 1631235919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a14e4ddb28e73049a82b1c1eddf1bf5
+      internalID: 1290956815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f0e393e50ddbc47817129bb10d7cc1
+      internalID: -1762527715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_14
       rect:
         serializedVersion: 2
         x: 0
@@ -292,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 844ade4cdf40ae747aca9b9fbb63977f
-      internalID: -854133179
+      spriteID: 524299e0644d76a47a4bcd9d93d4bb95
+      internalID: -425227499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_9
+      name: charactersAnimsBandeau_15
       rect:
         serializedVersion: 2
         x: 32
@@ -313,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16dd9a26bd2c20644b759cc33d558408
-      internalID: 1349914577
+      spriteID: 35c797b9d56dbcb458f36ad0d0016698
+      internalID: -742992202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_10
+      name: charactersAnimsBandeau_16
       rect:
         serializedVersion: 2
         x: 64
@@ -334,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f473d31d07cbf5d449855271af6ae6a4
-      internalID: 1947258397
+      spriteID: b658aacfef8fa9944b59e8a1ed9e1725
+      internalID: -1993837685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_11
+      name: charactersAnimsBandeau_17
       rect:
         serializedVersion: 2
         x: 96
@@ -355,14 +481,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f18b7d979d9f9b4eac1ff77f31a98bf
-      internalID: -1971762176
+      spriteID: da2cddf206dc0f049a5ef062c61acf2c
+      internalID: -1261908640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_12
+      name: charactersAnimsBandeau_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3d33ce38ef37442aa2009c22ad7870
+      internalID: -978258035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_19
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4acbb8bf9f191d4c935bf9493c66c83
+      internalID: 1881463363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62a45fb6a3f70242b3d30a0a8e6f841
+      internalID: -1185392175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_21
       rect:
         serializedVersion: 2
         x: 0
@@ -376,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd51073536a4b3d41a5883abcacba2ec
-      internalID: 1907369787
+      spriteID: 734f345b4ceb8454e8e84021c1b348e7
+      internalID: 2887285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_13
+      name: charactersAnimsBandeau_22
       rect:
         serializedVersion: 2
         x: 32
@@ -397,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfe89251e92838b47809072e6b29998f
-      internalID: -1175181932
+      spriteID: d84590317af94d0489f81c8cd4884f97
+      internalID: -1711728613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_14
+      name: charactersAnimsBandeau_23
       rect:
         serializedVersion: 2
         x: 64
@@ -418,14 +607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49454800d9c654d4da264526c564a6af
-      internalID: -1213012972
+      spriteID: de16294d387d9994fbdbd44424f19885
+      internalID: -1774699813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_15
+      name: charactersAnimsBandeau_24
       rect:
         serializedVersion: 2
         x: 96
@@ -439,18 +628,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bee70c96dd5445b439375da2aae049ec
-      internalID: -1176975377
+      spriteID: f701f6e4d11ce9f40a44ac3fd60c95fd
+      internalID: -1625118637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_16
+      name: charactersAnimsBandeau_25
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 128
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -460,18 +649,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7743c550c63885842af801222c90dbf1
-      internalID: 887759495
+      spriteID: b45c37b7c16d14d4c8df1f466f600121
+      internalID: 1287408521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_17
+      name: charactersAnimsBandeau_26
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 160
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -481,18 +670,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e1c77d55cedce142af51e1b8464e3a1
-      internalID: 2140791786
+      spriteID: 09e322c7291470d4fa9b1016e2d797ae
+      internalID: 300615519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau-export_18
+      name: charactersAnimsBandeau_27
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 192
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -502,113 +691,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcd871231fbffcf4f950685b3c229a58
-      internalID: 965363090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charactersAnimsBandeau-export_19
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf69d5a5068e8be4eb23e95b3e4c1467
-      internalID: -1000598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charactersAnimsBandeau-export_20
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5032f7a29b3183a41bc9c5d9e2fc0cc9
-      internalID: 1709893179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charactersAnimsBandeau-export_21
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70f168cf578135d44b210162e17a3601
-      internalID: -767466268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charactersAnimsBandeau-export_22
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7a5dda69f1fca74b9adad27a9fb5d60
-      internalID: -1122120738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: charactersAnimsBandeau-export_23
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ed3b54c7c336a1428416131a4b78385
-      internalID: -2019483120
+      spriteID: 26e375a615e2b5e46913027184d1f6e9
+      internalID: 271648429
       vertices: []
       indices: 
       edges: []
@@ -624,30 +708,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charactersAnimsBandeau-export_0: 1059455753
-      charactersAnimsBandeau-export_1: 1042152564
-      charactersAnimsBandeau-export_10: 1947258397
-      charactersAnimsBandeau-export_11: -1971762176
-      charactersAnimsBandeau-export_12: 1907369787
-      charactersAnimsBandeau-export_13: -1175181932
-      charactersAnimsBandeau-export_14: -1213012972
-      charactersAnimsBandeau-export_15: -1176975377
-      charactersAnimsBandeau-export_16: 887759495
-      charactersAnimsBandeau-export_17: 2140791786
-      charactersAnimsBandeau-export_18: 965363090
-      charactersAnimsBandeau-export_19: -1000598
-      charactersAnimsBandeau-export_2: -2057472782
-      charactersAnimsBandeau-export_20: 1709893179
-      charactersAnimsBandeau-export_21: -767466268
-      charactersAnimsBandeau-export_22: -1122120738
-      charactersAnimsBandeau-export_23: -2019483120
-      charactersAnimsBandeau-export_3: -1661458708
-      charactersAnimsBandeau-export_4: -856928338
-      charactersAnimsBandeau-export_5: 1097051735
-      charactersAnimsBandeau-export_6: 446152313
-      charactersAnimsBandeau-export_7: 2011325203
-      charactersAnimsBandeau-export_8: -854133179
-      charactersAnimsBandeau-export_9: 1349914577
+      charactersAnimsBandeau_0: -757058293
+      charactersAnimsBandeau_1: 1492208331
+      charactersAnimsBandeau_10: 1651227545
+      charactersAnimsBandeau_11: 1631235919
+      charactersAnimsBandeau_12: 1290956815
+      charactersAnimsBandeau_13: -1762527715
+      charactersAnimsBandeau_14: -425227499
+      charactersAnimsBandeau_15: -742992202
+      charactersAnimsBandeau_16: -1993837685
+      charactersAnimsBandeau_17: -1261908640
+      charactersAnimsBandeau_18: -978258035
+      charactersAnimsBandeau_19: 1881463363
+      charactersAnimsBandeau_2: 95726690
+      charactersAnimsBandeau_20: -1185392175
+      charactersAnimsBandeau_21: 2887285
+      charactersAnimsBandeau_22: -1711728613
+      charactersAnimsBandeau_23: -1774699813
+      charactersAnimsBandeau_24: -1625118637
+      charactersAnimsBandeau_25: 1287408521
+      charactersAnimsBandeau_26: 300615519
+      charactersAnimsBandeau_27: 271648429
+      charactersAnimsBandeau_3: 2113436795
+      charactersAnimsBandeau_4: 411591507
+      charactersAnimsBandeau_5: -1278959187
+      charactersAnimsBandeau_6: 1245580706
+      charactersAnimsBandeau_7: -453378828
+      charactersAnimsBandeau_8: 954220650
+      charactersAnimsBandeau_9: -689978626
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

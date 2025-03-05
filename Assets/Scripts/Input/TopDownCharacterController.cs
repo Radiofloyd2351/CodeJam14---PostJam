@@ -62,7 +62,7 @@ public class TopDownCharacterController : MonoBehaviour {
         if (body != null) {
             if (!isFrozen) {
                 body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * stats.speed;
-                DefaultValues.playerStats.RunAnim(body.velocity);
+                DefaultValues.playerStats.RunMoveAnim(body.velocity);
             }
             if (body.velocity.magnitude != 0) {
                 LastDirection = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
@@ -167,7 +167,8 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.BasicActions.Movement.started += MovementHandlingEnable;
         _controls.BasicActions.Movement.performed += MovementHandlingPerform;*/
         if (isPressed) {
-            stats.RunAnim(LastDirection);
+            stats.StopAnims();
+            stats.RunMoveAnim(LastDirection);
         }
     }
 }

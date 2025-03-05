@@ -18,7 +18,7 @@ public class WobbleEnemyMovement : AbsEnemyMovement
             Vector2 dir = new Vector2(x, y);
             ctx.SetDirection(dir);
             _sprite.flipX = x > 0;
-            ctx.RunAnim(dir);
+            ctx.RunMoveAnim(dir);
 
             _body.AddForce(ctx.GetDirection() * ctx.speed * _body.mass);
             yield return new WaitForSeconds(cycleloop);
@@ -34,7 +34,7 @@ public class WobbleEnemyMovement : AbsEnemyMovement
             _body.velocity = Vector3.zero;
             ctx.SetDirection((target.transform.position - ctx.gameObject.transform.position).normalized);
             _sprite.flipX = ctx.GetDirection().x > 0;
-            ctx.RunAnim(ctx.GetDirection());
+            ctx.RunMoveAnim(ctx.GetDirection());
             _body.AddForce(ctx.GetDirection() * ctx.speed * ctx.agressionModifier * _body.mass);
             if (Vector3.Distance(target.gameObject.transform.position, ctx.gameObject.transform.position) < ctx.aggressionDistance) {
                 CoroutineManager.instance.tester.color = Color.blue;
@@ -42,7 +42,7 @@ public class WobbleEnemyMovement : AbsEnemyMovement
                 _body.velocity = Vector2.zero;
                 yield return new WaitForSeconds(1f);
                 ctx.SetDirection((target.transform.position - ctx.gameObject.transform.position).normalized);
-                ctx.RunAnim(ctx.GetDirection());
+                ctx.RunMoveAnim(ctx.GetDirection());
                 CoroutineManager.instance.tester.color = Color.red;
                 ctx.moveAbility.Move(ctx);
                 yield return new WaitForSeconds(1f);

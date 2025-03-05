@@ -59,7 +59,7 @@ public class ZoneDelimiting : MonoBehaviour {
 
     private IEnumerator LoopMovement(Direction direction) {
         _controls.DisableControls();
-        _playerStats.RunAnim(direction);
+        _playerStats.RunMoveAnim(direction);
         Debug.Log("bafanada + " + started + " *ghasp* " + direction);
         int count = 0;
         while (count < 20) {
