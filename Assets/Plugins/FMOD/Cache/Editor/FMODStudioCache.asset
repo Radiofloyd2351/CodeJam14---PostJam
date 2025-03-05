@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638767544177681248
+  lastModified: 638767908054802973
   FileSizes:
   - Name: Desktop
     Value: 2870
@@ -102,7 +102,8 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: 4198947216519921787}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -121,10 +122,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 638767544177626158
+  lastModified: 638767941605574449
   FileSizes:
   - Name: Desktop
-    Value: 121504
+    Value: 160736
   Exists: 1
 --- !u!114 &-4706324362111102335
 MonoBehaviour:
@@ -272,7 +273,7 @@ MonoBehaviour:
   - {fileID: -9016736872813275045}
   StringsBanks:
   - {fileID: 1110263652952514318}
-  cacheTime: 638767544177696324
+  cacheTime: 638767941605574449
   cacheVersion: 131846
 --- !u!114 &829841148262363988
 MonoBehaviour:
@@ -316,10 +317,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638767544177696324
+  lastModified: 638767908054818031
   FileSizes:
   - Name: Desktop
-    Value: 1778
+    Value: 1824
   Exists: 1
 --- !u!114 &1352284884649928276
 MonoBehaviour:
@@ -519,6 +520,30 @@ MonoBehaviour:
     data1: 3694052898
     data2: 2129277547
   Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &4198947216519921787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Dash/ContinuousDashes
+  m_EditorClassIdentifier: 
+  Name: ContinuousDashes
+  StudioPath: 
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 3126438000
+    data2: 3365150726
+  Type: 1
   IsGlobal: 0
   Labels: []
   Exists: 1

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0712b3d9-f534-42f3-9f32-1494a19d6b0b}">
+		<property name="assetPath">
+			<value>SFX/Player/Walk/Redesign - Walk 3-2.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ffec25dd-19b8-4468-950f-482f92dc5e99}</destination>
+		</relationship>
+	</object>
+</objects>

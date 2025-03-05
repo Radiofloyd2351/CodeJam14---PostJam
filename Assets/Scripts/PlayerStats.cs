@@ -19,7 +19,7 @@ public class PlayerStats : Entity
     }
 
     public void PlayWalkSound() {
-        PlaySound(baseSoundDir + "Walk");
+        PlaySound<int>(baseSoundDir + "Walk");
     }
 
     public override Vector2 GetDirection() {

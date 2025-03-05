@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Movement;
 using FMODUnity;
+using FMOD.Studio;
+using System;
 
 public delegate IEnumerator EntityPlayerEventHandler(Entity target);
 public abstract class Entity : MonoBehaviour {
@@ -44,11 +46,42 @@ public abstract class Entity : MonoBehaviour {
     }
 
 
-    public void PlaySound(string sound) {
+    public void PlaySound<T>(string sound, KeyValuePair<string, T>? parameterPairs = null) {
         if (!EventManager.IsInitialized) {
             return;
         }
-        RuntimeManager.PlayOneShotAttached(EventReference.Find(sound), gameObject);
+        EventInstance soundEvent = RuntimeManager.CreateInstance(EventReference.Find(sound));
+        RuntimeManager.AttachInstanceToGameObject(soundEvent, gameObject);
+        if (parameterPairs != null) {
+            if (typeof(T) == typeof(string)) {
+                soundEvent.setParameterByNameWithLabel(parameterPairs.Value.Key, parameterPairs.Value.Value.ToString());
+            }
+            else {
+                Debug.Log("set params Int or float");
+                Debug.Log(parameterPairs.Value.Value);
+                soundEvent.setParameterByName(parameterPairs.Value.Key, Convert.ToSingle(parameterPairs.Value.Value));
+            }
+        }
+        soundEvent.start();
+    }
+
+    public void PlaySoundComplex<T>(string sound, KeyValuePair<string, T>[] parameterPairs = null) {
+        if (!EventManager.IsInitialized) {
+            return;
+        }
+        EventInstance soundEvent = RuntimeManager.CreateInstance(EventReference.Find(sound));
+        RuntimeManager.AttachInstanceToGameObject(soundEvent, gameObject);
+        if (parameterPairs != null) {
+            foreach (KeyValuePair<string, T> pair in parameterPairs) {
+                if (typeof(T) == typeof(string)) {
+                    soundEvent.setParameterByNameWithLabel(pair.Key, pair.Value.ToString());
+                }
+                else {
+                    soundEvent.setParameterByName(pair.Key, Convert.ToSingle(pair.Value));
+                }
+            }
+        }
+        soundEvent.start();
     }
 
     public bool PayStamina(float cost) {

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -12,8 +13,8 @@ namespace Movement
         const float TIME_WINDOW_S = 1f;
         const float LENGTH = 2f;
         private int _maxDashAmount;
+        private int _currentDashAmount;
         public int MaxDashAmount { set { _maxDashAmount = value; } }
-        private int _currentDashAmount = 1;
 
         public ChainDash(Dash copy, int maxDashes = 2) {
             speed = copy.speed;
@@ -56,7 +57,7 @@ namespace Movement
             ctx.DisableMovement();
             Debug.Log("Dashed: " + _currentDashAmount + " and is penalised:  " + _isPenalised);
             ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass);
-            _eventInstance.start();
+            ctx.PlaySound<int>(ctx.baseSoundDir + "Abilities/Dash", new KeyValuePair<string, int>("ContinuousDashes", Mathf.Clamp(_currentDashAmount - 1, 0, 10)));
             yield return new WaitForSeconds(LENGTH/speed);
             Vector3 savedVelocity = ctx.Body.velocity;
             if (_currentDashAmount > _maxDashAmount || _isPenalised) {

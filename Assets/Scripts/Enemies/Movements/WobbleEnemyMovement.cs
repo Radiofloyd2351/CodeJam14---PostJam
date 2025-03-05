@@ -22,7 +22,7 @@ public class WobbleEnemyMovement : AbsEnemyMovement
             _sprite.flipX = x > 0;
             ctx.RunMoveAnim(dir);
 
-            ctx.PlaySound(ctx.baseSoundDir + "Walk");
+            ctx.PlaySound<int>(ctx.baseSoundDir + "Walk");
 
             _body.AddForce(ctx.GetDirection() * ctx.speed * _body.mass);
             yield return new WaitForSeconds(cycleloop);
@@ -37,7 +37,7 @@ public class WobbleEnemyMovement : AbsEnemyMovement
         float i = 0;
         while (targetting) {
 
-            ctx.PlaySound(ctx.baseSoundDir + "Walk");
+            ctx.PlaySound<int>(ctx.baseSoundDir + "Walk");
 
             if (i >= 1) {
                 i = 0;
@@ -53,7 +53,7 @@ public class WobbleEnemyMovement : AbsEnemyMovement
                 CoroutineManager.instance.tester.color = Color.blue;
                 ctx.SetDirection(Vector2.zero);
                 _body.velocity = Vector2.zero;
-                ctx.PlaySound(ctx.baseSoundDir + "WindUp");
+                ctx.PlaySound<int>(ctx.baseSoundDir + "WindUp");
                 yield return new WaitForSeconds(1f);
                 ctx.SetDirection((target.transform.position - ctx.gameObject.transform.position).normalized);
                 ctx.RunMoveAnim(ctx.GetDirection());
