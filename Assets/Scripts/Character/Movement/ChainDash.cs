@@ -6,7 +6,7 @@ namespace Movement
 {
     public class ChainDash : Dash {
         const float COOLDOWN = 1f;
-        const float CONSISTENCY_LATENCY = 0.2f;
+        const float TIME_WINDOW_MS = 0.5f;
         const int TIME_WINDOW_ID = 300;
         const float LENGTH = 2f;
         private int _maxDashAmount;
@@ -62,7 +62,7 @@ namespace Movement
                 CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, 0f), TIME_WINDOW_ID + ctx.id);
                 yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
             } else {
-                CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, CONSISTENCY_LATENCY * 1f), TIME_WINDOW_ID + ctx.id);
+                CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, TIME_WINDOW_MS), TIME_WINDOW_ID + ctx.id);
                 
                 yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
                 
