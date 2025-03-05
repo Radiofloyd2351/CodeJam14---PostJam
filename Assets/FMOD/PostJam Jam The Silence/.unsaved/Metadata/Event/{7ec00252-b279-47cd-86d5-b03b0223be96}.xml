@@ -8,7 +8,7 @@
 			<value>Land</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ef777b4e-05ec-46b9-bd70-a249f0b3ed79}</destination>
@@ -75,9 +75,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{5dced2ec-3728-4abb-88de-2b7bbbf27e1d}">
-		<property name="volume">
-			<value>-8.5</value>
-		</property>
 		<relationship name="effectChain">
 			<destination>{46a81839-5405-4d71-8d75-6da6796305c4}</destination>
 		</relationship>
@@ -102,6 +99,7 @@
 	<object class="MixerBusEffectChain" id="{46a81839-5405-4d71-8d75-6da6796305c4}">
 		<relationship name="effects">
 			<destination>{d9c4692e-294a-434c-8653-76bc4830d82c}</destination>
+			<destination>{b6a50afc-d533-4b92-bc15-8a4916f4f55e}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6109b89e-3fe1-4044-97d1-8f06aedde532}" />
@@ -117,6 +115,14 @@
 	</object>
 	<object class="MixerBusFader" id="{9d189d31-3f54-42d5-9df5-e9bf402d7632}" />
 	<object class="MixerBusFader" id="{d9c4692e-294a-434c-8653-76bc4830d82c}" />
+	<object class="ProxyEffect" id="{b6a50afc-d533-4b92-bc15-8a4916f4f55e}">
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="preset">
+			<destination>{7296db86-2f82-4f2c-82be-05c3e55004d6}</destination>
+		</relationship>
+	</object>
 	<object class="RandomizerModulator" id="{242d38b7-d468-4300-8315-62b5ba58a3b6}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>
