@@ -8,7 +8,7 @@
 			<value>Dash</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ef777b4e-05ec-46b9-bd70-a249f0b3ed79}</destination>
@@ -62,7 +62,14 @@
 			<destination>{8e689b57-dd7c-4d60-9b29-e328bd7ca7e4}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{7109178a-8800-458f-8618-bf87ed5bb0fa}" />
+	<object class="EventAutomatableProperties" id="{7109178a-8800-458f-8618-bf87ed5bb0fa}">
+		<property name="minimumDistance">
+			<value>7.20000029</value>
+		</property>
+		<property name="maximumDistance">
+			<value>75</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{f45541ae-53e8-4e3e-acdd-cd62f64e430f}" />
 	<object class="Timeline" id="{6f12ed2c-7bd0-4632-8cda-600e2b097aa2}">
 		<property name="isProxyEnabled">
@@ -76,7 +83,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{96dd4401-6d60-4654-8bc2-f16ebf75ed14}">
 		<property name="volume">
-			<value>-10</value>
+			<value>-13.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{e9a68bc1-e281-4489-b682-4b1e5c9f91ce}</destination>
@@ -102,9 +109,14 @@
 	<object class="MixerBusEffectChain" id="{e9a68bc1-e281-4489-b682-4b1e5c9f91ce}">
 		<relationship name="effects">
 			<destination>{e16e8684-0375-4b87-aca9-39d8ace731ac}</destination>
+			<destination>{b50512ab-aff9-4c4b-930c-3a68dd2cf2f4}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{44d7ba12-2521-4f47-8253-c0af20b1a93a}" />
+	<object class="MixerBusPanner" id="{44d7ba12-2521-4f47-8253-c0af20b1a93a}">
+		<property name="surroundLFELevel">
+			<value>10</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{62b64467-c8d8-4a94-b72a-2d7caf3d5d97}">
 		<relationship name="modulators">
 			<destination>{a04ec11f-6c43-4df0-81a3-f73bbc1d1634}</destination>
@@ -117,6 +129,14 @@
 	</object>
 	<object class="MixerBusFader" id="{51117802-b5d9-444a-b7ca-3861526fc2d9}" />
 	<object class="MixerBusFader" id="{e16e8684-0375-4b87-aca9-39d8ace731ac}" />
+	<object class="ProxyEffect" id="{b50512ab-aff9-4c4b-930c-3a68dd2cf2f4}">
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="preset">
+			<destination>{e1ceea81-ff4f-4309-bfcc-7f74a83e1049}</destination>
+		</relationship>
+	</object>
 	<object class="RandomizerModulator" id="{a04ec11f-6c43-4df0-81a3-f73bbc1d1634}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>startOffset</value>

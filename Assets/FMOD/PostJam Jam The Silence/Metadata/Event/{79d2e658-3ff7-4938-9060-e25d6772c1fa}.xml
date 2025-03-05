@@ -8,7 +8,7 @@
 			<value>WindUp</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ef777b4e-05ec-46b9-bd70-a249f0b3ed79}</destination>
@@ -76,7 +76,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{8df7430f-df0d-42ee-92fb-357764eb8f45}">
 		<property name="volume">
-			<value>-12</value>
+			<value>-13.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{c656b8b4-44ed-44a9-8f95-8f266769cce9}</destination>
@@ -102,6 +102,7 @@
 	<object class="MixerBusEffectChain" id="{c656b8b4-44ed-44a9-8f95-8f266769cce9}">
 		<relationship name="effects">
 			<destination>{6e56d8a6-4dc8-4f9b-bda1-822dc21272ff}</destination>
+			<destination>{ab92658f-1bd3-4489-b62a-a0ae3a2be573}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{bc189900-af6d-4834-8364-36ee9797ed18}" />
@@ -117,6 +118,14 @@
 	</object>
 	<object class="MixerBusFader" id="{7a2b8961-dbdb-4a6f-94d1-2508b5136b8b}" />
 	<object class="MixerBusFader" id="{6e56d8a6-4dc8-4f9b-bda1-822dc21272ff}" />
+	<object class="ProxyEffect" id="{ab92658f-1bd3-4489-b62a-a0ae3a2be573}">
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="preset">
+			<destination>{e1ceea81-ff4f-4309-bfcc-7f74a83e1049}</destination>
+		</relationship>
+	</object>
 	<object class="RandomizerModulator" id="{469c6255-0e9f-41a4-abc3-fb535bcbbce7}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>

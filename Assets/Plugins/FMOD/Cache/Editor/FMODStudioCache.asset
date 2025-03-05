@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638767524874495192
+  lastModified: 638767544177681248
   FileSizes:
   - Name: Desktop
-    Value: 2000
+    Value: 2870
   Exists: 1
 --- !u!114 &-7636068568066509203
 MonoBehaviour:
@@ -121,10 +121,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 638767524874330677
+  lastModified: 638767544177626158
   FileSizes:
   - Name: Desktop
-    Value: 120864
+    Value: 121504
   Exists: 1
 --- !u!114 &-4706324362111102335
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -4828962500586427796}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -272,7 +272,7 @@ MonoBehaviour:
   - {fileID: -9016736872813275045}
   StringsBanks:
   - {fileID: 1110263652952514318}
-  cacheTime: 638767524874518448
+  cacheTime: 638767544177696324
   cacheVersion: 131846
 --- !u!114 &829841148262363988
 MonoBehaviour:
@@ -316,7 +316,7 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638767524874518448
+  lastModified: 638767544177696324
   FileSizes:
   - Name: Desktop
     Value: 1778
@@ -388,7 +388,7 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Ambient.bank
   Name: Ambient
   StudioPath: bank:/Ambient
-  lastModified: 638767524872413772
+  lastModified: 638767536670673606
   FileSizes:
   - Name: Desktop
     Value: 21661376
@@ -465,11 +465,11 @@ MonoBehaviour:
   Banks:
   - {fileID: -4828962500586427796}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 7.2000003
+  MaxDistance: 75
   Length: 0
 --- !u!114 &3930782864320652180
 MonoBehaviour:
@@ -492,7 +492,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -4828962500586427796}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
