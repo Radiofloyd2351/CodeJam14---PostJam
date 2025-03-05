@@ -62,11 +62,12 @@ public class TopDownCharacterController : MonoBehaviour {
         if (body != null) {
             if (!isFrozen) {
                 body.velocity = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1) * stats.speed;
-                DefaultValues.playerStats.RunAnim(body.velocity);
+                DefaultValues.playerStats.RunMoveAnim(body.velocity);
             }
             if (body.velocity.magnitude != 0) {
                 LastDirection = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
             }
+            // TODO: Add Back the animations and the sounds functionality.
         }
     }
 
@@ -139,9 +140,6 @@ public class TopDownCharacterController : MonoBehaviour {
             InstrumentManager.instance.GetIndicator(Instrument.Guitar).Click();
         }
     }
-    public void PlayWalkSound() {
-        walkSound.start();
-    }
 
     public void DisableMovementAbility() {
         _controls.BasicActions.SpecialMove.Disable();
@@ -164,6 +162,10 @@ public class TopDownCharacterController : MonoBehaviour {
         /*
         _controls.BasicActions.Movement.started += MovementHandlingEnable;
         _controls.BasicActions.Movement.performed += MovementHandlingPerform;*/
+        if (isPressed) {
+            stats.StopAnims();
+            stats.RunMoveAnim(LastDirection);
+        }
     }
 }
 

@@ -8,7 +8,7 @@
 			<value>Walk</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{e700c9fd-5c88-4ec3-8cb4-50721e5c8f20}</destination>
@@ -93,6 +93,9 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{9705d2e2-3c7e-405a-b2fa-38a011ecb674}">
+		<property name="playbackMode">
+			<value>1</value>
+		</property>
 		<relationship name="sounds">
 			<destination>{226e4a6c-5f71-456c-8aaf-8c0635889d8a}</destination>
 		</relationship>
@@ -110,6 +113,7 @@
 			<destination>{a1436822-eafe-441b-a172-826a58551561}</destination>
 			<destination>{944ee3a4-7057-4178-a80b-aa4e12a5bdc7}</destination>
 			<destination>{437c1d71-b85b-48e6-a774-8da1957db04b}</destination>
+			<destination>{b6785d9c-6159-43df-aefe-2936e54c222d}</destination>
 			<destination>{7eac2138-949d-4b90-957d-53bbae73c7b3}</destination>
 		</relationship>
 	</object>
@@ -169,12 +173,13 @@
 			<value>56</value>
 		</property>
 	</object>
+	<object class="SpatialiserEffect" id="{b6785d9c-6159-43df-aefe-2936e54c222d}" />
 	<object class="MixerSend" id="{7eac2138-949d-4b90-957d-53bbae73c7b3}">
 		<property name="level">
 			<value>-42</value>
 		</property>
 		<property name="inputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="mixerReturn">
 			<destination>{56a0e08b-1ccf-4225-b25e-52fc7b83c7c7}</destination>

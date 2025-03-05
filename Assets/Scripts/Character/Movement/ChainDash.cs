@@ -6,6 +6,8 @@ namespace Movement
 {
     public class ChainDash : Dash {
         const float COOLDOWN = 1f;
+        const float TIME_WINDOW_MS = 0.4f;
+        const float PENALITY_WINDOW_MS = 0.2f;
         const int TIME_WINDOW_ID = 300;
         const float TIME_WINDOW_S = 1f;
         const float LENGTH = 2f;
@@ -28,6 +30,8 @@ namespace Movement
         }
 
         private IEnumerator TimeWindow(Entity ctx, float time) {
+            CoroutineManager.instance.tester.color = Color.cyan;
+            yield return new WaitForSeconds(PENALITY_WINDOW_MS);
             _isDashing = false;
             ctx.EnableMovement();
             CoroutineManager.instance.tester.color = Color.blue;
@@ -45,8 +49,7 @@ namespace Movement
 
         override protected IEnumerator DashFunction(Entity ctx) {
             _isDashing = true;
-            ctx.RunAnim(ctx.GetLastDirection());
-            ctx.StopAnims();
+            ctx.RunDashAnim(ctx.GetLastDirection());
             _currentDashAmount++;
             CoroutineManager.instance.CancelCoroutine(TIME_WINDOW_ID + ctx.id);
             CoroutineManager.instance.CancelCoroutine(SLIDE_ID + ctx.id);
@@ -57,14 +60,17 @@ namespace Movement
             yield return new WaitForSeconds(LENGTH/speed);
             Vector3 savedVelocity = ctx.Body.velocity;
             if (_currentDashAmount > _maxDashAmount || _isPenalised) {
+                if (_isPenalised) {
+                    ctx.PayStamina(ctx.GetStamina());
+                }
                 _onCooldown = true;
                 CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, 0f), TIME_WINDOW_ID + ctx.id);
                 yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
             } else {
-                CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, TIME_WINDOW_S), TIME_WINDOW_ID + ctx.id);
-                if (_currentDashAmount - 2 > 0) {
-                    yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
-                }
+                CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, TIME_WINDOW_MS), TIME_WINDOW_ID + ctx.id);
+                
+                yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, _currentDashAmount), SLIDE_ID + ctx.id);
+                
                 if (ctx.GetDirection().magnitude == 0) {
                     ctx.Body.velocity = Vector3.zero;
                 }
