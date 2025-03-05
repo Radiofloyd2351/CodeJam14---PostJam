@@ -8,7 +8,7 @@
 			<value>Dash</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ef777b4e-05ec-46b9-bd70-a249f0b3ed79}</destination>
@@ -75,9 +75,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{96dd4401-6d60-4654-8bc2-f16ebf75ed14}">
-		<property name="volume">
-			<value>-10</value>
-		</property>
 		<relationship name="effectChain">
 			<destination>{e9a68bc1-e281-4489-b682-4b1e5c9f91ce}</destination>
 		</relationship>
@@ -102,6 +99,7 @@
 	<object class="MixerBusEffectChain" id="{e9a68bc1-e281-4489-b682-4b1e5c9f91ce}">
 		<relationship name="effects">
 			<destination>{e16e8684-0375-4b87-aca9-39d8ace731ac}</destination>
+			<destination>{bce03b6f-bebe-43f5-a8e3-07afc6748f77}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{44d7ba12-2521-4f47-8253-c0af20b1a93a}" />
@@ -117,12 +115,20 @@
 	</object>
 	<object class="MixerBusFader" id="{51117802-b5d9-444a-b7ca-3861526fc2d9}" />
 	<object class="MixerBusFader" id="{e16e8684-0375-4b87-aca9-39d8ace731ac}" />
+	<object class="ProxyEffect" id="{bce03b6f-bebe-43f5-a8e3-07afc6748f77}">
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="preset">
+			<destination>{7296db86-2f82-4f2c-82be-05c3e55004d6}</destination>
+		</relationship>
+	</object>
 	<object class="RandomizerModulator" id="{a04ec11f-6c43-4df0-81a3-f73bbc1d1634}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>startOffset</value>
 		</property>
 		<property name="amount">
-			<value>14</value>
+			<value>10.5</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{288d0bbc-03e2-4242-9b27-faf36556742e}">

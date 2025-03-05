@@ -69,6 +69,9 @@
 		<property name="maximumDistance">
 			<value>7000</value>
 		</property>
+		<property name="triggerCooldown">
+			<value>960</value>
+		</property>
 	</object>
 	<object class="MarkerTrack" id="{3a82937a-c538-46d5-9817-6f642bca4406}" />
 	<object class="Timeline" id="{7afd5c62-7418-40ec-b01d-a3e5fcfe55d1}">
@@ -83,7 +86,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{d203429e-ce61-48cc-bcd1-c8649a7fdcce}">
 		<property name="volume">
-			<value>-3.5</value>
+			<value>-6.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{e48487db-5de6-460b-9afc-59ef5cecb734}</destination>
@@ -112,12 +115,7 @@
 	<object class="MixerBusEffectChain" id="{e48487db-5de6-460b-9afc-59ef5cecb734}">
 		<relationship name="effects">
 			<destination>{3067e50d-356d-44b8-a7ed-a3d1bad01fcc}</destination>
-			<destination>{46e900ec-ccf9-414c-9fd3-d2bfd8c5535f}</destination>
-			<destination>{c47d7931-556c-46d1-b4f2-10687ff6ec66}</destination>
-			<destination>{225c4be8-3626-48dc-892a-3f24dc538f48}</destination>
-			<destination>{374c8095-bbb7-4de2-9144-8c837196dd6f}</destination>
-			<destination>{0f389b52-9224-4e54-88a0-dd29f3acbe0e}</destination>
-			<destination>{98e92a66-defc-4e02-9d2e-b232f983196a}</destination>
+			<destination>{e0fd5d1c-de7f-4a29-9684-3c3037b85aaf}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ccdf116e-f410-412f-8222-d391db4af90e}">
@@ -143,98 +141,13 @@
 	</object>
 	<object class="MixerBusFader" id="{bad46ec1-50cb-4594-8846-bae5bed84837}" />
 	<object class="MixerBusFader" id="{3067e50d-356d-44b8-a7ed-a3d1bad01fcc}" />
-	<object class="ThreeEQEffect" id="{46e900ec-ccf9-414c-9fd3-d2bfd8c5535f}">
-		<property name="lowGain">
-			<value>-2</value>
-		</property>
-		<property name="midGain">
-			<value>2.5</value>
-		</property>
-		<property name="highGain">
-			<value>-2.5</value>
-		</property>
-		<property name="lowCrossover">
-			<value>460</value>
-		</property>
-		<property name="highCrossover">
-			<value>8500</value>
-		</property>
-		<property name="crossoverSlope">
-			<value>2</value>
-		</property>
-	</object>
-	<object class="CompressorEffect" id="{c47d7931-556c-46d1-b4f2-10687ff6ec66}">
-		<property name="threshold">
-			<value>-35.5</value>
-		</property>
-		<property name="ratio">
-			<value>3.29999995</value>
-		</property>
-		<property name="attackTime">
-			<value>28</value>
-		</property>
-	</object>
-	<object class="MultibandEqEffect" id="{225c4be8-3626-48dc-892a-3f24dc538f48}">
-		<property name="filterTypeB">
-			<value>9</value>
-		</property>
-		<property name="filterTypeC">
-			<value>9</value>
-		</property>
-		<property name="frequencyA">
-			<value>8841.00391</value>
-		</property>
-		<property name="frequencyB">
-			<value>72.2634354</value>
-		</property>
-		<property name="frequencyC">
-			<value>766.855774</value>
-		</property>
-		<property name="qualityA">
-			<value>0.518620729</value>
-		</property>
-		<property name="qualityC">
-			<value>2.60000014</value>
-		</property>
-		<property name="gainB">
-			<value>-20.6896553</value>
-		</property>
-		<property name="gainC">
-			<value>-7.24137878</value>
-		</property>
-	</object>
-	<object class="LimiterEffect" id="{374c8095-bbb7-4de2-9144-8c837196dd6f}">
-		<property name="boost">
-			<value>1.20000005</value>
-		</property>
-		<property name="ceiling">
-			<value>-9.19999981</value>
-		</property>
-	</object>
-	<object class="MixerSend" id="{0f389b52-9224-4e54-88a0-dd29f3acbe0e}">
-		<property name="level">
-			<value>-42</value>
-		</property>
+	<object class="ProxyEffect" id="{e0fd5d1c-de7f-4a29-9684-3c3037b85aaf}">
 		<property name="inputFormat">
 			<value>1</value>
 		</property>
-		<relationship name="mixerReturn">
-			<destination>{56a0e08b-1ccf-4225-b25e-52fc7b83c7c7}</destination>
+		<relationship name="preset">
+			<destination>{7296db86-2f82-4f2c-82be-05c3e55004d6}</destination>
 		</relationship>
-	</object>
-	<object class="SpatialiserEffect" id="{98e92a66-defc-4e02-9d2e-b232f983196a}">
-		<property name="distanceRolloffType">
-			<value>2</value>
-		</property>
-		<property name="minimumDistance">
-			<value>7.80000019</value>
-		</property>
-		<property name="maximumDistance">
-			<value>95</value>
-		</property>
-		<property name="userStereoSeparation">
-			<value>0</value>
-		</property>
 	</object>
 	<object class="RandomizerModulator" id="{3a45a6c6-2640-4000-bb25-8ea6fcb81c70}">
 		<property name="nameOfPropertyBeingModulated">
