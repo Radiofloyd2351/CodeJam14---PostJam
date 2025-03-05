@@ -58190,6 +58190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27471f7b706306c4fb2055a664a6bb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSoundDir: 
   _animator: {fileID: 1414394273}
   id: 0
   _staminaBar: {fileID: 1406445189}
@@ -73642,7 +73643,7 @@ Transform:
   m_GameObject: {fileID: 1844678483}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.34, y: -10.12, z: 0}
+  m_LocalPosition: {x: 0.51, y: -10.08, z: 0}
   m_LocalScale: {x: 8.3548, y: 7.9175, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86417,6 +86418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54a825ddb262aa41916e3360f9745bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSoundDir: 
   _animator: {fileID: 2004167995}
   id: 1
   _staminaBar: {fileID: 1740477824}
