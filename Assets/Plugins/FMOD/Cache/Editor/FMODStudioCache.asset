@@ -39,7 +39,7 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Ambient.bank
   Name: Ambient
   StudioPath: bank:/Ambient
-  lastModified: 638760920266308031
+  lastModified: 638766137791018095
   FileSizes:
   - Name: Desktop
     Value: 21660544
@@ -65,7 +65,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 404851831365008059}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -161,10 +161,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638760920266338311
+  lastModified: 638767387001535698
   FileSizes:
   - Name: Desktop
-    Value: 1816
+    Value: 1962
   Exists: 1
 --- !u!114 &-4958106283562928182
 MonoBehaviour:
@@ -222,6 +222,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-3488745683218157817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Slime/Dash
+  m_EditorClassIdentifier: 
+  Path: event:/Slime/Dash
+  Guid:
+    Data1: 1165818854
+    Data2: 1076429565
+    Data3: 1569151365
+    Data4: 1177142233
+  Banks:
+  - {fileID: 404851831365008059}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2441790164748559924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,10 +264,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638766312544940637
+  lastModified: 638767387001558505
   FileSizes:
   - Name: Desktop
-    Value: 1558
+    Value: 1766
   Exists: 1
 --- !u!114 &-467084013505532188
 MonoBehaviour:
@@ -300,12 +327,16 @@ MonoBehaviour:
   - {fileID: 1283526902902984786}
   - {fileID: -3750758001589245766}
   - {fileID: -6953310569491249040}
+  - {fileID: 7479988328546152441}
+  - {fileID: 5949276292921610129}
+  - {fileID: 5279053633490378800}
+  - {fileID: -3488745683218157817}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5616062861666902221}
   StringsBanks:
   - {fileID: -2441790164748559924}
-  cacheTime: 638766312544940637
+  cacheTime: 638767410402987189
   cacheVersion: 131622
 --- !u!114 &404851831365008059
 MonoBehaviour:
@@ -322,10 +353,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 638766312544864841
+  lastModified: 638767410402987189
   FileSizes:
   - Name: Desktop
-    Value: 76064
+    Value: 120448
   Exists: 1
 --- !u!114 &1283526902902984786
 MonoBehaviour:
@@ -430,6 +461,87 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters:
   - {fileID: -4958106283562928182}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5279053633490378800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Slime/Walk
+  m_EditorClassIdentifier: 
+  Path: event:/Slime/Walk
+  Guid:
+    Data1: -434700407
+    Data2: 1081415857
+    Data3: -956857193
+    Data4: 1486054921
+  Banks:
+  - {fileID: 404851831365008059}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 2.4
+  MaxDistance: 7000
+  Length: 0
+--- !u!114 &5949276292921610129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Slime/WindUp
+  m_EditorClassIdentifier: 
+  Path: event:/Slime/WindUp
+  Guid:
+    Data1: 2043864664
+    Data2: 1228423159
+    Data3: 1575116944
+    Data4: -87985561
+  Banks:
+  - {fileID: 404851831365008059}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7479988328546152441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Slime/Land
+  m_EditorClassIdentifier: 
+  Path: event:/Slime/Land
+  Guid:
+    Data1: 2126512722
+    Data2: 1204662905
+    Data3: 1001444742
+    Data4: -1765924094
+  Banks:
+  - {fileID: 404851831365008059}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
