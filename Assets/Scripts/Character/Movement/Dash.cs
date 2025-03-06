@@ -55,6 +55,7 @@ namespace Movement
                     yield return null;
                 }
             }
+            ctx.StopDashAnim();
             ctx.EnableMovement();
         }
 
@@ -79,6 +80,8 @@ namespace Movement
             Vector3 savedVelocity = ctx.Body.velocity;
             if (withSlide) {
                 yield return CoroutineManager.instance.RunCoroutine(Slide(ctx, savedVelocity, 10), SLIDE_ID + ctx.id);
+            } else {
+                ctx.StopDashAnim();
             }
             if (ctx.GetDirection().magnitude == 0)
             {

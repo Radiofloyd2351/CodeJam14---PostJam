@@ -103,7 +103,7 @@ public class TopDownCharacterController : MonoBehaviour {
             direction = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
                 body.velocity = direction * stats.speed;
             isReleased = true;
-            DefaultValues.playerStats.StopAnims();
+            DefaultValues.playerStats.StopMoveAnim();
         }
         
     }
@@ -163,7 +163,7 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.BasicActions.Movement.started += MovementHandlingEnable;
         _controls.BasicActions.Movement.performed += MovementHandlingPerform;*/
         if (isPressed) {
-            stats.StopAnims();
+            stats.StopMoveAnim();
             stats.RunMoveAnim(LastDirection);
         }
     }

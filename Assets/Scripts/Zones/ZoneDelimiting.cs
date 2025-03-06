@@ -86,7 +86,7 @@ public class ZoneDelimiting : MonoBehaviour {
 
             yield return new WaitForSeconds(0.01f);
         }
-        _playerStats.StopAnims();
+        _playerStats.StopMoveAnim();
         _controls.EnableControls();
     }
 

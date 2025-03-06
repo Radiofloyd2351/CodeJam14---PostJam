@@ -122,7 +122,7 @@ public abstract class Entity : MonoBehaviour {
     }
 
     public void RunDashAnim(Vector2 velocity) {
-        _animator.SetBool("IsDashing", true);
+        _animator.SetTrigger("Dash");
         _animator.SetFloat("x", velocity.x);
         _animator.SetFloat("y", velocity.y);
     }
@@ -132,9 +132,12 @@ public abstract class Entity : MonoBehaviour {
         _animator.SetInteger("Direction", (int)direction);
     }
 
-    public void StopAnims() {
-        _animator.SetBool("IsDashing", false);
+    public void StopMoveAnim() {
         _animator.SetBool("IsMoving", false);
+    }
+
+    public void StopDashAnim() {
+        _animator.SetTrigger("FinishDash");
     }
 
     public virtual IEnumerator ResetControls() { yield return null; }
