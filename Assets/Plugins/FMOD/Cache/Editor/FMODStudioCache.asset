@@ -158,6 +158,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters:
   - {fileID: 4198947216519921787}
+  - {fileID: 7898535355133666376}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -176,10 +177,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 638767968336058506
+  lastModified: 638767985823569295
   FileSizes:
   - Name: Desktop
-    Value: 161216
+    Value: 234784
   Exists: 1
 --- !u!114 &-4102751900405195864
 MonoBehaviour:
@@ -301,7 +302,7 @@ MonoBehaviour:
   - {fileID: -9016736872813275045}
   StringsBanks:
   - {fileID: 1110263652952514318}
-  cacheTime: 638767968336147001
+  cacheTime: 638767985823569295
   cacheVersion: 131846
 --- !u!114 &829841148262363988
 MonoBehaviour:
@@ -345,10 +346,10 @@ MonoBehaviour:
   Path: Assets/FMOD/PostJam Jam The Silence/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638767968336147001
+  lastModified: 638767985823569295
   FileSizes:
   - Name: Desktop
-    Value: 1870
+    Value: 1912
   Exists: 1
 --- !u!114 &1352284884649928276
 MonoBehaviour:
@@ -653,3 +654,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7898535355133666376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Dash/DashLength
+  m_EditorClassIdentifier: 
+  Name: DashLength
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 3881450514
+    data2: 1699684923
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Short
+  - Medium
+  - Long
+  Exists: 1

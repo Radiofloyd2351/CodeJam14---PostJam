@@ -8,7 +8,6 @@ using System;
 
 public delegate IEnumerator EntityPlayerEventHandler(Entity target);
 public abstract class Entity : MonoBehaviour {
-    private int _health;
 
     public event EntityPlayerEventHandler OnCollision;
     public event EntityPlayerEventHandler OnTriggerEnter;
@@ -29,6 +28,17 @@ public abstract class Entity : MonoBehaviour {
     private float _stamina_regen_cooldown = 2f;
     private float _stamina_regen = 1f;
     private float _stamina_bar_size;
+
+
+    [SerializeField] private GameObject _healthBar;
+    [SerializeField] private GameObject _healthContainer;
+    private float _health;
+    private float _maxHealth = 100f;
+    const int HEALTH_ID = 6000;
+    private float _health_regen_cooldown = 2f;
+    private float _health_regen = 1f;
+    private float _health_bar_size;
+
     public AbsPlayerMovementAbility moveAbility = null;
     public string soundBank;
 
@@ -112,6 +122,38 @@ public abstract class Entity : MonoBehaviour {
 
 
     public float GetStamina() {
+        return _stamina;
+    }
+
+
+    public bool PayHEalth(float cost) {
+        if (_health < cost) {
+            return false;
+        }
+        _staminaContainer.SetActive(true);
+        _stamina -= cost;
+        _staminaBar.transform.localPosition = new Vector3(((_health / _maxHealth) - 1) * _health_bar_size / 2f, 0f, 0f);
+        _staminaBar.transform.localScale = new Vector3(_health_bar_size * _stamina / _maxHealth, _staminaBar.transform.localScale.y, 0f);
+        CoroutineManager.instance.RunCoroutine(ReloadHealth(), HEALTH_ID + id);
+        return true;
+    }
+    public IEnumerator ReloadHealth() {
+        yield return new WaitForSeconds(_stamina_regen_cooldown);
+        while (_stamina < _maxStamina) {
+            yield return new WaitForSeconds(0.01f);
+            _stamina += _stamina_regen;
+            if (_stamina > _maxStamina) {
+                _stamina = _maxStamina;
+            }
+            _staminaBar.transform.localPosition = new Vector3(((_stamina / _maxStamina) - 1) * _stamina_bar_size / 2f, 0f, 0f);
+            _staminaBar.transform.localScale = new Vector3(_stamina_bar_size * _stamina / _maxStamina, _staminaBar.transform.localScale.y, 0f);
+        }
+        yield return new WaitForSeconds(1f);
+        _staminaContainer.SetActive(false);
+    }
+
+
+    public float GetHealth() {
         return _stamina;
     }
 
