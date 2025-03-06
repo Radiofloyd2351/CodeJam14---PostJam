@@ -58181,6 +58181,8 @@ MonoBehaviour:
   id: 0
   _staminaBar: {fileID: 1406445189}
   _staminaContainer: {fileID: 1285406498}
+  _healthBar: {fileID: 0}
+  _healthContainer: {fileID: 0}
   soundBank: 
   speed: 5
 --- !u!114 &1414394278
@@ -86423,6 +86425,8 @@ MonoBehaviour:
   id: 1
   _staminaBar: {fileID: 1740477824}
   _staminaContainer: {fileID: 120412344}
+  _healthBar: {fileID: 0}
+  _healthContainer: {fileID: 0}
   soundBank: 
   speed: 75
   agressionModifier: 1.5
