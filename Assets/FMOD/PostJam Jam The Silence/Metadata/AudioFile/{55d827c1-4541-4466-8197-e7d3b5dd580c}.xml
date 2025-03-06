@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{55d827c1-4541-4466-8197-e7d3b5dd580c}">
+		<property name="assetPath">
+			<value>SFX/Player/Dash/Short/Player Dash 6.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.18185416666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ffec25dd-19b8-4468-950f-482f92dc5e99}</destination>
+		</relationship>
+	</object>
+</objects>

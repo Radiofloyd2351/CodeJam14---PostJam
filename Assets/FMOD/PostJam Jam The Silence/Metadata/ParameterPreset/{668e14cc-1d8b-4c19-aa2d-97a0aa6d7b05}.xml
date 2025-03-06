@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{668e14cc-1d8b-4c19-aa2d-97a0aa6d7b05}">
+		<property name="name">
+			<value>DashLength</value>
+		</property>
+		<relationship name="folder">
+			<destination>{44dd0b75-a39a-48e1-8aaa-153f69db7f51}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d1dd3497-3ebb-4578-a724-36223fe0aec6}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d1dd3497-3ebb-4578-a724-36223fe0aec6}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Short</value>
+			<value>Medium</value>
+			<value>Long</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>
