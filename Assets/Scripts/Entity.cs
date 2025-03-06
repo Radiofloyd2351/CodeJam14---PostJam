@@ -23,10 +23,10 @@ public abstract class Entity : MonoBehaviour {
     [SerializeField] private GameObject _staminaBar;
     [SerializeField] private GameObject _staminaContainer;
     private float _stamina;
-    private float _maxStamina = 100f;
+    private float _maxStamina = 15f;
     const int STAMINA_ID = 4000;
     private float _stamina_regen_cooldown = 2f;
-    private float _stamina_regen = 1f;
+    private float _stamina_regen = 0.1f;
     private float _stamina_bar_size;
 
 
@@ -35,8 +35,8 @@ public abstract class Entity : MonoBehaviour {
     private float _health;
     private float _maxHealth = 100f;
     const int HEALTH_ID = 6000;
-    private float _health_regen_cooldown = 2f;
-    private float _health_regen = 1f;
+    private float _health_regen_cooldown = 10f;
+    private float _health_regen = 0.3f;
     private float _health_bar_size;
 
     public AbsPlayerMovementAbility moveAbility = null;
@@ -49,8 +49,9 @@ public abstract class Entity : MonoBehaviour {
 
     private void Awake() {
 
-
+        _health = _maxHealth;
         _stamina = _maxStamina;
+        _health_bar_size = _healthBar.transform.localScale.x;
         _stamina_bar_size = _staminaBar.transform.localScale.x;
         _body = GetComponent<Rigidbody2D>();
     }
@@ -126,35 +127,36 @@ public abstract class Entity : MonoBehaviour {
     }
 
 
-    public bool PayHEalth(float cost) {
+    public bool PayHealth(float cost) {
         if (_health < cost) {
             return false;
         }
-        _staminaContainer.SetActive(true);
-        _stamina -= cost;
-        _staminaBar.transform.localPosition = new Vector3(((_health / _maxHealth) - 1) * _health_bar_size / 2f, 0f, 0f);
-        _staminaBar.transform.localScale = new Vector3(_health_bar_size * _stamina / _maxHealth, _staminaBar.transform.localScale.y, 0f);
+        Debug.Log("vaba " + cost + " and " + _health);
+        _healthContainer.SetActive(true);
+        _health -= cost;
+        _healthBar.transform.localPosition = new Vector3(((_health / _maxHealth) - 1) * _health_bar_size / 2f, 0f, 0f);
+        _healthBar.transform.localScale = new Vector3(_health_bar_size * _health / _maxHealth, _healthBar.transform.localScale.y, 0f);
         CoroutineManager.instance.RunCoroutine(ReloadHealth(), HEALTH_ID + id);
         return true;
     }
     public IEnumerator ReloadHealth() {
-        yield return new WaitForSeconds(_stamina_regen_cooldown);
-        while (_stamina < _maxStamina) {
+        yield return new WaitForSeconds(_health_regen_cooldown);
+        while (_health < _maxHealth) {
             yield return new WaitForSeconds(0.01f);
-            _stamina += _stamina_regen;
-            if (_stamina > _maxStamina) {
-                _stamina = _maxStamina;
+            _health += _health_regen;
+            if (_health > _maxHealth) {
+                _health = _maxHealth;
             }
-            _staminaBar.transform.localPosition = new Vector3(((_stamina / _maxStamina) - 1) * _stamina_bar_size / 2f, 0f, 0f);
-            _staminaBar.transform.localScale = new Vector3(_stamina_bar_size * _stamina / _maxStamina, _staminaBar.transform.localScale.y, 0f);
+            _healthBar.transform.localPosition = new Vector3(((_health / _maxHealth) - 1) * _health_bar_size / 2f, 0f, 0f);
+            _healthBar.transform.localScale = new Vector3(_health_bar_size * _health / _maxHealth, _healthBar.transform.localScale.y, 0f);
         }
         yield return new WaitForSeconds(1f);
-        _staminaContainer.SetActive(false);
+        _healthContainer.SetActive(false);
     }
 
 
     public float GetHealth() {
-        return _stamina;
+        return _health;
     }
 
     public void RunMoveAnim(Vector2 velocity) {
@@ -221,12 +223,12 @@ public abstract class Entity : MonoBehaviour {
         return false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collider) { 
+    /*private void OnCollisionEnter2D(Collision2D collider) { 
         Entity entity = collider.gameObject.GetComponent<Entity>();
         if (entity != null) {
             RunCollision(entity);
         }
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collider) {
         Entity entity = collider.gameObject.GetComponent<Entity>();

@@ -56,4 +56,10 @@ public class EnemyStats : Entity {
             CoroutineManager.instance.RunCoroutine(movementStrat.Start(this), 10000 + id);
         }
     }
+
+    public void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.GetComponent<PlayerStats>() != null) {
+            collision.gameObject.GetComponent<PlayerStats>().PayHealth(10);
+        }
+    }
 }
