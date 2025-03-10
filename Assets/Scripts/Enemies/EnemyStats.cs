@@ -59,7 +59,7 @@ public class EnemyStats : Entity {
 
     public void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.GetComponent<PlayerStats>() != null) {
-            collision.gameObject.GetComponent<PlayerStats>().PayHealth(10);
+            collision.gameObject.GetComponent<PlayerStats>().healthBar.PayValue(10);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Movement
 
         public override void Move(Entity ctx)
         {
-            if (ctx.PayStamina(1f)) {
+            if (ctx.staminaBar.PayValue(1f)) {
                 if (!_onCooldown && !_isDashing) {
                     CoroutineManager.instance.RunCoroutine(DashFunction(ctx), COROUTINE_DASH_ID + ctx.id);
                 } else if (_isDashing) {

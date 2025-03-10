@@ -62,7 +62,7 @@ namespace Movement
             Vector3 savedVelocity = ctx.Body.velocity;
             if (_currentDashAmount > _maxDashAmount || _isPenalised) {
                 if (_isPenalised) {
-                    ctx.PayStamina(ctx.GetStamina());
+                    ctx.staminaBar.PayValue(ctx.staminaBar.GetValue());
                 }
                 _onCooldown = true;
                 CoroutineManager.instance.RunCoroutine(TimeWindow(ctx, 0f), TIME_WINDOW_ID + ctx.id);
