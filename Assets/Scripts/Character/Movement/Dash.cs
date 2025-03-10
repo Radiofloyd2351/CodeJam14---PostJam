@@ -2,22 +2,29 @@ using System.Collections;
 using UnityEngine;
 using Audio;
 using Unity.VisualScripting;
+using FMOD.Studio;
+using FMOD;
+using Debug = UnityEngine.Debug;
 
 namespace Movement
 {
     public class Dash : AbsPlayerMovementAbility
     {
-        const float COOLDOWN = 0.750f;
+        const float COOLDOWN = 3f;
         private float length = 3f;
         const int COROUTINE_DASH_ID = 2000;
         const int COROUTINE_COOLDOWN_ID = 3000;
         protected const int SLIDE_ID = 200;
+        const int SOUND_ID_1 = 2005;
+        const int SOUND_ID_2 = 2006;
         const float SLIDE_TIME_S = 0.1f;
         public float speed;
         private bool withSlide = false;
         protected bool _onCooldown = false;
         protected bool _isDashing = false;
         protected bool _isPenalised = false;
+
+        EventInstance? timer;
 
         public Dash(float speed = 15f, float length = 3f, bool withSlide = false)
         {
@@ -26,7 +33,12 @@ namespace Movement
             this.withSlide = withSlide;
         }
 
-
+        protected EventInstance? PlayPlayerSound(Entity ctx, string sound) {
+            if (ctx.GetType() == typeof(PlayerStats)) {
+                return ctx.PlaySound<int>(sound);
+            }
+            return null;
+        }
 
         public override void Cancel(Entity ctx)
         {
@@ -65,14 +77,38 @@ namespace Movement
             _onCooldown=false;
         }
 
+        IEnumerator WaitForSoundToStop(Entity ctx) {
+            EventInstance? cooldown = PlayPlayerSound(ctx, ctx.baseSoundDir + "Abilities/Cooldown");
+            PLAYBACK_STATE stopped = PLAYBACK_STATE.STARTING;
+            if (cooldown != null) {
+                while (stopped != PLAYBACK_STATE.STOPPING && stopped != PLAYBACK_STATE.STOPPED) {
+                    ((EventInstance)cooldown).getPlaybackState(out stopped);
+                    yield return new WaitForSeconds(0.01f);
+                }
+                Debug.Log("Timer starts now");
+                timer = PlayPlayerSound(ctx, ctx.baseSoundDir + "Abilities/Timer");
+            }
+        }
+
+        IEnumerator WaitForTimer(Entity ctx) {
+            if (timer != null) {
+                ((EventInstance)timer).stop(STOP_MODE.ALLOWFADEOUT);
+                PLAYBACK_STATE stopped = PLAYBACK_STATE.STARTING;
+                while (stopped != PLAYBACK_STATE.STOPPING && stopped != PLAYBACK_STATE.STOPPED) {
+                    ((EventInstance)timer).getPlaybackState(out stopped);
+                    yield return new WaitForSeconds(0.01f);
+                }
+                PlayPlayerSound(ctx, ctx.baseSoundDir + "Abilities/Ready");
+            }
+        }
+
         virtual protected IEnumerator DashFunction(Entity ctx)
         {
             ctx.RunDashAnim(ctx.GetLastDirection());
             CoroutineManager.instance.CancelCoroutine(SLIDE_ID + ctx.id);
             ctx.DisableMovement();
             ctx.Body.velocity = Vector3.zero;
-            ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass * ctx.Body.drag);
-            Debug.Log("SPEED IS: " + speed * 50 * ctx.GetLastDirection().normalized);
+            ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass * ctx.Body.drag); 
             _onCooldown = true;
             ctx.PlaySound<int>(ctx.baseSoundDir + "Abilities/Dash");
             yield return new WaitForSeconds(length/speed);
@@ -87,8 +123,10 @@ namespace Movement
             {
                 ctx.Body.velocity = Vector3.zero;
             }
+            yield return CoroutineManager.instance.RunCoroutine(WaitForSoundToStop(ctx),  SOUND_ID_1 + ctx.id);
             ctx.EnableMovement();
             yield return new WaitForSeconds(COOLDOWN);
+            CoroutineManager.instance.RunCoroutine(WaitForTimer(ctx), SOUND_ID_2 + ctx.id);
             _onCooldown = false;
         }
     }

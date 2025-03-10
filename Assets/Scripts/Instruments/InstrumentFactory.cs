@@ -29,9 +29,7 @@ public class InstrumentFactory : MonoBehaviour {
     private Dictionary<Instrument, bool> unlocks;
 
     private AbsInstrument CreateInstrument(Instrument type) {
-        Debug.Log(type);
         System.Type classType = DefaultValues.GetClassType(type);
-        Debug.Log(classType);
         AbsInstrument newInstrument = (AbsInstrument)gameObject.AddComponent(classType);
         unlocks[type] = true;
         allInstruments.Add(type, newInstrument);

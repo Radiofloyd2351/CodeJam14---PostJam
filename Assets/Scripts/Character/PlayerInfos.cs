@@ -20,7 +20,6 @@ public class PlayerInfos : MonoBehaviour {
             player = DefaultValues.player;
             instance = this;
             DontDestroyOnLoad(gameObject);
-            Debug.Log("Created Instance");
         } else {
             Destroy(gameObject);
         }

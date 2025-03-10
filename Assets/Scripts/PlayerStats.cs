@@ -10,8 +10,8 @@ public class PlayerStats : Entity
 
     private void Start() {
         baseSoundDir = AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY;
-        // moveAbility = new Dash(15f, 3f, true);
-        moveAbility = new ChainDash(15f, 10);
+        moveAbility = new Dash(15f, 3f, false);
+        // moveAbility = new ChainDash(15f, 10);
         // moveAbility = new SlowDown(true);
         // END TEST
 
