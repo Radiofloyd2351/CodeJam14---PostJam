@@ -52,7 +52,6 @@ public class EnemyStats : Entity {
             movementStrat = new WobbleEnemyMovement();
             ((WobbleEnemyMovement)movementStrat).cooldown = 1f;
             ((WobbleEnemyMovement)movementStrat).cycleloop = 3f;
-            Debug.Log(CoroutineManager.instance);
             CoroutineManager.instance.RunCoroutine(movementStrat.Start(this), 10000 + id);
         }
     }

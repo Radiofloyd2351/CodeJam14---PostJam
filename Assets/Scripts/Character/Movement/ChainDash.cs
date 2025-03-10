@@ -8,9 +8,8 @@ namespace Movement
     public class ChainDash : Dash {
         const float COOLDOWN = 1f;
         const float TIME_WINDOW_MS = 0.4f;
-        const float PENALITY_WINDOW_MS = 0.2f;
+        const float PENALTY_WINDOW_MS = 0.2f;
         const int TIME_WINDOW_ID = 300;
-        const float TIME_WINDOW_S = 1f;
         const float LENGTH = 2f;
         private int _maxDashAmount;
         private int _currentDashAmount;
@@ -32,7 +31,7 @@ namespace Movement
 
         private IEnumerator TimeWindow(Entity ctx, float time) {
             CoroutineManager.instance.tester.color = Color.cyan;
-            yield return new WaitForSeconds(PENALITY_WINDOW_MS);
+            yield return new WaitForSeconds(PENALTY_WINDOW_MS);
             _isDashing = false;
             ctx.EnableMovement();
             CoroutineManager.instance.tester.color = Color.blue;
@@ -55,7 +54,6 @@ namespace Movement
             CoroutineManager.instance.CancelCoroutine(TIME_WINDOW_ID + ctx.id);
             CoroutineManager.instance.CancelCoroutine(SLIDE_ID + ctx.id);
             ctx.DisableMovement();
-            Debug.Log("Dashed: " + _currentDashAmount + " and is penalised:  " + _isPenalised);
             ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass);
             ctx.PlaySound<int>(ctx.baseSoundDir + "Abilities/Dash", new KeyValuePair<string, int>("ContinuousDashes", Mathf.Clamp(_currentDashAmount - 1, 0, 10)));
             yield return new WaitForSeconds(LENGTH/speed);

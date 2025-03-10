@@ -44,9 +44,9 @@ public abstract class Entity : MonoBehaviour {
     }
 
 
-    public void PlaySound<T>(string sound, KeyValuePair<string, T>? parameterPairs = null) {
+    public EventInstance? PlaySound<T>(string sound, KeyValuePair<string, T>? parameterPairs = null) {
         if (!EventManager.IsInitialized) {
-            return;
+            return null;
         }
         EventInstance soundEvent = RuntimeManager.CreateInstance(EventReference.Find(sound));
         RuntimeManager.AttachInstanceToGameObject(soundEvent, gameObject);
@@ -55,12 +55,11 @@ public abstract class Entity : MonoBehaviour {
                 soundEvent.setParameterByNameWithLabel(parameterPairs.Value.Key, parameterPairs.Value.Value.ToString());
             }
             else {
-                Debug.Log("set params Int or float");
-                Debug.Log(parameterPairs.Value.Value);
                 soundEvent.setParameterByName(parameterPairs.Value.Key, Convert.ToSingle(parameterPairs.Value.Value));
             }
         }
         soundEvent.start();
+        return soundEvent;
     }
 
     public void PlaySoundComplex<T>(string sound, KeyValuePair<string, T>[] parameterPairs = null) {

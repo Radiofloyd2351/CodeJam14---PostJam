@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{e7d7264b-2075-4b18-8de6-428c4fd48395}">
+		<property name="assetPath">
+			<value>SFX/Player/Dash/Long/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ffec25dd-19b8-4468-950f-482f92dc5e99}</destination>
+		</relationship>
+	</object>
+</objects>
