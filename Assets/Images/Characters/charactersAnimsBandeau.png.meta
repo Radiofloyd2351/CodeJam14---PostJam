@@ -71,8 +71,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7028fd14dcd6b1448bcbab4b9fb68399
-      internalID: 1586928535
+      spriteID: 130a8c5147b25f94c887784fe2bc2d7c
+      internalID: -757058293
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31a944f91c29fc640926f55aff5af1bc
-      internalID: 1396330281
+      spriteID: 7c9e73c588746824cab3df1d45195cf8
+      internalID: 1492208331
       vertices: []
       indices: 
       edges: []
@@ -156,7 +156,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a83bd6d1f2d38f346ad9c353e5ad0ff7
-      internalID: -801829251
+      spriteID: e39bb5fc0be9cd149ba00b0f91944f2d
+      internalID: 95726690
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
       name: charactersAnimsBandeau_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 96
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cdc4a72fefef8641bfa98993c6402d5
-      internalID: 513648312
+      spriteID: dbadca0af0fa10646bb787713fdc7890
+      internalID: 2113436795
       vertices: []
       indices: 
       edges: []
@@ -197,8 +197,8 @@ TextureImporter:
       name: charactersAnimsBandeau_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 128
+        x: 128
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8e830668ead7584e96ced7de282d091
-      internalID: -1202653994
+      spriteID: 356b8101c7cb4d44bb9ac5e77bf6730c
+      internalID: 411591507
       vertices: []
       indices: 
       edges: []
@@ -218,8 +218,8 @@ TextureImporter:
       name: charactersAnimsBandeau_5
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0db2485dd259154c9f2ba0ad9a7451a
-      internalID: 1449092899
+      spriteID: baad16bbb6eddeb4082e4fc29c3470ff
+      internalID: -1278959187
       vertices: []
       indices: 
       edges: []
@@ -239,7 +239,7 @@ TextureImporter:
       name: charactersAnimsBandeau_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 192
         y: 96
         width: 32
         height: 32
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa1942130d9c9cb4b8df6af9f0db07b1
-      internalID: 201787235
+      spriteID: 5a0a1bb887b935946899faf15cb0b5c4
+      internalID: 1245580706
       vertices: []
       indices: 
       edges: []
@@ -260,8 +260,8 @@ TextureImporter:
       name: charactersAnimsBandeau_7
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9597154e36e85654a81ae820738a6f7e
-      internalID: -995800989
+      spriteID: 0eac465037cff1f48ba7e3037fd87696
+      internalID: -453378828
       vertices: []
       indices: 
       edges: []
@@ -281,8 +281,8 @@ TextureImporter:
       name: charactersAnimsBandeau_8
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -292,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20de4b0b650fc6d458b6b40d85225d14
-      internalID: -1242231203
+      spriteID: 96e4e3b23a295054a9245288e7d88b53
+      internalID: 954220650
       vertices: []
       indices: 
       edges: []
@@ -302,7 +302,7 @@ TextureImporter:
       name: charactersAnimsBandeau_9
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 64
         width: 32
         height: 32
@@ -313,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 167ebf18319653648a8a419e5d7de76b
-      internalID: 3539363
+      spriteID: 6ead627f25a39424ab51ebc800389f2b
+      internalID: -689978626
       vertices: []
       indices: 
       edges: []
@@ -323,7 +323,7 @@ TextureImporter:
       name: charactersAnimsBandeau_10
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 64
         width: 32
         height: 32
@@ -334,8 +334,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdeb3406113360d4fa210bba214b432d
-      internalID: -133209172
+      spriteID: 3de087eabd04d4946b0c66d2b5bb757a
+      internalID: 1651227545
       vertices: []
       indices: 
       edges: []
@@ -344,7 +344,7 @@ TextureImporter:
       name: charactersAnimsBandeau_11
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 64
         width: 32
         height: 32
@@ -355,8 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b33ca6cc045b83e44947253c66cfd0df
-      internalID: -1764227043
+      spriteID: f81870b6fbaf9de47afda50302042e65
+      internalID: 1631235919
       vertices: []
       indices: 
       edges: []
@@ -365,8 +365,8 @@ TextureImporter:
       name: charactersAnimsBandeau_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 160
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -376,8 +376,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca4cdee2f247ae14fad3450c60f80d5a
-      internalID: 402919294
+      spriteID: 3a14e4ddb28e73049a82b1c1eddf1bf5
+      internalID: 1290956815
       vertices: []
       indices: 
       edges: []
@@ -386,6 +386,48 @@ TextureImporter:
       name: charactersAnimsBandeau_13
       rect:
         serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f0e393e50ddbc47817129bb10d7cc1
+      internalID: -1762527715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524299e0644d76a47a4bcd9d93d4bb95
+      internalID: -425227499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_15
+      rect:
+        serializedVersion: 2
         x: 32
         y: 32
         width: 32
@@ -397,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1f4fd50b13073546bc245b3ef979199
-      internalID: 1432118745
+      spriteID: 35c797b9d56dbcb458f36ad0d0016698
+      internalID: -742992202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau_14
+      name: charactersAnimsBandeau_16
       rect:
         serializedVersion: 2
         x: 64
@@ -418,14 +460,98 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b534a7b2b2eeb454ab0ea4b0cce08752
-      internalID: -1346173366
+      spriteID: b658aacfef8fa9944b59e8a1ed9e1725
+      internalID: -1993837685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau_15
+      name: charactersAnimsBandeau_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2cddf206dc0f049a5ef062c61acf2c
+      internalID: -1261908640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3d33ce38ef37442aa2009c22ad7870
+      internalID: -978258035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_19
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4acbb8bf9f191d4c935bf9493c66c83
+      internalID: 1881463363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62a45fb6a3f70242b3d30a0a8e6f841
+      internalID: -1185392175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_21
       rect:
         serializedVersion: 2
         x: 0
@@ -439,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52952a3a2e0e7e24f9e0a525f841fdb9
-      internalID: 1060906199
+      spriteID: 734f345b4ceb8454e8e84021c1b348e7
+      internalID: 2887285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau_16
+      name: charactersAnimsBandeau_22
       rect:
         serializedVersion: 2
         x: 32
@@ -460,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 683b7d3685b96e34ab87b64be6a53795
-      internalID: -2125936966
+      spriteID: d84590317af94d0489f81c8cd4884f97
+      internalID: -1711728613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charactersAnimsBandeau_17
+      name: charactersAnimsBandeau_23
       rect:
         serializedVersion: 2
         x: 64
@@ -481,8 +607,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a6a20250630f164cbeafec219858e0e
-      internalID: 1744039318
+      spriteID: de16294d387d9994fbdbd44424f19885
+      internalID: -1774699813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f701f6e4d11ce9f40a44ac3fd60c95fd
+      internalID: -1625118637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b45c37b7c16d14d4c8df1f466f600121
+      internalID: 1287408521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_26
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e322c7291470d4fa9b1016e2d797ae
+      internalID: 300615519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: charactersAnimsBandeau_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e375a615e2b5e46913027184d1f6e9
+      internalID: 271648429
       vertices: []
       indices: 
       edges: []
@@ -498,24 +708,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charactersAnimsBandeau_0: 1586928535
-      charactersAnimsBandeau_1: 1396330281
-      charactersAnimsBandeau_10: -133209172
-      charactersAnimsBandeau_11: -1764227043
-      charactersAnimsBandeau_12: 402919294
-      charactersAnimsBandeau_13: 1432118745
-      charactersAnimsBandeau_14: -1346173366
-      charactersAnimsBandeau_15: 1060906199
-      charactersAnimsBandeau_16: -2125936966
-      charactersAnimsBandeau_17: 1744039318
-      charactersAnimsBandeau_2: -801829251
-      charactersAnimsBandeau_3: 513648312
-      charactersAnimsBandeau_4: -1202653994
-      charactersAnimsBandeau_5: 1449092899
-      charactersAnimsBandeau_6: 201787235
-      charactersAnimsBandeau_7: -995800989
-      charactersAnimsBandeau_8: -1242231203
-      charactersAnimsBandeau_9: 3539363
+      charactersAnimsBandeau_0: -757058293
+      charactersAnimsBandeau_1: 1492208331
+      charactersAnimsBandeau_10: 1651227545
+      charactersAnimsBandeau_11: 1631235919
+      charactersAnimsBandeau_12: 1290956815
+      charactersAnimsBandeau_13: -1762527715
+      charactersAnimsBandeau_14: -425227499
+      charactersAnimsBandeau_15: -742992202
+      charactersAnimsBandeau_16: -1993837685
+      charactersAnimsBandeau_17: -1261908640
+      charactersAnimsBandeau_18: -978258035
+      charactersAnimsBandeau_19: 1881463363
+      charactersAnimsBandeau_2: 95726690
+      charactersAnimsBandeau_20: -1185392175
+      charactersAnimsBandeau_21: 2887285
+      charactersAnimsBandeau_22: -1711728613
+      charactersAnimsBandeau_23: -1774699813
+      charactersAnimsBandeau_24: -1625118637
+      charactersAnimsBandeau_25: 1287408521
+      charactersAnimsBandeau_26: 300615519
+      charactersAnimsBandeau_27: 271648429
+      charactersAnimsBandeau_3: 2113436795
+      charactersAnimsBandeau_4: 411591507
+      charactersAnimsBandeau_5: -1278959187
+      charactersAnimsBandeau_6: 1245580706
+      charactersAnimsBandeau_7: -453378828
+      charactersAnimsBandeau_8: 954220650
+      charactersAnimsBandeau_9: -689978626
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

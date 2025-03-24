@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="MixerGroup" id="{ec262f34-5f8a-4689-ae0d-973bd0994368}">
 		<property name="color">
 			<value>Yellow</value>
 		</property>
 		<property name="volume">
-			<value>-4.5</value>
+			<value>-5.5</value>
 		</property>
 		<property name="name">
 			<value>Ambient</value>

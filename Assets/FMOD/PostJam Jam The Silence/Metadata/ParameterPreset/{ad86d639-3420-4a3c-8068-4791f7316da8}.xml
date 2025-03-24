@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{ad86d639-3420-4a3c-8068-4791f7316da8}">
+		<property name="name">
+			<value>ContinuousDashes</value>
+		</property>
+		<relationship name="folder">
+			<destination>{44dd0b75-a39a-48e1-8aaa-153f69db7f51}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{60b37c22-bca9-4050-a50e-c27571e1330b}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{60b37c22-bca9-4050-a50e-c27571e1330b}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>11</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

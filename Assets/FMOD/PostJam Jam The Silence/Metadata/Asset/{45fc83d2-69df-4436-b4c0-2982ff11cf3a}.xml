@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{45fc83d2-69df-4436-b4c0-2982ff11cf3a}">
+		<property name="assetPath">
+			<value>SFX/Slime/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ffec25dd-19b8-4468-950f-482f92dc5e99}</destination>
+		</relationship>
+	</object>
+</objects>

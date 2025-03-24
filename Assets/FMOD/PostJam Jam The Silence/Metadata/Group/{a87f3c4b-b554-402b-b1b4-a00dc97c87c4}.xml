@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="MixerGroup" id="{a87f3c4b-b554-402b-b1b4-a00dc97c87c4}">
 		<property name="color">
 			<value>Purple</value>
@@ -23,8 +23,23 @@
 	<object class="MixerBusEffectChain" id="{1382de61-9103-4465-9190-5481ac53fe8b}">
 		<relationship name="effects">
 			<destination>{c58a5d17-8580-48fd-b80b-9723fec56d1b}</destination>
+			<destination>{16279e31-4085-4654-a971-b0a480cb4f54}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4c50b042-8c97-4cbb-a857-5075d4f6ea65}" />
 	<object class="MixerBusFader" id="{c58a5d17-8580-48fd-b80b-9723fec56d1b}" />
+	<object class="CompressorEffect" id="{16279e31-4085-4654-a971-b0a480cb4f54}">
+		<property name="threshold">
+			<value>-39</value>
+		</property>
+		<property name="ratio">
+			<value>5.4000001</value>
+		</property>
+		<property name="attackTime">
+			<value>30</value>
+		</property>
+		<property name="releaseTime">
+			<value>68</value>
+		</property>
+	</object>
 </objects>

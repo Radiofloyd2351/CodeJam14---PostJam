@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{2a752946-35fe-4b3f-9e93-d36de193a844}">
+		<property name="assetPath">
+			<value>SFX/Player/Dash/Medium/Player Dash 4.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ffec25dd-19b8-4468-950f-482f92dc5e99}</destination>
+		</relationship>
+	</object>
+</objects>

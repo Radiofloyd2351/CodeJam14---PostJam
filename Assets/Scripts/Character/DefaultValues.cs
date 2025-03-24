@@ -21,6 +21,7 @@ public class DefaultValues : MonoBehaviour {
     [SerializeField] private GameObject playerObj;
 
     public static GameObject player;
+    public static PlayerStats playerStats;
     public static GameObject grid;
     public GameObject gridObj;
 
@@ -35,6 +36,7 @@ public class DefaultValues : MonoBehaviour {
 
     public void Start() {
         player = playerObj;
+        playerStats = playerObj.GetComponent<PlayerStats>();
         grid = gridObj;
         foreach (KeyValuePair<Instrument, AbsInstrument> type in instrumentTypeTemplates) {
             instrumentClassTypes.Add(type.Key, type.Value.GetType());

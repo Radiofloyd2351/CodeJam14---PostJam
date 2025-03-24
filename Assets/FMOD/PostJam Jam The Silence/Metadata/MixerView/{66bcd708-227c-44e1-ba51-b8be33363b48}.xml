@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="UiMixerView" id="{66bcd708-227c-44e1-ba51-b8be33363b48}">
 		<property name="name">
 			<value>All</value>
@@ -13,6 +13,12 @@
 			<destination>{0eb7b18f-416c-42f6-a50c-933ff07c9dbc}</destination>
 			<destination>{b352dcfb-8d3d-48e1-92bc-43547069f5dd}</destination>
 			<destination>{5f42fe12-5d9a-4a53-967c-9a6db7d25076}</destination>
+			<destination>{56f9eebe-a479-4e06-a6c5-f36bce760bd8}</destination>
+			<destination>{771a5aa3-2a49-4e0b-ad85-e7309b98e82b}</destination>
+			<destination>{5c2a356a-c346-40da-9adb-58b8b329611f}</destination>
+			<destination>{2aeb71f9-23fc-4070-8436-dd2f10611c5c}</destination>
+			<destination>{8e689b57-dd7c-4d60-9b29-e328bd7ca7e4}</destination>
+			<destination>{764f3b0a-dc84-40d4-8bab-42e2560806af}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{d2395d7d-b8d1-413e-84db-6f0fc3257545}</destination>

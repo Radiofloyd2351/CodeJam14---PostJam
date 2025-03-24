@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MixerGroup" id="{8e689b57-dd7c-4d60-9b29-e328bd7ca7e4}">
+		<property name="color">
+			<value>Green</value>
+		</property>
+		<property name="volume">
+			<value>-2</value>
+		</property>
+		<property name="name">
+			<value>Slime</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{7182a545-6146-4497-876a-74f949efe7d5}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{b97ec08f-143d-4183-a201-1e1a56103ba3}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{5f42fe12-5d9a-4a53-967c-9a6db7d25076}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{7182a545-6146-4497-876a-74f949efe7d5}">
+		<relationship name="effects">
+			<destination>{e881f90e-e12d-42a7-bbfa-196264c48ece}</destination>
+			<destination>{158274b6-e077-499a-98e4-0fcc286a09c2}</destination>
+			<destination>{ad840bf3-9dde-4ba5-b5e5-7151ba29d481}</destination>
+			<destination>{49a52ed9-3884-4e59-8296-f95ccce8b289}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{b97ec08f-143d-4183-a201-1e1a56103ba3}">
+		<property name="surroundPanExtent">
+			<value>106</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{e881f90e-e12d-42a7-bbfa-196264c48ece}" />
+	<object class="GainEffect" id="{158274b6-e077-499a-98e4-0fcc286a09c2}" />
+	<object class="CompressorEffect" id="{ad840bf3-9dde-4ba5-b5e5-7151ba29d481}">
+		<property name="threshold">
+			<value>-35.5</value>
+		</property>
+		<property name="ratio">
+			<value>12</value>
+		</property>
+		<property name="releaseTime">
+			<value>140</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{49a52ed9-3884-4e59-8296-f95ccce8b289}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>3480.02588</value>
+		</property>
+		<property name="frequencyB">
+			<value>216.682251</value>
+		</property>
+		<property name="qualityA">
+			<value>0.680000007</value>
+		</property>
+		<property name="gainA">
+			<value>4.5</value>
+		</property>
+		<property name="gainB">
+			<value>-2.5</value>
+		</property>
+	</object>
+</objects>
