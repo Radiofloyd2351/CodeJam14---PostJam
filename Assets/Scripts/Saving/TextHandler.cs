@@ -7,14 +7,14 @@ public static class TextHandler
 {
     private const string SAVE_FILE_NAME = "Saves";
     private const string JSON_SAVE_EXT = ".json";
-    private const string BASEDIR = "Assets/Scripts/Saving/";
+    private const string BASEDIR = "Assets/Saves/";
 
     public static string ConvertToJSON<D, T, K>(D dictionnary) where D: IDictionary<T, K> {
         return JsonConvert.SerializeObject(dictionnary);
     }
 
     public static D ParseFromJSON<D, T, K>(string json) where D: IDictionary<T, K> { 
-        return (D)JsonConvert.DeserializeObject(json);
+        return JsonConvert.DeserializeObject<D>(json);
     }
 
     public static D ReadFromJSON<D, T, K>(string directory = SAVE_FILE_NAME) where D : IDictionary<T, K> {

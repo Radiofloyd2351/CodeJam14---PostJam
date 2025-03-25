@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InstrumentFactory : MonoBehaviour {
 
     public static InstrumentFactory instance;
+    private Dictionary<Instrument, AbsInstrument> allInstruments;
 
     public void Start() {
         allInstruments = new();
@@ -16,22 +18,12 @@ public class InstrumentFactory : MonoBehaviour {
         }
     }
 
-    public void FillDict() {
-        if (unlocks == null) {
-            unlocks = new();
-            foreach (Instrument type in DefaultValues.instrumentClassTypes.Keys) {
-                unlocks.Add(type, false);
-            }
-        }
-    }
-
-    private Dictionary<Instrument, AbsInstrument> allInstruments;
-    private Dictionary<Instrument, bool> unlocks;
-
     private AbsInstrument CreateInstrument(Instrument type) {
-        System.Type classType = DefaultValues.GetClassType(type);
+        Type classType = DefaultValues.GetClassType(type);
         AbsInstrument newInstrument = (AbsInstrument)gameObject.AddComponent(classType);
-        unlocks[type] = true;
+        Debug.Log(type.ToString());
+        if (!Saver.instance.saveDict["save"].inventory.instruments.Contains(type.ToString())) Saver.instance.saveDict["save"].inventory.instruments.Add(type.ToString());
+        Debug.Log(Saver.instance.saveDict["save"].inventory.instruments);
         allInstruments.Add(type, newInstrument);
         return newInstrument;
     }
@@ -46,10 +38,10 @@ public class InstrumentFactory : MonoBehaviour {
     }
 
     public void InstantiateInstruments() {
-        foreach (KeyValuePair<Instrument, bool> unlock in unlocks) {
-            if (unlock.Value) {
-                GetInstrument(unlock.Key);
-            }
+        foreach (string instrument in Saver.instance.saveDict["save"].inventory.instruments) {
+           if(Enum.TryParse(instrument, out Instrument enumValue)) {
+                GetInstrument(enumValue);
+           }
         }
     }
 }

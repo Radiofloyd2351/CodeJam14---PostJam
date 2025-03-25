@@ -43,7 +43,6 @@ public class DefaultValues : MonoBehaviour {
             Destroy(type.Value);
         }
         gameObject.transform.position = PlayerInfos.playerPos;
-        InstrumentFactory.instance.FillDict();
         InstrumentFactory.instance.GetInstrument(Instrument.None).Equip();
         InstrumentFactory.instance.InstantiateInstruments();
     }
