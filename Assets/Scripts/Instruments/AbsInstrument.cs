@@ -10,6 +10,7 @@ public abstract class AbsInstrument : MonoBehaviour {
 
     [SerializeField] public RuntimeAnimatorController animController;
     [SerializeField] public Instrument type;
+    protected InstrumentInfo data;
     //the class that plays audio if needed
 
     public abstract void PlaySound();
