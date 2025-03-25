@@ -1,20 +1,20 @@
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
 
 public static class TextHandler
 {
     private const string SAVE_FILE_NAME = "Saves";
     private const string JSON_SAVE_EXT = ".json";
-    private const string BASEDIR = "Assets/Saves/";
+    private const string BASEDIR = "Assets/Scripts/Saving/";
 
     public static string ConvertToJSON<D, T, K>(D dictionnary) where D: IDictionary<T, K> {
-        return JsonUtility.ToJson(dictionnary);
+        return JsonConvert.SerializeObject(dictionnary);
     }
 
     public static D ParseFromJSON<D, T, K>(string json) where D: IDictionary<T, K> { 
-        return JsonUtility.FromJson<D>(json);
+        return (D)JsonConvert.DeserializeObject(json);
     }
 
     public static D ReadFromJSON<D, T, K>(string directory = SAVE_FILE_NAME) where D : IDictionary<T, K> {
