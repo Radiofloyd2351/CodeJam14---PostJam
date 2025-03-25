@@ -16,7 +16,7 @@ public class DefaultValues : MonoBehaviour {
 
     public static Dictionary<Instrument, Type> instrumentClassTypes = new();
 
-    public static Type GetClassType (Instrument type) { return instrumentClassTypes[type]; }
+    public static Type GetClassType (Instrument type) { return instrumentClassTypes[type]; }    
 
     [SerializeField] private GameObject playerObj;
 
@@ -43,7 +43,6 @@ public class DefaultValues : MonoBehaviour {
             Destroy(type.Value);
         }
         gameObject.transform.position = PlayerInfos.playerPos;
-        InstrumentFactory.instance.GetInstrument(Instrument.None).Equip();
-        InstrumentFactory.instance.InstantiateInstruments();
+        InstrumentFactory.instance.SwitchInstrument(Instrument.None);
     }
 }

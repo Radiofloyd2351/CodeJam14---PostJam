@@ -30,7 +30,7 @@ public class Collect : MonoBehaviour
         yield return null;
         Debug.Log(type);
         Ui.SetActive(true);
-        InstrumentFactory.instance.GetInstrument(type).Equip();
+        InstrumentFactory.instance.SwitchInstrument(type);
         EventHandler.instance.OnInterract -= PickUp;
         button.SetActive(false);
 

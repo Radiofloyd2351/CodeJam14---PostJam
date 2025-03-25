@@ -14,7 +14,6 @@ public abstract class AbsInstrument : MonoBehaviour {
 
     public abstract void PlaySound();
     public virtual void Equip() {
-        InstrumentFactory.instance.GetInstrument(PlayerInfos.heldInstrument).Unequip();
         EventHandler.instance.RunSwitchInstrument(type);
         InstrumentManager.instance.GetGrid(type).SetActive(true);
         InstrumentManager.instance.GetIndicator(type).gameObject.SetActive(true);

@@ -16,7 +16,7 @@ public class ModeIndicator : MonoBehaviour
     private KeyCode key;
 
     public void Click() {
-        InstrumentFactory.instance.GetInstrument(instrument).Equip();
+        InstrumentFactory.instance.SwitchInstrument(instrument);
     }
 
     public void Enable() {
