@@ -88342,10 +88342,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2052754256}
   - component: {fileID: 2052754255}
-  - component: {fileID: 2052754254}
-  - component: {fileID: 2052754253}
-  - component: {fileID: 2052754252}
-  - component: {fileID: 2052754251}
   m_Layer: 0
   m_Name: DefaultValues
   m_TagString: Untagged
@@ -88353,62 +88349,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2052754251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052754250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 941b4c5d541e73349ba4680612a018a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animController: {fileID: 0}
-  type: 0
---- !u!114 &2052754252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052754250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887788348de206c4a906bcbd9a815134, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animController: {fileID: 0}
-  type: 0
---- !u!114 &2052754253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052754250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30dee6c489438114f83fa6093839569c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animController: {fileID: 0}
-  type: 0
---- !u!114 &2052754254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052754250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f35a19a405582e04cb24c438186a3256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animController: {fileID: 0}
-  type: 0
 --- !u!114 &2052754255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88421,14 +88361,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5644f31686f601245ad564beda9f3524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instrumentTypeTemplates:
+  instrumentInfoTypeTemplates:
     keys: 00000000010000000200000003000000
     keyType: 0
     values:
-    - {fileID: 2052754254}
-    - {fileID: 2052754253}
-    - {fileID: 2052754252}
-    - {fileID: 2052754251}
+    - {fileID: 11400000, guid: f9d35396fb498a14e8d17b6c3bc173eb, type: 2}
+    - {fileID: 11400000, guid: 0fdf23f5b84e0a847b5734ea5eabc1cc, type: 2}
+    - {fileID: 11400000, guid: 3d19b771d2b5e8742b517b9f854c87a5, type: 2}
+    - {fileID: 11400000, guid: a50dc1e23136bb94b81f436d10b1835c, type: 2}
     newKeyString: 
     newKeyInt: 0
     newKeyColor: {r: 0, g: 0, b: 0, a: 0}

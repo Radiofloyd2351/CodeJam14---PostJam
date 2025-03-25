@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca9473305275514087b98b2ecee1e1e, type: 3}
+  m_Name: Lyre
+  m_EditorClassIdentifier: 
+  typeName: Lyre, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  instrumentName: Lyre
+  description: this is a shitting lyre
+  image: {fileID: 1843979960, guid: 492d37cbff7034a4581d4300a84ca839, type: 3}
+  rarity: 2

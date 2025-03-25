@@ -10,13 +10,14 @@ public class DefaultValues : MonoBehaviour {
     public List<Type> types;
 
 
-    [SerializeField] private SerializedDictionary<Instrument, AbsInstrument> instrumentTypeTemplates;
+    public SerializedDictionary<Instrument, InstrumentInfo> instrumentInfoTypeTemplates;
 
+    public Dictionary<Instrument, Type> instrumentClassTypes = new();
 
+    public Type GetClassType (Instrument type) { return instrumentClassTypes[type]; }
+    public Type GetInfoType(Instrument type) { return instrumentClassTypes[type]; }
 
-    public static Dictionary<Instrument, Type> instrumentClassTypes = new();
-
-    public static Type GetClassType (Instrument type) { return instrumentClassTypes[type]; }    
+    public static DefaultValues instance;
 
     [SerializeField] private GameObject playerObj;
 
@@ -30,17 +31,18 @@ public class DefaultValues : MonoBehaviour {
     private static Instrument _currentInstrument;
     private static Instrument _lastInstrument;
 
-    public static Type Current { get { return instrumentClassTypes[_currentInstrument]; } }
-    public static Type Last { get { return instrumentClassTypes[_lastInstrument]; } }
+    public Type Current { get { return instrumentClassTypes[_currentInstrument]; } }
+    public Type Last { get { return instrumentClassTypes[_lastInstrument]; } }
 
 
     public void Start() {
+        instance = this;
         player = playerObj;
         playerStats = playerObj.GetComponent<PlayerStats>();
         grid = gridObj;
-        foreach (KeyValuePair<Instrument, AbsInstrument> type in instrumentTypeTemplates) {
-            instrumentClassTypes.Add(type.Key, type.Value.GetType());
-            Destroy(type.Value);
+        foreach (KeyValuePair<Instrument, InstrumentInfo> type in instrumentInfoTypeTemplates) {
+            instrumentClassTypes.Add(type.Key, type.Value.Type);
+            Debug.Log(type.Value.Type);
         }
         gameObject.transform.position = PlayerInfos.playerPos;
         InstrumentFactory.instance.SwitchInstrument(Instrument.None);

@@ -9,4 +9,12 @@ public class Inventory
 
     public void Push(InstrumentInfo instrument) {  instruments.Add(instrument); }
 
+
+    public void Build() {
+        foreach (string instrumentText in Saver.instance.saveDict["save"].inventory.instruments) {
+            if (System.Enum.TryParse(instrumentText, out Instrument instrument)) {
+                instruments.Add(DefaultValues.instance.instrumentInfoTypeTemplates[instrument]);
+            }
+        }
+    }
 }
