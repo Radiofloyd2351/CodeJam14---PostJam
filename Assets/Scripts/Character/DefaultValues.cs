@@ -15,7 +15,7 @@ public class DefaultValues : MonoBehaviour {
     public Dictionary<Instrument, Type> instrumentClassTypes = new();
 
     public Type GetClassType (Instrument type) { return instrumentClassTypes[type]; }
-    public Type GetInfoType(Instrument type) { return instrumentClassTypes[type]; }
+    public InstrumentInfo GetInfoType(Instrument type) { return instrumentInfoTypeTemplates[type]; }
 
     public static DefaultValues instance;
 
@@ -45,6 +45,7 @@ public class DefaultValues : MonoBehaviour {
             Debug.Log(type.Value.Type);
         }
         gameObject.transform.position = PlayerInfos.playerPos;
-        InstrumentFactory.instance.SwitchInstrument(Instrument.None);
+        InstrumentFactory.instance.InstantiateInstruments();
+        Inventory.instance.Build();
     }
 }

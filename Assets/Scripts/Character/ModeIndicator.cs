@@ -10,10 +10,7 @@ public class ModeIndicator : MonoBehaviour
 
     public Sprite active;
     public Sprite inactive;
-    [SerializeField]
-    private Instrument instrument;
-    [SerializeField]
-    private KeyCode key;
+    public Instrument instrument;
 
     public void Click() {
         InstrumentFactory.instance.SwitchInstrument(instrument);

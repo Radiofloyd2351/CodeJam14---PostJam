@@ -6,7 +6,9 @@ public class InstrumentInfo : ScriptableObject {
     private string typeName; // Store the name of the type as a string
     [SerializeField] private string instrumentName;
     [SerializeField] private string description;
-    [SerializeField] private Sprite image;
+    [SerializeField] public Sprite image;
+    [SerializeField] public Sprite activeIndicator;
+    [SerializeField] public Sprite inactiveIndicator;
     [SerializeField] private int rarity;
 
 

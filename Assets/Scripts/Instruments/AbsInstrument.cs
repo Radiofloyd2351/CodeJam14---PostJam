@@ -17,8 +17,6 @@ public abstract class AbsInstrument : MonoBehaviour {
     public virtual void Equip() {
         EventHandler.instance.RunSwitchInstrument(type);
         InstrumentManager.instance.GetGrid(type).SetActive(true);
-        InstrumentManager.instance.GetIndicator(type).gameObject.SetActive(true);
-        InstrumentManager.instance.GetIndicator(type).Enable();
         DefaultValues.player.layer = LayerMask.NameToLayer(type.ToString());
         PlayerInfos.heldInstrument = type;
         //animator.runtimeAnimatorController = DefaultValues.Current.controller;
@@ -28,7 +26,6 @@ public abstract class AbsInstrument : MonoBehaviour {
         if (type != Instrument.None) {
             InstrumentManager.instance.GetGrid(type).SetActive(false);
         }
-        InstrumentManager.instance.GetIndicator(type).Disable();
         UnequipAbilities();
     }
 

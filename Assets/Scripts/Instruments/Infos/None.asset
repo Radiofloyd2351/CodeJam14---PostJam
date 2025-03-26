@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca9473305275514087b98b2ecee1e1e, type: 3}
   m_Name: None
   m_EditorClassIdentifier: 
-  typeName: NoInstrument, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   instrumentName: None
   description: NO
   image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  activeIndicator: {fileID: 882593522, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
+  inactiveIndicator: {fileID: 1823570039, guid: 351f449f22fdf8d45b52c8c7d5cb16be,
+    type: 3}
   rarity: 0

@@ -7,7 +7,6 @@ public class InstrumentManager : MonoBehaviour {
     public static InstrumentManager instance;
 
     [SerializeField] private SerializedDictionary<Instrument, GameObject> gridDictionnary;
-    [SerializeField] private SerializedDictionary<Instrument, ModeIndicator> indicatorDictionnary;
     [SerializeField] private GameObject mask;
 
     private void Start() {
@@ -20,9 +19,6 @@ public class InstrumentManager : MonoBehaviour {
 
     public GameObject GetGrid(Instrument type) {
         return gridDictionnary[type];
-    }
-    public ModeIndicator GetIndicator(Instrument type) {
-        return indicatorDictionnary[type];
     }
     public GameObject GetMask() {
         return mask;

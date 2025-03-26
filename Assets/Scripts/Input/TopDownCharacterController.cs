@@ -125,19 +125,23 @@ public class TopDownCharacterController : MonoBehaviour {
         Instrument currInstrument = Instrument.None;
         if(ctx.ReadValue<Vector2>().y  > 0){
             currInstrument = instrumentNames[0];
-            InstrumentManager.instance.GetIndicator(Instrument.None).Click();
+            InstrumentFactory.instance.SwitchInstrument(0);
+            // InstrumentManager.instance.GetIndicator(Instrument.None).Click();
         }
         if (ctx.ReadValue<Vector2>().x > 0){
             currInstrument = instrumentNames[1];
-            InstrumentManager.instance.GetIndicator(Instrument.Launch).Click();
+            InstrumentFactory.instance.SwitchInstrument(1);
+            //  InstrumentManager.instance.GetIndicator(Instrument.Launch).Click();
         }
         if (ctx.ReadValue<Vector2>().y < 0){
             currInstrument = instrumentNames[2];
-            InstrumentManager.instance.GetIndicator(Instrument.Lyre).Click();
+            InstrumentFactory.instance.SwitchInstrument(2);
+            // InstrumentManager.instance.GetIndicator(Instrument.Lyre).Click();
         }
         if (ctx.ReadValue<Vector2>().x < 0){
             currInstrument = instrumentNames[3];
-            InstrumentManager.instance.GetIndicator(Instrument.Guitar).Click();
+            InstrumentFactory.instance.SwitchInstrument(3);
+            // InstrumentManager.instance.GetIndicator(Instrument.Guitar).Click();
         }
     }
 
