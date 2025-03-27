@@ -46,18 +46,54 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""InstrumentSwitch"",
-                    ""type"": ""Value"",
-                    ""id"": ""44165fdb-3348-49fe-944a-6adde57fa5c9"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""NormalizeVector2"",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""SpecialMove"",
                     ""type"": ""Button"",
                     ""id"": ""5168ea14-6af9-4634-9362-c363608db036"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""9eccb1f2-2382-44fe-ad40-f8dac943f733"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Instrument1"",
+                    ""type"": ""Button"",
+                    ""id"": ""9584c007-2c63-4fe0-a759-6cd624bd8d68"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Instrument2"",
+                    ""type"": ""Button"",
+                    ""id"": ""4dfae9d9-6271-4305-b15f-648b5c05a4e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Instrument3"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b190013-1b98-4ce9-900b-9cea95476e06"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Instrument4"",
+                    ""type"": ""Button"",
+                    ""id"": ""607e1b44-cead-4fda-8f4a-1f2e9ea4a3f2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -154,116 +190,6 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Keyboard"",
-                    ""id"": ""fc059826-8a90-4642-9d72-11f7a76a5fea"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""21a73ff0-5ea6-488a-ab9a-19acdd1a0ac4"",
-                    ""path"": ""<Keyboard>/#(1)"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=1,max=1,zero=1)"",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""03d7d74f-1bd0-4bbf-91a8-001592089d33"",
-                    ""path"": ""<Keyboard>/#(3)"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=3,max=3,zero=3)"",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""2e6ade7a-cc5b-4798-916b-219fd8ce84c9"",
-                    ""path"": ""<Keyboard>/#(4)"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=4,max=4,zero=4)"",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""acae454e-fbcd-4f89-8e74-684432b696d9"",
-                    ""path"": ""<Keyboard>/#(2)"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=2,max=2,zero=2)"",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""DPad"",
-                    ""id"": ""e15073a4-d38e-48fd-8e8e-29cbe1b5b4f8"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""d766a4cd-b4d2-4c7b-b447-1cfd47e51de6"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=1,max=1,zero=1)"",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""a601704c-7879-440d-a5ba-685b535cc8a0"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=3,max=3,zero=3)"",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""d1ad527f-9572-4ebb-9f9c-76083cfee8c5"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=4,max=4,zero=4)"",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""a8f2e0b6-c691-490c-89c7-9deb2bc52144"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=2,max=2,zero=2)"",
-                    ""groups"": """",
-                    ""action"": ""InstrumentSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""e6f0e26a-8741-4b00-a125-d127cc71e234"",
                     ""path"": ""<Keyboard>/space"",
@@ -284,6 +210,61 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                     ""action"": ""SpecialMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""573f26a3-4062-4171-98ea-60f439c14f9a"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=0)"",
+                    ""groups"": """",
+                    ""action"": ""Instrument1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""683d0eb6-6e53-443b-aa01-d614bb8b8c3f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ce5e8ec-4426-41ee-b88b-ec029e2c2a99"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale"",
+                    ""groups"": """",
+                    ""action"": ""Instrument2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""798807b6-f3ad-4139-bfa6-7646be929df3"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
+                    ""action"": ""Instrument3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dce1462c-71ff-4fba-9740-d4363ed84dde"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=3)"",
+                    ""groups"": """",
+                    ""action"": ""Instrument4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -294,8 +275,12 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         m_BasicActions = asset.FindActionMap("Basic Actions", throwIfNotFound: true);
         m_BasicActions_Movement = m_BasicActions.FindAction("Movement", throwIfNotFound: true);
         m_BasicActions_Interact = m_BasicActions.FindAction("Interact", throwIfNotFound: true);
-        m_BasicActions_InstrumentSwitch = m_BasicActions.FindAction("InstrumentSwitch", throwIfNotFound: true);
         m_BasicActions_SpecialMove = m_BasicActions.FindAction("SpecialMove", throwIfNotFound: true);
+        m_BasicActions_Menu = m_BasicActions.FindAction("Menu", throwIfNotFound: true);
+        m_BasicActions_Instrument1 = m_BasicActions.FindAction("Instrument1", throwIfNotFound: true);
+        m_BasicActions_Instrument2 = m_BasicActions.FindAction("Instrument2", throwIfNotFound: true);
+        m_BasicActions_Instrument3 = m_BasicActions.FindAction("Instrument3", throwIfNotFound: true);
+        m_BasicActions_Instrument4 = m_BasicActions.FindAction("Instrument4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -359,16 +344,24 @@ public partial class @Characters: IInputActionCollection2, IDisposable
     private List<IBasicActionsActions> m_BasicActionsActionsCallbackInterfaces = new List<IBasicActionsActions>();
     private readonly InputAction m_BasicActions_Movement;
     private readonly InputAction m_BasicActions_Interact;
-    private readonly InputAction m_BasicActions_InstrumentSwitch;
     private readonly InputAction m_BasicActions_SpecialMove;
+    private readonly InputAction m_BasicActions_Menu;
+    private readonly InputAction m_BasicActions_Instrument1;
+    private readonly InputAction m_BasicActions_Instrument2;
+    private readonly InputAction m_BasicActions_Instrument3;
+    private readonly InputAction m_BasicActions_Instrument4;
     public struct BasicActionsActions
     {
         private @Characters m_Wrapper;
         public BasicActionsActions(@Characters wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_BasicActions_Movement;
         public InputAction @Interact => m_Wrapper.m_BasicActions_Interact;
-        public InputAction @InstrumentSwitch => m_Wrapper.m_BasicActions_InstrumentSwitch;
         public InputAction @SpecialMove => m_Wrapper.m_BasicActions_SpecialMove;
+        public InputAction @Menu => m_Wrapper.m_BasicActions_Menu;
+        public InputAction @Instrument1 => m_Wrapper.m_BasicActions_Instrument1;
+        public InputAction @Instrument2 => m_Wrapper.m_BasicActions_Instrument2;
+        public InputAction @Instrument3 => m_Wrapper.m_BasicActions_Instrument3;
+        public InputAction @Instrument4 => m_Wrapper.m_BasicActions_Instrument4;
         public InputActionMap Get() { return m_Wrapper.m_BasicActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -384,12 +377,24 @@ public partial class @Characters: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @InstrumentSwitch.started += instance.OnInstrumentSwitch;
-            @InstrumentSwitch.performed += instance.OnInstrumentSwitch;
-            @InstrumentSwitch.canceled += instance.OnInstrumentSwitch;
             @SpecialMove.started += instance.OnSpecialMove;
             @SpecialMove.performed += instance.OnSpecialMove;
             @SpecialMove.canceled += instance.OnSpecialMove;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
+            @Instrument1.started += instance.OnInstrument1;
+            @Instrument1.performed += instance.OnInstrument1;
+            @Instrument1.canceled += instance.OnInstrument1;
+            @Instrument2.started += instance.OnInstrument2;
+            @Instrument2.performed += instance.OnInstrument2;
+            @Instrument2.canceled += instance.OnInstrument2;
+            @Instrument3.started += instance.OnInstrument3;
+            @Instrument3.performed += instance.OnInstrument3;
+            @Instrument3.canceled += instance.OnInstrument3;
+            @Instrument4.started += instance.OnInstrument4;
+            @Instrument4.performed += instance.OnInstrument4;
+            @Instrument4.canceled += instance.OnInstrument4;
         }
 
         private void UnregisterCallbacks(IBasicActionsActions instance)
@@ -400,12 +405,24 @@ public partial class @Characters: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @InstrumentSwitch.started -= instance.OnInstrumentSwitch;
-            @InstrumentSwitch.performed -= instance.OnInstrumentSwitch;
-            @InstrumentSwitch.canceled -= instance.OnInstrumentSwitch;
             @SpecialMove.started -= instance.OnSpecialMove;
             @SpecialMove.performed -= instance.OnSpecialMove;
             @SpecialMove.canceled -= instance.OnSpecialMove;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
+            @Instrument1.started -= instance.OnInstrument1;
+            @Instrument1.performed -= instance.OnInstrument1;
+            @Instrument1.canceled -= instance.OnInstrument1;
+            @Instrument2.started -= instance.OnInstrument2;
+            @Instrument2.performed -= instance.OnInstrument2;
+            @Instrument2.canceled -= instance.OnInstrument2;
+            @Instrument3.started -= instance.OnInstrument3;
+            @Instrument3.performed -= instance.OnInstrument3;
+            @Instrument3.canceled -= instance.OnInstrument3;
+            @Instrument4.started -= instance.OnInstrument4;
+            @Instrument4.performed -= instance.OnInstrument4;
+            @Instrument4.canceled -= instance.OnInstrument4;
         }
 
         public void RemoveCallbacks(IBasicActionsActions instance)
@@ -427,7 +444,11 @@ public partial class @Characters: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnInstrumentSwitch(InputAction.CallbackContext context);
         void OnSpecialMove(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
+        void OnInstrument1(InputAction.CallbackContext context);
+        void OnInstrument2(InputAction.CallbackContext context);
+        void OnInstrument3(InputAction.CallbackContext context);
+        void OnInstrument4(InputAction.CallbackContext context);
     }
 }

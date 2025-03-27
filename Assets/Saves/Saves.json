@@ -1,1 +1,16 @@
-{"save":{"inventory":{"instruments":["None","Lyre","Launch","Guitar","Drums"],"accessories":[],"heldInstruments":[],"heldAccessories":[]},"progression":{"killedBosses":[],"storyConditions":[],"storyProgression":{}},"checkPoint":{"currentCheckPoint":null,"unlockedCheckPoints":[]}}}
+{
+  "save": {
+    "inventory": {
+      "instruments": ["None", "Lyre", "Launch", "Guitar", "Drums"],
+      "accessories": [],
+      "heldInstruments": [],
+      "heldAccessories": []
+    },
+    "progression": {
+      "killedBosses": [],
+      "storyConditions": [],
+      "storyProgression": {}
+    },
+    "checkPoint": { "currentCheckPoint": null, "unlockedCheckPoints": [] }
+  }
+}

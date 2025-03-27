@@ -12,6 +12,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform instrumentCollection;
     [SerializeField] private float positionModifier;
 
+    [SerializeField] private GameObject menuContainer;
+
     public InventoryInstrument selectedInstrument;
 
     //public void Push(InstrumentInfo instrument) {  instruments.Add(instrument); }
@@ -37,5 +39,10 @@ public class Inventory : MonoBehaviour
             }
             i++;
         }
+    }
+
+    //Mettre ca à un autre endroit, dans menu et pas dans inventory lol
+    public void ToggleMenu() {
+        menuContainer.SetActive(!menuContainer.activeInHierarchy);
     }
 }

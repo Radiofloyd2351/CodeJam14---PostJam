@@ -41007,6 +41007,7 @@ MonoBehaviour:
     newKeyLevel: 0
     newKeyInstrument: 0
     error: Error
+  positions: 
   indicatorTemplate: {fileID: 3146058112234021380, guid: 0f85f43b3853c2446a40a1a35b143ba5,
     type: 3}
   indicatorContainer: {fileID: 956668093}
@@ -58661,6 +58662,7 @@ MonoBehaviour:
     type: 3}
   instrumentCollection: {fileID: 306155306}
   positionModifier: 200
+  menuContainer: {fileID: 1363766453}
   selectedInstrument: {fileID: 0}
 --- !u!1 &1424845692
 GameObject:

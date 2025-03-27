@@ -53,11 +53,20 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.BasicActions.SpecialMove.performed += SpecialMovementAbilityExecute;
         _controls.BasicActions.SpecialMove.canceled += SpecialMovementAbilityCancel;
 
-        _controls.BasicActions.InstrumentSwitch.performed += InstrumentSwitching;
+        _controls.BasicActions.Instrument1.performed += InstrumentSwitching;
+        _controls.BasicActions.Instrument2.performed += InstrumentSwitching;
+        _controls.BasicActions.Instrument3.performed += InstrumentSwitching;
+        _controls.BasicActions.Instrument4.performed += InstrumentSwitching;
+
+
+        _controls.BasicActions.Menu.performed += ToggleMenu;
 
         body = GetComponent<Rigidbody2D>();
     }
 
+    void ToggleMenu(InputAction.CallbackContext ctx) {
+        Inventory.instance.ToggleMenu();
+    }
     void MovementHandlingPerform(InputAction.CallbackContext ctx) {
         if (body != null) {
             if (!isFrozen) {
@@ -122,28 +131,7 @@ public class TopDownCharacterController : MonoBehaviour {
     }
 
     void InstrumentSwitching(InputAction.CallbackContext ctx) {
-        Instrument currInstrument = Instrument.None;
-        Debug.Log(ctx.ReadValue<KeyCode>());
-        if (ctx.ReadValue<Vector2>().y  > 0){
-            currInstrument = instrumentNames[0];
-            InstrumentFactory.instance.SwitchInstrument(0);
-            // InstrumentManager.instance.GetIndicator(Instrument.None).Click();
-        }
-        if (ctx.ReadValue<Vector2>().x > 0){
-            currInstrument = instrumentNames[1];
-            InstrumentFactory.instance.SwitchInstrument(1);
-            //  InstrumentManager.instance.GetIndicator(Instrument.Launch).Click();
-        }
-        if (ctx.ReadValue<Vector2>().y < 0){
-            currInstrument = instrumentNames[2];
-            InstrumentFactory.instance.SwitchInstrument(2);
-            // InstrumentManager.instance.GetIndicator(Instrument.Lyre).Click();
-        }
-        if (ctx.ReadValue<Vector2>().x < 0){
-            currInstrument = instrumentNames[3];
-            InstrumentFactory.instance.SwitchInstrument(3);
-            // InstrumentManager.instance.GetIndicator(Instrument.Guitar).Click();
-        }
+        InstrumentFactory.instance.SwitchInstrument((int)ctx.ReadValue<float>());
     }
 
     public void DisableMovementAbility() {
