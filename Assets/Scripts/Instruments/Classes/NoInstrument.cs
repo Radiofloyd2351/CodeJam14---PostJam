@@ -6,6 +6,7 @@ public class NoInstrument : AbsInstrument {
 
     public NoInstrument() {
         type = Instrument.None;
+        layer = "None";
     }
 
     public override void PlaySound() {

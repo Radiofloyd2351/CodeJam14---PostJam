@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ca9473305275514087b98b2ecee1e1e, type: 3}
-  m_Name: Guitar
+  m_Name: Drums
   m_EditorClassIdentifier: 
-  instrumentName: Guitar
-  description: this is a guitar hell yeah
-  image: {fileID: -1199568730, guid: 492d37cbff7034a4581d4300a84ca839, type: 3}
-  activeIndicator: {fileID: -42488442, guid: 351f449f22fdf8d45b52c8c7d5cb16be, type: 3}
-  inactiveIndicator: {fileID: 1176505938, guid: 351f449f22fdf8d45b52c8c7d5cb16be,
-    type: 3}
-  rarity: 2
-  type: 3
+  instrumentName: Drums
+  description: this is a shitting drum set
+  image: {fileID: -1506424623, guid: 914283a76ea83cf4dbb161d03498c587, type: 3}
+  activeIndicator: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  inactiveIndicator: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  rarity: 100
+  type: 4

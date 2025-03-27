@@ -19,3 +19,4 @@ MonoBehaviour:
   inactiveIndicator: {fileID: 1203161496, guid: 351f449f22fdf8d45b52c8c7d5cb16be,
     type: 3}
   rarity: 2
+  type: 2

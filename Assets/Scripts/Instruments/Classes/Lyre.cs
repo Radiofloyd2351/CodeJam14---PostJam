@@ -6,6 +6,7 @@ public class Lyre : AbsInstrument {
 
     public Lyre() {
         type = Instrument.Lyre;
+        layer = "Lyre";
     }
 
     public override void PlaySound() {

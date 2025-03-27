@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<GameObject> instruments = new List<GameObject>();
+    public Dictionary<Instrument, InventoryInstrument> instruments = new();
     //private List<InstrumentInfo> instruments = new List<InstrumentInfo>();
     //public List<InstrumentInfo> Instruments { get { return instruments; } }
 
     [SerializeField] private GameObject draggableImageTemplate;
     [SerializeField] private Transform instrumentCollection;
     [SerializeField] private float positionModifier;
+
+    public InventoryInstrument selectedInstrument;
 
     //public void Push(InstrumentInfo instrument) {  instruments.Add(instrument); }
 
@@ -20,8 +22,9 @@ public class Inventory : MonoBehaviour
     }
     public void Build() {
         int i = 0;
-        for (int j = 0; j < instruments.Count; j++) {
-            Destroy(instruments[j]);
+        foreach (KeyValuePair<Instrument,InventoryInstrument> instrument in instruments) {
+            Destroy(instrument.Value);
+            instruments.Remove(instrument.Key);
         }
         foreach (string instrumentText in Saver.instance.saveDict["save"].inventory.instruments) {
             if (System.Enum.TryParse(instrumentText, out Instrument instrument)) {
@@ -30,7 +33,7 @@ public class Inventory : MonoBehaviour
                 newImage.GetComponent<UnityEngine.UI.Image>().sprite = DefaultValues.instance.GetInfoType(instrument).image;
                 newImage.GetComponent<InventoryInstrument>().info = DefaultValues.instance.GetInfoType(instrument);
                 //newImage.transform.position += new Vector3(i * positionModifier,0f,0f);
-                instruments.Add(newImage);
+                instruments.Add(instrument, newImage.GetComponent<InventoryInstrument>());
             }
             i++;
         }

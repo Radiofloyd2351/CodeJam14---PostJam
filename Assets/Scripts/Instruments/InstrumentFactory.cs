@@ -6,7 +6,8 @@ using System;
 public class InstrumentFactory : MonoBehaviour {
 
     public static InstrumentFactory instance;
-    [SerializeField] private SerializedDictionary<Instrument, GameObject> indicators; 
+    [SerializeField] private SerializedDictionary<Instrument, ModeIndicator> indicators;
+    public List<Instrument> positions = new();
     private AbsInstrument heldInstrument;
     [SerializeField] private GameObject indicatorTemplate;
     [SerializeField] private Transform indicatorContainer;
@@ -18,79 +19,83 @@ public class InstrumentFactory : MonoBehaviour {
 
     public void InstantiateInstruments() {
         foreach (string instrumentText in Saver.instance.saveDict["save"].inventory.heldInstruments) {
-            if (Enum.TryParse(instrumentText, out Instrument instrument)) {
-                SwitchInstrument(instrument);
+            if (Enum.TryParse(instrumentText, out Instrument type)) {
+                SwitchInstrument(type);
             }
         }
+    }
+
+    public void ReplaceInstrument(Instrument type, Instrument lastType) {
+        SwitchInstrument(lastType);
+        SwitchInstrument(type);
     }
 
     public void SwitchInstrument(Instrument type) {
+        if (heldInstrument && type == heldInstrument.type) {
+            return;
+        }
         List<string> heldInstruments = Saver.instance.saveDict["save"].inventory.heldInstruments;
-        Type classType = DefaultValues.instance.GetClassType(type);
+
+        // Not holding heldInstrument anymore
         if (heldInstrument != null) {
-            if (indicators.Count >= 4 && !heldInstruments.Contains(type.ToString())) {
-                Saver.instance.saveDict["save"].inventory.heldInstruments.Remove(heldInstrument.type.ToString());
-                ReplaceIndicator(type, heldInstrument.type);
-            } else {
-                if (!heldInstruments.Contains(type.ToString())) {
-                    GainInstrument(type);
-                }
-                CreateIndicator(type);
-            }
             indicators[heldInstrument.type].GetComponent<ModeIndicator>().Disable();
-            UnequipCurrent();
-        } else {
+            heldInstrument.Unequip();
+            Destroy(heldInstrument);
+            Inventory.instance.instruments[heldInstrument.type].Unequip();
+        }
+
+        // Gain the instrument
+        if (!heldInstruments.Contains(type.ToString())) {
             GainInstrument(type);
-            CreateIndicator(type);
         }
 
+        // Hold designated Instrument
+        indicators[type].Enable();
+        Type classType = DefaultValues.instance.GetClassType(type);
         heldInstrument = (AbsInstrument)gameObject.AddComponent(classType);
-        if (!heldInstruments.Contains(type.ToString())) Saver.instance.saveDict["save"].inventory.heldInstruments.Add(type.ToString());
-        if (!Saver.instance.saveDict["save"].inventory.instruments.Contains(type.ToString())) Saver.instance.saveDict["save"].inventory.instruments.Add(type.ToString());
         heldInstrument.Equip();
-        indicators[type].GetComponent<ModeIndicator>().Enable();
     }
-
     public void SwitchInstrument(int index) {
+        Debug.Log("AAAA");
         List<string> heldInstruments = Saver.instance.saveDict["save"].inventory.heldInstruments;
-        if (heldInstruments.Count > index) {
-            if (Enum.TryParse(heldInstruments[index], out Instrument instrument)) {
-                SwitchInstrument(instrument);
-            }
+        if (positions.Count > index) {
+            SwitchInstrument(positions[index]);
         }
     }
-
-    private void CreateIndicator(Instrument type) {
-        if (!indicators.ContainsKey(type)) {
-            List<string> heldInstruments = Saver.instance.saveDict["save"].inventory.heldInstruments;
-            GameObject newIndicator = Instantiate(indicatorTemplate, indicatorContainer);
-            newIndicator.transform.position += new Vector3(indicators.Count * modifier, 0f, 0f);
-            ModeIndicator script = newIndicator.GetComponent<ModeIndicator>();
-            script.instrument = type;
-            script.active = DefaultValues.instance.GetInfoType(type).activeIndicator;
-            script.inactive = DefaultValues.instance.GetInfoType(type).inactiveIndicator;
-            indicators.Add(type, newIndicator);
-        }
-    }
-    private void ReplaceIndicator(Instrument type, Instrument lastType) {
-        if (!indicators.ContainsKey(type)) {
-            ModeIndicator script = indicators[lastType].GetComponent<ModeIndicator>();
-            List<string> heldInstruments = Saver.instance.saveDict["save"].inventory.heldInstruments;
-            script.instrument = type;
-            script.active = DefaultValues.instance.GetInfoType(type).activeIndicator;
-            script.inactive = DefaultValues.instance.GetInfoType(type).inactiveIndicator;
-        }
-    }
-
     public void GainInstrument(Instrument type) {
+        List<string> heldInstruments = Saver.instance.saveDict["save"].inventory.heldInstruments;
+        // Add to inventory if not there
         if (!Saver.instance.saveDict["save"].inventory.instruments.Contains(type.ToString())) {
             Saver.instance.saveDict["save"].inventory.instruments.Add(type.ToString());
             Inventory.instance.Build();
         }
+        // Remove last held item if too much
+        bool delete = heldInstruments.Count >= 4;
+        if (delete) {
+            positions[positions.IndexOf(heldInstrument.type)] = type;
+            heldInstruments.Remove(heldInstrument.type.ToString());
+        } else {
+            positions.Add(type);
+        }
+        heldInstruments.Add(type.ToString());
+        CreateIndicator(type, delete);
     }
 
-    public void UnequipCurrent() {
-        heldInstrument.Unequip();
-        Destroy(heldInstrument);
+    private void CreateIndicator(Instrument type, bool delete) {
+        ModeIndicator indicator;
+        List<string> heldInstruments = Saver.instance.saveDict["save"].inventory.heldInstruments;
+        if (delete) {
+            indicator = indicators[heldInstrument.type].GetComponent<ModeIndicator>();
+            indicators.Add(type, indicators[heldInstrument.type]);
+            indicators.Remove(heldInstrument.type);
+        } else {
+            GameObject indicatorObj = Instantiate(indicatorTemplate, indicatorContainer);
+            indicatorObj.transform.position += new Vector3(indicators.Count * modifier, 0f, 0f);
+            indicator = indicatorObj.GetComponent<ModeIndicator>();
+            indicators.Add(type, indicator);
+        }
+        indicator.instrument = type;
+        indicator.active = DefaultValues.instance.GetInfoType(type).activeIndicator;
+        indicator.inactive = DefaultValues.instance.GetInfoType(type).inactiveIndicator;
     }
 }

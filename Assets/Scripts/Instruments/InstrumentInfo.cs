@@ -10,6 +10,7 @@ public class InstrumentInfo : ScriptableObject {
     [SerializeField] public Sprite activeIndicator;
     [SerializeField] public Sprite inactiveIndicator;
     [SerializeField] private int rarity;
+    [SerializeField] public Instrument type;
 
 
     public string TypeName { get { return typeName; } set { typeName = value; } }

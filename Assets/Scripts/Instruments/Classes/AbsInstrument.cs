@@ -10,6 +10,7 @@ public abstract class AbsInstrument : MonoBehaviour {
 
     [SerializeField] public RuntimeAnimatorController animController;
     [SerializeField] public Instrument type;
+    [SerializeField] public string layer;
     protected InstrumentInfo data;
     //the class that plays audio if needed
 
@@ -17,7 +18,7 @@ public abstract class AbsInstrument : MonoBehaviour {
     public virtual void Equip() {
         EventHandler.instance.RunSwitchInstrument(type);
         InstrumentManager.instance.GetGrid(type).SetActive(true);
-        DefaultValues.player.layer = LayerMask.NameToLayer(type.ToString());
+        DefaultValues.player.layer = LayerMask.NameToLayer(layer);
         PlayerInfos.heldInstrument = type;
         //animator.runtimeAnimatorController = DefaultValues.Current.controller;
         EquipAbilities();

@@ -13,7 +13,8 @@ public enum Instrument {
     None,
     Launch,
     Lyre,
-    Guitar
+    Guitar,
+    Drums,
 }
 
 public enum Direction {

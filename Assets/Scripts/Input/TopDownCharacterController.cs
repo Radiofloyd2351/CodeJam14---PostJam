@@ -123,7 +123,8 @@ public class TopDownCharacterController : MonoBehaviour {
 
     void InstrumentSwitching(InputAction.CallbackContext ctx) {
         Instrument currInstrument = Instrument.None;
-        if(ctx.ReadValue<Vector2>().y  > 0){
+        Debug.Log(ctx.ReadValue<KeyCode>());
+        if (ctx.ReadValue<Vector2>().y  > 0){
             currInstrument = instrumentNames[0];
             InstrumentFactory.instance.SwitchInstrument(0);
             // InstrumentManager.instance.GetIndicator(Instrument.None).Click();
