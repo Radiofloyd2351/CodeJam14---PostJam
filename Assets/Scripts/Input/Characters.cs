@@ -98,6 +98,15 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""6382014e-a95f-43aa-af8f-ad07ad91ec40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -274,6 +283,28 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                     ""processors"": ""Scale(factor=3)"",
                     ""groups"": """",
                     ""action"": ""Instrument4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8178c8a8-7d01-48c9-ae24-7e1c729d0a03"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65226c10-a54d-411b-b8dd-09b2ba1712cf"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -627,6 +658,7 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         m_MenuDiving_Accept = m_MenuDiving.FindAction("Accept", throwIfNotFound: true);
         m_MenuDiving_Back = m_MenuDiving.FindAction("Back", throwIfNotFound: true);
         m_MenuDiving_CloseMenu = m_MenuDiving.FindAction("CloseMenu", throwIfNotFound: true);
+        m_BasicActions_Attack = m_BasicActions.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -696,6 +728,7 @@ public partial class @Characters: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicActions_Instrument2;
     private readonly InputAction m_BasicActions_Instrument3;
     private readonly InputAction m_BasicActions_Instrument4;
+    private readonly InputAction m_BasicActions_Attack;
     public struct BasicActionsActions
     {
         private @Characters m_Wrapper;
@@ -708,6 +741,7 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         public InputAction @Instrument2 => m_Wrapper.m_BasicActions_Instrument2;
         public InputAction @Instrument3 => m_Wrapper.m_BasicActions_Instrument3;
         public InputAction @Instrument4 => m_Wrapper.m_BasicActions_Instrument4;
+        public InputAction @Attack => m_Wrapper.m_BasicActions_Attack;
         public InputActionMap Get() { return m_Wrapper.m_BasicActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -741,6 +775,9 @@ public partial class @Characters: IInputActionCollection2, IDisposable
             @Instrument4.started += instance.OnInstrument4;
             @Instrument4.performed += instance.OnInstrument4;
             @Instrument4.canceled += instance.OnInstrument4;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         private void UnregisterCallbacks(IBasicActionsActions instance)
@@ -769,6 +806,9 @@ public partial class @Characters: IInputActionCollection2, IDisposable
             @Instrument4.started -= instance.OnInstrument4;
             @Instrument4.performed -= instance.OnInstrument4;
             @Instrument4.canceled -= instance.OnInstrument4;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         public void RemoveCallbacks(IBasicActionsActions instance)
@@ -874,6 +914,7 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         void OnInstrument2(InputAction.CallbackContext context);
         void OnInstrument3(InputAction.CallbackContext context);
         void OnInstrument4(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
     public interface IMenuDivingActions
     {

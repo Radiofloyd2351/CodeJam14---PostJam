@@ -11,6 +11,7 @@ public class PlayerStats : Entity
     private void Start() {
         baseSoundDir = AudioDirectoryConstants.BASE_DIRECTORY_GAMEPLAY;
         moveAbility = new Dash(15f, 3f, false);
+        attackAbility = new BasicMeleeAttack();
         // moveAbility = new ChainDash(15f, 10);
         // moveAbility = new SlowDown(true);
         // END TEST

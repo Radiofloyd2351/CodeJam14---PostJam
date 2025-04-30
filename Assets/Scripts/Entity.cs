@@ -30,6 +30,7 @@ public abstract class Entity : MonoBehaviour {
     [SerializeField] private GameObject _healthContainer;
 
     public AbsPlayerMovementAbility moveAbility = null;
+    public AbsAttackAbility attackAbility = null;
     public string soundBank;
 
     [SerializeField] public float speed;
