@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using FMODUnity;
-using Movement;
 
 public class TopDownCharacterController : MonoBehaviour {
     const int COROUTINE_ID_CHANGE_VELOCITY = 50000;
@@ -13,7 +11,6 @@ public class TopDownCharacterController : MonoBehaviour {
     public PlayerStats stats;
     private Characters _controls;
     private Rigidbody2D body;
-    public int id = 0; // temporary, switch to entity
     public Rigidbody2D Body { get { return body; } }
     Vector2 direction = Vector2.zero;
     public Vector2 Direction { get { return direction; } }
@@ -23,13 +20,6 @@ public class TopDownCharacterController : MonoBehaviour {
 
     private bool isPressed = false;
     private bool isReleased = false;
-
-    public FMODUnity.EventReference walkRef;
-    private FMOD.Studio.EventInstance walkSound;
-
-    // FOR MESSING AROUND ONLY
-    public int maxDashesForMove = 0;
-    public float speed = 15;
     #endregion
 
     private void Start()
@@ -37,9 +27,6 @@ public class TopDownCharacterController : MonoBehaviour {
 
         stats = gameObject.GetComponent<PlayerStats>();
         // TESTING
-
-
-        walkSound = FMODUnity.RuntimeManager.CreateInstance(walkRef);
 
         _controls = new Characters();
         _controls.Enable();
@@ -49,6 +36,7 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.BasicActions.Movement.canceled += MovementHandlingDisable;
 
         _controls.BasicActions.Interact.performed += InteractionHandling;
+        _controls.BasicActions.Attack.performed += Attack;
 
         _controls.BasicActions.SpecialMove.performed += SpecialMovementAbilityExecute;
         _controls.BasicActions.SpecialMove.canceled += SpecialMovementAbilityCancel;
@@ -76,7 +64,6 @@ public class TopDownCharacterController : MonoBehaviour {
             if (body.velocity.magnitude != 0) {
                 LastDirection = Vector2.ClampMagnitude(ctx.ReadValue<Vector2>(), 1);
             }
-            // TODO: Add Back the animations and the sounds functionality.
         }
     }
 
@@ -134,6 +121,10 @@ public class TopDownCharacterController : MonoBehaviour {
         InstrumentFactory.instance.SwitchInstrument((int)ctx.ReadValue<float>());
     }
 
+    void Attack(InputAction.CallbackContext ctx) {
+        stats.attackAbility.Attack(stats);
+    }
+
     public void DisableMovementAbility() {
         _controls.BasicActions.SpecialMove.Disable();
     }
@@ -146,15 +137,10 @@ public class TopDownCharacterController : MonoBehaviour {
     }
     public void DisableMovement() {
         isFrozen = true;
-        /*_controls.BasicActions.Movement.started -= MovementHandlingEnable;
-        _controls.BasicActions.Movement.performed -= MovementHandlingPerform;*/
     }
 
     public void EnableMovement() {
         isFrozen = false;
-        /*
-        _controls.BasicActions.Movement.started += MovementHandlingEnable;
-        _controls.BasicActions.Movement.performed += MovementHandlingPerform;*/
         if (isPressed) {
             stats.StopMoveAnim();
             stats.RunMoveAnim(LastDirection);
