@@ -51,8 +51,11 @@ public class InstrumentFactory : MonoBehaviour {
 
         // Hold designated Instrument
         indicators[type].Enable();
+        Debug.Log(type);
         Type classType = DefaultValues.instance.GetClassType(type);
+        Debug.Log(classType);
         heldInstrument = (AbsInstrument)gameObject.AddComponent(classType);
+        Debug.Log(heldInstrument);
         heldInstrument.Equip();
     }
     public void SwitchInstrument(int index) {
