@@ -87875,19 +87875,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instrumentInfoTypeTemplates:
-    keys: 0000000001000000020000000300000004000000
+    keys: 0400000001000000020000000300000000000000
     keyType: 0
     values:
-    - {fileID: 11400000, guid: f9d35396fb498a14e8d17b6c3bc173eb, type: 2}
+    - {fileID: 11400000, guid: 4400330bc4a300e498647c15d0fdbe50, type: 2}
     - {fileID: 11400000, guid: 0fdf23f5b84e0a847b5734ea5eabc1cc, type: 2}
     - {fileID: 11400000, guid: 3d19b771d2b5e8742b517b9f854c87a5, type: 2}
     - {fileID: 11400000, guid: a50dc1e23136bb94b81f436d10b1835c, type: 2}
-    - {fileID: 11400000, guid: 4400330bc4a300e498647c15d0fdbe50, type: 2}
+    - {fileID: 11400000, guid: f9d35396fb498a14e8d17b6c3bc173eb, type: 2}
     newKeyString: 
     newKeyInt: 0
     newKeyColor: {r: 0, g: 0, b: 0, a: 0}
     newKeyLevel: 0
-    newKeyInstrument: 4
+    newKeyInstrument: 3
     error: Error
   playerObj: {fileID: 1414394258}
   gridObj: {fileID: 63260896}
