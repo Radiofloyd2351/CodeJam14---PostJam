@@ -453,8 +453,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: lence.fspro/PostJam Jam The Silence/PostJam Jam The Silence.fspro
-  sourceBankPath: lence.fspro/PostJam Jam The Silence/Build
+  sourceProjectPath: Assets/FMOD/PostJam Jam The Silence/PostJam Jam The Silence.fspro
+  sourceBankPath: Assets/FMOD/PostJam Jam The Silence/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

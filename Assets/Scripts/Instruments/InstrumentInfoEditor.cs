@@ -33,4 +33,5 @@ public class InstrumentInfoEditor : Editor {
             instrumentInfo.TypeName = allTypes[newIndex].AssemblyQualifiedName; // Store the type name
         }
     }
+
 }
