@@ -10,6 +10,8 @@ public class TopDownCharacterController : MonoBehaviour {
     #region Attributes
     [SerializeField]
     List<Instrument> instrumentNames;
+    [SerializeField]
+    MenuControls menuControls;
     public PlayerStats stats;
     private Characters _controls;
     private Rigidbody2D body;
@@ -24,9 +26,6 @@ public class TopDownCharacterController : MonoBehaviour {
     private bool isPressed = false;
     private bool isReleased = false;
 
-    public FMODUnity.EventReference walkRef;
-    private FMOD.Studio.EventInstance walkSound;
-
     // FOR MESSING AROUND ONLY
     public int maxDashesForMove = 0;
     public float speed = 15;
@@ -38,11 +37,10 @@ public class TopDownCharacterController : MonoBehaviour {
         stats = gameObject.GetComponent<PlayerStats>();
         // TESTING
 
-
-        walkSound = FMODUnity.RuntimeManager.CreateInstance(walkRef);
-
         _controls = new Characters();
         _controls.Enable();
+        _controls.MenuDiving.Disable();
+        menuControls.StartUp(_controls);
 
         _controls.BasicActions.Movement.started += MovementHandlingEnable;
         _controls.BasicActions.Movement.performed += MovementHandlingPerform;
@@ -58,7 +56,6 @@ public class TopDownCharacterController : MonoBehaviour {
         _controls.BasicActions.Instrument3.performed += InstrumentSwitching;
         _controls.BasicActions.Instrument4.performed += InstrumentSwitching;
 
-
         _controls.BasicActions.Menu.performed += ToggleMenu;
 
         body = GetComponent<Rigidbody2D>();
@@ -66,6 +63,8 @@ public class TopDownCharacterController : MonoBehaviour {
 
     void ToggleMenu(InputAction.CallbackContext ctx) {
         Inventory.instance.ToggleMenu();
+        _controls.BasicActions.Disable();
+        _controls.MenuDiving.Enable();
     }
     void MovementHandlingPerform(InputAction.CallbackContext ctx) {
         if (body != null) {
