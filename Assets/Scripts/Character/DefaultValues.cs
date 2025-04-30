@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
+using System.Reflection;
 
 public class DefaultValues : MonoBehaviour {
 
@@ -40,9 +42,35 @@ public class DefaultValues : MonoBehaviour {
         player = playerObj;
         playerStats = playerObj.GetComponent<PlayerStats>();
         grid = gridObj;
+        List<Instrument> alphabeticalTypes = new();
         foreach (KeyValuePair<Instrument, InstrumentInfo> type in instrumentInfoTypeTemplates) {
-            instrumentClassTypes.Add(type.Key, type.Value.Type);
-            Debug.Log(type.Value.Type);
+            alphabeticalTypes.Add(type.Key);
+        }
+
+        alphabeticalTypes.Sort(delegate (Instrument x, Instrument y) {
+            return x.ToString().CompareTo(y.ToString());
+        });
+
+        int i = 0;
+        foreach  (Instrument type in alphabeticalTypes) {
+            var allTypes = Assembly.GetAssembly(typeof(AbsInstrument))
+            .GetTypes()
+            .Where(t => t.IsSubclassOf(typeof(AbsInstrument)) && !t.IsAbstract)
+            .ToList();
+
+            string typeName = allTypes[i].AssemblyQualifiedName;
+            Type classType;
+            if (string.IsNullOrEmpty(typeName)) {
+                classType = null;
+            } else {
+                classType = Type.GetType(typeName);
+            }
+            Debug.Log(typeName);
+
+            instrumentClassTypes.Add(type, classType);
+            Debug.Log(classType);
+
+            i++;
         }
         gameObject.transform.position = PlayerInfos.playerPos;
         InstrumentFactory.instance.InstantiateInstruments();
