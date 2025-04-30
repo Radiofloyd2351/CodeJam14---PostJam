@@ -235,6 +235,17 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""0040d051-de7e-40b1-b320-879089148c50"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7ce5e8ec-4426-41ee-b88b-ec029e2c2a99"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
@@ -267,6 +278,334 @@ public partial class @Characters: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu Diving"",
+            ""id"": ""1b54912d-9f0d-4dc4-90b9-0f28ecfc06d9"",
+            ""actions"": [
+                {
+                    ""name"": ""VerticalScroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""3869b3a9-5494-4303-b6a2-1ee6aae40f94"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HorizontalScroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""be58be2a-20f4-4282-bdeb-e1d210f3d701"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Accept"",
+                    ""type"": ""Button"",
+                    ""id"": ""48c73492-9bde-46e0-b8ba-9334d5f14b1b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6299693-ff20-44f7-83b3-41722e9803d9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""7e122116-ec35-48c2-8246-1533473d124e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""KeyboardWS"",
+                    ""id"": ""02e528ef-99ad-48c1-bf38-5d9c07fbb377"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalScroll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""e2c9355f-ec1d-4e8b-847e-a857e2a8032f"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""d062eb26-b392-45b8-99e1-bdabed82a608"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""KeyboardUpDown"",
+                    ""id"": ""18f9bea2-2a41-4bca-bc73-a9bc681b82eb"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalScroll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""6158f2c7-3e83-4881-b4a0-e173e3aa62ec"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""a657d83f-7e58-49d9-ac2a-c3a7fb87f666"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98292163-ef55-4a6a-9597-d5e9d0e49bc6"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4ca43b7-c241-4615-bb24-d53e28bd9622"",
+                    ""path"": ""<Gamepad>/leftStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21b97ecb-6ea6-48c6-9b94-357f953bd886"",
+                    ""path"": ""<Gamepad>/dpad/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""KeyboardAD"",
+                    ""id"": ""288a01f7-9902-4896-9e55-1a97b1162a82"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalScroll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""KeyboardLeftRight"",
+                    ""id"": ""549886b3-5992-4c20-9d48-842d74474f8e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalScroll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""89cfc6a4-d47e-43e6-b1eb-bc459171a549"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""660a8d35-39c4-40b2-b7e9-d661edb8477e"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""ed835e93-1e0b-45ff-a74e-430fade41ab4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""8f905f72-351f-487e-b8fc-a5d8d0c392bb"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""faa74d91-3ffb-463d-969d-e38219d615d6"",
+                    ""path"": ""<Gamepad>/dpad/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2085a51-4bfd-44c7-ace2-974820852c14"",
+                    ""path"": ""<Gamepad>/leftStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d7e9ba8-8b26-4b3d-9a97-a9e50da018a0"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Accept"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0cb9448b-f84a-4201-b08f-14c53b138d10"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Accept"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab20fdaf-bb06-4947-bcc1-b3dbbedc5475"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Accept"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab221597-98a4-400c-9cbc-30f5d22f1882"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08ddd5b3-120c-456f-9561-f32fea7192f7"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56aea275-7182-48f4-b57e-460e3427d7a5"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92b4345d-c18c-4d05-b7df-a8cba6bc835a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fcc0f76d-f791-456f-87eb-172b6e184df5"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -281,6 +620,13 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         m_BasicActions_Instrument2 = m_BasicActions.FindAction("Instrument2", throwIfNotFound: true);
         m_BasicActions_Instrument3 = m_BasicActions.FindAction("Instrument3", throwIfNotFound: true);
         m_BasicActions_Instrument4 = m_BasicActions.FindAction("Instrument4", throwIfNotFound: true);
+        // Menu Diving
+        m_MenuDiving = asset.FindActionMap("Menu Diving", throwIfNotFound: true);
+        m_MenuDiving_VerticalScroll = m_MenuDiving.FindAction("VerticalScroll", throwIfNotFound: true);
+        m_MenuDiving_HorizontalScroll = m_MenuDiving.FindAction("HorizontalScroll", throwIfNotFound: true);
+        m_MenuDiving_Accept = m_MenuDiving.FindAction("Accept", throwIfNotFound: true);
+        m_MenuDiving_Back = m_MenuDiving.FindAction("Back", throwIfNotFound: true);
+        m_MenuDiving_CloseMenu = m_MenuDiving.FindAction("CloseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -440,6 +786,84 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         }
     }
     public BasicActionsActions @BasicActions => new BasicActionsActions(this);
+
+    // Menu Diving
+    private readonly InputActionMap m_MenuDiving;
+    private List<IMenuDivingActions> m_MenuDivingActionsCallbackInterfaces = new List<IMenuDivingActions>();
+    private readonly InputAction m_MenuDiving_VerticalScroll;
+    private readonly InputAction m_MenuDiving_HorizontalScroll;
+    private readonly InputAction m_MenuDiving_Accept;
+    private readonly InputAction m_MenuDiving_Back;
+    private readonly InputAction m_MenuDiving_CloseMenu;
+    public struct MenuDivingActions
+    {
+        private @Characters m_Wrapper;
+        public MenuDivingActions(@Characters wrapper) { m_Wrapper = wrapper; }
+        public InputAction @VerticalScroll => m_Wrapper.m_MenuDiving_VerticalScroll;
+        public InputAction @HorizontalScroll => m_Wrapper.m_MenuDiving_HorizontalScroll;
+        public InputAction @Accept => m_Wrapper.m_MenuDiving_Accept;
+        public InputAction @Back => m_Wrapper.m_MenuDiving_Back;
+        public InputAction @CloseMenu => m_Wrapper.m_MenuDiving_CloseMenu;
+        public InputActionMap Get() { return m_Wrapper.m_MenuDiving; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuDivingActions set) { return set.Get(); }
+        public void AddCallbacks(IMenuDivingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MenuDivingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MenuDivingActionsCallbackInterfaces.Add(instance);
+            @VerticalScroll.started += instance.OnVerticalScroll;
+            @VerticalScroll.performed += instance.OnVerticalScroll;
+            @VerticalScroll.canceled += instance.OnVerticalScroll;
+            @HorizontalScroll.started += instance.OnHorizontalScroll;
+            @HorizontalScroll.performed += instance.OnHorizontalScroll;
+            @HorizontalScroll.canceled += instance.OnHorizontalScroll;
+            @Accept.started += instance.OnAccept;
+            @Accept.performed += instance.OnAccept;
+            @Accept.canceled += instance.OnAccept;
+            @Back.started += instance.OnBack;
+            @Back.performed += instance.OnBack;
+            @Back.canceled += instance.OnBack;
+            @CloseMenu.started += instance.OnCloseMenu;
+            @CloseMenu.performed += instance.OnCloseMenu;
+            @CloseMenu.canceled += instance.OnCloseMenu;
+        }
+
+        private void UnregisterCallbacks(IMenuDivingActions instance)
+        {
+            @VerticalScroll.started -= instance.OnVerticalScroll;
+            @VerticalScroll.performed -= instance.OnVerticalScroll;
+            @VerticalScroll.canceled -= instance.OnVerticalScroll;
+            @HorizontalScroll.started -= instance.OnHorizontalScroll;
+            @HorizontalScroll.performed -= instance.OnHorizontalScroll;
+            @HorizontalScroll.canceled -= instance.OnHorizontalScroll;
+            @Accept.started -= instance.OnAccept;
+            @Accept.performed -= instance.OnAccept;
+            @Accept.canceled -= instance.OnAccept;
+            @Back.started -= instance.OnBack;
+            @Back.performed -= instance.OnBack;
+            @Back.canceled -= instance.OnBack;
+            @CloseMenu.started -= instance.OnCloseMenu;
+            @CloseMenu.performed -= instance.OnCloseMenu;
+            @CloseMenu.canceled -= instance.OnCloseMenu;
+        }
+
+        public void RemoveCallbacks(IMenuDivingActions instance)
+        {
+            if (m_Wrapper.m_MenuDivingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMenuDivingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MenuDivingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MenuDivingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MenuDivingActions @MenuDiving => new MenuDivingActions(this);
     public interface IBasicActionsActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -450,5 +874,13 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         void OnInstrument2(InputAction.CallbackContext context);
         void OnInstrument3(InputAction.CallbackContext context);
         void OnInstrument4(InputAction.CallbackContext context);
+    }
+    public interface IMenuDivingActions
+    {
+        void OnVerticalScroll(InputAction.CallbackContext context);
+        void OnHorizontalScroll(InputAction.CallbackContext context);
+        void OnAccept(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
+        void OnCloseMenu(InputAction.CallbackContext context);
     }
 }
