@@ -59,7 +59,7 @@
 			<destination>{514df66e-303f-4c97-92b1-0b20b3bd8a0a}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{5f42fe12-5d9a-4a53-967c-9a6db7d25076}</destination>
+			<destination>{a87f3c4b-b554-402b-b1b4-a00dc97c87c4}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{110b27ea-de4f-41e4-a1c7-43dace7dc2ca}" />
@@ -75,6 +75,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{cccb5eea-899a-4b5e-b75c-c0540c1f3cb0}">
+		<property name="volume">
+			<value>-22.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{a59a03fa-909f-444a-b57a-dc8aae34eeda}</destination>
 		</relationship>
@@ -107,7 +110,7 @@
 	<object class="MixerBusPanner" id="{17d194ec-272c-4e8a-8bf0-6aed6436b354}" />
 	<object class="SingleSound" id="{49ed1def-060f-4ab9-aaec-32a46ffe9ff8}">
 		<relationship name="modulators">
-			<destination>{cd25abd3-d371-423c-8693-5e305d28cb08}</destination>
+			<destination>{23f67873-0fc1-4cb5-9cc3-86ab4e7a537d}</destination>
 		</relationship>
 		<relationship name="audioFile">
 			<destination>{7db2e02f-045b-4198-9f13-6483758eb038}</destination>
@@ -115,7 +118,7 @@
 	</object>
 	<object class="MixerBusFader" id="{e40c2c4e-84b1-40b7-b74c-08a21a075adc}" />
 	<object class="MixerBusFader" id="{f42354e5-c079-4ca6-9fd6-8aee7ec9e3f9}" />
-	<object class="ADSRModulator" id="{cd25abd3-d371-423c-8693-5e305d28cb08}">
+	<object class="ADSRModulator" id="{23f67873-0fc1-4cb5-9cc3-86ab4e7a537d}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
 		</property>
@@ -123,7 +126,19 @@
 			<value>-80</value>
 		</property>
 		<property name="attackTime">
-			<value>40</value>
+			<value>0</value>
+		</property>
+		<property name="holdTime">
+			<value>0</value>
+		</property>
+		<property name="decayTime">
+			<value>460</value>
+		</property>
+		<property name="sustainValue">
+			<value>-80</value>
+		</property>
+		<property name="releaseTime">
+			<value>640</value>
 		</property>
 		<property name="finalValue">
 			<value>-80</value>

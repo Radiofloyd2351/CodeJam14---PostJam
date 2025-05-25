@@ -651,6 +651,7 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         m_BasicActions_Instrument2 = m_BasicActions.FindAction("Instrument2", throwIfNotFound: true);
         m_BasicActions_Instrument3 = m_BasicActions.FindAction("Instrument3", throwIfNotFound: true);
         m_BasicActions_Instrument4 = m_BasicActions.FindAction("Instrument4", throwIfNotFound: true);
+        m_BasicActions_Attack = m_BasicActions.FindAction("Attack", throwIfNotFound: true);
         // Menu Diving
         m_MenuDiving = asset.FindActionMap("Menu Diving", throwIfNotFound: true);
         m_MenuDiving_VerticalScroll = m_MenuDiving.FindAction("VerticalScroll", throwIfNotFound: true);
@@ -658,7 +659,6 @@ public partial class @Characters: IInputActionCollection2, IDisposable
         m_MenuDiving_Accept = m_MenuDiving.FindAction("Accept", throwIfNotFound: true);
         m_MenuDiving_Back = m_MenuDiving.FindAction("Back", throwIfNotFound: true);
         m_MenuDiving_CloseMenu = m_MenuDiving.FindAction("CloseMenu", throwIfNotFound: true);
-        m_BasicActions_Attack = m_BasicActions.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()

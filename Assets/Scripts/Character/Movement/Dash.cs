@@ -10,7 +10,7 @@ namespace Movement
 {
     public class Dash : AbsPlayerMovementAbility
     {
-        const float COOLDOWN = 3f;
+        const float COOLDOWN = 0.5f;
         private float length = 3f;
         const int COROUTINE_DASH_ID = 2000;
         const int COROUTINE_COOLDOWN_ID = 3000;
@@ -99,6 +99,7 @@ namespace Movement
                     yield return new WaitForSeconds(0.01f);
                 }
                 PlayPlayerSound(ctx, ctx.baseSoundDir + "Abilities/Ready");
+                yield return new WaitForSeconds(0.1f);
             }
         }
 
@@ -111,6 +112,7 @@ namespace Movement
             ctx.Body.AddForce(speed * 50 * ctx.GetLastDirection().normalized * ctx.Body.mass * ctx.Body.drag); 
             _onCooldown = true;
             ctx.PlaySound<int>(ctx.baseSoundDir + "Abilities/Dash");
+            yield return CoroutineManager.instance.RunCoroutine(WaitForSoundToStop(ctx), SOUND_ID_1 + ctx.id);
             yield return new WaitForSeconds(length/speed);
             ctx.PlaySound<int>(ctx.baseSoundDir + "Abilities/Land");
             Vector3 savedVelocity = ctx.Body.velocity;
@@ -123,7 +125,6 @@ namespace Movement
             {
                 ctx.Body.velocity = Vector3.zero;
             }
-            yield return CoroutineManager.instance.RunCoroutine(WaitForSoundToStop(ctx),  SOUND_ID_1 + ctx.id);
             ctx.EnableMovement();
             yield return new WaitForSeconds(COOLDOWN);
             CoroutineManager.instance.RunCoroutine(WaitForTimer(ctx), SOUND_ID_2 + ctx.id);

@@ -59,7 +59,7 @@
 			<destination>{1bb1155d-9d1c-4d44-9d72-7a4a2f52e45c}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{5f42fe12-5d9a-4a53-967c-9a6db7d25076}</destination>
+			<destination>{a87f3c4b-b554-402b-b1b4-a00dc97c87c4}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{1091a318-64b5-4407-a29f-5aa290142853}" />
@@ -75,6 +75,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{6a235d9e-88af-4dfa-b609-9990ea0e2bb7}">
+		<property name="volume">
+			<value>-6</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{7793f0d6-0dc6-41a6-9ecb-6791c6320c3d}</destination>
 		</relationship>
@@ -102,15 +105,82 @@
 	<object class="MixerBusEffectChain" id="{7793f0d6-0dc6-41a6-9ecb-6791c6320c3d}">
 		<relationship name="effects">
 			<destination>{2f211786-431c-4334-8ddb-34958179ba23}</destination>
+			<destination>{60d84ecb-0391-42ad-a98d-b3403c581ca4}</destination>
+			<destination>{f96acdba-4ed5-420c-a64a-d61e89d49ec9}</destination>
+			<destination>{8e7525a1-faf7-407a-9665-97301e6c8bf7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d3ced1af-7c25-4a8e-8c30-27019748280b}" />
 	<object class="SingleSound" id="{0cd0a798-e248-457f-9fd4-9d3a1a4f5065}">
-		<property name="name" />
 		<relationship name="audioFile">
 			<destination>{8dc7bc7f-e685-4f36-914a-0a0c71f9b308}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{19ba3669-dee5-42b7-a811-df20ce94a0b9}" />
 	<object class="MixerBusFader" id="{2f211786-431c-4334-8ddb-34958179ba23}" />
+	<object class="DelayEffect" id="{60d84ecb-0391-42ad-a98d-b3403c581ca4}">
+		<property name="delay">
+			<value>80</value>
+		</property>
+		<property name="feedback">
+			<value>0</value>
+		</property>
+		<property name="level">
+			<value>-5.5</value>
+		</property>
+		<property name="dryLevel">
+			<value>-80</value>
+		</property>
+		<property name="delayChangeMode">
+			<value>2</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{c13b5723-3778-4aed-b929-31c70e52701e}</destination>
+		</relationship>
+	</object>
+	<object class="MixerSend" id="{f96acdba-4ed5-420c-a64a-d61e89d49ec9}">
+		<property name="level">
+			<value>-12</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{56a0e08b-1ccf-4225-b25e-52fc7b83c7c7}</destination>
+		</relationship>
+	</object>
+	<object class="TremoloEffect" id="{8e7525a1-faf7-407a-9665-97301e6c8bf7}">
+		<property name="frequency">
+			<value>13</value>
+		</property>
+		<property name="shape">
+			<value>0.155000001</value>
+		</property>
+	</object>
+	<object class="ADSRModulator" id="{c13b5723-3778-4aed-b929-31c70e52701e}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>level</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>0</value>
+		</property>
+		<property name="holdTime">
+			<value>0</value>
+		</property>
+		<property name="decayTime">
+			<value>600</value>
+		</property>
+		<property name="sustainValue">
+			<value>-80</value>
+		</property>
+		<property name="releaseTime">
+			<value>420</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 </objects>
